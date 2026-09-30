@@ -10,46 +10,47 @@ export default function Header() {
   return (
     <div className="fixed top-6 left-0 right-0 z-50 w-full flex justify-center px-4">
       <header className="w-[96%] max-w-[1920px] rounded-[2rem] border border-gray-700/60 bg-[#0c0c0c]/80 backdrop-blur-xl shadow-2xl transition-all">
-        <div className="px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-3xl font-bold tracking-tight text-white">
+        <div className="px-6 lg:px-10">
+          <div className="flex h-16 items-center justify-between relative">
+          
+          {/* Logo (Right Side in RTL) */}
+          <div className="flex-shrink-0 z-10">
+            <Link href="/" className="text-3xl font-bold tracking-tight text-white hover:opacity-90 transition-opacity">
               بسم <span className="text-[#b0fb30]">الله</span>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8">
-            <Link href="/" className="text-white hover:text-[#b0fb30] font-medium transition-colors">
+          {/* Desktop Navigation (Perfectly Centered) */}
+          <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-10">
+            <Link href="/" className="text-white hover:text-[#b0fb30] font-medium text-lg transition-colors">
               الرئيسية
             </Link>
-            <Link href="/products" className="text-gray-300 hover:text-[#b0fb30] font-medium transition-colors">
+            <Link href="/products" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
               المنتجات
             </Link>
-            <Link href="/categories" className="text-gray-300 hover:text-[#b0fb30] font-medium transition-colors">
+            <Link href="/categories" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
               التصنيفات
             </Link>
-            <Link href="/offers" className="text-gray-300 hover:text-[#b0fb30] font-medium transition-colors">
+            <Link href="/offers" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
               العروض
             </Link>
           </nav>
 
-          {/* Icons (Cart & User) */}
-          <div className="hidden md:flex items-center gap-6">
-            <button className="text-gray-300 hover:text-white transition-colors">
-              <User className="h-6 w-6" />
+          {/* Icons (Left Side in RTL) */}
+          <div className="hidden md:flex items-center gap-8 z-10">
+            <button className="text-gray-300 hover:text-white transition-transform hover:scale-110">
+              <User className="h-[1.4rem] w-[1.4rem]" />
             </button>
-            <button className="text-gray-300 hover:text-white transition-colors relative">
-              <ShoppingCart className="h-6 w-6" />
-              <span className="absolute -top-2 -left-2 flex h-5 w-5 items-center justify-center rounded-full bg-[#b0fb30] text-xs font-bold text-deep-black">
+            <button className="text-gray-300 hover:text-white transition-transform hover:scale-110 relative">
+              <ShoppingCart className="h-[1.4rem] w-[1.4rem]" />
+              <span className="absolute -top-2.5 -left-2.5 flex h-[1.1rem] w-[1.1rem] items-center justify-center rounded-full bg-[#b0fb30] text-[0.65rem] font-bold text-deep-black shadow-sm">
                 2
               </span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
+          {/* Mobile Menu Button (Left Side in RTL) */}
+          <div className="flex items-center md:hidden z-10">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-300 hover:text-white focus:outline-none"
