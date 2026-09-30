@@ -20,7 +20,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 space-x-reverse">
+          <nav className="hidden md:flex gap-8">
             <Link href="/" className="text-white hover:text-[#b0fb30] font-medium transition-colors">
               الرئيسية
             </Link>
@@ -36,7 +36,7 @@ export default function Header() {
           </nav>
 
           {/* Icons (Cart & User) */}
-          <div className="hidden md:flex items-center space-x-6 space-x-reverse">
+          <div className="hidden md:flex items-center gap-6">
             <button className="text-gray-300 hover:text-white transition-colors">
               <User className="h-6 w-6" />
             </button>
