@@ -8,9 +8,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-800 bg-deep-black/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+    <div className="fixed top-6 left-0 right-0 z-50 w-full flex justify-center px-4">
+      <header className="w-full max-w-6xl rounded-[2rem] border border-gray-700/60 bg-[#0c0c0c]/80 backdrop-blur-xl shadow-2xl transition-all">
+        <div className="px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-3xl font-bold tracking-tight text-white">
@@ -65,8 +66,8 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-800 bg-deep-black">
-          <div className="space-y-1 px-4 pb-3 pt-2">
+        <div className="md:hidden border-t border-gray-700/60 bg-[#0c0c0c]/95 rounded-b-[2rem]">
+          <div className="space-y-1 px-6 pb-4 pt-4">
             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-800 hover:text-[#b0fb30]">
               الرئيسية
             </Link>
@@ -96,6 +97,7 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+      </header>
+    </div>
   );
 }
