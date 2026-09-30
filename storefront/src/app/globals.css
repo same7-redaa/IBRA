@@ -38,18 +38,18 @@
   --color-soft-gray: var(--color-soft-gray);
   --color-purple-accent: var(--color-purple-accent);
   --font-thmanyah: 'Thmanyah Serif Text', serif;
-  --animate-slide-horizontal: slide-horizontal 50s linear infinite;
-  --animate-slide-horizontal-reverse: slide-horizontal-reverse 50s linear infinite;
+  --animate-slide-right: slide-right 50s linear infinite;
+  --animate-slide-left: slide-left 50s linear infinite;
 }
 
-@keyframes slide-horizontal {
+@keyframes slide-right {
   0% { transform: translateX(0); }
-  100% { transform: translateX(30%); }
+  100% { transform: translateX(33.3333%); }
 }
 
-@keyframes slide-horizontal-reverse {
+@keyframes slide-left {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-30%); }
+  100% { transform: translateX(-33.3333%); }
 }
 
 body {

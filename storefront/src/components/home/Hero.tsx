@@ -18,25 +18,45 @@ export default function Hero() {
       
       {/* Moving Background Image Strips */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
+        
         {/* Strip 1 */}
-        <div className="absolute top-[5%] left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal">
-           <div className="flex gap-6">
-              {[...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-48 h-60 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
+        <div className="absolute top-[-5%] left-[-100%] flex w-max gap-4 animate-slide-right">
+           <div className="flex gap-4">
+              {[...bgImages, ...bgImages, ...bgImages].map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
+
         {/* Strip 2 */}
-        <div className="absolute top-[52%] left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal-reverse">
-           <div className="flex gap-6">
-              {[...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-48 h-60 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
+        <div className="absolute top-[22%] left-[-100%] flex w-max gap-4 animate-slide-left">
+           <div className="flex gap-4">
+              {[...bgImages, ...bgImages, ...bgImages].reverse().map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
+              ))}
+           </div>
+        </div>
+
+        {/* Strip 3 */}
+        <div className="absolute top-[49%] left-[-100%] flex w-max gap-4 animate-slide-right">
+           <div className="flex gap-4">
+              {[...bgImages, ...bgImages, ...bgImages].map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
+              ))}
+           </div>
+        </div>
+
+        {/* Strip 4 */}
+        <div className="absolute top-[76%] left-[-100%] flex w-max gap-4 animate-slide-left">
+           <div className="flex gap-4">
+              {[...bgImages, ...bgImages, ...bgImages].reverse().map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
         
         {/* Gradient Overlay to fade edges and keep text readable */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-transparent to-deep-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-deep-black via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-deep-black/60 to-deep-black" />
       </div>
