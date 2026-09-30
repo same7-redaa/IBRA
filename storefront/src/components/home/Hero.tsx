@@ -105,34 +105,52 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Half Circle Fan Layout (Left side in RTL) */}
+          {/* Perfectly Sliced Half-Circle Layout */}
           <div className="w-full lg:w-[40%] relative flex justify-center lg:justify-end mt-12 lg:mt-0 h-[500px] lg:h-[700px] items-center">
             
-            {/* The Main Half Circle Container (Positioned on the edge) */}
-            <div className="absolute left-[-150px] sm:left-[-250px] lg:left-[-350px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full border border-gray-800/50 flex items-center justify-center">
+            {/* The Main Circular Container */}
+            <div className="absolute left-[-150px] sm:left-[-250px] lg:left-[-350px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full overflow-hidden bg-deep-black border-[8px] border-[#0c0c0c] shadow-[0_0_80px_rgba(0,0,0,0.8)]">
               
-              {/* Inner ring */}
-              <div className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] lg:w-[650px] lg:h-[650px] rounded-full border border-gray-700/80 flex items-center justify-center relative">
-                 
-                 {/* Glowing neon blob in the center of the ring */}
-                 <div className="absolute inset-0 bg-[#b0fb30] rounded-full blur-[120px] opacity-10 animate-pulse" />
-
-                 {/* Image 1 (Top) */}
-                 <div className="absolute top-[5%] -right-4 sm:-right-8 lg:-right-16 w-32 h-40 sm:w-40 sm:h-48 lg:w-48 lg:h-60 rounded-3xl overflow-hidden border-4 border-deep-black transform rotate-[25deg] hover:scale-110 hover:z-30 transition-all duration-500 z-10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <img src="https://picsum.photos/seed/bismillah-m1/400/500" alt="Model 1" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
-                 </div>
-
-                 {/* Image 2 (Middle) */}
-                 <div className="absolute top-1/2 -translate-y-1/2 -right-12 sm:-right-20 lg:-right-32 w-40 h-48 sm:w-48 sm:h-64 lg:w-56 lg:h-72 rounded-3xl overflow-hidden border-4 border-deep-black transform hover:scale-110 hover:z-30 transition-all duration-500 z-20 shadow-[0_0_40px_rgba(176,251,48,0.2)]">
-                    <img src="https://picsum.photos/seed/bismillah-m2/400/600" alt="Model 2" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
-                 </div>
-
-                 {/* Image 3 (Bottom) */}
-                 <div className="absolute bottom-[5%] -right-4 sm:-right-8 lg:-right-16 w-32 h-40 sm:w-40 sm:h-48 lg:w-48 lg:h-60 rounded-3xl overflow-hidden border-4 border-deep-black transform -rotate-[25deg] hover:scale-110 hover:z-30 transition-all duration-500 z-10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <img src="https://picsum.photos/seed/bismillah-m3/400/500" alt="Model 3" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
-                 </div>
-
+              {/* Slice 1: Top (0 to 60 degrees) */}
+              <div 
+                className="absolute inset-0 z-10 overflow-hidden"
+                style={{ clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 22%)' }}
+              >
+                <img src="https://picsum.photos/seed/bismillah-m1/800/800" className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-700" alt="Model 1" />
               </div>
+
+              {/* Slice 2: Middle (60 to 120 degrees) */}
+              <div 
+                className="absolute inset-0 z-10 overflow-hidden"
+                style={{ clipPath: 'polygon(50% 50%, 100% 21%, 100% 79%)' }}
+              >
+                <img src="https://picsum.photos/seed/bismillah-m2/800/800" className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-700" alt="Model 2" />
+              </div>
+
+              {/* Slice 3: Bottom (120 to 180 degrees) */}
+              <div 
+                className="absolute inset-0 z-10 overflow-hidden"
+                style={{ clipPath: 'polygon(50% 50%, 100% 78%, 100% 100%, 50% 100%)' }}
+              >
+                <img src="https://picsum.photos/seed/bismillah-m3/800/800" className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-700" alt="Model 3" />
+              </div>
+
+              {/* Gap Lines to separate slices neatly */}
+              {/* Line between Top and Middle (30 degrees UP from horizontal right) */}
+              <div className="absolute top-1/2 left-1/2 w-[55%] h-3 bg-deep-black z-20 origin-left" style={{ transform: 'rotate(-30deg)' }} />
+              
+              {/* Line between Middle and Bottom (30 degrees DOWN from horizontal right) */}
+              <div className="absolute top-1/2 left-1/2 w-[55%] h-3 bg-deep-black z-20 origin-left" style={{ transform: 'rotate(30deg)' }} />
+              
+              {/* Center Cutout (Donut hole for the logo/text) */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] rounded-full bg-deep-black z-30 shadow-[0_0_50px_rgba(0,0,0,0.9)] border-8 border-[#0c0c0c] flex flex-col items-center justify-center">
+                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#b0fb30]/10 rounded-full flex items-center justify-center mb-2 sm:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#b0fb30] rounded-full shadow-[0_0_20px_#b0fb30]" />
+                 </div>
+                 <span className="block text-[#b0fb30] font-bold text-2xl sm:text-3xl lg:text-4xl mb-1">أزياء</span>
+                 <span className="block text-white font-bold text-lg sm:text-xl lg:text-2xl tracking-widest">حصريـة</span>
+              </div>
+
             </div>
           </div>
 
