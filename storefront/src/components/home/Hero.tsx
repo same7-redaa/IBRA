@@ -62,15 +62,8 @@ export default function Hero() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full min-h-[60vh]">
-        
         {/* Centered Text Content */}
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center pt-10 lg:pt-0">
-          
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900/50 border border-gray-700 backdrop-blur-md mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#b0fb30] animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">تشكيلة الشتا نزلت يا بطل</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 w-full text-center whitespace-nowrap">
             اظبط <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">شياكتك</span> بأحدث ستايلات الموضة
           </h1>
