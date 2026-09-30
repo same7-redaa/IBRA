@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 w-full flex justify-center px-4">
-      <header className="w-full max-w-6xl rounded-[2rem] border border-gray-700/60 bg-[#0c0c0c]/80 backdrop-blur-xl shadow-2xl transition-all">
+      <header className="w-[96%] max-w-[1920px] rounded-[2rem] border border-gray-700/60 bg-[#0c0c0c]/80 backdrop-blur-xl shadow-2xl transition-all">
         <div className="px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
           {/* Logo */}
