@@ -108,8 +108,8 @@ export default function Hero() {
           {/* Perfectly Sliced Half-Circle Layout */}
           <div className="w-full lg:w-[40%] relative flex justify-center lg:justify-end mt-12 lg:mt-0 h-[500px] lg:h-[700px] items-center">
             
-            {/* The Main Circular Container */}
-            <div className="absolute left-[-150px] sm:left-[-250px] lg:left-[-350px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full overflow-hidden bg-deep-black border-[8px] border-[#0c0c0c] shadow-[0_0_80px_rgba(0,0,0,0.8)]">
+            {/* The Main Circular Container - Positioned exactly halfway off the screen */}
+            <div className="absolute left-[-250px] sm:left-[-350px] lg:left-[-450px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full overflow-hidden bg-deep-black border-[8px] border-[#0c0c0c] shadow-[0_0_80px_rgba(0,0,0,0.8)]">
               
               {/* Slice 1: Top (0 to 60 degrees) */}
               <div 
@@ -141,16 +141,6 @@ export default function Hero() {
               
               {/* Line between Middle and Bottom (30 degrees DOWN from horizontal right) */}
               <div className="absolute top-1/2 left-1/2 w-[55%] h-3 bg-deep-black z-20 origin-left" style={{ transform: 'rotate(30deg)' }} />
-              
-              {/* Center Cutout (Donut hole for the logo/text) */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%] rounded-full bg-deep-black z-30 shadow-[0_0_50px_rgba(0,0,0,0.9)] border-8 border-[#0c0c0c] flex flex-col items-center justify-center">
-                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#b0fb30]/10 rounded-full flex items-center justify-center mb-2 sm:mb-4">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#b0fb30] rounded-full shadow-[0_0_20px_#b0fb30]" />
-                 </div>
-                 <span className="block text-[#b0fb30] font-bold text-2xl sm:text-3xl lg:text-4xl mb-1">أزياء</span>
-                 <span className="block text-white font-bold text-lg sm:text-xl lg:text-2xl tracking-widest">حصريـة</span>
-              </div>
-
             </div>
           </div>
 
