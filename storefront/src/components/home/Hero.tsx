@@ -105,26 +105,33 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Floating Card Image (Right side) */}
-          <div className="w-full lg:w-[40%] relative flex justify-center lg:justify-end mt-12 lg:mt-0">
-            {/* Glowing background blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#b0fb30] rounded-full blur-[100px] opacity-20 animate-pulse" />
-            <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#e2d1f9] rounded-full blur-[120px] opacity-20" />
+          {/* Half Circle Fan Layout (Left side in RTL) */}
+          <div className="w-full lg:w-[40%] relative flex justify-center lg:justify-end mt-12 lg:mt-0 h-[500px] lg:h-[700px] items-center">
             
-            {/* The Floating Card */}
-            <div className="relative w-72 sm:w-80 lg:w-96 aspect-square rounded-[2rem] overflow-hidden border border-gray-700 shadow-[0_20px_50px_rgba(176,251,48,0.2)] transform -rotate-12 hover:rotate-0 hover:scale-105 transition-all duration-700 ease-out bg-gray-900 cursor-pointer">
-              <img 
-                src="https://picsum.photos/seed/bismillah-card/800/800" 
-                alt="Fashion Model" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-deep-black/90 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="px-4 py-1.5 bg-[#b0fb30] text-deep-black text-xs font-bold rounded-full mb-3 inline-block shadow-[0_0_15px_rgba(176,251,48,0.5)]">
-                  حصري
-                </span>
-                <h3 className="text-2xl font-bold text-white">تشكيلة الشتاء الفاخرة</h3>
-                <p className="text-gray-300 mt-1 text-sm text-left font-sans">#Winter2026</p>
+            {/* The Main Half Circle Container (Positioned on the edge) */}
+            <div className="absolute left-[-150px] sm:left-[-250px] lg:left-[-350px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full border border-gray-800/50 flex items-center justify-center">
+              
+              {/* Inner ring */}
+              <div className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] lg:w-[650px] lg:h-[650px] rounded-full border border-gray-700/80 flex items-center justify-center relative">
+                 
+                 {/* Glowing neon blob in the center of the ring */}
+                 <div className="absolute inset-0 bg-[#b0fb30] rounded-full blur-[120px] opacity-10 animate-pulse" />
+
+                 {/* Image 1 (Top) */}
+                 <div className="absolute top-[5%] -right-4 sm:-right-8 lg:-right-16 w-32 h-40 sm:w-40 sm:h-48 lg:w-48 lg:h-60 rounded-3xl overflow-hidden border-4 border-deep-black transform rotate-[25deg] hover:scale-110 hover:z-30 transition-all duration-500 z-10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <img src="https://picsum.photos/seed/bismillah-m1/400/500" alt="Model 1" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                 </div>
+
+                 {/* Image 2 (Middle) */}
+                 <div className="absolute top-1/2 -translate-y-1/2 -right-12 sm:-right-20 lg:-right-32 w-40 h-48 sm:w-48 sm:h-64 lg:w-56 lg:h-72 rounded-3xl overflow-hidden border-4 border-deep-black transform hover:scale-110 hover:z-30 transition-all duration-500 z-20 shadow-[0_0_40px_rgba(176,251,48,0.2)]">
+                    <img src="https://picsum.photos/seed/bismillah-m2/400/600" alt="Model 2" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                 </div>
+
+                 {/* Image 3 (Bottom) */}
+                 <div className="absolute bottom-[5%] -right-4 sm:-right-8 lg:-right-16 w-32 h-40 sm:w-40 sm:h-48 lg:w-48 lg:h-60 rounded-3xl overflow-hidden border-4 border-deep-black transform -rotate-[25deg] hover:scale-110 hover:z-30 transition-all duration-500 z-10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <img src="https://picsum.photos/seed/bismillah-m3/400/500" alt="Model 3" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                 </div>
+
               </div>
             </div>
           </div>
