@@ -17,12 +17,12 @@ export default function Hero() {
     <section className="relative w-full min-h-[90vh] overflow-hidden bg-deep-black pt-20 pb-24 lg:pt-32 lg:pb-32 text-white flex items-center">
       
       {/* Moving Background Image Strips */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-60">
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
         {/* Strip 1 */}
         <div className="absolute top-10 left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal">
            <div className="flex gap-6">
               {[...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800/50" style={{backgroundImage: `url('${img}')`}} />
+                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
@@ -30,15 +30,14 @@ export default function Hero() {
         <div className="absolute top-[45%] left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal-reverse">
            <div className="flex gap-6">
               {[...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800/50" style={{backgroundImage: `url('${img}')`}} />
+                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
         
         {/* Gradient Overlay to fade edges and keep text readable */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-deep-black/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep-black via-deep-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-l from-deep-black via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-deep-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-deep-black/70 to-deep-black" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
