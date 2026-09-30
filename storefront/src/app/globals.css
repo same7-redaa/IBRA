@@ -38,6 +38,12 @@
   --color-soft-gray: var(--color-soft-gray);
   --color-purple-accent: var(--color-purple-accent);
   --font-thmanyah: 'Thmanyah Serif Text', serif;
+  --animate-slide-bg: slide-bg 40s linear infinite;
+}
+
+@keyframes slide-bg {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(50%) translateY(-5%); }
 }
 
 body {
