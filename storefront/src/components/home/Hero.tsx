@@ -68,27 +68,25 @@ export default function Hero() {
           
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900/50 border border-gray-700 backdrop-blur-md mb-8">
             <span className="w-2 h-2 rounded-full bg-[#b0fb30] animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">تشكيلة الشتاء وصلت حديثاً</span>
+            <span className="text-sm font-medium text-gray-300">تشكيلة الشتا نزلت يا بطل</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight mb-8 leading-[1.15]">
-            اكتشف أحدث <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">صيحات</span> الموضة <br className="hidden sm:block" />
-            وتسوق <span className="text-[#b0fb30]">بأناقة</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 w-full text-center whitespace-nowrap">
+            اظبط <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">شياكتك</span> بأحدث ستايلات الموضة
           </h1>
 
-          <p className="mt-4 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            نقدم لك أحدث صيحات الموضة التي تجمع بين الفخامة والراحة. 
-            تصفح مجموعتنا الحصرية المصممة خصيصاً لتبرز جمال حضورك في كل المناسبات.
+          <p className="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            هتلاقي عندنا أجدد الستايلات اللي بتجمع بين الشياكة والراحة. 
+            قلّب في تشكيلتنا الحصرية اللي متفصلة مخصوص عشان تبرز حلاوة حضورك في أي خروجة.
           </p>
 
           {/* Centered Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
             <button className="w-full sm:w-auto px-10 py-4 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-bold rounded-full transition-transform transform hover:scale-105 shadow-[0_0_20px_rgba(176,251,48,0.4)] text-lg">
-              تسوق الآن
+              تسوق دلوقتي
             </button>
             <button className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-white hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-bold rounded-full transition-colors text-lg">
-              استكشف التشكيلة
+              شوف التشكيلة
             </button>
           </div>
 
@@ -104,7 +102,7 @@ export default function Hero() {
               </div>
               <div className="text-right text-sm">
                 <span className="block font-bold text-lg text-white">١٠,٠٠٠+</span>
-                <span className="text-gray-400">عميل سعيد</span>
+                <span className="text-gray-400">عميل مبسوط</span>
               </div>
             </div>
 
