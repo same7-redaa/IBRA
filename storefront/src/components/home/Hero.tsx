@@ -14,7 +14,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden bg-deep-black pt-20 pb-24 lg:pt-32 lg:pb-32 text-white flex items-center">
+    <section className="relative w-full min-h-screen overflow-hidden bg-deep-black text-white flex items-center justify-center">
       
       {/* Moving Background Image Strips */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
@@ -61,9 +61,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-deep-black/60 to-deep-black" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full min-h-[60vh]">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
         {/* Centered Text Content */}
-        <div className="w-full max-w-4xl mx-auto flex flex-col items-center pt-10 lg:pt-0">
+        <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 w-full text-center whitespace-nowrap">
             اظبط <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">شياكتك</span> بأحدث ستايلات الموضة
           </h1>
