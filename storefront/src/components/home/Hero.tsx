@@ -16,27 +16,29 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] overflow-hidden bg-deep-black pt-20 pb-24 lg:pt-32 lg:pb-32 text-white flex items-center">
       
-      {/* Moving Background Grid */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-10">
-        <div className="absolute top-[-20%] left-[-50%] flex w-[300vw] gap-4 animate-slide-bg">
-           {/* Grid row 1 */}
-           <div className="flex gap-4">
+      {/* Moving Background Image Strips */}
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
+        {/* Strip 1 */}
+        <div className="absolute top-10 left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal">
+           <div className="flex gap-6">
               {[...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-64 h-64 rounded-3xl bg-gray-800 bg-cover bg-center shrink-0 grayscale" style={{backgroundImage: `url('${img}')`}} />
+                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800/50" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
-        <div className="absolute top-[30%] left-[-70%] flex w-[300vw] gap-4 animate-slide-bg" style={{animationDirection: 'reverse'}}>
-           {/* Grid row 2 */}
-           <div className="flex gap-4">
+        {/* Strip 2 */}
+        <div className="absolute top-[45%] left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal-reverse">
+           <div className="flex gap-6">
               {[...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-64 h-64 rounded-3xl bg-gray-800 bg-cover bg-center shrink-0 grayscale" style={{backgroundImage: `url('${img}')`}} />
+                <div key={i} className="w-56 h-72 rounded-2xl bg-gray-800 bg-cover bg-center shrink-0 border border-gray-800/50" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
-        {/* Gradient Overlay to fade edges */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-transparent to-deep-black" />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep-black via-deep-black/60 to-transparent" />
+        
+        {/* Gradient Overlay to fade edges and keep text readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-deep-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-deep-black via-deep-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-l from-deep-black via-transparent to-transparent" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
