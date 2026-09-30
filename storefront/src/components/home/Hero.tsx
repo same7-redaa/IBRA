@@ -3,14 +3,14 @@ import { ArrowLeft, Search } from "lucide-react";
 
 export default function Hero() {
   const bgImages = [
-    "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1550614000-4b95d466f286?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1529139574466-a303027c028b?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1550614000-4b95d466f286?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=400&auto=format&fit=crop"
+    "https://picsum.photos/seed/bismillah-1/400/600",
+    "https://picsum.photos/seed/bismillah-2/400/600",
+    "https://picsum.photos/seed/bismillah-3/400/600",
+    "https://picsum.photos/seed/bismillah-4/400/600",
+    "https://picsum.photos/seed/bismillah-5/400/600",
+    "https://picsum.photos/seed/bismillah-6/400/600",
+    "https://picsum.photos/seed/bismillah-7/400/600",
+    "https://picsum.photos/seed/bismillah-8/400/600"
   ];
 
   return (
@@ -94,7 +94,7 @@ export default function Hero() {
             {/* The Floating Card */}
             <div className="relative w-72 sm:w-80 lg:w-96 aspect-square rounded-[2rem] overflow-hidden border border-gray-700 shadow-[0_20px_50px_rgba(176,251,48,0.2)] transform -rotate-12 hover:rotate-0 hover:scale-105 transition-all duration-700 ease-out bg-gray-900 cursor-pointer">
               <img 
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" 
+                src="https://picsum.photos/seed/bismillah-card/800/800" 
                 alt="Fashion Model" 
                 className="w-full h-full object-cover"
               />
