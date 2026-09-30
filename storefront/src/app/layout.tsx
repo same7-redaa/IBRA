@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: "المتجر الشامل | Storefront",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="h-full antialiased">
       <body className="min-h-full flex flex-col font-thmanyah bg-white text-black">
+        <Header />
         {children}
       </body>
     </html>
