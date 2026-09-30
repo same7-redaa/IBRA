@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thmanyah Fonts Preview - تجربة خطوط ثمانية</title>
+    <style>
+        /* Thmanyah Sans */
+        @font-face { font-family: 'Thmanyah-Sans'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-sans-Light.otf'); font-weight: 300; }
+        @font-face { font-family: 'Thmanyah-Sans'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-sans-Regular.otf'); font-weight: 400; }
+        @font-face { font-family: 'Thmanyah-Sans'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-sans-Medium.otf'); font-weight: 500; }
+        @font-face { font-family: 'Thmanyah-Sans'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-sans-Bold.otf'); font-weight: 700; }
+        @font-face { font-family: 'Thmanyah-Sans'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-sans-Black.otf'); font-weight: 900; }
+
+        /* Thmanyah Serif Display */
+        @font-face { font-family: 'Thmanyah-Serif-Display'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-display-Light.otf'); font-weight: 300; }
+        @font-face { font-family: 'Thmanyah-Serif-Display'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-display-Regular.otf'); font-weight: 400; }
+        @font-face { font-family: 'Thmanyah-Serif-Display'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-display-Medium.otf'); font-weight: 500; }
+        @font-face { font-family: 'Thmanyah-Serif-Display'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-display-Bold.otf'); font-weight: 700; }
+        @font-face { font-family: 'Thmanyah-Serif-Display'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-display-Black.otf'); font-weight: 900; }
+
+        /* Thmanyah Serif Text */
+        @font-face { font-family: 'Thmanyah-Serif-Text'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-text-Light.otf'); font-weight: 300; }
+        @font-face { font-family: 'Thmanyah-Serif-Text'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-text-Regular.otf'); font-weight: 400; }
+        @font-face { font-family: 'Thmanyah-Serif-Text'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-text-Medium.otf'); font-weight: 500; }
+        @font-face { font-family: 'Thmanyah-Serif-Text'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-text-Bold.otf'); font-weight: 700; }
+        @font-face { font-family: 'Thmanyah-Serif-Text'; src: url('file:///D:/SAM/thmanyah-fonts-otf/thmanyah-serif-text-Black.otf'); font-weight: 900; }
+
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            padding: 40px;
+            margin: 0;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: #334155; margin-bottom: 40px; font-family: sans-serif; }
+        
+        .font-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 40px;
+        }
+        .font-title {
+            font-family: sans-serif;
+            color: #2563eb;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .preview-box { margin-bottom: 20px; }
+        .weight-label { 
+            font-family: sans-serif; 
+            font-size: 12px; 
+            color: #64748b; 
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .ar-text { font-size: 28px; margin-bottom: 5px; }
+        .en-text { font-size: 24px; direction: ltr; margin-bottom: 15px; color: #475569; }
+
+        /* Font classes */
+        .f-sans { font-family: 'Thmanyah-Sans', sans-serif; }
+        .f-serif-display { font-family: 'Thmanyah-Serif-Display', serif; }
+        .f-serif-text { font-family: 'Thmanyah-Serif-Text', serif; }
+
+        .w-300 { font-weight: 300; }
+        .w-400 { font-weight: 400; }
+        .w-500 { font-weight: 500; }
+        .w-700 { font-weight: 700; }
+        .w-900 { font-weight: 900; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تجربة واستعراض خطوط ثمانية للمنصة</h1>
+
+        <!-- Thmanyah Sans -->
+        <div class="font-section">
+            <h2 class="font-title">1. Thmanyah Sans (خط غير مذيل - ممتاز للواجهات والأزرار)</h2>
+            
+            <div class="preview-box">
+                <div class="weight-label">Regular (400)</div>
+                <div class="ar-text f-sans w-400">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-sans w-400">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+            
+            <div class="preview-box">
+                <div class="weight-label">Medium (500)</div>
+                <div class="ar-text f-sans w-500">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-sans w-500">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+
+            <div class="preview-box">
+                <div class="weight-label">Bold (700)</div>
+                <div class="ar-text f-sans w-700">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-sans w-700">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+        </div>
+
+        <!-- Thmanyah Serif Display -->
+        <div class="font-section">
+            <h2 class="font-title">2. Thmanyah Serif Display (خط مذيل - ممتاز للعناوين الكبيرة والشعارات)</h2>
+            
+            <div class="preview-box">
+                <div class="weight-label">Regular (400)</div>
+                <div class="ar-text f-serif-display w-400">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-serif-display w-400">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+
+            <div class="preview-box">
+                <div class="weight-label">Bold (700)</div>
+                <div class="ar-text f-serif-display w-700">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-serif-display w-700">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+        </div>
+
+        <!-- Thmanyah Serif Text -->
+        <div class="font-section">
+            <h2 class="font-title">3. Thmanyah Serif Text (خط مذيل - ممتاز للمقالات والنصوص الطويلة)</h2>
+            
+            <div class="preview-box">
+                <div class="weight-label">Regular (400)</div>
+                <div class="ar-text f-serif-text w-400">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-serif-text w-400">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+
+            <div class="preview-box">
+                <div class="weight-label">Bold (700)</div>
+                <div class="ar-text f-serif-text w-700">منصة المتاجر الإلكترونية الخاصة - أهلاً بك في المستقبل</div>
+                <div class="en-text f-serif-text w-700">Custom E-commerce Platform - Welcome to the future</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
