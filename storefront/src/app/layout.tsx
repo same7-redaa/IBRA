@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
-  title: "المتجر الشامل | Storefront",
-  description: "متجر إلكتروني فخم",
+  title: "بسم الله | للأزياء الراقية",
+  description: "متجر أزياء إلكتروني فخم",
 };
 
 export default function RootLayout({

@@ -13,8 +13,8 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold tracking-tight text-deep-black">
-              متجر<span className="text-[#b0fb30]">.</span>VIP
+            <Link href="/" className="text-3xl font-bold tracking-tight text-deep-black">
+              بسم <span className="text-[#b0fb30]">الله</span>
             </Link>
           </div>
 
