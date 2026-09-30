@@ -17,7 +17,7 @@ export default function Hero() {
     <section className="relative w-full min-h-[90vh] overflow-hidden bg-deep-black pt-20 pb-24 lg:pt-32 lg:pb-32 text-white flex items-center">
       
       {/* Moving Background Image Strips */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-60">
         {/* Strip 1 */}
         <div className="absolute top-10 left-[-50%] flex w-[300vw] gap-6 animate-slide-horizontal">
            <div className="flex gap-6">
