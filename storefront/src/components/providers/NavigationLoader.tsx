@@ -1,17 +1,36 @@
 "use client";
 
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Loader from "@/components/ui/Loader";
 
 export default function NavigationLoader() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const startTimeRef = useRef<number>(0);
+  const MIN_DISPLAY_TIME = 1000; // 1 second minimum so the animation completes beautifully
+
+  // Smooth hide with fade-out
+  const triggerHide = () => {
+    const elapsed = Date.now() - startTimeRef.current;
+    const remaining = Math.max(0, MIN_DISPLAY_TIME - elapsed);
+
+    setTimeout(() => {
+      setIsFadingOut(true);
+      setTimeout(() => {
+        setIsVisible(false);
+        setIsFadingOut(false);
+      }, 300); // fade out duration
+    }, remaining);
+  };
 
   useEffect(() => {
-    // When path or search parameters change, hide the loader smoothly
-    setIsLoading(false);
+    // Hide when route change finishes
+    if (isVisible) {
+      triggerHide();
+    }
   }, [pathname, searchParams]);
 
   useEffect(() => {
@@ -40,8 +59,10 @@ export default function NavigationLoader() {
         const url = new URL(href, window.location.href);
         const currentUrl = new URL(window.location.href);
 
-        if (url.origin === currentUrl.origin && url.pathname !== currentUrl.pathname) {
-          setIsLoading(true);
+        if (url.origin === currentUrl.origin && (url.pathname !== currentUrl.pathname || url.search !== currentUrl.search)) {
+          startTimeRef.current = Date.now();
+          setIsFadingOut(false);
+          setIsVisible(true);
         }
       } catch {
         // invalid URL ignore
@@ -50,12 +71,16 @@ export default function NavigationLoader() {
 
     document.addEventListener("click", handleAnchorClick);
     return () => document.removeEventListener("click", handleAnchorClick);
-  }, []);
+  }, [isVisible]);
 
-  if (!isLoading) return null;
+  if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-deep-black/85 backdrop-blur-md transition-all duration-300 animate-fade-in">
+    <div
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-deep-black/90 backdrop-blur-lg transition-opacity duration-300 ${
+        isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
+    >
       <Loader text="BISMILLAH" />
     </div>
   );
