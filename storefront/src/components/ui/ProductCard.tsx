@@ -93,13 +93,13 @@ export default function ProductCard({ product }: { product: ProductProps }) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
-            <button className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-xl transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95">
+            <button className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-[5px] transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95">
               شراء الآن
             </button>
             
             <button
               aria-label="إضافة إلى السلة"
-              className="w-9 h-8 bg-gray-800/90 hover:bg-[#e2d1f9] hover:text-deep-black text-white rounded-xl flex items-center justify-center transition-all border border-gray-700/60 active:scale-95 shrink-0"
+              className="w-9 h-8 bg-gray-800/90 hover:bg-[#e2d1f9] hover:text-deep-black text-white rounded-[5px] flex items-center justify-center transition-all border border-gray-700/60 active:scale-95 shrink-0"
             >
               <ShoppingBag className="w-4 h-4" />
             </button>

@@ -32,7 +32,7 @@ export default function FancyCornerButton({
 
   const content = (
     <span
-      className={`relative flex items-center justify-center ${sizeClasses} overflow-hidden font-black transition-all duration-300 rounded-xl group select-none ${
+      className={`relative flex items-center justify-center ${sizeClasses} overflow-hidden font-black transition-all duration-300 rounded-[5px] group select-none ${
         isNeonVariant
           ? "bg-[#b0fb30] text-deep-black shadow-[0_0_20px_rgba(176,251,48,0.35)] hover:shadow-[0_0_25px_rgba(176,251,48,0.5)] border border-[#b0fb30]"
           : "bg-[#14161f] text-white border border-gray-800 hover:border-[#b0fb30] shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(176,251,48,0.25)]"
@@ -66,7 +66,7 @@ export default function FancyCornerButton({
 
       {/* Background Sliding Fill */}
       <span
-        className={`absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out -translate-x-full rounded-xl group-hover:translate-x-0 ${
+        className={`absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out -translate-x-full rounded-[5px] group-hover:translate-x-0 ${
           isNeonVariant ? "bg-[#9de42b]" : "bg-[#b0fb30]"
         }`}
       />
