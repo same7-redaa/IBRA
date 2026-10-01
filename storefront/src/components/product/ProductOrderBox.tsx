@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import ScaleButton from "@/components/ui/ScaleButton";
 import { Star, Heart, Ruler, ShoppingBag, Truck, RefreshCw, ShieldCheck } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
@@ -129,13 +130,16 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
       {/* Main Action Buttons Row (Buy Now + Add to Cart Icon + Wishlist Icon) */}
       <div className="flex items-center gap-3 pt-2">
         
-        {/* Instant Buy Now Button (Compact Primary CTA) */}
-        <button
+        {/* Instant Buy Now Button (Same style as card buy now) */}
+        <ScaleButton
           onClick={handleAddToCart}
-          className="flex-grow h-12 rounded-xl bg-white hover:bg-gray-100 text-deep-black font-black text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 transition-all shadow-xl hover:shadow-2xl active:scale-98 cursor-pointer group"
+          variant="neon"
+          size="md"
+          fullWidth
+          className="flex-grow font-extrabold text-xs sm:text-sm md:text-base h-12"
         >
-          <span>شراء فوري والتوجه للدفع</span>
-        </button>
+          شراء فوري والتوجه للدفع
+        </ScaleButton>
 
         {/* Add to Cart (Icon Button) */}
         <button
