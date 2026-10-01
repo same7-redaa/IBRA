@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import NavigationLoader from "@/components/providers/NavigationLoader";
 import { CartProvider } from "@/context/CartContext";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           </Suspense>
           <Header />
           {children}
+          <Footer />
         </CartProvider>
       </body>
     </html>
