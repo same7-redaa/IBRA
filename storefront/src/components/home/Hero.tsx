@@ -14,7 +14,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-deep-black text-white flex items-center justify-center">
+    <section className="relative w-full min-h-screen pt-32 sm:pt-36 pb-14 overflow-hidden bg-deep-black text-white flex items-center justify-center">
       
       {/* Moving Background Image Strips */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-90">
@@ -68,53 +68,53 @@ export default function Hero() {
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
         {/* Centered Text Content */}
-        <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 w-full text-center whitespace-nowrap">
+        <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 w-full text-center leading-tight">
             اظبط <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">شياكتك</span> بأحدث ستايلات الموضة
           </h1>
 
-          <p className="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
             هتلاقي عندنا أجدد الستايلات اللي بتجمع بين الشياكة والراحة. 
             قلّب في تشكيلتنا الحصرية اللي متفصلة مخصوص عشان تبرز حلاوة حضورك في أي خروجة.
           </p>
 
           {/* Centered Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
-            <button className="w-full sm:w-auto px-10 py-4 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-bold rounded-full transition-transform transform hover:scale-105 shadow-[0_0_20px_rgba(176,251,48,0.4)] text-lg">
+          <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <button className="w-full sm:w-auto px-8 py-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold rounded-full transition-transform transform hover:scale-105 shadow-[0_0_15px_rgba(176,251,48,0.35)] text-sm">
               تسوق دلوقتي
             </button>
-            <button className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-white hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-bold rounded-full transition-colors text-lg">
+            <button className="w-full sm:w-auto px-8 py-3 bg-transparent border-2 border-white/80 hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-bold rounded-full transition-colors text-sm">
               شوف التشكيلة
             </button>
           </div>
 
           {/* Centered Stats & Avatars */}
-          <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 border-t border-gray-800 pt-8 w-full">
+          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 border-t border-gray-800/80 pt-6 w-full">
             
             {/* Avatars */}
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-4 space-x-reverse">
-                <img className="w-12 h-12 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=1" alt="user" />
-                <img className="w-12 h-12 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=5" alt="user" />
-                <img className="w-12 h-12 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=3" alt="user" />
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-3 space-x-reverse">
+                <img className="w-10 h-10 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=1" alt="user" />
+                <img className="w-10 h-10 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=5" alt="user" />
+                <img className="w-10 h-10 rounded-full border-2 border-deep-black" src="https://i.pravatar.cc/100?img=3" alt="user" />
               </div>
-              <div className="text-right text-sm">
-                <span className="block font-bold text-lg text-white">١٠,٠٠٠+</span>
+              <div className="text-right text-xs">
+                <span className="block font-black text-base text-white">١٠,٠٠٠+</span>
                 <span className="text-gray-400">عميل مبسوط</span>
               </div>
             </div>
 
-            <div className="w-full md:w-px h-px md:h-12 bg-gray-800" />
+            <div className="w-full md:w-px h-px md:h-10 bg-gray-800" />
 
             {/* Stats */}
             <div className="flex items-center gap-8 text-center">
               <div>
-                <h4 className="text-3xl font-bold text-white mb-1">٤٠K+</h4>
-                <p className="text-gray-400 text-sm">قطعة ملابس</p>
+                <h4 className="text-2xl font-black text-white mb-0.5">٤٠K+</h4>
+                <p className="text-gray-400 text-xs">قطعة ملابس</p>
               </div>
               <div>
-                <h4 className="text-3xl font-bold text-white mb-1">١٥K+</h4>
-                <p className="text-gray-400 text-sm">عملية بيع</p>
+                <h4 className="text-2xl font-black text-white mb-0.5">١٥K+</h4>
+                <p className="text-gray-400 text-xs">عملية بيع</p>
               </div>
             </div>
 
