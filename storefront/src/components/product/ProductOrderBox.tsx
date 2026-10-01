@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
-import FancyCornerButton from "@/components/ui/FancyCornerButton";
+import ScaleButton from "@/components/ui/ScaleButton";
 import { Star, Check, Heart, HelpCircle } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
@@ -154,15 +154,15 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           </div>
 
           {/* Add to Cart Button */}
-          <FancyCornerButton
+          <ScaleButton
             onClick={handleAddToCart}
             variant="neon"
             size="sm"
             fullWidth
-            className="flex-grow py-2.5 text-xs font-black"
+            className="flex-grow font-black text-xs"
           >
             إضـافـة إلـى الـسـلـة
-          </FancyCornerButton>
+          </ScaleButton>
 
           {/* Favorite Button */}
           <button
@@ -179,12 +179,15 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         </div>
 
         {/* Instant Buy Now Button */}
-        <button
+        <ScaleButton
           onClick={handleAddToCart}
-          className="w-full py-2.5 rounded-[5px] bg-transparent border-2 border-white/80 hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-black text-xs transition-all duration-300"
+          variant="white"
+          size="md"
+          fullWidth
+          className="font-black text-xs"
         >
           شراء فوري والتوجه للدفع
-        </button>
+        </ScaleButton>
 
       </div>
 

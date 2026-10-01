@@ -1,0 +1,137 @@
+.scaleButton {
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 30px;
+  transition: all 0.5s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  text-align: center;
+  user-select: none;
+  z-index: 1;
+}
+
+.btnTxt {
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  transition: color 0.4s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.scaleButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Neon Lime Variant */
+.variantNeon {
+  border: 2px solid #b0fb30;
+  color: #b0fb30;
+}
+.variantNeon::after {
+  background-color: #b0fb30;
+}
+.variantNeon:hover {
+  box-shadow: 0 0 30px rgba(176, 251, 48, 0.4);
+  color: #0c0c0c;
+  border-color: #b0fb30;
+}
+.variantNeon:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+.variantNeon:hover .btnTxt {
+  color: #0c0c0c;
+}
+
+/* Dark / Glass Variant */
+.variantDark {
+  border: 2px solid #343b4f;
+  color: #f3f4f6;
+  background-color: rgba(20, 22, 31, 0.6);
+}
+.variantDark::after {
+  background-color: #b0fb30;
+}
+.variantDark:hover {
+  box-shadow: 0 0 25px rgba(176, 251, 48, 0.35);
+  color: #0c0c0c;
+  border-color: #b0fb30;
+}
+.variantDark:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+.variantDark:hover .btnTxt {
+  color: #0c0c0c;
+}
+
+/* White Outline Variant */
+.variantWhite {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+.variantWhite::after {
+  background-color: #ffffff;
+}
+.variantWhite:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+  color: #0c0c0c;
+  border-color: #ffffff;
+}
+.variantWhite:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+.variantWhite:hover .btnTxt {
+  color: #0c0c0c;
+}
+
+/* Active State (e.g. for selected Category Tab) */
+.activeTab {
+  background-color: #b0fb30 !important;
+  border-color: #b0fb30 !important;
+  color: #0c0c0c !important;
+  box-shadow: 0 0 20px rgba(176, 251, 48, 0.4) !important;
+}
+.activeTab .btnTxt {
+  color: #0c0c0c !important;
+}
+.activeTab::after {
+  display: none !important;
+}
+
+/* Sizes */
+.sizeSm {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+.sizeMd {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+.sizeLg {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 15px;
+}
