@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Heart, ShoppingBag, Star } from "lucide-react";
-import FancyCornerButton from "@/components/ui/FancyCornerButton";
 
 export interface ProductProps {
   id: string | number;
@@ -94,14 +93,9 @@ export default function ProductCard({ product }: { product: ProductProps }) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
-            <FancyCornerButton
-              variant="neon"
-              size="sm"
-              fullWidth
-              className="flex-grow"
-            >
+            <button className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-xl transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95">
               شراء الآن
-            </FancyCornerButton>
+            </button>
             
             <button
               aria-label="إضافة إلى السلة"

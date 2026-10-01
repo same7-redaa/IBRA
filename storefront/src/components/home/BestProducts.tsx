@@ -116,19 +116,16 @@ export default function BestProducts() {
           </div>
 
           {/* Categories Tab Filter */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+          <div className="flex items-center gap-2.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
             {categories.map((cat) => (
-              <button
+              <FancyCornerButton
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                  activeCategory === cat.id
-                    ? "bg-[#b0fb30] text-deep-black shadow-[0_0_15px_rgba(176,251,48,0.35)]"
-                    : "bg-gray-900/80 text-gray-400 hover:text-white hover:bg-gray-800 border border-gray-800/80"
-                }`}
+                variant={activeCategory === cat.id ? "neon" : "dark"}
+                size="sm"
               >
                 {cat.label}
-              </button>
+              </FancyCornerButton>
             ))}
           </div>
         </div>
