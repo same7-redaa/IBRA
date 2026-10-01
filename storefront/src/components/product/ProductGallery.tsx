@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronRight, ChevronLeft, ZoomIn } from "lucide-react";
+import { ChevronDown, ZoomIn, ChevronRight, ChevronLeft } from "lucide-react";
 
 interface ProductGalleryProps {
   images: string[];
@@ -28,69 +28,84 @@ export default function ProductGallery({
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row gap-4 w-full">
+    <div className="flex flex-col-reverse sm:flex-row gap-4 lg:gap-5 w-full items-start">
       
-      {/* Thumbnails list */}
-      <div className="flex lg:flex-col gap-2.5 overflow-x-auto lg:overflow-y-auto pb-1 lg:pb-0 scrollbar-none shrink-0">
+      {/* Vertical Thumbnails Strip (Matches Reference Image) */}
+      <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto w-full sm:w-24 lg:w-28 shrink-0 scrollbar-none pb-2 sm:pb-0 max-h-[640px]">
         {images.map((img, idx) => (
           <button
             key={idx}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative w-14 h-16 sm:w-16 sm:h-20 rounded-[5px] overflow-hidden border-2 transition-all duration-200 shrink-0 bg-gray-900 ${
+            className={`relative w-20 sm:w-full aspect-[3/4] rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
               selectedIndex === idx
-                ? "border-[#b0fb30] shadow-[0_0_10px_rgba(176,251,48,0.35)] scale-102"
+                ? "border-[#b0fb30] ring-2 ring-[#b0fb30]/30 shadow-[0_0_15px_rgba(176,251,48,0.25)] scale-[1.02]"
                 : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
             }`}
           >
             <img
               src={img}
-              alt={`${productName} - صورة ${idx + 1}`}
-              className="w-full h-full object-cover object-center"
+              alt={`${productName} - مصغرة ${idx + 1}`}
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
             />
           </button>
         ))}
+
+        {/* Scroll Down Arrow Indicator */}
+        {images.length > 3 && (
+          <button
+            onClick={handleNext}
+            aria-label="عرض المزيد من الصور"
+            className="hidden sm:flex w-full h-10 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
+          >
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        )}
       </div>
 
-      {/* Main Large Image Container */}
-      <div className="relative flex-grow h-[300px] sm:h-[360px] lg:h-[400px] rounded-[5px] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/80 group">
+      {/* Main High-Fashion Lookbook Image (Matches Reference Image) */}
+      <div className="relative flex-grow w-full aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#161822] to-[#0e1017] border border-gray-800/80 group shadow-2xl">
         <img
           src={currentImage}
           alt={productName}
-          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          className={`w-full h-full object-cover object-center transition-all duration-700 ${
+            isZoomed ? "scale-125 cursor-zoom-out" : "group-hover:scale-105 cursor-zoom-in"
+          }`}
+          onClick={() => setIsZoomed(!isZoomed)}
         />
 
-        {/* Discount Badge */}
-        {discountPercentage && (
-          <div className="absolute top-4 right-4 z-10 bg-[#b0fb30] text-deep-black font-black text-xs px-3 py-1 rounded-[5px] shadow-[0_0_15px_rgba(176,251,48,0.4)]">
-            خصم {discountPercentage}%
-          </div>
-        )}
+        {/* Floating Zoom Button at Bottom Corner */}
+        <button
+          onClick={() => setIsZoomed(!isZoomed)}
+          aria-label="تكبير الصورة"
+          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-gray-700/80 text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-all shadow-lg hover:scale-110 cursor-pointer"
+        >
+          <ZoomIn className="w-4 h-4" />
+        </button>
 
-        {/* Navigation Arrows for Mobile / Quick Browse */}
+        {/* Navigation Arrows for Mobile / Carousel */}
         {images.length > 1 && (
           <div className="absolute inset-x-3 top-1/2 -translate-y-1/2 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
             <button
               onClick={handlePrev}
               aria-label="الصورة السابقة"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="الصورة التالية"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
           </div>
         )}
 
-        {/* Image Counter Badge */}
-        <div className="absolute bottom-4 left-4 z-10 bg-black/70 backdrop-blur-md border border-gray-800 text-gray-300 text-[11px] font-bold px-2.5 py-1 rounded-[5px]">
+        {/* Counter Badge */}
+        <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md border border-gray-800 text-gray-300 text-[11px] font-bold px-3 py-1 rounded-full">
           {selectedIndex + 1} / {images.length}
         </div>
-
       </div>
 
     </div>

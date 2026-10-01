@@ -3,13 +3,12 @@
 import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import { Star, Check, Heart, Ruler, ShoppingBag, Truck, RefreshCw, ShieldCheck } from "lucide-react";
 import ScaleButton from "@/components/ui/ScaleButton";
-import { Star, Check, Heart, HelpCircle } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
   const [selectedColor, setSelectedColor] = useState(0);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "M");
-  const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
   const { addToCart } = useCart();
 
@@ -18,110 +17,106 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
     : undefined;
 
   const handleAddToCart = () => {
-    for (let i = 0; i < quantity; i++) {
-      addToCart(product);
-    }
+    addToCart(product);
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-5 text-white">
       
-      {/* Header Info: Brand & Rating */}
+      {/* Product Name & Brand */}
       <div>
-        <div className="flex items-center justify-between gap-4 mb-1.5">
-          <span className="text-[11px] font-black uppercase tracking-wider text-[#b0fb30] bg-[#b0fb30]/10 px-2 py-0.5 rounded-[5px] border border-[#b0fb30]/20">
-            {product.brand}
-          </span>
-
-          <div className="flex items-center gap-1 text-xs text-gray-300">
-            <Star className="w-3.5 h-3.5 fill-[#ffd426] text-[#ffd426]" />
-            <span className="font-bold text-white text-xs">{product.rating}</span>
-            <span className="text-gray-500 text-[11px]">({product.reviewsCount} تقييم)</span>
-          </div>
-        </div>
-
-        {/* Title */}
-        <h1 className="text-xl sm:text-2xl font-black text-white leading-tight mb-1.5">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight mb-2">
           {product.name}
         </h1>
 
-        <p className="text-xs text-gray-400 leading-relaxed line-clamp-2">
-          {product.description}
-        </p>
+        {/* Rating Stars & Reviews Count */}
+        <div className="flex items-center gap-2 text-xs text-gray-400">
+          <div className="flex items-center gap-1 text-[#ffd426]">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-current" />
+            ))}
+          </div>
+          <span className="font-bold text-white text-sm">{product.rating}</span>
+          <span>({product.reviewsCount} تقييم حقيقي)</span>
+        </div>
       </div>
 
-      {/* Price Box */}
-      <div className="py-2.5 px-3.5 rounded-[5px] bg-[#14161f] border border-gray-800/80 flex items-center justify-between">
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-black text-[#b0fb30] tracking-tight">
-            {product.price * quantity}
+      {/* Price & Discount Line (Matches Reference Image) */}
+      <div className="flex items-baseline gap-3">
+        <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          {product.price} <span className="text-lg font-bold text-gray-400">ج.م</span>
+        </span>
+        
+        {product.oldPrice && (
+          <span className="text-lg text-gray-500 line-through font-normal">
+            {product.oldPrice} ج.م
           </span>
-          <span className="text-xs text-gray-400 font-bold">جنيه مصري</span>
-          
-          {product.oldPrice && (
-            <span className="text-xs text-gray-500 line-through mr-2 font-normal">
-              {product.oldPrice * quantity} ج.م
-            </span>
-          )}
-        </div>
+        )}
 
         {discountPercentage && (
-          <span className="text-[11px] font-black text-deep-black bg-[#b0fb30] px-2 py-0.5 rounded-[5px] shadow-[0_0_8px_rgba(176,251,48,0.3)]">
-            وفر {discountPercentage}%
+          <span className="text-xs font-black text-[#b0fb30] bg-[#b0fb30]/10 border border-[#b0fb30]/30 px-2.5 py-1 rounded-md">
+            خصم {discountPercentage}%
           </span>
         )}
       </div>
 
-      {/* Color Selector */}
+      {/* Product Short Bio Paragraph */}
+      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
+        {product.description}
+      </p>
+
+      {/* Divider */}
+      <div className="w-full h-px bg-gray-800/80" />
+
+      {/* Color Selector (Matches Reference Image) */}
       {product.colors && product.colors.length > 0 && (
-        <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-gray-300">
-              اللون: <span className="text-[#b0fb30]">{product.colors[selectedColor].name}</span>
-            </span>
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-sm">
+            <span className="font-bold text-gray-400">اللون:</span>
+            <span className="font-bold text-white">{product.colors[selectedColor].name}</span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {product.colors.map((color, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedColor(idx)}
                 style={{ backgroundColor: color.hex }}
-                className={`relative w-7 h-7 rounded-[5px] transition-all flex items-center justify-center border ${
+                className={`relative w-8 h-8 rounded-full transition-all cursor-pointer border ${
                   selectedColor === idx
-                    ? "ring-2 ring-[#b0fb30] ring-offset-2 ring-offset-[#0c0c0c] scale-105 border-transparent"
-                    : "border-gray-700 hover:scale-105"
+                    ? "ring-2 ring-offset-2 ring-[#b0fb30] ring-offset-deep-black scale-110 border-transparent shadow-[0_0_12px_rgba(176,251,48,0.4)]"
+                    : "border-gray-600 hover:scale-105"
                 }`}
                 title={color.name}
-              >
-                {selectedColor === idx && (
-                  <Check className={`w-3.5 h-3.5 ${color.hex === "#ffffff" ? "text-black" : "text-white"}`} />
-                )}
-              </button>
+              />
             ))}
           </div>
         </div>
       )}
 
-      {/* Size Selector */}
+      {/* Size Selector (Matches Reference Image) */}
       {product.sizes && product.sizes.length > 0 && (
-        <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-gray-300">المقاس:</span>
-            <button className="text-gray-400 hover:text-[#b0fb30] transition-colors flex items-center gap-1 font-medium text-[11px]">
-              <HelpCircle className="w-3 h-3" />
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-gray-400">المقاس:</span>
+              <span className="font-bold text-white uppercase">{selectedSize}</span>
+            </div>
+
+            <button className="text-xs text-gray-400 hover:text-[#b0fb30] flex items-center gap-1.5 transition-colors cursor-pointer font-bold">
+              <Ruler className="w-3.5 h-3.5" />
               <span>دليل المقاسات</span>
             </button>
           </div>
 
-          <div className="flex items-center gap-1.5 flex-wrap">
+          <div className="flex items-center gap-2.5 flex-wrap">
             {product.sizes.map((size) => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`min-w-[42px] h-8 px-2.5 rounded-[5px] text-xs font-black transition-all border ${
+                className={`min-w-[50px] h-11 px-4 rounded-lg text-xs font-black transition-all cursor-pointer border ${
                   selectedSize === size
-                    ? "bg-[#b0fb30] text-deep-black border-[#b0fb30] shadow-[0_0_10px_rgba(176,251,48,0.35)]"
+                    ? "bg-white text-deep-black border-white shadow-lg scale-105"
                     : "bg-[#14161f] text-gray-300 border-gray-800 hover:border-gray-600 hover:text-white"
                 }`}
               >
@@ -132,62 +127,59 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         </div>
       )}
 
-      {/* Quantity & CTA Buttons Row */}
-      <div className="flex flex-col gap-2.5 pt-1">
+      {/* Main Action Buttons (Add to Cart + Wishlist) */}
+      <div className="flex items-center gap-3 pt-2">
+        
+        {/* Primary Add to Cart Button */}
+        <button
+          onClick={handleAddToCart}
+          className="flex-grow h-13 rounded-xl bg-white hover:bg-gray-100 text-deep-black font-black text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-xl hover:shadow-2xl active:scale-98 cursor-pointer group"
+        >
+          <ShoppingBag className="w-5 h-5 transition-transform group-hover:scale-110" />
+          <span>إضافة إلى السلة</span>
+        </button>
+
+        {/* Favorite Wishlist Button */}
+        <button
+          onClick={() => setIsFavorite(!isFavorite)}
+          aria-label="إضافة للمفضلة"
+          className="w-13 h-13 rounded-xl bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105"
+        >
+          <Heart
+            className={`w-5 h-5 transition-colors ${
+              isFavorite ? "fill-red-500 text-red-500" : "text-gray-400 hover:text-white"
+            }`}
+          />
+        </button>
+
+      </div>
+
+      {/* Micro Guarantees / Service Badges (Matches Reference Image) */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-gray-800/80">
         
         <div className="flex items-center gap-2.5">
-          {/* Quantity Counter */}
-          <div className="flex items-center justify-between h-10 w-28 rounded-[5px] bg-[#14161f] border border-gray-800 px-2.5">
-            <button
-              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-              className="text-gray-400 hover:text-white font-bold text-base px-1 transition-colors"
-            >
-              -
-            </button>
-            <span className="font-black text-xs text-white">{quantity}</span>
-            <button
-              onClick={() => setQuantity((prev) => prev + 1)}
-              className="text-gray-400 hover:text-white font-bold text-base px-1 transition-colors"
-            >
-              +
-            </button>
+          <Truck className="w-4 h-4 text-[#b0fb30] shrink-0" />
+          <div className="text-[11px] leading-tight">
+            <span className="font-bold text-white block">شحن مجاني وسريع</span>
+            <span className="text-gray-500 text-[10px]">لكافة المحافظات</span>
           </div>
-
-          {/* Add to Cart Button */}
-          <ScaleButton
-            onClick={handleAddToCart}
-            variant="neon"
-            size="sm"
-            fullWidth
-            className="flex-grow font-black text-xs"
-          >
-            إضـافـة إلـى الـسـلـة
-          </ScaleButton>
-
-          {/* Favorite Button */}
-          <button
-            onClick={() => setIsFavorite(!isFavorite)}
-            aria-label="إضافة للمفضلة"
-            className="w-10 h-10 rounded-[5px] bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-colors shrink-0"
-          >
-            <Heart
-              className={`w-4 h-4 transition-colors ${
-                isFavorite ? "fill-red-500 text-red-500" : "text-gray-400 hover:text-white"
-              }`}
-            />
-          </button>
         </div>
 
-        {/* Instant Buy Now Button */}
-        <ScaleButton
-          onClick={handleAddToCart}
-          variant="white"
-          size="md"
-          fullWidth
-          className="font-black text-xs"
-        >
-          شراء فوري والتوجه للدفع
-        </ScaleButton>
+        <div className="flex items-center gap-2.5">
+          <RefreshCw className="w-4 h-4 text-[#b0fb30] shrink-0" />
+          <div className="text-[11px] leading-tight">
+            <span className="font-bold text-white block">استرجاع سهل</span>
+            <span className="text-gray-500 text-[10px]">خلال 14 يوماً</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5">
+          <ShieldCheck className="w-4 h-4 text-[#b0fb30] shrink-0" />
+          <div className="text-[11px] leading-tight">
+            <span className="font-bold text-white block">معاينة قبل الدفع</span>
+            <span className="text-gray-500 text-[10px]">دفع آمن 100%</span>
+          </div>
+        </div>
 
       </div>
 
