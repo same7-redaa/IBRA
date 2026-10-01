@@ -5,8 +5,7 @@ import ProductGallery from "@/components/product/ProductGallery";
 import ProductOrderBox from "@/components/product/ProductOrderBox";
 import ProductCard from "@/components/ui/ProductCard";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Truck, RefreshCw, Star, Sparkles } from "lucide-react";
-import BackButton from "@/components/ui/BackButton";
+import { Sparkles } from "lucide-react";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -38,11 +37,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {/* Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton label="الـعـــودة لـلـمـنـتـجـات" />
-        </div>
-
         {/* Main Product Showcase (2 Columns: Gallery + Order Box) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
           
