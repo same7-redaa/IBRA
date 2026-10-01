@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
@@ -14,8 +15,8 @@ export interface ProductProps {
   image: string;
   rating: number;
   reviewsCount: number;
-  colors: { name: string; hex: string }[];
-  sizes: string[];
+  colors?: { name: string; hex: string }[];
+  sizes?: string[];
 }
 
 export default function ProductCard({ product }: { product: ProductProps }) {
@@ -27,12 +28,14 @@ export default function ProductCard({ product }: { product: ProductProps }) {
       
       {/* Top Image Container with Unique Asymmetrical Curve */}
       <div className="relative w-full h-48 sm:h-56 rounded-xl rounded-tr-[3rem] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/50">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
+        <Link href={`/products/${product.id}`} className="block w-full h-full">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+        </Link>
 
         {/* Favorite Floating Button */}
         <button
@@ -65,9 +68,11 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           </div>
 
           {/* Product Name */}
-          <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#b0fb30] transition-colors line-clamp-1 mb-2">
-            {product.name}
-          </h3>
+          <Link href={`/products/${product.id}`}>
+            <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#b0fb30] transition-colors line-clamp-1 mb-2 hover:underline">
+              {product.name}
+            </h3>
+          </Link>
         </div>
 
         {/* Bottom Price & Dual Action Buttons */}
