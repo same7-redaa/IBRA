@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = sampleProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-24 pb-16">
+    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-32 sm:pt-36 lg:pt-40 pb-16">
       
       {/* Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
