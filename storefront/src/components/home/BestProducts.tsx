@@ -93,13 +93,13 @@ export default function BestProducts() {
       : sampleProducts.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-deep-black text-white border-t border-gray-900 overflow-hidden">
+    <section className="relative w-full py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-deep-black text-white border-t border-gray-900 overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#b0fb30]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-40 w-96 h-96 bg-[#e2d1f9]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -133,7 +133,7 @@ export default function BestProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8 w-full">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -23,10 +23,10 @@ export default function ProductCard({ product }: { product: ProductProps }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <div className="group relative w-full max-w-[280px] sm:max-w-[290px] mx-auto bg-[#13151b] border border-gray-800/80 hover:border-[#b0fb30]/40 rounded-2xl p-3 shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(176,251,48,0.12)] flex flex-col justify-between">
+    <div className="group relative w-full bg-[#13151b] border border-gray-800/80 hover:border-[#b0fb30]/40 rounded-2xl p-3 sm:p-3.5 shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(176,251,48,0.12)] flex flex-col justify-between">
       
       {/* Top Image Container with Unique Asymmetrical Curve */}
-      <div className="relative w-full h-48 sm:h-52 rounded-xl rounded-tr-[3.5rem] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/50">
+      <div className="relative w-full h-52 sm:h-60 rounded-xl rounded-tr-[3.5rem] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/50">
         <img
           src={product.image}
           alt={product.name}
