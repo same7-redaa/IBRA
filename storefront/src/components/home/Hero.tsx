@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   const bgImages = [
@@ -81,15 +82,19 @@ export default function Hero() {
           <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
             <Link
               href="/products"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-[5px] bg-[#b0fb30] text-deep-black font-black text-sm sm:text-base hover:bg-[#c4ff54] hover:shadow-[0_0_20px_rgba(176,251,48,0.4)] transition-all duration-200 active:scale-95 text-center"
+              className={`${styles.button} ${styles.btnPrimary}`}
             >
-              تسوق دلوقتي
+              <span className={styles.btnTxt}>
+                تسوق دلوقتي
+              </span>
             </Link>
             <Link
               href="/products"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-[5px] bg-[#14161f] text-white border border-gray-700 hover:border-gray-500 font-bold text-sm sm:text-base transition-all duration-200 active:scale-95 text-center"
+              className={`${styles.button} ${styles.btnSecondary}`}
             >
-              شوف التشكيلة
+              <span className={styles.btnTxt}>
+                شوف التشكيلة
+              </span>
             </Link>
           </div>
 
