@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ProductCard, { ProductProps } from "@/components/ui/ProductCard";
 import { ArrowLeft, Sparkles, Flame } from "lucide-react";
 import Link from "next/link";
+import styles from "./BestProducts.module.css";
 
 const sampleProducts: (ProductProps & { category: string })[] = [
   {
@@ -143,9 +144,11 @@ export default function BestProducts() {
         <div className="mt-12 text-center">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-[5px] bg-[#14161f] hover:bg-[#1a1d28] text-white border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] font-bold text-sm transition-all duration-200"
+            className={`${styles.button} ${styles.type1}`}
           >
-            استكشف باقي التشكيلة بالكامل
+            <span className={styles.btnTxt}>
+              استكشف باقي التشكيلة بالكامل
+            </span>
           </Link>
         </div>
 
