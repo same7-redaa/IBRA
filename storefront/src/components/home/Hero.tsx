@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
+import FancyCornerButton from "@/components/ui/FancyCornerButton";
 
 export default function Hero() {
   const bgImages = [
@@ -80,12 +81,12 @@ export default function Hero() {
 
           {/* Centered Buttons */}
           <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-            <button className="w-full sm:w-auto px-8 py-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold rounded-full transition-transform transform hover:scale-105 shadow-[0_0_15px_rgba(176,251,48,0.35)] text-sm">
+            <FancyCornerButton href="/products" variant="neon" size="md">
               تسوق دلوقتي
-            </button>
-            <button className="w-full sm:w-auto px-8 py-3 bg-transparent border-2 border-white/80 hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-bold rounded-full transition-colors text-sm">
+            </FancyCornerButton>
+            <FancyCornerButton href="#products" variant="dark" size="md">
               شوف التشكيلة
-            </button>
+            </FancyCornerButton>
           </div>
 
           {/* Centered Stats & Avatars */}
