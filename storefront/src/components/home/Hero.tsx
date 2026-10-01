@@ -17,7 +17,7 @@ export default function Hero() {
     <section className="relative w-full min-h-screen overflow-hidden bg-deep-black text-white flex items-center justify-center">
       
       {/* Moving Background Image Strips */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-75">
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-90">
         
         {/* Strip 1 */}
         <div className="absolute top-[-5%] left-[-100%] flex w-max gap-4 animate-slide-right">
@@ -55,15 +55,15 @@ export default function Hero() {
            </div>
         </div>
         
-        {/* Layer 1: Dark Tint & Subtle Backdrop Blur */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1.5px]" />
+        {/* Layer 1: Light Tint & Subtle Backdrop Blur */}
+        <div className="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]" />
         
-        {/* Layer 2: Radial Vignette Focus */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,12,12,0.6)_0%,rgba(12,12,12,0.92)_75%,#0c0c0c_100%)]" />
+        {/* Layer 2: Balanced Radial Vignette Focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,12,12,0.4)_0%,rgba(12,12,12,0.85)_75%,#0c0c0c_100%)]" />
 
         {/* Layer 3: Top and Bottom Smooth Edge Fades */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c]/80 via-transparent to-[#0c0c0c]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c]/60 via-transparent to-[#0c0c0c]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
