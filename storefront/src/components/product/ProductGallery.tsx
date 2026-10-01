@@ -30,13 +30,13 @@ export default function ProductGallery({
   return (
     <div className="flex flex-col-reverse sm:flex-row gap-4 lg:gap-5 w-full items-start">
       
-      {/* Vertical Thumbnails Strip (Matches Reference Image) */}
-      <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto w-full sm:w-24 lg:w-28 shrink-0 scrollbar-none pb-2 sm:pb-0 max-h-[640px]">
+      {/* Vertical Thumbnails Strip */}
+      <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto w-full sm:w-20 lg:w-24 shrink-0 scrollbar-none pb-2 sm:pb-0 max-h-[550px]">
         {images.map((img, idx) => (
           <button
             key={idx}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative w-20 sm:w-full aspect-[3/4] rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
+            className={`relative w-16 sm:w-full aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
               selectedIndex === idx
                 ? "border-[#b0fb30] ring-2 ring-[#b0fb30]/30 shadow-[0_0_15px_rgba(176,251,48,0.25)] scale-[1.02]"
                 : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
@@ -55,15 +55,15 @@ export default function ProductGallery({
           <button
             onClick={handleNext}
             aria-label="عرض المزيد من الصور"
-            className="hidden sm:flex w-full h-10 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
+            className="hidden sm:flex w-full h-9 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
           >
             <ChevronDown className="w-4 h-4" />
           </button>
         )}
       </div>
 
-      {/* Main High-Fashion Lookbook Image (Matches Reference Image) */}
-      <div className="relative flex-grow w-full aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#161822] to-[#0e1017] border border-gray-800/80 group shadow-2xl">
+      {/* Main Square Lookbook Image */}
+      <div className="relative flex-grow w-full aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#161822] to-[#0e1017] border border-gray-800/80 group shadow-2xl">
         <img
           src={currentImage}
           alt={productName}
