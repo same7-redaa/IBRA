@@ -19,7 +19,6 @@ export default function Loader({ text = "Loading", className = "" }: LoaderProps
         <div className={styles.text}><span>{text}</span></div>
         <div className={styles.text}><span>{text}</span></div>
         <div className={styles.text}><span>{text}</span></div>
-        <div className={styles.line} />
       </div>
     </div>
   );
