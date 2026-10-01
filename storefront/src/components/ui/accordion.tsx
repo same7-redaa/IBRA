@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useId } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface AccordionContextType {
@@ -20,14 +20,14 @@ interface AccordionProps {
 
 export function Accordion({
   children,
-  defaultValue = [],
-  type = "multiple",
+  defaultValue,
+  type = "single",
   className = "",
 }: AccordionProps) {
-  const initialOpen = Array.isArray(defaultValue)
-    ? defaultValue
-    : defaultValue
-    ? [defaultValue]
+  const initialOpen = defaultValue
+    ? Array.isArray(defaultValue)
+      ? defaultValue
+      : [defaultValue]
     : [];
 
   const [openValues, setOpenValues] = useState<string[]>(initialOpen);
@@ -77,9 +77,9 @@ export function AccordionItem({ value, children, className = "" }: AccordionItem
     <AccordionItemContext.Provider value={{ value, isOpen }}>
       <div
         data-state={isOpen ? "open" : "closed"}
-        className={`rounded-[5px] border transition-all duration-200 overflow-hidden ${
+        className={`rounded-[5px] border transition-all duration-300 overflow-hidden ${
           isOpen
-            ? "bg-[#14161f] border-gray-700/80 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+            ? "bg-[#14161f] border-gray-700/90 shadow-[0_4px_25px_rgba(0,0,0,0.4)]"
             : "bg-[#10121a]/70 border-gray-800/80 hover:border-gray-700"
         } ${className}`}
       >
@@ -114,16 +114,16 @@ export function AccordionTrigger({
       type="button"
       onClick={() => accContext.toggleValue(value)}
       aria-expanded={isOpen}
-      className={`w-full px-5 py-4 flex items-center justify-between text-right gap-4 transition-colors font-bold text-sm sm:text-base ${
+      className={`w-full px-5 py-4 flex items-center justify-between text-right gap-4 transition-colors font-bold text-sm sm:text-base cursor-pointer select-none ${
         isOpen ? "text-white" : "text-gray-300 hover:text-white"
       } ${className}`}
     >
       <div className="flex items-center gap-3">
         {icon && (
           <div
-            className={`w-8 h-8 rounded-[5px] flex items-center justify-center transition-colors ${
+            className={`w-8 h-8 rounded-[5px] flex items-center justify-center transition-all duration-300 ${
               isOpen
-                ? "bg-[#b0fb30]/15 text-[#b0fb30]"
+                ? "bg-[#b0fb30]/15 text-[#b0fb30] shadow-[0_0_10px_rgba(176,251,48,0.2)]"
                 : "bg-gray-800/60 text-gray-400"
             }`}
           >
@@ -161,15 +161,21 @@ export function AccordionContent({
     throw new Error("AccordionContent must be used within an AccordionItem");
   }
 
-  if (!itemContext.isOpen) {
-    return null;
-  }
+  const { isOpen } = itemContext;
 
   return (
     <div
-      className={`px-5 pb-5 pt-1 border-t border-gray-800/50 text-xs sm:text-sm text-gray-300 leading-relaxed animate-fadeIn ${className}`}
+      className={`grid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+      }`}
     >
-      {children}
+      <div className="overflow-hidden">
+        <div
+          className={`px-5 pb-5 pt-2 border-t border-gray-800/50 text-xs sm:text-sm text-gray-300 leading-relaxed ${className}`}
+        >
+          {children}
+        </div>
+      </div>
     </div>
   );
 }

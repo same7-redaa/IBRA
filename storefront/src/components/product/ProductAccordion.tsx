@@ -16,7 +16,7 @@ interface ProductAccordionProps {
 
 export default function ProductAccordion({ product }: ProductAccordionProps) {
   return (
-    <Accordion defaultValue={["specs", "fabric"]} className="w-full">
+    <Accordion type="single" defaultValue="specs" className="w-full">
       {/* 1. Specifications & Quality */}
       <AccordionItem value="specs">
         <AccordionTrigger icon={<Sparkles className="w-4 h-4" />}>
