@@ -18,15 +18,13 @@ export interface ProductProps {
 }
 
 export default function ProductCard({ product }: { product: ProductProps }) {
-  const [selectedColor, setSelectedColor] = useState(0);
-  const [selectedSize, setSelectedSize] = useState("M");
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <div className="group relative w-full bg-[#13151b] border border-gray-800/80 hover:border-[#b0fb30]/40 rounded-2xl p-3 sm:p-3.5 shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(176,251,48,0.12)] flex flex-col justify-between">
       
       {/* Top Image Container with Unique Asymmetrical Curve */}
-      <div className="relative w-full h-52 sm:h-60 rounded-xl rounded-tr-[3.5rem] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/50">
+      <div className="relative w-full h-56 sm:h-64 rounded-xl rounded-tr-[3.5rem] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/50">
         <img
           src={product.image}
           alt={product.name}
@@ -34,7 +32,7 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           loading="lazy"
         />
 
-        {/* Favorite Floating Button (Shifted left for optimal position) */}
+        {/* Favorite Floating Button */}
         <button
           onClick={() => setIsFavorite(!isFavorite)}
           aria-label="إضافة للمفضلة"
@@ -51,10 +49,10 @@ export default function ProductCard({ product }: { product: ProductProps }) {
       </div>
 
       {/* Card Content Details */}
-      <div className="pt-4 px-1.5 pb-1 flex-grow flex flex-col justify-between">
+      <div className="pt-4 px-1 pb-1 flex-grow flex flex-col justify-between">
         <div>
           {/* Brand Name & Rating */}
-          <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">
+          <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
             <span>{product.brand}</span>
             {/* Rating Stars */}
             <div className="flex items-center gap-1 text-[11px] text-gray-300">
@@ -65,59 +63,9 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           </div>
 
           {/* Product Name */}
-          <h3 className="text-sm font-bold text-white group-hover:text-[#b0fb30] transition-colors line-clamp-1 mb-3">
+          <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#b0fb30] transition-colors line-clamp-1 mb-2">
             {product.name}
           </h3>
-
-          {/* Colors & Sizes Selector Row */}
-          <div className="flex items-center justify-between gap-2 border-t border-gray-800/80 pt-2.5 mb-3">
-            
-            {/* Colors */}
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] text-gray-400 font-medium">اللون</span>
-              <div className="flex items-center gap-1.5">
-                {product.colors.map((color, idx) => (
-                  <div key={idx} className="relative group/color">
-                    <button
-                      onClick={() => setSelectedColor(idx)}
-                      style={{ backgroundColor: color.hex }}
-                      className={`w-3.5 h-3.5 rounded-full transition-all border ${
-                        selectedColor === idx
-                          ? "ring-2 ring-[#b0fb30] ring-offset-1 ring-offset-[#13151b] scale-110 border-transparent"
-                          : "border-gray-700 hover:scale-110"
-                      }`}
-                      aria-label={color.name}
-                    />
-                    {/* Tooltip */}
-                    <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover/color:block bg-black text-[9px] text-white px-1.5 py-0.5 rounded whitespace-nowrap z-20 border border-gray-800">
-                      {color.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Sizes */}
-            <div className="flex flex-col gap-1 items-end">
-              <span className="text-[10px] text-gray-400 font-medium">المقاس</span>
-              <div className="flex items-center gap-1">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`w-5 h-5 text-[9px] font-bold rounded-md flex items-center justify-center transition-all ${
-                      selectedSize === size
-                        ? "bg-[#b0fb30] text-deep-black shadow-[0_0_8px_rgba(176,251,48,0.4)]"
-                        : "bg-gray-800/70 text-gray-400 hover:bg-gray-700 hover:text-white"
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-          </div>
         </div>
 
         {/* Bottom Price & Dual Action Buttons */}
