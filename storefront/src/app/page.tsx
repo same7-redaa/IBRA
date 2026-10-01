@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import BestProducts from "@/components/home/BestProducts";
 import Newsletter from "@/components/home/Newsletter";
+import SocialConnect from "@/components/home/SocialConnect";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <BestProducts />
       <Newsletter />
+      <SocialConnect />
     </main>
   );
 }
