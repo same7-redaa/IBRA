@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getProductById, sampleProducts } from "@/data/products";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductOrderBox from "@/components/product/ProductOrderBox";
+import ProductAccordion from "@/components/product/ProductAccordion";
 import ProductCard from "@/components/ui/ProductCard";
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
@@ -56,40 +57,32 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         </div>
 
-        {/* Full Specifications & Fabric Details Section */}
+        {/* Full Specifications, FAQ & Guarantees Accordion Section */}
         <div className="border-t border-gray-900 pt-10 mb-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Sidebar Title & Intro */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28">
               <div className="flex items-center gap-2 text-[#b0fb30] text-xs font-bold mb-2">
                 <Sparkles className="w-4 h-4" />
-                <span>المواصفات والضمان</span>
+                <span>المواصفات والضمانات</span>
               </div>
               <h3 className="text-2xl font-black text-white mb-3">
                 تفاصيل القطعة والخامة
               </h3>
-              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
                 جميع منتجاتنا مصنعة بأعلى معايير الجودة العالمية لنضمن لك راحة تامة ومظهراً فخماً يدوم طويلاً.
               </p>
+              <div className="hidden lg:flex items-center gap-2 text-xs text-[#e2d1f9]">
+                <span>انقر على الأقسام لعرض مزيد من التفاصيل</span>
+              </div>
             </div>
 
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-[5px] bg-[#14161f] border border-gray-800/80">
-                <h4 className="text-sm font-bold text-[#b0fb30] mb-2">نوع النسيج والخامة</h4>
-                <p className="text-xs text-gray-300 leading-relaxed">{product.material}</p>
-              </div>
-
-              <div className="p-4 rounded-[5px] bg-[#14161f] border border-gray-800/80">
-                <h4 className="text-sm font-bold text-[#b0fb30] mb-2">تعليمات الغسيل</h4>
-                <p className="text-xs text-gray-300 leading-relaxed">غسيل في الغسالة بماء بارد (30 درجة)، لا تستخدم المبيضات، الكي على درجة حرارة منخفضة.</p>
-              </div>
-
-              {product.features && product.features.map((feat, idx) => (
-                <div key={idx} className="p-4 rounded-[5px] bg-[#14161f] border border-gray-800/80 flex items-start gap-2.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#b0fb30] mt-1.5 shrink-0" />
-                  <p className="text-xs text-gray-300 leading-relaxed">{feat}</p>
-                </div>
-              ))}
+            {/* Accordion Column */}
+            <div className="lg:col-span-8">
+              <ProductAccordion product={product} />
             </div>
+
           </div>
         </div>
 
