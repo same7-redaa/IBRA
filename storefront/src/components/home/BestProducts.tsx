@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import ProductCard, { ProductProps } from "@/components/ui/ProductCard";
 import { ArrowLeft, Sparkles, Flame } from "lucide-react";
 import Link from "next/link";
-import FancyCornerButton from "@/components/ui/FancyCornerButton";
 
 const sampleProducts: (ProductProps & { category: string })[] = [
   {
@@ -118,14 +117,17 @@ export default function BestProducts() {
           {/* Categories Tab Filter */}
           <div className="flex items-center gap-2.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
             {categories.map((cat) => (
-              <FancyCornerButton
+              <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                variant={activeCategory === cat.id ? "neon" : "dark"}
-                size="sm"
+                className={`px-4 py-2 rounded-[5px] text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  activeCategory === cat.id
+                    ? "bg-[#b0fb30] text-deep-black shadow-[0_0_12px_rgba(176,251,48,0.35)]"
+                    : "bg-[#14161f] text-gray-300 border border-gray-800 hover:border-gray-600 hover:text-white"
+                }`}
               >
                 {cat.label}
-              </FancyCornerButton>
+              </button>
             ))}
           </div>
         </div>
@@ -139,9 +141,12 @@ export default function BestProducts() {
 
         {/* Bottom Banner / View All Link */}
         <div className="mt-12 text-center">
-          <FancyCornerButton href="/products">
+          <Link
+            href="/products"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-[5px] bg-[#14161f] hover:bg-[#1a1d28] text-white border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] font-bold text-sm transition-all duration-200"
+          >
             استكشف باقي التشكيلة بالكامل
-          </FancyCornerButton>
+          </Link>
         </div>
 
       </div>
