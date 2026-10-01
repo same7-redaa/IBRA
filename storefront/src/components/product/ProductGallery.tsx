@@ -31,14 +31,14 @@ export default function ProductGallery({
     <div className="flex flex-col-reverse lg:flex-row gap-4 w-full">
       
       {/* Thumbnails list */}
-      <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto pb-2 lg:pb-0 scrollbar-none shrink-0">
+      <div className="flex lg:flex-col gap-2.5 overflow-x-auto lg:overflow-y-auto pb-1 lg:pb-0 scrollbar-none shrink-0">
         {images.map((img, idx) => (
           <button
             key={idx}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-[5px] overflow-hidden border-2 transition-all duration-200 shrink-0 bg-gray-900 ${
+            className={`relative w-14 h-16 sm:w-16 sm:h-20 rounded-[5px] overflow-hidden border-2 transition-all duration-200 shrink-0 bg-gray-900 ${
               selectedIndex === idx
-                ? "border-[#b0fb30] shadow-[0_0_12px_rgba(176,251,48,0.4)] scale-105"
+                ? "border-[#b0fb30] shadow-[0_0_10px_rgba(176,251,48,0.35)] scale-102"
                 : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
             }`}
           >
@@ -52,7 +52,7 @@ export default function ProductGallery({
       </div>
 
       {/* Main Large Image Container */}
-      <div className="relative flex-grow h-[380px] sm:h-[480px] lg:h-[540px] rounded-[5px] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/80 group">
+      <div className="relative flex-grow h-[300px] sm:h-[360px] lg:h-[400px] rounded-[5px] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800/80 group">
         <img
           src={currentImage}
           alt={productName}

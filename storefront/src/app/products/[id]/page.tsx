@@ -32,13 +32,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = sampleProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-28 pb-20">
+    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-24 pb-16">
       
       {/* Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
         {/* Main Product Showcase (2 Columns: Gallery + Order Box) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start mb-14">
           
           {/* Left/Gallery Column (in RTL: Right visual column) */}
           <div className="lg:col-span-7">
@@ -50,14 +50,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
 
           {/* Right/Details Column */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="lg:col-span-5 flex flex-col gap-4">
             <ProductOrderBox product={product} />
           </div>
 
         </div>
 
         {/* Full Specifications & Fabric Details Section */}
-        <div className="border-t border-gray-900 pt-14 mb-20">
+        <div className="border-t border-gray-900 pt-10 mb-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-2 text-[#b0fb30] text-xs font-bold mb-2">
