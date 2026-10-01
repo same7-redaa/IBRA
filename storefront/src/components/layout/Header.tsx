@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { ShoppingCart, User, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 w-full flex justify-center px-4">
@@ -43,9 +45,11 @@ export default function Header() {
             </button>
             <button className="text-gray-300 hover:text-white transition-transform hover:scale-110 relative">
               <ShoppingCart className="h-[1.4rem] w-[1.4rem]" />
-              <span className="absolute -top-2.5 -left-2.5 flex h-[1.1rem] w-[1.1rem] items-center justify-center rounded-full bg-[#b0fb30] text-[0.65rem] font-bold text-deep-black shadow-sm">
-                2
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2.5 -left-2.5 flex h-[1.15rem] w-[1.15rem] items-center justify-center rounded-full bg-[#b0fb30] text-[0.65rem] font-black text-deep-black shadow-[0_0_8px_rgba(176,251,48,0.5)] animate-scale-up">
+                  {cartCount}
+                </span>
+              )}
             </button>
           </div>
 

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Heart, ShoppingBag, Star } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export interface ProductProps {
   id: string | number;
@@ -19,6 +20,7 @@ export interface ProductProps {
 
 export default function ProductCard({ product }: { product: ProductProps }) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const { addToCart } = useCart();
 
   return (
     <div className="group relative w-full bg-[#13151b] border border-gray-800/80 hover:border-[#b0fb30]/40 rounded-2xl p-2.5 sm:p-3 shadow-[0_12px_25px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_35px_rgba(176,251,48,0.12)] flex flex-col justify-between">
@@ -93,11 +95,15 @@ export default function ProductCard({ product }: { product: ProductProps }) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
-            <button className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-[5px] transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95">
+            <button
+              onClick={() => addToCart(product)}
+              className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-[5px] transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95"
+            >
               شراء الآن
             </button>
             
             <button
+              onClick={() => addToCart(product)}
               aria-label="إضافة إلى السلة"
               className="w-9 h-8 bg-gray-800/90 hover:bg-[#e2d1f9] hover:text-deep-black text-white rounded-[5px] flex items-center justify-center transition-all border border-gray-700/60 active:scale-95 shrink-0"
             >
