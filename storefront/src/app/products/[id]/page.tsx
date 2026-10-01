@@ -6,6 +6,7 @@ import ProductOrderBox from "@/components/product/ProductOrderBox";
 import ProductCard from "@/components/ui/ProductCard";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Truck, RefreshCw, Star, Sparkles } from "lucide-react";
+import BackButton from "@/components/ui/BackButton";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -37,18 +38,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {/* Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-400 mb-8 overflow-x-auto whitespace-nowrap">
-          <Link href="/" className="hover:text-[#b0fb30] transition-colors">
-            الرئيسية
-          </Link>
-          <span>/</span>
-          <Link href="/products" className="hover:text-[#b0fb30] transition-colors">
-            المنتجات
-          </Link>
-          <span>/</span>
-          <span className="text-white font-bold">{product.name}</span>
-        </nav>
+        {/* Back Button */}
+        <div className="mb-6">
+          <BackButton label="الـعـــودة لـلـمـنـتـجـات" />
+        </div>
 
         {/* Main Product Showcase (2 Columns: Gallery + Order Box) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
