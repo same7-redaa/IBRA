@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import FancyCornerButton from "@/components/ui/FancyCornerButton";
-import { Star, ShieldCheck, Truck, RefreshCw, ShoppingBag, Check, Heart, HelpCircle } from "lucide-react";
+import { Star, Check, Heart, HelpCircle } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
   const [selectedColor, setSelectedColor] = useState(0);
@@ -186,27 +186,6 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           شراء فوري والتوجه للدفع
         </button>
 
-      </div>
-
-      {/* Trust & Guarantees Badges */}
-      <div className="grid grid-cols-3 gap-2 pt-2.5 border-t border-gray-800/80 text-center">
-        <div className="flex flex-col items-center gap-1 p-2 rounded-[5px] bg-[#111319] border border-gray-800/60">
-          <Truck className="w-4 h-4 text-[#b0fb30]" />
-          <span className="text-[10px] font-bold text-gray-300">شحن سريع</span>
-          <span className="text-[8.5px] text-gray-500">خلال 24-48 ساعة</span>
-        </div>
-
-        <div className="flex flex-col items-center gap-1 p-2 rounded-[5px] bg-[#111319] border border-gray-800/60">
-          <ShieldCheck className="w-4 h-4 text-[#b0fb30]" />
-          <span className="text-[10px] font-bold text-gray-300">معاينة قبل الدفع</span>
-          <span className="text-[8.5px] text-gray-500">حق الفحص متاح</span>
-        </div>
-
-        <div className="flex flex-col items-center gap-1 p-2 rounded-[5px] bg-[#111319] border border-gray-800/60">
-          <RefreshCw className="w-4 h-4 text-[#b0fb30]" />
-          <span className="text-[10px] font-bold text-gray-300">استرجاع مجاني</span>
-          <span className="text-[8.5px] text-gray-500">خلال 14 يوماً</span>
-        </div>
       </div>
 
     </div>
