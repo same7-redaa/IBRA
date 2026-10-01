@@ -5,9 +5,9 @@
 }
 
 .loader {
-  --main-size: clamp(5.5rem, 9vw, 8.5rem);
+  --main-size: clamp(8rem, 18vw, 15rem);
   --text-color: #ffffff;
-  --shine-color: rgba(176, 251, 48, 0.5);
+  --shine-color: rgba(176, 251, 48, 0.6);
   --shadow-color: #b0fb30;
   display: flex;
   justify-content: center;
@@ -20,9 +20,9 @@
   text-transform: uppercase;
   color: var(--text-color);
   width: 7.3em;
-  height: 1.3em;
+  height: 1.35em;
   letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 0.2em var(--shine-color)) drop-shadow(0 0 0.5em rgba(176, 251, 48, 0.25));
+  filter: drop-shadow(0 0 0.3em var(--shine-color)) drop-shadow(0 0 0.8em rgba(176, 251, 48, 0.35));
 }
 
 .text {
