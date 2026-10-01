@@ -34,37 +34,26 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           loading="lazy"
         />
 
-        {/* Favorite Floating Button */}
+        {/* Favorite Floating Button (Shifted left for optimal position) */}
         <button
           onClick={() => setIsFavorite(!isFavorite)}
           aria-label="إضافة للمفضلة"
-          className="absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center transition-transform active:scale-125 hover:scale-110 border border-white/10"
+          className="absolute top-3 left-3.5 z-10 w-8 h-8 rounded-full bg-black/65 backdrop-blur-md flex items-center justify-center transition-transform active:scale-125 hover:scale-110 border border-white/15 shadow-md"
         >
           <Heart
             className={`w-4 h-4 transition-colors ${
               isFavorite
                 ? "fill-red-500 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]"
-                : "text-gray-400 hover:text-white"
+                : "text-gray-300 hover:text-white"
             }`}
           />
         </button>
-
-        {/* Curved Floating Price Badge */}
-        <div className="absolute left-3 bottom-0 translate-y-2 bg-[#0c0c0c] border border-gray-800/90 text-[#b0fb30] font-black text-sm px-3.5 py-1.5 rounded-t-xl rounded-b-2xl shadow-[0_4px_12px_rgba(0,0,0,0.6)] flex items-center gap-1">
-          <span>{product.price}</span>
-          <span className="text-[10px] text-gray-400 font-normal">ج.م</span>
-          {product.oldPrice && (
-            <span className="text-[10px] text-gray-500 line-through mr-1 font-normal">
-              {product.oldPrice}
-            </span>
-          )}
-        </div>
       </div>
 
       {/* Card Content Details */}
-      <div className="pt-5 px-1.5 pb-2 flex-grow flex flex-col justify-between">
+      <div className="pt-4 px-1.5 pb-1 flex-grow flex flex-col justify-between">
         <div>
-          {/* Brand Name */}
+          {/* Brand Name & Rating */}
           <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">
             <span>{product.brand}</span>
             {/* Rating Stars */}
@@ -81,7 +70,7 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           </h3>
 
           {/* Colors & Sizes Selector Row */}
-          <div className="flex items-center justify-between gap-2 border-t border-gray-800/80 pt-2.5 mb-3.5">
+          <div className="flex items-center justify-between gap-2 border-t border-gray-800/80 pt-2.5 mb-3">
             
             {/* Colors */}
             <div className="flex flex-col gap-1">
@@ -131,18 +120,42 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           </div>
         </div>
 
-        {/* Dual Action Buttons Container */}
-        <div className="flex items-center gap-2 pt-1">
-          <button className="flex-grow py-2 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-xl rounded-br-2xl transition-all shadow-[0_0_12px_rgba(176,251,48,0.25)] hover:shadow-[0_0_18px_rgba(176,251,48,0.4)] active:scale-95">
-            شراء الآن
-          </button>
-          
-          <button
-            aria-label="إضافة إلى السلة"
-            className="w-9 h-8 bg-gray-800/90 hover:bg-[#e2d1f9] hover:text-deep-black text-white rounded-xl rounded-bl-2xl flex items-center justify-center transition-all border border-gray-700/60 active:scale-95"
-          >
-            <ShoppingBag className="w-4 h-4" />
-          </button>
+        {/* Bottom Price & Dual Action Buttons */}
+        <div className="pt-2.5 border-t border-gray-800/80 flex flex-col gap-2.5">
+          {/* Price Row */}
+          <div className="flex items-baseline justify-between">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[#b0fb30] font-black text-xl tracking-tight">
+                {product.price}
+              </span>
+              <span className="text-xs text-gray-400 font-normal">ج.م</span>
+              {product.oldPrice && (
+                <span className="text-xs text-gray-500 line-through mr-1 font-normal">
+                  {product.oldPrice} ج.م
+                </span>
+              )}
+            </div>
+
+            {product.oldPrice && (
+              <span className="text-[10px] font-bold text-deep-black bg-[#b0fb30] px-2 py-0.5 rounded-full shadow-[0_0_8px_rgba(176,251,48,0.3)]">
+                خصم {Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}%
+              </span>
+            )}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2">
+            <button className="flex-grow py-2.5 px-3 bg-[#b0fb30] hover:bg-[#9de42b] text-deep-black font-extrabold text-xs rounded-xl transition-all shadow-[0_0_12px_rgba(176,251,48,0.2)] hover:shadow-[0_0_18px_rgba(176,251,48,0.35)] active:scale-95">
+              شراء الآن
+            </button>
+            
+            <button
+              aria-label="إضافة إلى السلة"
+              className="w-10 h-9 bg-gray-800/90 hover:bg-[#e2d1f9] hover:text-deep-black text-white rounded-xl flex items-center justify-center transition-all border border-gray-700/60 active:scale-95"
+            >
+              <ShoppingBag className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
       </div>
