@@ -16,9 +16,9 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="text-2xl sm:text-3xl font-black tracking-tight text-white hover:opacity-90 transition-opacity"
+              className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity"
             >
-              بسم <span className="text-[#b0fb30]">الله</span>
+              BISM<span className="text-[#b0fb30]">ILLAH</span>
             </Link>
             <span className="hidden sm:inline-block text-gray-700">|</span>
             <span className="text-xs text-gray-400 font-medium">
@@ -69,7 +69,7 @@ export default function Footer() {
         {/* Bottom Rights Row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">متجر بسم الله</span> للأزياء الراقية.
+            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">متجر BISMILLAH</span> للأزياء الراقية.
           </p>
           <div className="flex items-center gap-1.5 text-gray-400">
             <ShieldCheck className="w-3.5 h-3.5 text-[#b0fb30]" />

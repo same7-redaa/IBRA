@@ -7,7 +7,7 @@ import NavigationLoader from "@/components/providers/NavigationLoader";
 import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "بسم الله | للأزياء الراقية",
+  title: "BISMILLAH | للأزياء الراقية",
   description: "متجر أزياء إلكتروني فخم",
 };
 

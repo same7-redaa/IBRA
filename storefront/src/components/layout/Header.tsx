@@ -17,8 +17,8 @@ export default function Header() {
           
           {/* Logo (Right Side in RTL) */}
           <div className="flex-shrink-0 z-10">
-            <Link href="/" className="text-3xl font-bold tracking-tight text-white hover:opacity-90 transition-opacity">
-              بسم <span className="text-[#b0fb30]">الله</span>
+            <Link href="/" className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity">
+              BISM<span className="text-[#b0fb30]">ILLAH</span>
             </Link>
           </div>
 

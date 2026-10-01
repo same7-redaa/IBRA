@@ -19,7 +19,7 @@ export default function SocialConnect() {
         </div>
 
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          انضم إلى مجتمع <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">بسم الله</span>
+          انضم إلى مجتمع <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">BISMILLAH</span>
         </h2>
 
         <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto leading-relaxed mb-8">
