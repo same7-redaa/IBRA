@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ProductCard, { ProductProps } from "@/components/ui/ProductCard";
 import { ArrowLeft, Sparkles, Flame } from "lucide-react";
 import Link from "next/link";
+import FancyCornerButton from "@/components/ui/FancyCornerButton";
 
 const sampleProducts: (ProductProps & { category: string })[] = [
   {
@@ -140,14 +141,10 @@ export default function BestProducts() {
         </div>
 
         {/* Bottom Banner / View All Link */}
-        <div className="mt-14 text-center">
-          <Link
-            href="/products"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-transparent border-2 border-gray-800 hover:border-[#b0fb30] text-white hover:text-[#b0fb30] font-bold text-sm transition-all duration-300 group hover:shadow-[0_0_20px_rgba(176,251,48,0.2)]"
-          >
-            <span>استكشف باقي التشكيلة بالكامل</span>
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          </Link>
+        <div className="mt-12 text-center">
+          <FancyCornerButton href="/products">
+            استكشف باقي التشكيلة بالكامل
+          </FancyCornerButton>
         </div>
 
       </div>
