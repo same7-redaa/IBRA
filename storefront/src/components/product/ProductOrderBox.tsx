@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
-import { Star, Check, Heart, Ruler, ShoppingBag, Truck, RefreshCw, ShieldCheck } from "lucide-react";
-import ScaleButton from "@/components/ui/ScaleButton";
+import { Star, Heart, Ruler, ShoppingBag, Truck, RefreshCw, ShieldCheck } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
   const [selectedColor, setSelectedColor] = useState(0);
@@ -127,23 +126,33 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         </div>
       )}
 
-      {/* Main Action Buttons (Add to Cart + Wishlist) */}
+      {/* Main Action Buttons Row (Buy Now + Add to Cart Icon + Wishlist Icon) */}
       <div className="flex items-center gap-3 pt-2">
         
-        {/* Primary Add to Cart Button */}
+        {/* Instant Buy Now Button (Compact Primary CTA) */}
         <button
           onClick={handleAddToCart}
-          className="flex-grow h-13 rounded-xl bg-white hover:bg-gray-100 text-deep-black font-black text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-xl hover:shadow-2xl active:scale-98 cursor-pointer group"
+          className="flex-grow h-12 rounded-xl bg-white hover:bg-gray-100 text-deep-black font-black text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 transition-all shadow-xl hover:shadow-2xl active:scale-98 cursor-pointer group"
+        >
+          <span>شراء فوري والتوجه للدفع</span>
+        </button>
+
+        {/* Add to Cart (Icon Button) */}
+        <button
+          onClick={handleAddToCart}
+          aria-label="إضافة إلى السلة"
+          title="إضافة إلى السلة"
+          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-700 hover:border-[#b0fb30] hover:bg-[#b0fb30] text-gray-300 hover:text-deep-black flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-md group"
         >
           <ShoppingBag className="w-5 h-5 transition-transform group-hover:scale-110" />
-          <span>إضافة إلى السلة</span>
         </button>
 
         {/* Favorite Wishlist Button */}
         <button
           onClick={() => setIsFavorite(!isFavorite)}
           aria-label="إضافة للمفضلة"
-          className="w-13 h-13 rounded-xl bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105"
+          title="إضافة للمفضلة"
+          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95"
         >
           <Heart
             className={`w-5 h-5 transition-colors ${
