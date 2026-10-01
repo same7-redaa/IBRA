@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./SocialConnect.module.css";
-import { MessageCircle } from "lucide-react";
 
 export default function SocialConnect() {
   return (
@@ -12,12 +11,6 @@ export default function SocialConnect() {
 
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
-        {/* Header */}
-        <div className="flex items-center justify-center gap-2 text-[#b0fb30] text-xs font-bold mb-3 tracking-widest uppercase">
-          <MessageCircle className="w-4 h-4" />
-          <span>تواصل مباشر وتفاعل دائم</span>
-        </div>
-
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
           انضم إلى مجتمع <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">BISMILLAH</span>
         </h2>

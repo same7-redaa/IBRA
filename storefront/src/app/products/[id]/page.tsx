@@ -6,7 +6,6 @@ import ProductOrderBox from "@/components/product/ProductOrderBox";
 import ProductAccordion from "@/components/product/ProductAccordion";
 import ProductCard from "@/components/ui/ProductCard";
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -63,10 +62,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             
             {/* Sidebar Title & Intro */}
             <div className="lg:col-span-4 lg:sticky lg:top-28">
-              <div className="flex items-center gap-2 text-[#b0fb30] text-xs font-bold mb-2">
-                <Sparkles className="w-4 h-4" />
-                <span>المواصفات والضمانات</span>
-              </div>
               <h3 className="text-2xl font-black text-white mb-3">
                 تفاصيل القطعة والخامة
               </h3>

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import ProductCard, { ProductProps } from "@/components/ui/ProductCard";
-import { ArrowLeft, Sparkles, Flame } from "lucide-react";
 import Link from "next/link";
 import styles from "./BestProducts.module.css";
 
@@ -105,11 +104,6 @@ export default function BestProducts() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9 gap-5">
           <div>
-            <div className="flex items-center gap-1.5 text-[#b0fb30] text-xs font-bold mb-1.5">
-              <Flame className="w-3.5 h-3.5 fill-[#b0fb30]" />
-              <span>الأكثر طلباً هذا الأسبوع</span>
-            </div>
-            
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
               أفضل <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">المنتجات</span> والتشكيلات
             </h2>

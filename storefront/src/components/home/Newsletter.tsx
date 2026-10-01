@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import FloatingInput from "@/components/ui/FloatingInput";
 import FancyCornerButton from "@/components/ui/FancyCornerButton";
-import { Mail, Sparkles, CheckCircle2 } from "lucide-react";
+import { Mail, CheckCircle2 } from "lucide-react";
 
 export default function Newsletter() {
   const [emailOrPhone, setEmailOrPhone] = useState("");
@@ -22,12 +22,6 @@ export default function Newsletter() {
 
       <div className="w-full max-w-4xl mx-auto relative z-10 bg-gradient-to-b from-[#14161f] to-[#0e1017] border border-gray-800/80 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] text-center">
         
-        {/* Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#b0fb30]/10 border border-[#b0fb30]/30 text-[#b0fb30] text-xs font-black mb-4 shadow-[0_0_15px_rgba(176,251,48,0.15)]">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>خصم خاص ١٥٪ لأول طلب</span>
-        </div>
-
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight">
           كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">التشكيلات والعروض</span>
