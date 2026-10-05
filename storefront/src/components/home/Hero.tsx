@@ -93,8 +93,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            أنقى أنواع عسل النحل الجبلي والخلطات الملكية الطبيعية 100% مفحوصة وموثقة مخبرياً. 
-            غذاء ودواء يجمع بين أصالة الطعم والفوائد الشفائية الفائقة حتى باب منزلك.
+            عسل نقي 100%، غني طبيعياً ومختار بعناية
           </p>
 
           {/* Centered Buttons */}
