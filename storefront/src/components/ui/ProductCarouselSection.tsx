@@ -34,7 +34,6 @@ export default function ProductCarouselSection({
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      // In RTL, scrollLeft can be negative or positive depending on browser implementation
       const maxScroll = scrollWidth - clientWidth;
       const currentScroll = Math.abs(scrollLeft);
       
@@ -58,8 +57,9 @@ export default function ProductCarouselSection({
 
   const handleScroll = (direction: "prev" | "next") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 340;
-      // For RTL: 'next' scrolls left (revealing more items on the left side)
+      // Scroll by approximately the visible width for clean step scrolling
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.9;
+      // In RTL: 'next' moves viewport to the left (negative in RTL coordinate or standard scroll)
       const multiplier = direction === "next" ? -1 : 1;
       scrollContainerRef.current.scrollBy({
         left: multiplier * scrollAmount,
@@ -69,7 +69,7 @@ export default function ProductCarouselSection({
   };
 
   return (
-    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
+    <section className="relative w-full py-10 sm:py-14 px-3 sm:px-6 md:px-10 lg:px-14 xl:px-18 text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
       
       {/* Decorative Background Artwork if provided */}
       {bgPattern && (
@@ -81,17 +81,17 @@ export default function ProductCarouselSection({
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
         
-        {/* Header with Title, Subtitle, and Carousel Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        {/* Header with Title, Subtitle, and View All Link */}
+        <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
           <div>
             {badge && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d97706]/10 border border-[#d97706]/30 text-[#d97706] text-xs font-black mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d97706]/10 border border-[#d97706]/30 text-[#d97706] text-[11px] sm:text-xs font-black mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{badge}</span>
               </div>
             )}
             
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
               {title}{" "}
               {highlightedWord && (
                 <span className="text-[#d97706]">{highlightedWord}</span>
@@ -99,62 +99,65 @@ export default function ProductCarouselSection({
             </h2>
             
             {subtitle && (
-              <p className="text-xs sm:text-sm text-[#5c4f42] font-semibold mt-1.5">
+              <p className="text-xs sm:text-sm text-[#5c4f42] font-semibold mt-1">
                 {subtitle}
               </p>
             )}
           </div>
 
-          {/* Controls: Next/Prev Arrows & View All */}
-          <div className="flex items-center gap-3 self-end sm:self-auto">
-            {viewAllHref && (
-              <Link
-                href={viewAllHref}
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-black text-[#d97706] hover:text-[#221c15] transition-colors ml-2"
-              >
-                <span>{viewAllLabel}</span>
-                <ArrowLeft className="w-4 h-4" />
-              </Link>
-            )}
-
-            {/* Navigation Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => handleScroll("prev")}
-                aria-label="السابق"
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#221c15] text-[#221c15] hover:text-white border border-[#ebdcc9] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-              
-              <button
-                onClick={() => handleScroll("next")}
-                aria-label="التالي"
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#221c15] text-[#221c15] hover:text-white border border-[#ebdcc9] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+          {/* View All Link */}
+          {viewAllHref && (
+            <Link
+              href={viewAllHref}
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-black text-[#d97706] hover:text-[#221c15] transition-colors shrink-0"
+            >
+              <span>{viewAllLabel}</span>
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
+          )}
         </div>
 
-        {/* Carousel Scroll Container */}
-        <div
-          ref={scrollContainerRef}
-          className="flex gap-5 sm:gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="snap-start shrink-0 w-[275px] sm:w-[295px] md:w-[315px]"
-            >
-              <ProductCard product={product} />
-            </div>
-          ))}
+        {/* Carousel Wrapper with Side-Floating Action Buttons */}
+        <div className="relative group/carousel">
+          
+          {/* Right Floating Arrow (Prev in RTL / Right Side) */}
+          <button
+            onClick={() => handleScroll("prev")}
+            aria-label="السابق (يمين)"
+            className="absolute -right-2 sm:-right-3 md:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813]/90 hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-[0_4px_15px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+
+          {/* Left Floating Arrow (Next in RTL / Left Side) */}
+          <button
+            onClick={() => handleScroll("next")}
+            aria-label="التالي (يسار)"
+            className="absolute -left-2 sm:-left-3 md:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813]/90 hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-[0_4px_15px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+
+          {/* Carousel Scroll Container (2 cards on mobile, 3 on tablet, 4 on desktop) */}
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-2.5 sm:gap-4 md:gap-5 lg:gap-6 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none snap-x snap-mandatory scroll-smooth"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="snap-start shrink-0 w-[calc((100%-0.625rem)/2)] sm:w-[calc((100%-2*1rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)]"
+              >
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>
     </section>
   );
 }
+
