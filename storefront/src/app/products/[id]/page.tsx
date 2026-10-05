@@ -34,10 +34,28 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = sampleProducts.filter((p) => String(p.id) !== String(product.id)).slice(0, 4);
 
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-32 lg:pt-36 pb-20">
+    <main className="relative flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
       
+      {/* 1. Cutout Decorative Illustration - Top Left (Vintage Botanical Engraving) */}
+      <div 
+        className="absolute -top-6 -left-6 w-64 h-64 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-30 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: `url('/prod_art_1.jpg')` }}
+      />
+
+      {/* 2. Cutout Decorative Illustration - Middle Right (Honey Honeycomb & Flora) */}
+      <div 
+        className="absolute top-[42%] -right-10 w-64 h-64 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: `url('/prod_art_2.jpg')` }}
+      />
+
+      {/* 3. Cutout Decorative Illustration - Bottom Left (Vintage Apiary Etching) */}
+      <div 
+        className="absolute bottom-10 -left-10 w-72 h-72 sm:w-96 sm:h-96 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: `url('/prod_art_3.jpg')` }}
+      />
+
       {/* Main Container */}
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         
         {/* Top Section: Single Compact Image on Right (in RTL) + Details on Left (in RTL) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10">
