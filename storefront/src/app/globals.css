@@ -21,6 +21,30 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Thmanyah Serif Display';
+  src: url('/fonts/thmanyah-serif-display-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah Serif Display';
+  src: url('/fonts/thmanyah-serif-display-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah Serif Display';
+  src: url('/fonts/thmanyah-serif-display-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #fbf7ee;
   --foreground: #221c15;
@@ -42,6 +66,7 @@
   --color-soft-gray: var(--color-soft-gray);
   --color-purple-accent: var(--color-purple-accent);
   --font-thmanyah: 'Thmanyah Serif Text', serif;
+  --font-display: 'Thmanyah Serif Display', serif;
   --animate-slide-right: slide-right 50s linear infinite;
   --animate-slide-left: slide-left 50s linear infinite;
 }
@@ -88,4 +113,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-thmanyah);
+}
+
+h1, h2, h3, h4, .heading, .font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
+  font-variant-ligatures: contextual common-ligatures;
+  text-rendering: optimizeLegibility;
 }
