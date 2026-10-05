@@ -134,7 +134,7 @@ export default function ProductCarouselSection({
             {repeatedProducts.map(({ item, key }) => (
               <div
                 key={key}
-                className="snap-start shrink-0 w-full sm:w-[calc((100%-2*1rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)]"
+                className="snap-center shrink-0 min-w-full w-full sm:min-w-0 sm:w-[calc((100%-2*1rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)]"
               >
                 <ProductCard product={item} />
               </div>
