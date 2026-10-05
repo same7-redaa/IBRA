@@ -140,7 +140,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
   ];
 
   return (
-    <div className="w-full border-t border-[#ebdcc9] pt-12 mt-12 mb-16">
+    <div className="w-full border-t border-[#ebdcc9] pt-12 mt-12 mb-16 relative z-20">
       
       {/* Section Title */}
       <div className="mb-8">
@@ -159,19 +159,19 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
           return (
             <div
               key={sec.id}
-              className="transition-colors duration-200"
+              className="w-full transition-colors duration-200"
             >
               {/* Accordion Trigger Header */}
               <button
                 type="button"
                 onClick={() => toggleItem(sec.id)}
-                className="w-full flex items-center justify-between py-4 sm:py-5 px-1 sm:px-2 text-right transition-colors hover:bg-[#fbf7ee]/40 cursor-pointer group"
+                className="w-full flex items-center justify-between py-4 sm:py-5 px-1 sm:px-2 text-right transition-colors hover:bg-[#fbf7ee]/60 active:bg-[#fbf7ee] cursor-pointer touch-manipulation select-none group"
                 aria-expanded={isOpen}
               >
                 {/* Title + Artwork Drawing Thumbnail */}
-                <div className="flex items-center gap-3.5 sm:gap-4.5">
+                <div className="flex items-center gap-3 sm:gap-4.5 pointer-events-none">
                   {/* Vintage Botanical Artwork Drawing Thumbnail */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden bg-[#fbf7ee] border border-[#ebdcc9] shrink-0 p-1 flex items-center justify-center shadow-sm group-hover:border-[#d97706]/50 transition-colors">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl overflow-hidden bg-[#fbf7ee] border border-[#ebdcc9] shrink-0 p-1 flex items-center justify-center shadow-sm group-hover:border-[#d97706]/50 transition-colors">
                     <Image
                       src={sec.artImage}
                       alt={sec.artAlt}
@@ -182,7 +182,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
                   </div>
 
                   <div>
-                    <h4 className="font-black text-base sm:text-lg lg:text-xl text-[#221c15] group-hover:text-[#d97706] transition-colors">
+                    <h4 className="font-black text-sm sm:text-lg lg:text-xl text-[#221c15] group-hover:text-[#d97706] transition-colors leading-snug">
                       {sec.title}
                     </h4>
                     <p className="text-[11px] sm:text-xs text-[#5c4f42] mt-0.5 line-clamp-1 font-medium">
@@ -193,7 +193,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
 
                 {/* Arrow Indicator */}
                 <div
-                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 mr-2 ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 mr-1.5 sm:mr-2 pointer-events-none ${
                     isOpen
                       ? "bg-[#d97706] text-white rotate-180 shadow-md shadow-[#d97706]/20"
                       : "bg-[#fbf7ee] border border-[#ebdcc9] text-[#221c15] group-hover:border-[#d97706] group-hover:text-[#d97706]"
@@ -205,7 +205,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
 
               {/* Accordion Body Content */}
               {isOpen && (
-                <div className="px-1 sm:px-2 pb-6 pt-1 sm:pr-[4.5rem] animate-fade-in">
+                <div className="px-1 sm:px-2 pb-6 pt-1 sm:pr-[4.5rem]">
                   {sec.content}
                 </div>
               )}

@@ -252,15 +252,16 @@ export default function Header() {
               {/* Mobile "حسب احتياجك" Accordion Section */}
               <div className="border-t border-[#3d3226] pt-3">
                 <button
+                  type="button"
                   onClick={() => setIsMobileNeedsOpen(!isMobileNeedsOpen)}
-                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#2a221a] border border-[#3d3226] text-xs sm:text-sm font-black text-[#f59e0b]"
+                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#2a221a] border border-[#3d3226] text-xs sm:text-sm font-black text-[#f59e0b] cursor-pointer touch-manipulation select-none active:bg-[#342a20]"
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 pointer-events-none">
                     <Sparkles className="w-4 h-4" />
                     <span>أعسال وخلطات حسب احتياجك الصحي</span>
                   </div>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
+                    className={`w-4 h-4 transition-transform pointer-events-none ${
                       isMobileNeedsOpen ? "rotate-180" : ""
                     }`}
                   />
