@@ -46,39 +46,20 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
       
-      {/* 1. Honeycomb Geometric Pattern Background */}
+      {/* 1. Transparent Honey Background Image */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <svg
-          className="w-full h-full opacity-20"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-        >
-          <defs>
-            <pattern
-              id="honeycomb-pattern"
-              width="56"
-              height="96.99"
-              patternUnits="userSpaceOnUse"
-              patternTransform="scale(1)"
-            >
-              <path
-                d="M28 0 L56 16.16 L56 48.5 L28 64.66 L0 48.5 L0 16.16 Z M28 96.99 L56 80.83 L56 48.5 L28 64.66 L0 48.5 L0 80.83 Z"
-                fill="none"
-                stroke="#d97706"
-                strokeWidth="1.2"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#honeycomb-pattern)" />
-        </svg>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-multiply transition-opacity"
+          style={{ backgroundImage: `url('/hero_bg.jpg')` }}
+        />
 
         {/* Ambient Warm Honey Glows */}
         <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[#f59e0b]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#d97706]/10 rounded-full blur-3xl" />
         
-        {/* Subtle Edge Fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7ee]/40 via-transparent to-[#fbf7ee]" />
+        {/* Subtle Edge Fades for Smooth Integration */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7ee] via-transparent to-[#fbf7ee]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7ee]/60 via-transparent to-[#fbf7ee]" />
       </div>
 
       {/* 2. Main Content Container */}
