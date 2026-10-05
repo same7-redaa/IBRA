@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import NavigationLoader from "@/components/providers/NavigationLoader";
+import ScrollToTop from "@/components/providers/ScrollToTop";
 import CartDrawer from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/context/CartContext";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#fbf7ee] text-[#221c15] relative selection:bg-[#d97706]/20 selection:text-[#221c15]">
         <CartProvider>
           <Suspense fallback={null}>
+            <ScrollToTop />
             <NavigationLoader />
           </Suspense>
           <Header />

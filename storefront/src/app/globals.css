@@ -109,6 +109,15 @@
   animation: toastProgress linear forwards;
 }
 
+@keyframes loaderProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 *, ::before, ::after {
   font-family: var(--font-display), var(--font-thmanyah), serif;
   font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
