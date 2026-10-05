@@ -95,10 +95,10 @@ export default function Hero() {
           {/* Left Column: 3D Stacked Image Showcase */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center select-none">
             
-            {/* 3D Stack Image Container */}
+            {/* 3D Stack Image Container (Slightly Reduced Size) */}
             <div 
               onClick={() => setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length)}
-              className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[400px] h-[340px] sm:h-[400px] flex items-center justify-center cursor-pointer group"
+              className="relative w-full max-w-[250px] sm:max-w-[290px] lg:max-w-[320px] h-[280px] sm:h-[330px] flex items-center justify-center cursor-pointer group"
               title="انقر للتبديل للصورة التالية"
             >
               {honeyImages.map((img, idx) => {
@@ -115,22 +115,22 @@ export default function Hero() {
                   transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
                   opacityStyle = 1;
                   zIndexStyle = 40;
-                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22))";
+                  filterStyle = "drop-shadow(0 16px 30px rgba(180, 83, 9, 0.2))";
                 } else if (offset === 1) {
                   // 1st Card Behind (Shifted & Rotated)
-                  transformStyle = { transform: "translate3d(-35px, -18px, 0) scale(0.88) rotate(-7deg)" };
+                  transformStyle = { transform: "translate3d(-28px, -14px, 0) scale(0.88) rotate(-6deg)" };
                   opacityStyle = 0.65;
                   zIndexStyle = 30;
-                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.12)) brightness(0.92)";
+                  filterStyle = "drop-shadow(0 8px 16px rgba(180, 83, 9, 0.1)) brightness(0.92)";
                 } else if (offset === 2) {
                   // 2nd Card Behind
-                  transformStyle = { transform: "translate3d(-65px, -34px, 0) scale(0.76) rotate(-14deg)" };
+                  transformStyle = { transform: "translate3d(-52px, -26px, 0) scale(0.76) rotate(-12deg)" };
                   opacityStyle = 0.35;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 5px 15px rgba(180, 83, 9, 0.06)) brightness(0.85)";
+                  filterStyle = "drop-shadow(0 4px 12px rgba(180, 83, 9, 0.05)) brightness(0.85)";
                 } else {
                   // Exiting / Hidden Card
-                  transformStyle = { transform: "translate3d(60px, 20px, 0) scale(0.85) rotate(12deg)" };
+                  transformStyle = { transform: "translate3d(45px, 15px, 0) scale(0.85) rotate(10deg)" };
                   opacityStyle = 0;
                   zIndexStyle = 10;
                   filterStyle = "none";
