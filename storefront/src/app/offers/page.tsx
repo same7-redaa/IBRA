@@ -1,0 +1,57 @@
+"use client";
+
+import React from "react";
+import ProductCard from "@/components/ui/ProductCard";
+import { sampleProducts } from "@/data/products";
+import { Sparkles, Percent } from "lucide-react";
+
+export default function OffersPage() {
+  // Show products that are in the "offers" collection or have an active oldPrice discount
+  const offerProducts = sampleProducts.filter(
+    (p) =>
+      p.category === "offers" ||
+      (p.categories && p.categories.includes("offers")) ||
+      (p.oldPrice && p.oldPrice > p.price)
+  );
+
+  return (
+    <main className="relative flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-36 pb-20 overflow-hidden">
+      
+      {/* Background Decorative Pattern */}
+      <div 
+        className="absolute top-0 left-0 w-80 h-80 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: `url('/pattern_2.jpg')` }}
+      />
+      <div 
+        className="absolute bottom-10 right-0 w-80 h-80 bg-contain bg-no-repeat opacity-20 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: `url('/pattern_4.jpg')` }}
+      />
+
+      <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
+        
+        {/* Header Title */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#ebdcc9] text-xs font-black text-[#d97706] shadow-sm mb-4">
+            <Percent className="w-3.5 h-3.5" />
+            <span>خصومات حصرية لفترة محدودة</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#221c15] tracking-tight">
+            العروض وباقات <span className="text-[#d97706]">التوفير الملكية</span>
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-[#5c4f42] font-semibold">
+            استمتع بأقوى باقات التوفير على أجود قطفات عسل النحل الطبيعي مع شحن مجاني
+          </p>
+        </div>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8 w-full">
+          {offerProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+
+      </div>
+    </main>
+  );
+}

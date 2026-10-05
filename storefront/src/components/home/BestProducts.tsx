@@ -3,23 +3,19 @@
 import React, { useState } from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import ScaleButton from "@/components/ui/ScaleButton";
-import { sampleProducts } from "@/data/products";
+import { sampleProducts, productCategories } from "@/data/products";
 
 export default function BestProducts() {
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const categories = [
-    { id: "all", label: "الكل" },
-    { id: "sidr", label: "عسل سدر جبلي" },
-    { id: "black_seed", label: "عسل حبة البركة" },
-    { id: "royal", label: "خلطات ملكية" },
-    { id: "citrus", label: "عسل الموالح والزهور" }
-  ];
-
   const filteredProducts =
     activeCategory === "all"
       ? sampleProducts
-      : sampleProducts.filter((p) => p.category === activeCategory);
+      : sampleProducts.filter(
+          (p) =>
+            p.category === activeCategory ||
+            (p.categories && p.categories.includes(activeCategory))
+        );
 
   return (
     <section className="relative w-full py-14 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-[#fbf7ee] text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
@@ -48,7 +44,7 @@ export default function BestProducts() {
 
           {/* Categories Tab Filter */}
           <div className="flex items-center gap-2.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
-            {categories.map((cat) => (
+            {productCategories.map((cat) => (
               <ScaleButton
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}

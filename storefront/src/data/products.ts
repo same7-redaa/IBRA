@@ -1,6 +1,7 @@
 export interface ProductItem {
   id: string | number;
   category: string;
+  categories?: string[];
   brand: string;
   name: string;
   price: number;
@@ -16,10 +17,61 @@ export interface ProductItem {
   inStock: boolean;
 }
 
+export interface CategoryItem {
+  id: string;
+  label: string;
+}
+
+export const productCategories: CategoryItem[] = [
+  {
+    "id": "all",
+    "label": "جميع المنتجات"
+  },
+  {
+    "id": "royal",
+    "label": "عسل ملكي"
+  },
+  {
+    "id": "offers",
+    "label": "العروض الخاصة"
+  },
+  {
+    "id": "immunity_energy",
+    "label": "المناعة والطاقة"
+  },
+  {
+    "id": "special_blends",
+    "label": "خلطات مميزة"
+  },
+  {
+    "id": "cave_honey",
+    "label": "عسل الكهوف"
+  },
+  {
+    "id": "honeycomb",
+    "label": "شمع العسل"
+  },
+  {
+    "id": "respiratory",
+    "label": "الصحة التنفسية والمدخنون"
+  },
+  {
+    "id": "digestive",
+    "label": "صحة الجهاز الهضمي"
+  },
+  {
+    "id": "diabetic_friendly",
+    "label": "مناسب لمرضى السكري"
+  }
+];
+
 export const sampleProducts: ProductItem[] = [
   {
     "id": 10449434050874,
-    "category": "black_seed",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل حبة البركة القصيمي الملكي",
     "price": 998,
@@ -48,7 +100,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449433788730,
-    "category": "sidr",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل السدر المصري الملكي",
     "price": 1798,
@@ -77,7 +132,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449433657658,
-    "category": "royal",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الصال الملكي",
     "price": 4998,
@@ -106,7 +164,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449433559354,
-    "category": "sidr",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل السدر العصيمي الملكي",
     "price": 5398,
@@ -135,7 +196,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449433362746,
-    "category": "royal",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل المر السقطري الملكي",
     "price": 3998,
@@ -164,7 +228,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449432215866,
-    "category": "royal",
+    "category": "offers",
+    "categories": [
+      "offers"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الأبيض الملكي",
     "price": 3599,
@@ -193,7 +260,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449148248378,
-    "category": "royal",
+    "category": "special_blends",
+    "categories": [
+      "special_blends"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "خلطة الطاقة الملكية",
     "price": 1299,
@@ -220,7 +290,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449142120762,
-    "category": "royal",
+    "category": "cave_honey",
+    "categories": [
+      "cave_honey"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الكهوف الملكي بالذهب",
     "price": 8399,
@@ -250,6 +323,10 @@ export const sampleProducts: ProductItem[] = [
   {
     "id": 10449138352442,
     "category": "royal",
+    "categories": [
+      "royal",
+      "respiratory"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الصال الملكي",
     "price": 1399,
@@ -278,7 +355,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449135305018,
-    "category": "royal",
+    "category": "honeycomb",
+    "categories": [
+      "honeycomb"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "شمع العسل التركي الملكي",
     "price": 1999,
@@ -307,7 +387,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449134911802,
-    "category": "sidr",
+    "category": "honeycomb",
+    "categories": [
+      "honeycomb"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "شمع العسل السدر الجبلي اليمني",
     "price": 3999,
@@ -336,7 +419,11 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449120985402,
-    "category": "black_seed",
+    "category": "royal",
+    "categories": [
+      "royal",
+      "immunity_energy"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل حبة البركة القصيمي الملكي",
     "price": 299,
@@ -366,6 +453,11 @@ export const sampleProducts: ProductItem[] = [
   {
     "id": 10449112695098,
     "category": "royal",
+    "categories": [
+      "royal",
+      "digestive",
+      "diabetic_friendly"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل المر السقطري الملكي",
     "price": 1199,
@@ -394,7 +486,10 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449109418298,
-    "category": "sidr",
+    "category": "cave_honey",
+    "categories": [
+      "cave_honey"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل السدر الكهوف الملكي",
     "price": 4999,
@@ -424,6 +519,9 @@ export const sampleProducts: ProductItem[] = [
   {
     "id": 10449109025082,
     "category": "royal",
+    "categories": [
+      "royal"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الأبيض الملكي",
     "price": 999,
@@ -452,7 +550,12 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449106665786,
-    "category": "sidr",
+    "category": "royal",
+    "categories": [
+      "royal",
+      "immunity_energy",
+      "digestive"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل السدر العصيمي الملكي",
     "price": 1499,
@@ -482,6 +585,9 @@ export const sampleProducts: ProductItem[] = [
   {
     "id": 10449102045498,
     "category": "royal",
+    "categories": [
+      "royal"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل الموالح الملكي",
     "price": 399,
@@ -511,6 +617,9 @@ export const sampleProducts: ProductItem[] = [
   {
     "id": 10449096442170,
     "category": "royal",
+    "categories": [
+      "royal"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل نوارة البرسيم الملكي",
     "price": 399,
@@ -539,7 +648,11 @@ export const sampleProducts: ProductItem[] = [
   },
   {
     "id": 10449084416314,
-    "category": "sidr",
+    "category": "royal",
+    "categories": [
+      "royal",
+      "immunity_energy"
+    ],
     "brand": "مناحل عسل زوين",
     "name": "عسل السدر المصري الملكي",
     "price": 499,
