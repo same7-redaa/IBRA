@@ -77,11 +77,11 @@ export default function NavigationLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-deep-black/90 backdrop-blur-lg transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1c1813]/95 backdrop-blur-lg transition-opacity duration-300 ${
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <Loader text="BISMILLAH" />
+      <Loader text="عسل زوين" subtext="جاري التحميل..." />
     </div>
   );
 }

@@ -3,8 +3,8 @@ import Loader from "@/components/ui/Loader";
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black/90 backdrop-blur-md">
-      <Loader text="BISMILLAH" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1c1813]/95 backdrop-blur-md">
+      <Loader text="عسل زوين" subtext="جاري التحميل..." />
     </div>
   );
 }
