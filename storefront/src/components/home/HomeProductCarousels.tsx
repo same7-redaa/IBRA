@@ -2,77 +2,113 @@
 
 import React from "react";
 import ProductCarouselSection from "@/components/ui/ProductCarouselSection";
-import { sampleProducts } from "@/data/products";
+import { sampleProducts, productCategories, CategoryItem } from "@/data/products";
+
+// Metadata mapping for category headers, badges, subtitles, and decorative artwork
+const CATEGORY_META: Record<
+  string,
+  {
+    highlightedWord?: string;
+    subtitle: string;
+    badge: string;
+    pattern: string;
+  }
+> = {
+  royal: {
+    highlightedWord: "الملكي الفاخر",
+    subtitle: "خلاصة الأعسال الملكية الفاخرة الممزوجة بأجود أنواع غذاء الملكات الطبيعي الصافي",
+    badge: "مجموعة العسل الملكي",
+    pattern: "/pattern_3.jpg",
+  },
+  offers: {
+    highlightedWord: "والباقات الحصرية",
+    subtitle: "باقات وعروض توفير استثنائية مع خصومات تصل إلى 40% لفترة محدودة",
+    badge: "عروض وباقات التوفير",
+    pattern: "/pattern_1.jpg",
+  },
+  immunity_energy: {
+    highlightedWord: "والطاقة الحيوية",
+    subtitle: "تركيبات غنية بالمغذيات الحيوية ومضادات الأكسدة لتعزيز النشاط والدفاعات الطبيعية",
+    badge: "دعم المناعة والنشاط",
+    pattern: "/pattern_4.jpg",
+  },
+  special_blends: {
+    highlightedWord: "الحصرية الفاخرة",
+    subtitle: "ابتكارات عسل زوين الخاصة مع الجينسينج الكوري، غذاء الملكات، وحبوب اللقاح",
+    badge: "خلطات حصرية مبتكرة",
+    pattern: "/pattern_2.jpg",
+  },
+  cave_honey: {
+    highlightedWord: "الجبلي النادر",
+    subtitle: "أندر أنواع العسل الجبلي المعتق المستخرج من كهوف الجبال الشاهقة العذراء",
+    badge: "قطفات جبلية نادرة",
+    pattern: "/pattern_3.jpg",
+  },
+  honeycomb: {
+    highlightedWord: "العضوي النقي",
+    subtitle: "أقراص شمع العسل العضوي الصافي مباشرة من خلايا النحل الطبيعية لمائدتك",
+    badge: "شمع طبيعي 100%",
+    pattern: "/pattern_1.jpg",
+  },
+  respiratory: {
+    highlightedWord: "وللمدخنين",
+    subtitle: "تركيبات وأعسال مهدئة للحلق تدعم راحة الشعب الهوائية وتنقية الصدر",
+    badge: "الصحة التنفسية",
+    pattern: "/pattern_4.jpg",
+  },
+  digestive: {
+    highlightedWord: "والقولون",
+    subtitle: "أعسال طبيعية تساهم في تهدئة المعدة ودعم الهضم السليم وراحة الجهاز الهضمي",
+    badge: "صحة الجهاز الهضمي",
+    pattern: "/pattern_2.jpg",
+  },
+  diabetic_friendly: {
+    highlightedWord: "لمرضى السكري",
+    subtitle: "أعسال منتقاة بمؤشر جلايسيمي منخفض تناسب الاستخدام المقنن لمرضى السكري",
+    badge: "حميات وسكري",
+    pattern: "/pattern_3.jpg",
+  },
+};
 
 export default function HomeProductCarousels() {
-  // 1. أجود أعسال النحل الطبيعية (Pure single-origin honeys, Sidr, Cave, Honeycomb)
-  const naturalHoneys = sampleProducts.filter((p) => {
-    const isSpecialBlend =
-      p.categories?.includes("special_blends") ||
-      p.name.includes("خلطة") ||
-      p.name.includes("غذاء ملكات");
-    return !isSpecialBlend;
-  });
-
-  // 2. الخلطات الملكية ومعززات الطاقة والمناعة (Royal Blends & Vitality)
-  const royalBlends = sampleProducts.filter((p) => {
-    return (
-      p.categories?.includes("royal") ||
-      p.categories?.includes("special_blends") ||
-      p.categories?.includes("immunity_energy") ||
-      p.categories?.includes("respiratory") ||
-      p.categories?.includes("digestive") ||
-      p.name.includes("خلطة") ||
-      p.name.includes("الملكي") ||
-      p.name.includes("غذاء ملكات")
-    );
-  });
-
-  // 3. عروض التوفير والباقات الحصرية (Special Offers & Bundles)
-  const specialOffers = sampleProducts.filter((p) => {
-    return (
-      p.categories?.includes("offers") ||
-      (p.oldPrice && p.oldPrice > p.price)
-    );
-  });
+  // Get all active categories except "all"
+  const activeCategories = productCategories.filter((cat) => cat.id !== "all");
 
   return (
-    <div className="w-full flex flex-col space-y-2">
-      {/* Section 1: أجود أعسال النحل الطبيعية */}
-      <ProductCarouselSection
-        title="أجود أعسال النحل"
-        highlightedWord="الطبيعية"
-        subtitle="قطفات جبلية وبرية نقية 100% مستخلصة من أندر رحيق الزهور البرية ومفحوصة مخبرياً"
-        badge="نقاء طبيعي 100%"
-        products={naturalHoneys.length > 0 ? naturalHoneys : sampleProducts}
-        viewAllHref="/products"
-        viewAllLabel="استكشف جميع الأعسال"
-        bgPattern="/pattern_3.jpg"
-      />
+    <div className="w-full flex flex-col space-y-1">
+      {activeCategories.map((cat, index) => {
+        // Filter products belonging to this category
+        const categoryProducts = sampleProducts.filter(
+          (p) =>
+            p.category === cat.id ||
+            (p.categories && p.categories.includes(cat.id))
+        );
 
-      {/* Section 2: الخلطات الملكية الفاخرة */}
-      <ProductCarouselSection
-        title="الخلطات الملكية"
-        highlightedWord="ومعززات الطاقة"
-        subtitle="تركيبات فاخرة مدعمة بغذاء الملكات النقي وحبوب اللقاح والجينسينج للصحة والمناعة والحيوية"
-        badge="تركيبات حصرية فاخرة"
-        products={royalBlends.length > 0 ? royalBlends : sampleProducts}
-        viewAllHref="/categories"
-        viewAllLabel="تصفح جميع الخلطات"
-        bgPattern="/pattern_4.jpg"
-      />
+        // Fallback if empty to ensure every category always showcases matching products
+        const productsToDisplay =
+          categoryProducts.length > 0 ? categoryProducts : sampleProducts.slice(0, 4);
 
-      {/* Section 3: باقات وعروض التوفير الحصرية */}
-      <ProductCarouselSection
-        title="باقات وعروض"
-        highlightedWord="التوفير الخاصة"
-        subtitle="وفر أكثر مع باقات عسل زوين المختارة بأسعار استثنائية وخصومات لفترة محدودة"
-        badge="خصومات تصل إلى 40%"
-        products={specialOffers.length > 0 ? specialOffers : sampleProducts}
-        viewAllHref="/offers"
-        viewAllLabel="شاهد كافة العروض"
-        bgPattern="/pattern_1.jpg"
-      />
+        const meta = CATEGORY_META[cat.id] || {
+          highlightedWord: "الفاخر",
+          subtitle: `تصفح أجود منتجات ${cat.label} الطبيعية والمفحوصة مخبرياً`,
+          badge: cat.label,
+          pattern: index % 2 === 0 ? "/pattern_3.jpg" : "/pattern_1.jpg",
+        };
+
+        return (
+          <ProductCarouselSection
+            key={cat.id}
+            title={cat.label}
+            highlightedWord={meta.highlightedWord}
+            subtitle={meta.subtitle}
+            badge={meta.badge}
+            products={productsToDisplay}
+            viewAllHref={`/categories`}
+            viewAllLabel={`تصفح قسم ${cat.label}`}
+            bgPattern={meta.pattern}
+          />
+        );
+      })}
     </div>
   );
 }
