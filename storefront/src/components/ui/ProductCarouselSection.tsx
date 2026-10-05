@@ -59,7 +59,7 @@ export default function ProductCarouselSection({
     if (scrollContainerRef.current) {
       // Scroll by approximately the visible width for clean step scrolling
       const scrollAmount = scrollContainerRef.current.clientWidth * 0.9;
-      // In RTL: 'next' moves viewport to the left (negative in RTL coordinate or standard scroll)
+      // In RTL: 'next' moves viewport to the left
       const multiplier = direction === "next" ? -1 : 1;
       scrollContainerRef.current.scrollBy({
         left: multiplier * scrollAmount,
@@ -69,7 +69,7 @@ export default function ProductCarouselSection({
   };
 
   return (
-    <section className="relative w-full py-10 sm:py-14 px-3 sm:px-6 md:px-10 lg:px-14 xl:px-18 text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
+    <section className="relative w-full py-10 sm:py-14 px-2 sm:px-6 md:px-10 lg:px-14 xl:px-16 text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
       
       {/* Decorative Background Artwork if provided */}
       {bgPattern && (
@@ -82,7 +82,7 @@ export default function ProductCarouselSection({
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
         
         {/* Header with Title, Subtitle, and View All Link */}
-        <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
+        <div className="flex items-end justify-between mb-6 sm:mb-8 px-2 sm:px-4 gap-4">
           <div>
             {badge && (
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d97706]/10 border border-[#d97706]/30 text-[#d97706] text-[11px] sm:text-xs font-black mb-2">
@@ -117,31 +117,22 @@ export default function ProductCarouselSection({
           )}
         </div>
 
-        {/* Carousel Wrapper with Side-Floating Action Buttons */}
-        <div className="relative group/carousel">
+        {/* Carousel Flex Layout with Dedicated Side Buttons on the far Right and Left */}
+        <div className="relative flex items-center w-full">
           
-          {/* Right Floating Arrow (Prev in RTL / Right Side) */}
+          {/* Right Section Button (Prev in RTL) */}
           <button
             onClick={() => handleScroll("prev")}
             aria-label="السابق (يمين)"
-            className="absolute -right-2 sm:-right-3 md:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813]/90 hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-[0_4px_15px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
+            className="shrink-0 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer ml-1.5 sm:ml-3"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-
-          {/* Left Floating Arrow (Next in RTL / Left Side) */}
-          <button
-            onClick={() => handleScroll("next")}
-            aria-label="التالي (يسار)"
-            className="absolute -left-2 sm:-left-3 md:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813]/90 hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-[0_4px_15px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
           </button>
 
           {/* Carousel Scroll Container (2 cards on mobile, 3 on tablet, 4 on desktop) */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-2.5 sm:gap-4 md:gap-5 lg:gap-6 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none snap-x snap-mandatory scroll-smooth"
+            className="flex-grow flex gap-2.5 sm:gap-4 md:gap-5 lg:gap-6 overflow-x-auto pb-4 pt-1 px-0.5 scrollbar-none snap-x snap-mandatory scroll-smooth"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {products.map((product) => (
@@ -154,10 +145,20 @@ export default function ProductCarouselSection({
             ))}
           </div>
 
+          {/* Left Section Button (Next in RTL) */}
+          <button
+            onClick={() => handleScroll("next")}
+            aria-label="التالي (يسار)"
+            className="shrink-0 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer mr-1.5 sm:mr-3"
+          >
+            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+          </button>
+
         </div>
 
       </div>
     </section>
   );
 }
+
 
