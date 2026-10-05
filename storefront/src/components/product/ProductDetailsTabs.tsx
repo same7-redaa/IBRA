@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import {
   Sparkles,
-  Droplets,
-  HeartPulse,
   Truck,
-  Package,
-  Layers,
   ShieldCheck,
   RefreshCw,
 } from "lucide-react";
@@ -28,22 +24,22 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
   ];
 
   return (
-    <div className="w-full border-t border-gray-900/80 pt-12 mt-16 mb-20">
+    <div className="w-full border-t border-[#ebdcc9] pt-12 mt-12 mb-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        {/* Left Column (in RTL: Right visual column): Tabs & Text */}
+        {/* Right Column in RTL: Tabs & Text */}
         <div className="lg:col-span-6 flex flex-col gap-6">
           
           {/* Tab Navigation Header */}
-          <div className="flex items-center gap-6 sm:gap-8 border-b border-gray-800 pb-3 overflow-x-auto scrollbar-none">
+          <div className="flex items-center gap-6 sm:gap-8 border-b border-[#ebdcc9] pb-3 overflow-x-auto scrollbar-none">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`text-sm sm:text-base font-black transition-all cursor-pointer whitespace-nowrap pb-3 -mb-3 relative ${
                   activeTab === tab.id
-                    ? "text-white after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-white"
-                    : "text-gray-500 hover:text-gray-300"
+                    ? "text-[#d97706] after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#d97706]"
+                    : "text-[#8a7a6b] hover:text-[#221c15]"
                 }`}
               >
                 {tab.label}
@@ -54,18 +50,18 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
           {/* Tab Content */}
           <div className="min-h-[220px]">
             {activeTab === "details" && (
-              <div className="space-y-4 animate-fadeIn">
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <div className="space-y-4 animate-fade-in">
+                <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed">
                   {product.description}
                 </p>
 
                 <ul className="space-y-3 pt-2">
                   {product.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-gray-300">
-                      <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                        <Sparkles className="w-3 h-3 text-[#f59e0b]" />
+                    <li key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-[#221c15]">
+                      <div className="w-5 h-5 rounded-full bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0">
+                        <Sparkles className="w-3 h-3 text-[#d97706]" />
                       </div>
-                      <span>{feat}</span>
+                      <span className="font-medium">{feat}</span>
                     </li>
                   ))}
                 </ul>
@@ -73,52 +69,52 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
             )}
 
             {activeTab === "source" && (
-              <div className="space-y-4 animate-fadeIn">
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <div className="space-y-4 animate-fade-in">
+                <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed">
                   نحن نضمن أن جميع أعسالنا غير مبسترة، خام تماماً، ولم تتعرض لأي درجات حرارة تفقدها الإنزيمات الحية والخصائص العلاجية الطبيعية.
                 </p>
-                <div className="p-4 rounded-xl bg-[#14161f] border border-gray-800 space-y-2">
-                  <span className="text-xs font-bold text-[#f59e0b] block">المكونات والنقاء:</span>
-                  <p className="text-xs text-gray-300">{product.material}</p>
-                  <p className="text-[11px] text-gray-400">الفحص المخبري: نسبة سكروز 0%، خالٍ تماماً من بقايا المبيدات والمضادات الحيوية والتغذية السكرية.</p>
+                <div className="p-4 rounded-2xl bg-white border border-[#ebdcc9] space-y-2 shadow-sm">
+                  <span className="text-xs font-bold text-[#d97706] block">المكونات والنقاء:</span>
+                  <p className="text-xs text-[#221c15] font-medium">{product.material}</p>
+                  <p className="text-[11px] text-[#8a7a6b]">الفحص المخبري: نسبة سكروز 0%، خالٍ تماماً من بقايا المبيدات والمضادات الحيوية والتغذية السكرية.</p>
                 </div>
               </div>
             )}
 
             {activeTab === "usage" && (
-              <div className="space-y-4 animate-fadeIn">
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <div className="space-y-4 animate-fade-in">
+                <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed">
                   للحصول على أقصى فائدة صحية وعلاجية، يُنصح بتناول ملعقة طعام صباحاً على الريق إما مباشرة أو مذابة في نصف كوب ماء فاتر.
                 </p>
                 <div className="grid grid-cols-2 gap-3 pt-2">
-                  <div className="p-3 rounded-lg bg-[#14161f] border border-gray-800 text-center">
-                    <span className="text-xs font-bold text-white block">طريقة الحفظ</span>
-                    <span className="text-xs text-gray-400">في درجة حرارة الغرفة بعيداً عن الشمس</span>
+                  <div className="p-3.5 rounded-xl bg-white border border-[#ebdcc9] text-center shadow-sm">
+                    <span className="text-xs font-bold text-[#221c15] block">طريقة الحفظ</span>
+                    <span className="text-xs text-[#8a7a6b]">في درجة حرارة الغرفة بعيداً عن الشمس</span>
                   </div>
-                  <div className="p-3 rounded-lg bg-[#14161f] border border-gray-800 text-center">
-                    <span className="text-xs font-bold text-white block">أداة الاستخدام</span>
-                    <span className="text-xs text-[#f59e0b]">ملعقة خشبية أو بلاستيكية</span>
+                  <div className="p-3.5 rounded-xl bg-white border border-[#ebdcc9] text-center shadow-sm">
+                    <span className="text-xs font-bold text-[#221c15] block">أداة الاستخدام</span>
+                    <span className="text-xs text-[#d97706] font-bold">ملعقة خشبية أو بلاستيكية</span>
                   </div>
                 </div>
               </div>
             )}
 
             {activeTab === "shipping" && (
-              <div className="space-y-4 animate-fadeIn">
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <div className="space-y-4 animate-fade-in">
+                <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed">
                   تغليف آمن ومقاوم للكسر مع شحن سريع لكافة المحافظات، مع ميزة الضمان الذهبي الكامل (تذوق وافحص قبل الدفع).
                 </p>
-                <div className="space-y-2 pt-1">
-                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <Truck className="w-4 h-4 text-[#f59e0b]" />
+                <div className="space-y-2.5 pt-1">
+                  <div className="flex items-center gap-2.5 text-xs text-[#221c15]">
+                    <Truck className="w-4 h-4 text-[#d97706]" />
                     <span>توصيل سريع ومغلف بعناية خلال 24-48 ساعة</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <RefreshCw className="w-4 h-4 text-[#f59e0b]" />
+                  <div className="flex items-center gap-2.5 text-xs text-[#221c15]">
+                    <RefreshCw className="w-4 h-4 text-[#d97706]" />
                     <span>الضمان الذهبي: استرجاع فوري إذا لم ينل إعجابك</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <ShieldCheck className="w-4 h-4 text-[#f59e0b]" />
+                  <div className="flex items-center gap-2.5 text-xs text-[#221c15]">
+                    <ShieldCheck className="w-4 h-4 text-[#d97706]" />
                     <span>معاينة وتذوق مع المندوب قبل استلام الشحنة</span>
                   </div>
                 </div>
@@ -128,9 +124,9 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
 
         </div>
 
-        {/* Right Column (in RTL: Left visual column): High-Res Honey Texture Photo */}
+        {/* Left Column in RTL: High-Res Honey Texture Photo */}
         <div className="lg:col-span-6">
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-gray-800/80 shadow-2xl group bg-[#14161f]">
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden border border-[#ebdcc9] shadow-md group bg-white">
             <img
               src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1200&q=85"
               alt={`${product.name} - خلايا وشمع العسل الطبيعي`}

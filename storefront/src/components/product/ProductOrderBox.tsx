@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import ScaleButton from "@/components/ui/ScaleButton";
-import { Star, Heart, Ruler, ShoppingBag, Truck, RefreshCw, ShieldCheck } from "lucide-react";
+import { Star, Heart, ShoppingBag, Truck, RefreshCw, ShieldCheck, Check } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
   const [selectedColor, setSelectedColor] = useState(0);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "M");
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "500 جرام");
   const [isFavorite, setIsFavorite] = useState(false);
   const { addToCart } = useCart();
 
@@ -21,62 +21,62 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
   };
 
   return (
-    <div className="flex flex-col gap-5 text-white">
+    <div className="flex flex-col gap-5 text-[#221c15]">
       
       {/* Product Name & Brand */}
       <div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight mb-2">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#221c15] leading-tight tracking-tight mb-2">
           {product.name}
         </h1>
 
         {/* Rating Stars & Reviews Count */}
-        <div className="flex items-center gap-2 text-xs text-gray-400">
-          <div className="flex items-center gap-1 text-[#ffd426]">
+        <div className="flex items-center gap-2 text-xs text-[#5c4f42]">
+          <div className="flex items-center gap-1 text-[#f59e0b]">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
-          <span className="font-bold text-white text-sm">{product.rating}</span>
-          <span>({product.reviewsCount} تقييم حقيقي)</span>
+          <span className="font-bold text-[#221c15] text-sm">{product.rating}</span>
+          <span>({product.reviewsCount} تقييم موثق)</span>
         </div>
       </div>
 
-      {/* Price & Discount Line (Matches Reference Image) */}
+      {/* Price & Discount Line */}
       <div className="flex items-baseline gap-3">
-        <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-          {product.price} <span className="text-lg font-bold text-gray-400">ج.م</span>
+        <span className="text-3xl sm:text-4xl font-black text-[#d97706] tracking-tight">
+          {product.price} <span className="text-lg font-bold text-[#5c4f42]">ج.م</span>
         </span>
         
         {product.oldPrice && (
-          <span className="text-lg text-gray-500 line-through font-normal">
+          <span className="text-lg text-[#8a7a6b] line-through font-normal">
             {product.oldPrice} ج.م
           </span>
         )}
 
         {discountPercentage && (
-          <span className="text-xs font-black text-[#f59e0b] bg-[#f59e0b]/10 border border-[#f59e0b]/30 px-2.5 py-1 rounded-md">
-            خصم {discountPercentage}%
+          <span className="text-xs font-black text-[#d97706] bg-[#d97706]/10 border border-[#d97706]/20 px-2.5 py-1 rounded-full">
+            وفر {discountPercentage}%
           </span>
         )}
       </div>
 
       {/* Product Short Bio Paragraph */}
-      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
+      <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed max-w-xl font-medium">
         {product.description}
       </p>
 
       {/* Divider */}
-      <div className="w-full h-px bg-gray-800/80" />
+      <div className="w-full h-px bg-[#ebdcc9]" />
 
-      {/* Color / Variety Selector (Matches Reference Image) */}
+      {/* Variety / Honey Grade Selector */}
       {product.colors && product.colors.length > 0 && (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2.5">
           <div className="flex items-center gap-2 text-sm">
-            <span className="font-bold text-gray-400">نوع / درجة العسل:</span>
-            <span className="font-bold text-white">{product.colors[selectedColor].name}</span>
+            <span className="font-bold text-[#5c4f42]">نوع ودرجة القطفة:</span>
+            <span className="font-bold text-[#221c15]">{product.colors[selectedColor].name}</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             {product.colors.map((color, idx) => (
               <button
                 key={idx}
@@ -84,8 +84,8 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
                 style={{ backgroundColor: color.hex }}
                 className={`relative w-8 h-8 rounded-full transition-all cursor-pointer border ${
                   selectedColor === idx
-                    ? "ring-2 ring-offset-2 ring-[#f59e0b] ring-offset-deep-black scale-110 border-transparent shadow-[0_0_12px_rgba(245,158,11,0.4)]"
-                    : "border-gray-600 hover:scale-105"
+                    ? "ring-2 ring-offset-2 ring-[#d97706] ring-offset-[#fbf7ee] scale-110 border-white shadow-md"
+                    : "border-[#ebdcc9] hover:scale-105"
                 }`}
                 title={color.name}
               />
@@ -94,18 +94,18 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         </div>
       )}
 
-      {/* Weight / Jar Size Selector */}
+      {/* Weight / Jar Size Selector (اختيارات الحجم) */}
       {product.sizes && product.sizes.length > 0 && (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2.5">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-gray-400">حجم العبوة:</span>
-              <span className="font-bold text-[#f59e0b] uppercase">{selectedSize}</span>
+              <span className="font-bold text-[#5c4f42]">حجم العبوة:</span>
+              <span className="font-bold text-[#d97706]">{selectedSize}</span>
             </div>
 
-            <div className="text-xs text-gray-400 flex items-center gap-1.5 font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
-              <span>زجاج طبي معقم</span>
+            <div className="text-xs text-[#5c4f42] flex items-center gap-1.5 font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
+              <span>عبوة زجاجية معقمة</span>
             </div>
           </div>
 
@@ -114,10 +114,10 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`min-w-[70px] h-11 px-4 rounded-lg text-xs font-black transition-all cursor-pointer border ${
+                className={`min-w-[80px] h-11 px-4 rounded-xl text-xs font-black transition-all cursor-pointer border ${
                   selectedSize === size
-                    ? "bg-white text-deep-black border-white shadow-lg scale-105"
-                    : "bg-[#14161f] text-gray-300 border-gray-800 hover:border-gray-600 hover:text-white"
+                    ? "bg-[#221c15] text-white border-[#221c15] shadow-md scale-105"
+                    : "bg-white text-[#221c15] border-[#ebdcc9] hover:border-[#d97706] hover:bg-[#fbf7ee]"
                 }`}
               >
                 {size}
@@ -130,7 +130,7 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
       {/* Main Action Buttons Row (Buy Now + Add to Cart Icon + Wishlist Icon) */}
       <div className="flex items-center gap-3 pt-2">
         
-        {/* Instant Buy Now Button (Same style as card buy now) */}
+        {/* Instant Buy Now Button */}
         <ScaleButton
           onClick={handleAddToCart}
           variant="neon"
@@ -141,12 +141,12 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           شراء فوري والتوجه للدفع
         </ScaleButton>
 
-        {/* Add to Cart (Icon Button) */}
+        {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
           aria-label="إضافة إلى السلة"
           title="إضافة إلى السلة"
-          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-700 hover:border-[#f59e0b] hover:bg-[#f59e0b] text-gray-300 hover:text-deep-black flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-md group"
+          className="w-12 h-12 rounded-xl bg-white border border-[#ebdcc9] hover:border-[#d97706] hover:bg-[#d97706] text-[#221c15] hover:text-white flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-sm group"
         >
           <ShoppingBag className="w-5 h-5 transition-transform group-hover:scale-110" />
         </button>
@@ -156,41 +156,41 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           onClick={() => setIsFavorite(!isFavorite)}
           aria-label="إضافة للمفضلة"
           title="إضافة للمفضلة"
-          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95"
+          className="w-12 h-12 rounded-xl bg-white border border-[#ebdcc9] hover:border-[#d97706] flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-sm"
         >
           <Heart
             className={`w-5 h-5 transition-colors ${
-              isFavorite ? "fill-red-500 text-red-500" : "text-gray-400 hover:text-white"
+              isFavorite ? "fill-red-500 text-red-500" : "text-[#8a7a6b] hover:text-red-500"
             }`}
           />
         </button>
 
       </div>
 
-      {/* Micro Guarantees / Service Badges (Matches Reference Image) */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-gray-800/80">
+      {/* Trust Badges */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[#ebdcc9]">
         
-        <div className="flex items-center gap-2.5">
-          <Truck className="w-4 h-4 text-[#f59e0b] shrink-0" />
+        <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/70 border border-[#ebdcc9]">
+          <Truck className="w-4 h-4 text-[#d97706] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-white block">شحن مجاني وسريع</span>
-            <span className="text-gray-500 text-[10px]">لكافة المحافظات</span>
+            <span className="font-bold text-[#221c15] block">شحن سريع</span>
+            <span className="text-[#8a7a6b] text-[10px]">لباب المنزل</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <RefreshCw className="w-4 h-4 text-[#f59e0b] shrink-0" />
+        <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/70 border border-[#ebdcc9]">
+          <RefreshCw className="w-4 h-4 text-[#d97706] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-white block">استرجاع سهل</span>
-            <span className="text-gray-500 text-[10px]">خلال 14 يوماً</span>
+            <span className="font-bold text-[#221c15] block">استرجاع مجاني</span>
+            <span className="text-[#8a7a6b] text-[10px]">ضمان ذهبي</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <ShieldCheck className="w-4 h-4 text-[#f59e0b] shrink-0" />
+        <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/70 border border-[#ebdcc9]">
+          <ShieldCheck className="w-4 h-4 text-[#d97706] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-white block">معاينة قبل الدفع</span>
-            <span className="text-gray-500 text-[10px]">دفع آمن 100%</span>
+            <span className="font-bold text-[#221c15] block">فحص وتذوق</span>
+            <span className="text-[#8a7a6b] text-[10px]">قبل الاستلام</span>
           </div>
         </div>
 

@@ -30,20 +30,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
     ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
     : undefined;
 
-  // Show up to 4 related products (matching the 4-card grid in reference image)
+  // Show up to 4 related products
   const relatedProducts = sampleProducts.filter((p) => String(p.id) !== String(product.id)).slice(0, 4);
 
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-28 sm:pt-32 lg:pt-36 pb-20">
+    <main className="flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-32 lg:pt-36 pb-20">
       
       {/* Main Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Top Section: Lookbook Gallery + Sticky Order Panel (Matches Reference Layout) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-10">
+        {/* Top Section: Single Compact Image on Right (in RTL) + Details on Left (in RTL) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10">
           
-          {/* Gallery Column (in RTL: Right side) */}
-          <div className="lg:col-span-7">
+          {/* Right Column in RTL: Single Compact Product Image */}
+          <div className="lg:col-span-5 flex justify-center items-start">
             <ProductGallery
               images={product.gallery && product.gallery.length > 0 ? product.gallery : [product.image]}
               productName={product.name}
@@ -51,28 +51,28 @@ export default async function ProductPage({ params }: ProductPageProps) {
             />
           </div>
 
-          {/* Details & Ordering Column (in RTL: Left side, Sticky) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 pt-2">
+          {/* Left Column in RTL: Name, Bio, Size Choices, and Order Actions */}
+          <div className="lg:col-span-7 pt-1">
             <ProductOrderBox product={product} />
           </div>
 
         </div>
 
-        {/* Middle Section: Story & Detail Tabs + High-Res Texture Photo (Matches Reference Image) */}
+        {/* Middle Section: Story & Detail Tabs + High-Res Texture Photo */}
         <ProductDetailsTabs product={product} />
 
-        {/* Bottom Section: You May Also Like / منتجات قد تعجبك (Matches Reference 4-Card Grid) */}
-        <div className="border-t border-gray-900/80 pt-14">
+        {/* Bottom Section: You May Also Like / منتجات قد تعجبك */}
+        <div className="border-t border-[#ebdcc9] pt-14">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              أعسال <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">قد تعجبك</span> أيضاً
+            <h3 className="text-2xl sm:text-3xl font-black text-[#221c15] tracking-tight">
+              أعسال <span className="text-[#d97706]">قد تعجبك</span> أيضاً
             </h3>
             <Link
               href="/products"
-              className="group flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 hover:text-white font-bold transition-colors"
+              className="group flex items-center gap-1.5 text-xs sm:text-sm text-[#5c4f42] hover:text-[#d97706] font-bold transition-colors"
             >
               <span>عرض كل الأعسال</span>
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#f59e0b]" />
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#d97706]" />
             </Link>
           </div>
 

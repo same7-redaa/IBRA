@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, ZoomIn, ChevronRight, ChevronLeft } from "lucide-react";
+import { ZoomIn, ShieldCheck } from "lucide-react";
 
 interface ProductGalleryProps {
   images: string[];
@@ -14,100 +14,46 @@ export default function ProductGallery({
   productName,
   discountPercentage,
 }: ProductGalleryProps) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
-
-  const currentImage = images[selectedIndex] || images[0];
-
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const mainImage = images[0] || "/hero/png_1.png";
 
   return (
-    <div className="flex flex-col-reverse sm:flex-row gap-4 lg:gap-5 w-full items-start">
-      
-      {/* Vertical Thumbnails Strip */}
-      <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto w-full sm:w-20 lg:w-24 shrink-0 scrollbar-none pb-2 sm:pb-0 max-h-[550px]">
-        {images.map((img, idx) => (
-          <button
-            key={idx}
-            onClick={() => setSelectedIndex(idx)}
-            className={`relative w-16 sm:w-full aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
-              selectedIndex === idx
-                ? "border-[#f59e0b] ring-2 ring-[#f59e0b]/30 shadow-[0_0_15px_rgba(245,158,11,0.3)] scale-[1.02]"
-                : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
-            }`}
-          >
-            <img
-              src={img}
-              alt={`${productName} - مصغرة ${idx + 1}`}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-            />
-          </button>
-        ))}
-
-        {/* Scroll Down Arrow Indicator */}
-        {images.length > 3 && (
-          <button
-            onClick={handleNext}
-            aria-label="عرض المزيد من الصور"
-            className="hidden sm:flex w-full h-9 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#f59e0b] hover:text-[#f59e0b] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
-          >
-            <ChevronDown className="w-4 h-4" />
-          </button>
+    <div className="w-full flex flex-col items-center">
+      {/* Single Compact Image Card */}
+      <div className="relative w-full max-w-[540px] h-[320px] sm:h-[380px] lg:h-[420px] rounded-3xl bg-white border border-[#ebdcc9] p-4 sm:p-6 flex items-center justify-center shadow-[0_8px_30px_rgba(180,83,9,0.06)] overflow-hidden group">
+        
+        {/* Discount Badge */}
+        {discountPercentage && (
+          <div className="absolute top-4 right-4 z-10 bg-[#d97706] text-white text-xs font-black px-3 py-1.5 rounded-full shadow-md">
+            خصم {discountPercentage}%
+          </div>
         )}
-      </div>
 
-      {/* Main Square Lookbook Image */}
-      <div className="relative flex-grow w-full aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#161822] to-[#0e1017] border border-gray-800/80 group shadow-2xl">
+        {/* Quality Seal Badge */}
+        <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-[#fbf7ee] border border-[#ebdcc9] text-[#5c4f42] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
+          <span>طبيعي 100%</span>
+        </div>
+
+        {/* The Single Product Image */}
         <img
-          src={currentImage}
+          src={mainImage}
           alt={productName}
-          className={`w-full h-full object-cover object-center transition-all duration-700 ${
+          className={`w-full h-full object-contain transition-transform duration-500 ${
             isZoomed ? "scale-125 cursor-zoom-out" : "group-hover:scale-105 cursor-zoom-in"
           }`}
           onClick={() => setIsZoomed(!isZoomed)}
         />
 
-        {/* Floating Zoom Button at Bottom Corner */}
+        {/* Floating Zoom Action Button */}
         <button
           onClick={() => setIsZoomed(!isZoomed)}
           aria-label="تكبير الصورة"
-          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-gray-700/80 text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-all shadow-lg hover:scale-110 cursor-pointer"
+          className="absolute bottom-4 left-4 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#ebdcc9] text-[#221c15] flex items-center justify-center hover:bg-[#d97706] hover:text-white transition-all shadow-md hover:scale-110 cursor-pointer"
         >
           <ZoomIn className="w-4 h-4" />
         </button>
-
-        {/* Navigation Arrows for Mobile / Carousel */}
-        {images.length > 1 && (
-          <div className="absolute inset-x-3 top-1/2 -translate-y-1/2 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-            <button
-              onClick={handlePrev}
-              aria-label="الصورة السابقة"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              aria-label="الصورة التالية"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-          </div>
-        )}
-
-        {/* Counter Badge */}
-        <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md border border-gray-800 text-gray-300 text-[11px] font-bold px-3 py-1 rounded-full">
-          {selectedIndex + 1} / {images.length}
-        </div>
       </div>
-
     </div>
   );
 }
