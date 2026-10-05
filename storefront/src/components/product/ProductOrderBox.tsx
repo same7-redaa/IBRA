@@ -7,7 +7,6 @@ import ScaleButton from "@/components/ui/ScaleButton";
 import { Star, Heart, ShoppingBag, Truck, RefreshCw, ShieldCheck, Check } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
-  const [selectedColor, setSelectedColor] = useState(0);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "500 جرام");
   const [isFavorite, setIsFavorite] = useState(false);
   const { addToCart } = useCart();
@@ -67,32 +66,6 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
 
       {/* Divider */}
       <div className="w-full h-px bg-[#ebdcc9]" />
-
-      {/* Variety / Honey Grade Selector */}
-      {product.colors && product.colors.length > 0 && (
-        <div className="flex flex-col gap-2.5">
-          <div className="flex items-center gap-2 text-sm">
-            <span className="font-bold text-[#5c4f42]">نوع ودرجة القطفة:</span>
-            <span className="font-bold text-[#221c15]">{product.colors[selectedColor].name}</span>
-          </div>
-
-          <div className="flex items-center gap-2.5">
-            {product.colors.map((color, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedColor(idx)}
-                style={{ backgroundColor: color.hex }}
-                className={`relative w-8 h-8 rounded-full transition-all cursor-pointer border ${
-                  selectedColor === idx
-                    ? "ring-2 ring-offset-2 ring-[#d97706] ring-offset-[#fbf7ee] scale-110 border-white shadow-md"
-                    : "border-[#ebdcc9] hover:scale-105"
-                }`}
-                title={color.name}
-              />
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Weight / Jar Size Selector (اختيارات الحجم) */}
       {product.sizes && product.sizes.length > 0 && (
