@@ -117,45 +117,23 @@ export default function Hero() {
 
           </div>
 
-          {/* Left Column: Interactive Auto-Changing Honey Image Showcase */}
-          <div className="lg:col-span-5 flex justify-center items-center relative">
+          {/* Left Column: Pure Image Showcase (No Container, No Glow) */}
+          <div className="lg:col-span-5 flex justify-center items-center">
             
-            {/* Decorative Honeycomb Ring / Aura */}
-            <div className="absolute -inset-2.5 bg-gradient-to-tr from-[#d97706]/20 via-[#f59e0b]/30 to-[#fbbf24]/20 rounded-[2rem] blur-lg opacity-70" />
-
-            {/* Showcase Card Frame (Compact & Refined) */}
-            <div className="relative w-full max-w-[290px] sm:max-w-[330px] lg:max-w-[340px] aspect-[4/5] rounded-[1.75rem] overflow-hidden bg-white border-2 border-[#ebdcc9] shadow-[0_15px_35px_rgba(180,83,9,0.1)] p-2 sm:p-2.5">
-              
-              {/* Image Transition Box */}
-              <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden bg-[#fbf7ee]">
-                {honeyImages.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img}
-                    alt={`عسل زوين - صورة ${idx + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
-                      idx === currentImageIndex
-                        ? "opacity-100 scale-100 rotate-0"
-                        : "opacity-0 scale-105 pointer-events-none"
-                    }`}
-                  />
-                ))}
-
-                {/* Subtle Inner Gradient Shade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
-
-                {/* Floating Badge on Image */}
-                <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#ebdcc9] shadow-md text-[11px] font-extrabold text-[#221c15]">
-                  <span className="w-2 h-2 rounded-full bg-[#d97706] animate-ping" />
-                  <span>قطفات طبيعية طازجة</span>
-                </div>
-
-                {/* Counter / Indicator Pill */}
-                <div className="absolute top-3 left-3 z-10 px-2.5 py-0.5 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-bold border border-white/20">
-                  {currentImageIndex + 1} / {honeyImages.length}
-                </div>
-              </div>
-
+            {/* Direct Image Frame with No Container / No Glow */}
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[4/5] rounded-2xl overflow-hidden">
+              {honeyImages.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`عسل زوين - صورة ${idx + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                    idx === currentImageIndex
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                />
+              ))}
             </div>
 
           </div>
