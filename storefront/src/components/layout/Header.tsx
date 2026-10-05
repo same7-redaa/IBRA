@@ -119,7 +119,7 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-4 lg:gap-6 z-10 shrink-0">
               {/* WhatsApp / Customer Service */}
               <a
-                href="https://wa.me/201000000000"
+                href="https://wa.me/201023160657"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="تواصل معنا عبر واتساب"
@@ -299,7 +299,7 @@ export default function Header() {
             {/* Mobile Actions in Drawer */}
             <div className="border-t border-[#3d3226] p-4 flex items-center justify-between gap-3">
               <a
-                href="https://wa.me/201000000000"
+                href="https://wa.me/201023160657"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}

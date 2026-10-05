@@ -54,7 +54,7 @@ export default function SocialConnect() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me"
+            href="https://wa.me/201023160657"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialButton} ${styles.btnWhatsApp}`}

@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ProductItem } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import ScaleButton from "@/components/ui/ScaleButton";
 import { Star, Heart, ShoppingBag, Truck, RefreshCw, ShieldCheck, Check } from "lucide-react";
 
 export default function ProductOrderBox({ product }: { product: ProductItem }) {
+  const router = useRouter();
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "500 جرام");
   const [isFavorite, setIsFavorite] = useState(false);
   const { addToCart } = useCart();
@@ -16,7 +18,12 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
     : undefined;
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart({ ...product, sizes: [selectedSize] });
+  };
+
+  const handleBuyNow = () => {
+    addToCart({ ...product, sizes: [selectedSize] });
+    router.push("/checkout");
   };
 
   return (
@@ -105,7 +112,7 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         
         {/* Instant Buy Now Button */}
         <ScaleButton
-          onClick={handleAddToCart}
+          onClick={handleBuyNow}
           variant="neon"
           size="md"
           fullWidth

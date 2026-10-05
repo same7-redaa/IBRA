@@ -12,9 +12,12 @@ import {
   CreditCard,
   Banknote,
   Sparkles,
+  MessageCircle,
 } from "lucide-react";
 import FloatingInput from "@/components/ui/FloatingInput";
 import ScaleButton from "@/components/ui/ScaleButton";
+import { STORE_WHATSAPP_DISPLAY, STORE_WHATSAPP_NUMBER } from "@/config/store";
+import { buildOrderWhatsappUrl, OrderDetails } from "@/utils/whatsappOrder";
 
 export default function CheckoutPage() {
   const { cartItems, totalAmount, clearCart } = useCart();
@@ -22,8 +25,10 @@ export default function CheckoutPage() {
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
+  const [notes, setNotes] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [isOrdered, setIsOrdered] = useState(false);
+  const [orderWhatsappUrl, setOrderWhatsappUrl] = useState("");
 
   const shippingFee = 0; // Free shipping
   const finalTotal = totalAmount + shippingFee;
@@ -31,27 +36,51 @@ export default function CheckoutPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName || !phone || !address) return;
+
+    const orderData: OrderDetails = {
+      fullName,
+      phone,
+      city,
+      address,
+      notes: notes || undefined,
+      paymentMethod,
+      items: cartItems.map((item) => ({
+        name: item.name,
+        size: item.sizes && item.sizes.length > 0 ? item.sizes[0] : undefined,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+      total: finalTotal,
+    };
+
+    const waUrl = buildOrderWhatsappUrl(orderData);
+    setOrderWhatsappUrl(waUrl);
     setIsOrdered(true);
     clearCart();
+
+    // Open WhatsApp in new window/tab
+    if (typeof window !== "undefined") {
+      window.open(waUrl, "_blank");
+    }
   };
 
   if (isOrdered) {
     return (
-      <main className="min-h-screen bg-[#fbf7ee] text-[#221c15] pt-36 pb-20 flex items-center justify-center px-4">
-        <div className="w-full max-w-lg bg-white border border-[#ebdcc9] rounded-3xl p-8 sm:p-10 text-center shadow-lg animate-scale-up">
-          <div className="w-20 h-20 rounded-full bg-[#fbf7ee] border-2 border-[#d97706] flex items-center justify-center text-[#d97706] mx-auto mb-6 shadow-sm">
-            <CheckCircle2 className="w-10 h-10" />
+      <main className="min-h-screen bg-[#fbf7ee] text-[#221c15] pt-32 sm:pt-36 pb-20 flex items-center justify-center px-4">
+        <div className="w-full max-w-lg bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-10 text-center shadow-xl animate-scale-up">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#fbf7ee] border-2 border-[#d97706] flex items-center justify-center text-[#d97706] mx-auto mb-5 shadow-sm">
+            <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#221c15] mb-3">
-            تم تأكيد طلبك بنجاح!
+          <h1 className="text-2xl sm:text-3xl font-black text-[#221c15] mb-2">
+            تم تسجيل طلبك بنجاح!
           </h1>
-          <p className="text-sm text-[#5c4f42] leading-relaxed mb-6 font-medium">
-            شكراً لثقتك في <span className="font-bold text-[#221c15]">مناحل عسل زوين</span>. سيقوم فريق خدمة العملاء بالتواصل معك هاتفياً خلال دقائق لتأكيد موعد التسليم.
+          <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed mb-6 font-medium">
+            شكراً لثقتك في <span className="font-bold text-[#221c15]">مناحل عسل زوين</span>. تم تجهيز تفاصيل طلبك وإرسالها إلى واتساب خدمة العملاء مباشرة.
           </p>
 
-          <div className="p-4 rounded-2xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#5c4f42] mb-8 space-y-2">
+          <div className="p-4 rounded-2xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#5c4f42] mb-6 space-y-2 text-right">
             <div className="flex justify-between font-bold">
-              <span>الاسم:</span>
+              <span>اسم العميل:</span>
               <span className="text-[#221c15]">{fullName}</span>
             </div>
             <div className="flex justify-between font-bold">
@@ -63,14 +92,27 @@ export default function CheckoutPage() {
               <span className="text-[#221c15]">{city} - {address}</span>
             </div>
             <div className="flex justify-between font-bold text-sm text-[#d97706] pt-2 border-t border-[#ebdcc9]">
-              <span>المبلغ المطلوب عند الاستلام:</span>
+              <span>المبلغ الإجمالي عند الاستلام:</span>
               <span>{finalTotal} ج.م</span>
             </div>
           </div>
 
+          {/* Primary Action: Direct WhatsApp Forward Button */}
+          {orderWhatsappUrl && (
+            <a
+              href={orderWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 w-full h-12 sm:h-13 rounded-xl bg-[#25d366] hover:bg-[#20bd5a] text-white font-black text-xs sm:text-sm transition-colors shadow-lg shadow-[#25d366]/20 mb-3"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>إرسال تفاصيل الطلب عبر واتساب ({STORE_WHATSAPP_DISPLAY})</span>
+            </a>
+          )}
+
           <Link
             href="/"
-            className="inline-flex items-center justify-center w-full h-12 rounded-xl bg-[#221c15] hover:bg-[#d97706] text-white font-black text-sm transition-colors shadow-md"
+            className="inline-flex items-center justify-center w-full h-11 sm:h-12 rounded-xl bg-[#221c15] hover:bg-[#d97706] text-white font-black text-xs sm:text-sm transition-colors shadow-sm"
           >
             العودة للرئيسية
           </Link>
@@ -141,6 +183,13 @@ export default function CheckoutPage() {
                     onChange={(e) => setAddress(e.target.value)}
                   />
                 </div>
+
+                <FloatingInput
+                  label="ملاحظات إضافية للطلب أو التوصيل (اختياري)"
+                  type="text"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                />
               </div>
             </div>
 
