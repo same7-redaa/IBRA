@@ -7,12 +7,10 @@ import { ShieldCheck, Award, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const honeyImages = [
-    "/hero/h_1.jpg",
-    "/hero/h_2.jpg",
-    "/hero/h_3.jpg",
-    "/hero/h_4.jpg",
-    "/hero/h_5.jpg",
-    "/hero/h_6.jpg"
+    "/hero/png_1.png",
+    "/hero/png_2.png",
+    "/hero/png_3.png",
+    "/hero/png_4.png"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -94,17 +92,17 @@ export default function Hero() {
 
           </div>
 
-          {/* Left Column: Pure Image Showcase (Transparent Blended Background) */}
+          {/* Left Column: Pure Image Showcase (Native Transparent PNGs) */}
           <div className="lg:col-span-5 flex justify-center items-center">
             
-            {/* Direct Image Frame with Transparent Background Blend */}
-            <div className="relative w-full max-w-[280px] sm:max-w-[340px] aspect-[4/5] flex items-center justify-center">
+            {/* Direct Image Frame with Transparent Background */}
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square flex items-center justify-center">
               {honeyImages.map((img, idx) => (
                 <img
                   key={idx}
                   src={img}
-                  alt={`عسل زوين - صورة ${idx + 1}`}
-                  className={`absolute inset-0 w-full h-full object-contain object-center mix-blend-multiply transition-opacity duration-1000 ease-in-out ${
+                  alt={`عسل زوين - تصميم ${idx + 1}`}
+                  className={`absolute inset-0 w-full h-full object-contain object-center drop-shadow-[0_12px_30px_rgba(180,83,9,0.12)] transition-opacity duration-1000 ease-in-out ${
                     idx === currentImageIndex
                       ? "opacity-100"
                       : "opacity-0 pointer-events-none"
