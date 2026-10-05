@@ -109,14 +109,25 @@
   animation: toastProgress linear forwards;
 }
 
+*, ::before, ::after {
+  font-family: var(--font-display), var(--font-thmanyah), serif;
+  font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
+  font-variant-ligatures: contextual common-ligatures;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-thmanyah);
+  font-family: var(--font-display), var(--font-thmanyah), serif;
 }
 
-h1, h2, h3, h4, .heading, .font-display {
-  font-family: var(--font-display);
+button, input, select, textarea, a, p, span, div, label {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, .heading, .font-display {
+  font-family: var(--font-display), serif;
   font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
   font-variant-ligatures: contextual common-ligatures;
   text-rendering: optimizeLegibility;
