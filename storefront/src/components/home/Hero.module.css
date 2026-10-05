@@ -24,10 +24,10 @@
   transition: color 0.4s ease-in-out;
 }
 
-/* Primary Hero Button: Honey Gold Expand */
+/* Primary Hero Button: White Luxury Expand */
 .btnPrimary {
-  border: 2px solid #f59e0b;
-  color: #f59e0b;
+  border: 2px solid #ffffff;
+  color: #ffffff;
 }
 
 .btnPrimary::after {
@@ -36,7 +36,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #f59e0b;
+  background-color: #ffffff;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -45,9 +45,9 @@
 }
 
 .btnPrimary:hover {
-  box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.45);
   color: #0c0c0c;
-  border-color: #f59e0b;
+  border-color: #ffffff;
 }
 
 .btnPrimary:hover::after {
