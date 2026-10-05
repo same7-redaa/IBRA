@@ -164,8 +164,11 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
               {/* Accordion Trigger Header */}
               <button
                 type="button"
-                onClick={() => toggleItem(sec.id)}
-                className="w-full flex items-center justify-between py-4 sm:py-5 px-1 sm:px-2 text-right transition-colors hover:bg-[#fbf7ee]/60 active:bg-[#fbf7ee] cursor-pointer touch-manipulation select-none group"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleItem(sec.id);
+                }}
+                className="w-full flex items-center justify-between py-4 sm:py-5 px-1 sm:px-2 text-right transition-colors hover:bg-[#fbf7ee]/60 active:bg-[#fbf7ee] cursor-pointer touch-manipulation select-none group relative z-20"
                 aria-expanded={isOpen}
               >
                 {/* Title + Artwork Drawing Thumbnail */}

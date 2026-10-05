@@ -145,16 +145,20 @@ export default function Header() {
             </div>
 
             {/* Mobile Actions & Hamburger */}
-            <div className="flex items-center gap-2.5 lg:hidden z-10">
+            <div className="flex items-center gap-2 lg:hidden z-30">
               {/* Mobile Cart Trigger */}
               <button
-                onClick={openCart}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openCart();
+                }}
                 aria-label="عرض سلة المشتريات"
-                className="text-[#c2b5a5] hover:text-white relative p-1.5"
+                className="text-[#c2b5a5] hover:text-white active:text-[#f59e0b] relative p-2 cursor-pointer touch-manipulation select-none"
               >
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-5 w-5 pointer-events-none" />
                 {cartCount > 0 && (
-                  <span className="absolute top-0 left-0 flex h-4 w-4 items-center justify-center rounded-full bg-[#d97706] text-[0.6rem] font-black text-white">
+                  <span className="absolute top-0.5 left-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#d97706] text-[0.6rem] font-black text-white pointer-events-none">
                     {cartCount}
                   </span>
                 )}
@@ -162,14 +166,18 @@ export default function Header() {
 
               {/* Hamburger Button */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMobileMenuOpen((prev) => !prev);
+                }}
                 aria-label="القائمة الرئيسية"
-                className="text-[#c2b5a5] hover:text-white focus:outline-none p-1"
+                className="text-[#c2b5a5] hover:text-white active:text-[#f59e0b] focus:outline-none p-2 cursor-pointer touch-manipulation select-none"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="h-6 w-6 pointer-events-none" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-6 w-6 pointer-events-none" />
                 )}
               </button>
             </div>
