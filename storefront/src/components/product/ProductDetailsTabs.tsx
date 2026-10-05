@@ -140,7 +140,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
             {/* Subtle Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 sm:p-8">
               <span className="text-[11px] font-black uppercase tracking-widest text-[#f59e0b] mb-1">
-                BISMILLAH PURE HONEY
+                مناحل عسل زوين الفاخرة
               </span>
               <h4 className="text-lg sm:text-xl font-black text-white">
                 عسل نحل طبيعي 100% مستخرج مباشرة من الخلايا الجبلية

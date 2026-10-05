@@ -16,9 +16,13 @@ export default function Header() {
           <div className="flex h-16 items-center justify-between relative">
           
           {/* Logo (Right Side in RTL) */}
-          <div className="flex-shrink-0 z-10">
-            <Link href="/" className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity">
-              BISM<span className="text-[#f59e0b]">ILLAH</span>
+          <div className="flex-shrink-0 z-10 flex items-center">
+            <Link href="/" className="flex items-center hover:opacity-90 transition-opacity py-1">
+              <img
+                src="/logo.png"
+                alt="عسل زوين"
+                className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(245,158,11,0.35)]"
+              />
             </Link>
           </div>
 

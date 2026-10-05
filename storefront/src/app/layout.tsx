@@ -7,8 +7,8 @@ import NavigationLoader from "@/components/providers/NavigationLoader";
 import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "BISMILLAH | لعسل النحل الطبيعي والأعشاب الفاخرة",
-  description: "أجود أنواع عسل النحل الجبلي والخلطات الملكية الطبيعية 100% المفحوصة مخبرياً",
+  title: "عسل زوين | لعسل النحل الطبيعي والأعشاب الفاخرة",
+  description: "متجر عسل زوين - أجود أنواع عسل النحل الجبلي والخلطات الملكية الطبيعية 100% المفحوصة مخبرياً",
 };
 
 export default function RootLayout({

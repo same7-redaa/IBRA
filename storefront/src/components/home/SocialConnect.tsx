@@ -12,7 +12,7 @@ export default function SocialConnect() {
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          انضم إلى عائلة <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">BISMILLAH</span> للعسل الطبيعي
+          انضم إلى عائلة <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">عسل زوين</span> للأعسال الطبيعية
         </h2>
 
         <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto leading-relaxed mb-8">

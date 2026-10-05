@@ -21,7 +21,7 @@ export const sampleProducts: ProductItem[] = [
   {
     id: 1,
     category: "sidr",
-    brand: "مناحل BISMILLAH",
+    brand: "مناحل عسل زوين",
     name: "عسل سدر جبلي ملكي خام طبيعي 100%",
     price: 650,
     oldPrice: 850,
@@ -53,7 +53,7 @@ export const sampleProducts: ProductItem[] = [
   {
     id: 2,
     category: "black_seed",
-    brand: "مناحل BISMILLAH",
+    brand: "مناحل عسل زوين",
     name: "عسل حبة البركة الخام للوقاية والمناعة",
     price: 490,
     oldPrice: 650,
@@ -83,7 +83,7 @@ export const sampleProducts: ProductItem[] = [
   {
     id: 3,
     category: "royal",
-    brand: "خلطات BISMILLAH الملكية",
+    brand: "خلطات عسل زوين الملكية",
     name: "خلطة الطاقة والمناعة مع غذاء الملكات والبروبوليس",
     price: 890,
     oldPrice: 1200,
@@ -113,7 +113,7 @@ export const sampleProducts: ProductItem[] = [
   {
     id: 4,
     category: "citrus",
-    brand: "مناحل BISMILLAH",
+    brand: "مناحل عسل زوين",
     name: "عسل زهور الموالح والليمون النقي خفيف القوام",
     price: 350,
     oldPrice: 480,

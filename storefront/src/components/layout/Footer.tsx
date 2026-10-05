@@ -13,12 +13,17 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-900/70">
           
           {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3.5">
             <Link
               href="/"
-              className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity"
+              className="flex items-center gap-3 hover:opacity-90 transition-opacity"
             >
-              BISM<span className="text-[#f59e0b]">ILLAH</span>
+              <img
+                src="/logo.png"
+                alt="عسل زوين"
+                className="h-10 w-auto object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)]"
+              />
+              <span className="text-xl sm:text-2xl font-black text-white">عسل زوين</span>
             </Link>
             <span className="hidden sm:inline-block text-gray-700">|</span>
             <span className="text-xs text-gray-400 font-medium">
@@ -69,7 +74,7 @@ export default function Footer() {
         {/* Bottom Rights Row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">مناحل BISMILLAH</span> لعسل النحل الطبيعي والأعشاب الفاخرة.
+            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">مناحل عسل زوين</span> للأعسال الطبيعية والخلطات الفاخرة.
           </p>
           <div className="flex items-center gap-1.5 text-gray-400">
             <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
