@@ -111,29 +111,29 @@ export default function Hero() {
                 let filterStyle = "";
 
                 if (offset === 0) {
-                  // 1. Main Center Front Card
+                  // 1. Main Center Front Card (Sharp & Focused)
                   transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
                   opacityStyle = 1;
                   zIndexStyle = 40;
-                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22))";
+                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22)) blur(0px)";
                 } else if (offset === 1) {
-                  // 2. Right Wing Card (Behind & Angled to the Right)
+                  // 2. Right Wing Card (Behind & Soft Blur)
                   transformStyle = { transform: "translate3d(62px, -12px, 0) scale(0.78) rotate(9deg)" };
                   opacityStyle = 0.65;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92)";
+                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92) blur(2.5px)";
                 } else if (offset === honeyImages.length - 1) {
-                  // 3. Left Wing Card (Behind & Angled to the Left)
+                  // 3. Left Wing Card (Behind & Soft Blur)
                   transformStyle = { transform: "translate3d(-62px, -12px, 0) scale(0.78) rotate(-9deg)" };
                   opacityStyle = 0.65;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92)";
+                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92) blur(2.5px)";
                 } else {
                   // 4. Back / Hidden Queue Card
                   transformStyle = { transform: "translate3d(0, -35px, 0) scale(0.58) rotate(0deg)" };
                   opacityStyle = 0;
                   zIndexStyle = 10;
-                  filterStyle = "none";
+                  filterStyle = "blur(6px)";
                 }
 
                 return (
