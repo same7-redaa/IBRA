@@ -18,13 +18,11 @@ interface ProductDetailsTabsProps {
 }
 
 export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps) {
-  // Allow multiple or single open accordion items (default first one open)
-  const [openItems, setOpenItems] = useState<string[]>(["details", "source"]);
+  // Only one accordion item open at a time (first one open by default)
+  const [openItem, setOpenItem] = useState<string | null>("details");
 
   const toggleItem = (id: string) => {
-    setOpenItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    setOpenItem((prev) => (prev === id ? null : id));
   };
 
   const accordionSections = [
@@ -138,7 +136,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       {/* Vertical Accordion Stack - Full Width */}
       <div className="flex flex-col gap-3.5 w-full">
         {accordionSections.map((sec) => {
-          const isOpen = openItems.includes(sec.id);
+          const isOpen = openItem === sec.id;
           return (
             <div
               key={sec.id}
