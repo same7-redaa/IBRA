@@ -111,21 +111,22 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           {/* Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             <ScaleButton
-              onClick={() => addToCart(product)}
+              href={`/products/${product.id}`}
               variant="neon"
               size="sm"
               fullWidth
-              className="flex-grow font-extrabold text-[11px] sm:text-xs py-1.5 sm:py-2"
+              className="flex-grow font-extrabold text-[11px] sm:text-xs py-1.5 sm:py-2 text-center"
             >
               شراء
             </ScaleButton>
             
             <button
+              type="button"
               onClick={() => addToCart(product)}
               aria-label="إضافة إلى السلة"
-              className="w-8 h-8 sm:w-9 sm:h-[38px] bg-[#f5efe3] hover:bg-[#d97706] hover:text-white text-[#221c15] rounded-[5px] flex items-center justify-center transition-all border border-[#ebdcc9] active:scale-95 shrink-0"
+              className="w-8 h-8 sm:w-9 sm:h-[38px] bg-[#f5efe3] hover:bg-[#d97706] hover:text-white text-[#221c15] rounded-[5px] flex items-center justify-center transition-all border border-[#ebdcc9] active:scale-95 shrink-0 cursor-pointer touch-manipulation"
             >
-              <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 pointer-events-none" />
             </button>
           </div>
         </div>
