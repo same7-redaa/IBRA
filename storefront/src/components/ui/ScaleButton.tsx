@@ -14,6 +14,7 @@ interface ScaleButtonProps {
   fullWidth?: boolean;
   className?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export default function ScaleButton({
@@ -26,6 +27,7 @@ export default function ScaleButton({
   fullWidth = false,
   className = "",
   type = "button",
+  disabled = false,
 }: ScaleButtonProps) {
   const variantClass =
     variant === "dark"
@@ -47,6 +49,8 @@ export default function ScaleButton({
     sizeClass,
     isActive ? styles.activeTab : "",
     fullWidth ? "w-full" : "",
+    "touch-manipulation",
+    disabled ? "opacity-50 cursor-not-allowed" : "",
     className,
   ]
     .filter(Boolean)
@@ -61,7 +65,7 @@ export default function ScaleButton({
   }
 
   return (
-    <button type={type} onClick={onClick} className={combinedClasses}>
+    <button type={type} onClick={onClick} disabled={disabled} className={combinedClasses}>
       <span className={styles.btnTxt}>{children}</span>
     </button>
   );
