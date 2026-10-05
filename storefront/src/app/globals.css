@@ -22,13 +22,13 @@
 }
 
 :root {
-  --background: #0c0c0c;
-  --foreground: #ffffff;
-  --color-neon-lime: #f59e0b;
-  --color-honey-gold: #f59e0b;
-  --color-honey-light: #fbbf24;
-  --color-deep-black: #0c0c0c;
-  --color-soft-gray: #f5f5f5;
+  --background: #fbf7ee;
+  --foreground: #221c15;
+  --color-neon-lime: #d97706;
+  --color-honey-gold: #d97706;
+  --color-honey-light: #f59e0b;
+  --color-deep-black: #221c15;
+  --color-soft-gray: #f5efe3;
   --color-purple-accent: #fef3c7;
 }
 

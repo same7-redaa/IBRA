@@ -24,10 +24,12 @@
   transition: color 0.4s ease-in-out;
 }
 
-/* Primary Hero Button: White Luxury Expand */
+/* Primary Hero Button: Warm Honey Amber */
 .btnPrimary {
-  border: 2px solid #ffffff;
+  border: 2px solid #d97706;
+  background-color: #d97706;
   color: #ffffff;
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
 }
 
 .btnPrimary::after {
@@ -36,7 +38,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #ffffff;
+  background-color: #b45309;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -45,9 +47,9 @@
 }
 
 .btnPrimary:hover {
-  box-shadow: 0 0 35px rgba(255, 255, 255, 0.45);
-  color: #0c0c0c;
-  border-color: #ffffff;
+  box-shadow: 0 6px 28px rgba(217, 119, 6, 0.45);
+  color: #ffffff;
+  border-color: #b45309;
 }
 
 .btnPrimary:hover::after {
@@ -55,10 +57,12 @@
   transform: scale(100) translateX(2px);
 }
 
-/* Secondary Hero Button: Clean White / Dark Expand */
+/* Secondary Hero Button: Warm Cream Outline */
 .btnSecondary {
-  border: 2px solid #343b4f;
-  color: #f3f4f6;
+  border: 2px solid #ebdcc9;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #221c15;
+  box-shadow: 0 4px 15px rgba(180, 83, 9, 0.06);
 }
 
 .btnSecondary::after {
@@ -76,9 +80,9 @@
 }
 
 .btnSecondary:hover {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
-  color: #0c0c0c;
-  border-color: #ffffff;
+  box-shadow: 0 6px 22px rgba(217, 119, 6, 0.2);
+  color: #d97706;
+  border-color: #d97706;
 }
 
 .btnSecondary:hover::after {

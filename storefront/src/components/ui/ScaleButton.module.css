@@ -41,79 +41,83 @@
   pointer-events: none;
 }
 
-/* Honey Gold Variant */
+/* Honey Amber Variant */
 .variantNeon {
-  border: 2px solid #f59e0b;
-  color: #f59e0b;
+  border: 2px solid #d97706;
+  background-color: #d97706;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
 }
 .variantNeon::after {
-  background-color: #f59e0b;
+  background-color: #b45309;
 }
 .variantNeon:hover {
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.45);
-  color: #0c0c0c;
-  border-color: #f59e0b;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+  color: #ffffff;
+  border-color: #b45309;
 }
 .variantNeon:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantNeon:hover .btnTxt {
-  color: #0c0c0c;
+  color: #ffffff;
 }
 
-/* Dark / Glass Variant */
+/* Cream / Card Variant */
 .variantDark {
-  border: 2px solid #343b4f;
-  color: #f3f4f6;
-  background-color: rgba(20, 22, 31, 0.6);
+  border: 1.5px solid #ebdcc9;
+  color: #221c15;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.04);
 }
 .variantDark::after {
-  background-color: #f59e0b;
+  background-color: #fbf7ee;
 }
 .variantDark:hover {
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
-  color: #0c0c0c;
-  border-color: #f59e0b;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.15);
+  color: #d97706;
+  border-color: #d97706;
 }
 .variantDark:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantDark:hover .btnTxt {
-  color: #0c0c0c;
+  color: #d97706;
 }
 
 /* White Outline Variant */
 .variantWhite {
-  border: 2px solid #ffffff;
-  color: #ffffff;
-}
-.variantWhite::after {
+  border: 2px solid #ebdcc9;
+  color: #221c15;
   background-color: #ffffff;
 }
+.variantWhite::after {
+  background-color: #fbf7ee;
+}
 .variantWhite:hover {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
-  color: #0c0c0c;
-  border-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.15);
+  color: #d97706;
+  border-color: #d97706;
 }
 .variantWhite:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantWhite:hover .btnTxt {
-  color: #0c0c0c;
+  color: #d97706;
 }
 
 /* Active State (e.g. for selected Category Tab) */
 .activeTab {
-  background-color: #f59e0b !important;
-  border-color: #f59e0b !important;
-  color: #0c0c0c !important;
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.45) !important;
+  background-color: #d97706 !important;
+  border-color: #d97706 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35) !important;
 }
 .activeTab .btnTxt {
-  color: #0c0c0c !important;
+  color: #ffffff !important;
 }
 .activeTab::after {
   display: none !important;

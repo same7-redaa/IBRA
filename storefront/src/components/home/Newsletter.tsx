@@ -16,23 +16,23 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-16 bg-[#0c0c0c] border-t border-gray-900 overflow-hidden">
+    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-16 bg-[#f5efe3] border-t border-[#ebdcc9] overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#f59e0b]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#d97706]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-4xl mx-auto relative z-10 bg-gradient-to-b from-[#14161f] to-[#0e1017] border border-gray-800/80 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] text-center">
+      <div className="w-full max-w-4xl mx-auto relative z-10 bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_15px_40px_rgba(180,83,9,0.06)] text-center">
         
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight">
-          كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">مواسم القطف والعروض</span>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#221c15] mb-3 tracking-tight">
+          كن أول من يعلم بأحدث <span className="text-[#d97706]">مواسم القطف والعروض</span>
         </h2>
 
-        <p className="text-xs sm:text-sm text-gray-400 max-w-lg mx-auto mb-8 leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#5c4f42] max-w-lg mx-auto mb-8 leading-relaxed">
           سجل معنا لتصلك إشعارات قطفات العسل النادرة والخلطات الملكية وخصومات حصرية قبل الجميع مباشرة على هاتفك أو بريدك.
         </p>
 
         {isSubmitted ? (
-          <div className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[#f59e0b] text-sm font-bold animate-fade-in">
+          <div className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-[#fbf7ee] border border-[#d97706]/30 text-[#d97706] text-sm font-bold animate-fade-in">
             <CheckCircle2 className="w-5 h-5" />
             <span>تم اشتراكك بنجاح! تم تطبيق كود الخصم: HONEY15</span>
           </div>
@@ -44,7 +44,7 @@ export default function Newsletter() {
               required
               value={emailOrPhone}
               onChange={(e) => setEmailOrPhone(e.target.value)}
-              icon={<Mail className="w-4 h-4 text-gray-400" />}
+              icon={<Mail className="w-4 h-4 text-[#8a7a6b]" />}
               containerClassName="flex-grow"
             />
 

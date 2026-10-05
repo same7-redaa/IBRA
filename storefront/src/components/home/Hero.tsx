@@ -1,8 +1,12 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Hero.module.css";
+import { ShieldCheck, Award, Sparkles } from "lucide-react";
 
 export default function Hero() {
-  const bgImages = [
+  const honeyImages = [
     "/hero/hero_1.jpg",
     "/hero/hero_2.jpg",
     "/hero/hero_3.jpg",
@@ -29,91 +33,155 @@ export default function Hero() {
     "/hero/hero_24.jpg"
   ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % honeyImages.length);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [honeyImages.length]);
+
   return (
-    <section className="relative w-full min-h-screen pt-32 sm:pt-36 pb-14 overflow-hidden bg-deep-black text-white flex items-center justify-center">
+    <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
       
-      {/* Moving Background Image Strips */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-90">
+      {/* 1. Honeycomb Geometric Pattern Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <svg
+          className="w-full h-full opacity-20"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+        >
+          <defs>
+            <pattern
+              id="honeycomb-pattern"
+              width="56"
+              height="96.99"
+              patternUnits="userSpaceOnUse"
+              patternTransform="scale(1)"
+            >
+              <path
+                d="M28 0 L56 16.16 L56 48.5 L28 64.66 L0 48.5 L0 16.16 Z M28 96.99 L56 80.83 L56 48.5 L28 64.66 L0 48.5 L0 80.83 Z"
+                fill="none"
+                stroke="#d97706"
+                strokeWidth="1.2"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#honeycomb-pattern)" />
+        </svg>
+
+        {/* Ambient Warm Honey Glows */}
+        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[#f59e0b]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#d97706]/10 rounded-full blur-3xl" />
         
-        {/* Strip 1 */}
-        <div className="absolute top-[-5%] left-[-100%] flex w-max gap-4 animate-slide-right">
-           <div className="flex gap-4">
-              {[...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
-              ))}
-           </div>
-        </div>
-
-        {/* Strip 2 */}
-        <div className="absolute top-[22%] left-[-100%] flex w-max gap-4 animate-slide-left">
-           <div className="flex gap-4">
-              {[...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
-              ))}
-           </div>
-        </div>
-
-        {/* Strip 3 */}
-        <div className="absolute top-[49%] left-[-100%] flex w-max gap-4 animate-slide-right">
-           <div className="flex gap-4">
-              {[...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
-              ))}
-           </div>
-        </div>
-
-        {/* Strip 4 */}
-        <div className="absolute top-[76%] left-[-100%] flex w-max gap-4 animate-slide-left">
-           <div className="flex gap-4">
-              {[...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
-              ))}
-           </div>
-        </div>
-        
-        {/* Layer 1: Light Tint & Subtle Backdrop Blur */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[0.5px]" />
-        
-        {/* Layer 2: Balanced Radial Vignette Focus */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,12,12,0.45)_0%,rgba(12,12,12,0.9)_75%,#0c0c0c_100%)]" />
-
-        {/* Layer 3: Top and Bottom Smooth Edge Fades */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c]/65 via-transparent to-[#0c0c0c]" />
+        {/* Subtle Edge Fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7ee]/40 via-transparent to-[#fbf7ee]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
-        {/* Centered Text Content */}
-        <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-wider mb-4 w-full text-center leading-tight select-none text-white drop-shadow-[0_4px_30px_rgba(255,255,255,0.25)]">
-            عَـــسَـــل زويـــــن
-          </h1>
+      {/* 2. Main Content Container */}
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Right Column: Hero Content & Typography (in RTL layout) */}
+          <div className="lg:col-span-7 flex flex-col items-start text-right">
+            
+            {/* Main Brand Title with Tatweel */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider text-[#221c15] leading-tight select-none">
+              عَـــسَـــل زويـــــن
+            </h1>
 
-          <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            عسل نقي 100%، غني طبيعياً ومختار بعناية
-          </p>
+            {/* Subtitle Description */}
+            <p className="mt-4 text-base sm:text-lg lg:text-xl text-[#5c4f42] font-semibold leading-relaxed max-w-xl">
+              عسل نقي 100%، غني طبيعياً ومختار بعناية
+            </p>
 
-          {/* Centered Buttons */}
-          <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-            <Link
-              href="/products"
-              className={`${styles.button} ${styles.btnPrimary}`}
-            >
-              <span className={styles.btnTxt}>
-                اطلب عسلك الآن
-              </span>
-            </Link>
-            <Link
-              href="/products"
-              className={`${styles.button} ${styles.btnSecondary}`}
-            >
-              <span className={styles.btnTxt}>
-                تصفح أنواع العسل
-              </span>
-            </Link>
+            {/* Feature Highlights Pills */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
+                <ShieldCheck className="w-4 h-4 text-[#d97706]" />
+                <span>مفحوص وموثق مخبرياً 100%</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
+                <Award className="w-4 h-4 text-[#d97706]" />
+                <span>أعلى درجات النقاء الطبيعي</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
+                <Sparkles className="w-4 h-4 text-[#d97706]" />
+                <span>بدون أي تغذية سكرية</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <Link
+                href="/products"
+                className={`${styles.button} ${styles.btnPrimary} w-full sm:w-auto`}
+              >
+                <span className={styles.btnTxt}>
+                  اطلب عسلك الآن
+                </span>
+              </Link>
+              <Link
+                href="/products"
+                className={`${styles.button} ${styles.btnSecondary} w-full sm:w-auto`}
+              >
+                <span className={styles.btnTxt}>
+                  تصفح أنواع العسل
+                </span>
+              </Link>
+            </div>
+
           </div>
+
+          {/* Left Column: Interactive Auto-Changing Honey Image Showcase */}
+          <div className="lg:col-span-5 flex justify-center items-center relative">
+            
+            {/* Decorative Honeycomb Ring / Aura */}
+            <div className="absolute -inset-3 bg-gradient-to-tr from-[#d97706]/20 via-[#f59e0b]/30 to-[#fbbf24]/20 rounded-[2.5rem] blur-xl opacity-70" />
+
+            {/* Showcase Card Frame */}
+            <div className="relative w-full max-w-md aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden bg-white border-2 border-[#ebdcc9] shadow-[0_20px_50px_rgba(180,83,9,0.12)] p-2.5 sm:p-3">
+              
+              {/* Image Transition Box */}
+              <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-[#fbf7ee]">
+                {honeyImages.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`عسل زوين - صورة ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
+                      idx === currentImageIndex
+                        ? "opacity-100 scale-100 rotate-0"
+                        : "opacity-0 scale-105 pointer-events-none"
+                    }`}
+                  />
+                ))}
+
+                {/* Subtle Inner Gradient Shade */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
+
+                {/* Floating Badge on Image */}
+                <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#ebdcc9] shadow-md text-xs font-extrabold text-[#221c15]">
+                  <span className="w-2 h-2 rounded-full bg-[#d97706] animate-ping" />
+                  <span>قطفات طبيعية طازجة</span>
+                </div>
+
+                {/* Counter / Indicator Pill */}
+                <div className="absolute top-4 left-4 z-10 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-[11px] font-bold border border-white/20">
+                  {currentImageIndex + 1} / {honeyImages.length}
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </div>
+
     </section>
   );
 }
