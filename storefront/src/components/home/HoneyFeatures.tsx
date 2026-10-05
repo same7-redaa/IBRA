@@ -5,16 +5,16 @@ export default function HoneyFeatures() {
   return (
     <section className="relative w-full py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-white border-t border-b border-[#ebdcc9] overflow-hidden">
       
-      {/* Standalone Cutout Decorative Illustration on White Background (Left Side - Vintage Queen Bee) */}
+      {/* Standalone Cutout Decorative Illustration on White Background (Left Side) */}
       <div 
         className="absolute -bottom-8 -left-8 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-35 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/art_1.jpg')` }}
+        style={{ backgroundImage: `url('/pattern_1.jpg')` }}
       />
 
-      {/* Standalone Cutout Decorative Illustration on White Background (Right Side - Wildflower Hive) */}
+      {/* Standalone Cutout Decorative Illustration on White Background (Right Side) */}
       <div 
         className="absolute -top-8 -right-8 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-35 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/art_2.jpg')` }}
+        style={{ backgroundImage: `url('/pattern_2.jpg')` }}
       />
 
       <div className="w-full max-w-[1440px] mx-auto relative z-10">

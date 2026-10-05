@@ -27,13 +27,13 @@ export default function BestProducts() {
       {/* Cutout Decorative Botanical Illustration Behind Header */}
       <div 
         className="absolute -top-6 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-30 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/bg_pattern_1.jpg')` }}
+        style={{ backgroundImage: `url('/pattern_3.jpg')` }}
       />
 
       {/* Cutout Decorative Illustration Bottom Left */}
       <div 
         className="absolute bottom-4 -left-8 w-60 h-60 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/art_3.jpg')` }}
+        style={{ backgroundImage: `url('/pattern_4.jpg')` }}
       />
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">

@@ -22,16 +22,16 @@ export default function Newsletter() {
 
       <div className="w-full max-w-4xl mx-auto relative z-10 bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_15px_40px_rgba(180,83,9,0.06)] text-center overflow-hidden">
         
-        {/* Cutout Honey Dripper Art on Right of White Box */}
+        {/* Cutout Pattern Art on Right of White Box */}
         <div 
           className="absolute -bottom-6 -right-6 w-48 h-48 sm:w-60 sm:h-60 bg-contain bg-no-repeat opacity-35 mix-blend-multiply pointer-events-none"
-          style={{ backgroundImage: `url('/art_3.jpg')` }}
+          style={{ backgroundImage: `url('/pattern_1.jpg')` }}
         />
 
-        {/* Cutout Bee & Hive Etching on Left of White Box */}
+        {/* Cutout Pattern Art on Left of White Box */}
         <div 
           className="absolute -top-6 -left-6 w-48 h-48 sm:w-60 sm:h-60 bg-contain bg-no-repeat opacity-35 mix-blend-multiply pointer-events-none"
-          style={{ backgroundImage: `url('/bg_pattern_2.jpg')` }}
+          style={{ backgroundImage: `url('/pattern_2.jpg')` }}
         />
 
         {/* Title */}
