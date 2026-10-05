@@ -126,26 +126,8 @@ export default async function CategoryDetailPage({
 
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs font-bold text-[#8a7a6b] mb-6">
-          <Link href="/" className="hover:text-[#d97706] transition-colors">
-            الرئيسية
-          </Link>
-          <ChevronLeft className="w-3.5 h-3.5" />
-          <Link href="/categories" className="hover:text-[#d97706] transition-colors">
-            الفئات
-          </Link>
-          <ChevronLeft className="w-3.5 h-3.5" />
-          <span className="text-[#d97706] font-black">{meta.title}</span>
-        </div>
-
         {/* Category Header Banner */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#d97706]/10 border border-[#d97706]/30 text-[#d97706] text-xs font-black mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{meta.badge}</span>
-          </div>
-
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#221c15] tracking-tight">
             {meta.title}
           </h1>

@@ -84,13 +84,6 @@ export default function ProductCarouselSection({
         {/* Header with Title, Subtitle, and View All Link */}
         <div className="flex items-end justify-between mb-6 sm:mb-8 px-2 sm:px-4 gap-4">
           <div>
-            {badge && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d97706]/10 border border-[#d97706]/30 text-[#d97706] text-[11px] sm:text-xs font-black mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{badge}</span>
-              </div>
-            )}
-            
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
               {title}{" "}
               {highlightedWord && (
