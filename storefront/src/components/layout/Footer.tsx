@@ -38,19 +38,19 @@ export default function Footer() {
               href="/products"
               className="text-[#c2b5a5] hover:text-[#f59e0b] transition-colors"
             >
-              الأعسال والمنتجات
+              المنتجات
             </Link>
             <Link
               href="/categories"
               className="text-[#c2b5a5] hover:text-[#f59e0b] transition-colors"
             >
-              التصنيفات
+              الفئات
             </Link>
             <Link
               href="/offers"
               className="text-[#c2b5a5] hover:text-[#f59e0b] transition-colors"
             >
-              العروض الخاصة
+              العروض
             </Link>
             <a
               href="https://wa.me/201000000000"
@@ -59,7 +59,7 @@ export default function Footer() {
               className="text-[#c2b5a5] hover:text-[#25d366] flex items-center gap-1.5 transition-colors"
             >
               <MessageCircle className="w-4 h-4 text-[#25d366]" />
-              <span>خدمة العملاء</span>
+              <span>تواصل معنا</span>
             </a>
           </nav>
 

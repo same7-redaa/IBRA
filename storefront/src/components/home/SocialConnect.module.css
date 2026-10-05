@@ -80,13 +80,14 @@
 
 /* TikTok */
 .btnTikTok {
-  border: 1.5px solid #ffffff;
-  color: #ffffff;
+  border: 1.5px solid #121212;
+  color: #121212;
 }
 .btnTikTok:hover {
-  color: #0c0c0c;
-  border-color: #ffffff;
+  color: #ffffff;
+  border-color: #121212;
 }
 .btnTikTok:hover::before {
-  box-shadow: inset 0 0 0 12em #ffffff;
+  box-shadow: inset 0 0 0 12em #121212;
 }
+
