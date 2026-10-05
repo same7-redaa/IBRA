@@ -26,24 +26,24 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
       
-      {/* 1. Clear & Pronounced Background Image */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75 mix-blend-multiply"
-          style={{ backgroundImage: `url('/hero_bg.jpg')` }}
-        />
-        {/* Soft edge fades */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7ee] via-transparent to-[#fbf7ee]/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7ee]/40 via-transparent to-[#fbf7ee]" />
-      </div>
-
       {/* 2. Main Content Container */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Right Column: Hero Content & Typography (in RTL layout) */}
-          <div className="lg:col-span-7 flex flex-col items-start text-right">
+          {/* Right Column: Hero Content with dedicated Text Background */}
+          <div className="lg:col-span-7 flex flex-col items-start text-right relative p-2 sm:p-4">
             
+            {/* Background Image scoped exclusively behind the Text */}
+            <div className="absolute -inset-4 sm:-inset-8 -z-10 rounded-3xl overflow-hidden pointer-events-none">
+              <div
+                className="w-full h-full bg-cover bg-center bg-no-repeat opacity-65 mix-blend-multiply"
+                style={{ backgroundImage: `url('/hero_bg.jpg')` }}
+              />
+              {/* Soft edge feathering */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7ee] via-transparent to-[#fbf7ee]/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#fbf7ee] via-transparent to-[#fbf7ee]/40" />
+            </div>
+
             {/* Main Brand Title with Tatweel */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider text-[#221c15] leading-tight select-none">
               عَـــسَـــل زويـــــن
