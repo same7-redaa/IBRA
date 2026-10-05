@@ -7,30 +7,12 @@ import { ShieldCheck, Award, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const honeyImages = [
-    "/hero/hero_1.jpg",
-    "/hero/hero_2.jpg",
-    "/hero/hero_3.jpg",
-    "/hero/hero_4.jpg",
-    "/hero/hero_5.jpg",
-    "/hero/hero_6.jpg",
-    "/hero/hero_7.jpg",
-    "/hero/hero_8.jpg",
-    "/hero/hero_9.jpg",
-    "/hero/hero_10.jpg",
-    "/hero/hero_11.jpg",
-    "/hero/hero_12.jpg",
-    "/hero/hero_13.jpg",
-    "/hero/hero_14.jpg",
-    "/hero/hero_15.jpg",
-    "/hero/hero_16.jpg",
-    "/hero/hero_17.jpg",
-    "/hero/hero_18.jpg",
-    "/hero/hero_19.jpg",
-    "/hero/hero_20.jpg",
-    "/hero/hero_21.jpg",
-    "/hero/hero_22.jpg",
-    "/hero/hero_23.jpg",
-    "/hero/hero_24.jpg"
+    "/hero/h_1.jpg",
+    "/hero/h_2.jpg",
+    "/hero/h_3.jpg",
+    "/hero/h_4.jpg",
+    "/hero/h_5.jpg",
+    "/hero/h_6.jpg"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -46,22 +28,6 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
       
-      {/* 1. Transparent Honey Background Image */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-multiply transition-opacity"
-          style={{ backgroundImage: `url('/hero_bg.jpg')` }}
-        />
-
-        {/* Ambient Warm Honey Glows */}
-        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[#f59e0b]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#d97706]/10 rounded-full blur-3xl" />
-        
-        {/* Subtle Edge Fades for Smooth Integration */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7ee] via-transparent to-[#fbf7ee]/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7ee]/60 via-transparent to-[#fbf7ee]" />
-      </div>
-
       {/* 2. Main Content Container */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
