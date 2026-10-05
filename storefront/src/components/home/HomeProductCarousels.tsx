@@ -91,9 +91,10 @@ export default function HomeProductCarousels() {
         const meta = CATEGORY_META[cat.id] || {
           highlightedWord: "الفاخر",
           subtitle: `تصفح أجود منتجات ${cat.label} الطبيعية والمفحوصة مخبرياً`,
-          badge: cat.label,
           pattern: index % 2 === 0 ? "/pattern_3.jpg" : "/pattern_1.jpg",
         };
+
+        const targetHref = cat.id === "offers" ? "/offers" : `/categories/${cat.id}`;
 
         return (
           <ProductCarouselSection
@@ -101,9 +102,8 @@ export default function HomeProductCarousels() {
             title={cat.label}
             highlightedWord={meta.highlightedWord}
             subtitle={meta.subtitle}
-            badge={meta.badge}
             products={productsToDisplay}
-            viewAllHref={`/categories`}
+            viewAllHref={targetHref}
             viewAllLabel={`تصفح قسم ${cat.label}`}
             bgPattern={meta.pattern}
           />
@@ -112,3 +112,4 @@ export default function HomeProductCarousels() {
     </div>
   );
 }
+

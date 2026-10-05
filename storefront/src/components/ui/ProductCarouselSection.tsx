@@ -81,32 +81,19 @@ export default function ProductCarouselSection({
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
         
-        {/* Header with Title, Subtitle, and View All Link */}
-        <div className="flex items-end justify-between mb-6 sm:mb-8 px-2 sm:px-4 gap-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
-              {title}{" "}
-              {highlightedWord && (
-                <span className="text-[#d97706]">{highlightedWord}</span>
-              )}
-            </h2>
-            
-            {subtitle && (
-              <p className="text-xs sm:text-sm text-[#5c4f42] font-semibold mt-1">
-                {subtitle}
-              </p>
+        {/* Header with Title and Subtitle */}
+        <div className="mb-6 sm:mb-8 px-2 sm:px-4 text-center sm:text-right">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
+            {title}{" "}
+            {highlightedWord && (
+              <span className="text-[#d97706]">{highlightedWord}</span>
             )}
-          </div>
-
-          {/* View All Link */}
-          {viewAllHref && (
-            <Link
-              href={viewAllHref}
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-black text-[#d97706] hover:text-[#221c15] transition-colors shrink-0"
-            >
-              <span>{viewAllLabel}</span>
-              <ArrowLeft className="w-4 h-4" />
-            </Link>
+          </h2>
+          
+          {subtitle && (
+            <p className="text-xs sm:text-sm text-[#5c4f42] font-semibold mt-1">
+              {subtitle}
+            </p>
           )}
         </div>
 
@@ -148,6 +135,19 @@ export default function ProductCarouselSection({
           </button>
 
         </div>
+
+        {/* Bottom Center Action Button */}
+        {viewAllHref && (
+          <div className="mt-8 flex justify-center">
+            <Link
+              href={viewAllHref}
+              className="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full bg-white hover:bg-[#221c15] text-[#221c15] hover:text-white border border-[#ebdcc9] hover:border-[#221c15] text-xs sm:text-sm font-black shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105 active:scale-95"
+            >
+              <span>{viewAllLabel}</span>
+              <ArrowLeft className="w-4 h-4 text-[#d97706]" />
+            </Link>
+          </div>
+        )}
 
       </div>
     </section>
