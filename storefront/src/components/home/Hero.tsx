@@ -95,51 +95,51 @@ export default function Hero() {
           {/* Left Column: 3D Stacked Image Showcase */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center select-none">
             
-            {/* 3D Stack Image Container (Slightly Reduced Size) */}
+            {/* Card Swipe Up & Deck Container */}
             <div 
               onClick={() => setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length)}
-              className="relative w-full max-w-[250px] sm:max-w-[290px] lg:max-w-[320px] h-[280px] sm:h-[330px] flex items-center justify-center cursor-pointer group"
-              title="انقر للتبديل للصورة التالية"
+              className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[330px] h-[300px] sm:h-[350px] flex items-center justify-center cursor-pointer group"
+              title="انقر لتقليب الصورة"
             >
               {honeyImages.map((img, idx) => {
                 const offset = (idx - currentImageIndex + honeyImages.length) % honeyImages.length;
                 
-                // 3D Deck Transformation Properties
+                // Card Swipe & Stack Transformation Styles
                 let transformStyle = {};
                 let opacityStyle = 0;
                 let zIndexStyle = 0;
                 let filterStyle = "";
 
                 if (offset === 0) {
-                  // Active Front Card
+                  // Active Front Card (Present & Prominent)
                   transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
                   opacityStyle = 1;
                   zIndexStyle = 40;
-                  filterStyle = "drop-shadow(0 16px 30px rgba(180, 83, 9, 0.2))";
+                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22))";
                 } else if (offset === 1) {
-                  // 1st Card Behind (Shifted & Rotated)
-                  transformStyle = { transform: "translate3d(-28px, -14px, 0) scale(0.88) rotate(-6deg)" };
-                  opacityStyle = 0.65;
+                  // 1st Card Behind in Queue (Peeking from beneath)
+                  transformStyle = { transform: "translate3d(0, 22px, 0) scale(0.91) rotate(0deg)" };
+                  opacityStyle = 0.72;
                   zIndexStyle = 30;
-                  filterStyle = "drop-shadow(0 8px 16px rgba(180, 83, 9, 0.1)) brightness(0.92)";
+                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.12)) brightness(0.94)";
                 } else if (offset === 2) {
-                  // 2nd Card Behind
-                  transformStyle = { transform: "translate3d(-52px, -26px, 0) scale(0.76) rotate(-12deg)" };
-                  opacityStyle = 0.35;
+                  // 2nd Card Behind in Queue
+                  transformStyle = { transform: "translate3d(0, 44px, 0) scale(0.82) rotate(0deg)" };
+                  opacityStyle = 0.42;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 4px 12px rgba(180, 83, 9, 0.05)) brightness(0.85)";
+                  filterStyle = "drop-shadow(0 5px 15px rgba(180, 83, 9, 0.06)) brightness(0.88)";
                 } else {
-                  // Exiting / Hidden Card
-                  transformStyle = { transform: "translate3d(45px, 15px, 0) scale(0.85) rotate(10deg)" };
+                  // Exiting Card (Swipes Upward & Flies Away)
+                  transformStyle = { transform: "translate3d(0, -95px, 0) scale(1.06) rotate(-4deg)" };
                   opacityStyle = 0;
-                  zIndexStyle = 10;
-                  filterStyle = "none";
+                  zIndexStyle = 50;
+                  filterStyle = "drop-shadow(0 30px 45px rgba(180, 83, 9, 0.15))";
                 }
 
                 return (
                   <div
                     key={idx}
-                    className="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.34,1.4,0.64,1)] will-change-transform"
+                    className="absolute inset-0 flex items-center justify-center transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
                     style={{
                       ...transformStyle,
                       opacity: opacityStyle,
