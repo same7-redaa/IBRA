@@ -19,10 +19,10 @@ const PRIMARY_LINKS = [
 
 // Health / Need-based Categories displayed in the secondary luxury header bar
 const NEED_BASED_LINKS = [
-  { href: "/categories/immunity_energy", label: "المناعة والطاقة", icon: "⚡" },
-  { href: "/categories/respiratory", label: "الصحة التنفسية والمدخنون", icon: "🫁" },
-  { href: "/categories/digestive", label: "صحة الجهاز الهضمي والقولون", icon: "🌿" },
-  { href: "/categories/diabetic_friendly", label: "مناسب لمرضى السكري", icon: "🩺" },
+  { href: "/categories/immunity_energy", label: "المناعة والطاقة" },
+  { href: "/categories/respiratory", label: "الصحة التنفسية والمدخنون" },
+  { href: "/categories/digestive", label: "صحة الجهاز الهضمي والقولون" },
+  { href: "/categories/diabetic_friendly", label: "مناسب لمرضى السكري" },
 ];
 
 export default function Header() {
@@ -273,13 +273,12 @@ export default function Header() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`block rounded-lg px-3 py-2 text-xs font-bold transition-colors flex items-center gap-2 ${
+                        className={`block rounded-lg px-3 py-2 text-xs font-bold transition-colors ${
                           pathname === item.href
                             ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
                             : "text-[#c2b5a5] hover:text-white"
                         }`}
                       >
-                        <span>{item.icon}</span>
                         <span>{item.label}</span>
                       </Link>
                     ))}
@@ -335,13 +334,12 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-2 text-xs xl:text-sm font-bold px-3.5 py-1.5 rounded-xl transition-all ${
+                  className={`text-xs xl:text-sm font-bold px-3.5 py-1.5 rounded-xl transition-all ${
                     isActive
                       ? "bg-[#2a221a] text-[#f59e0b] border border-[#d97706]/40 shadow-sm"
                       : "text-[#c2b5a5] hover:text-[#f59e0b] hover:bg-[#2a221a]"
                   }`}
                 >
-                  <span className="text-sm">{item.icon}</span>
                   <span>{item.label}</span>
                 </Link>
               );

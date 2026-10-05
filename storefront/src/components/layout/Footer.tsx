@@ -86,7 +86,6 @@ export default function Footer() {
           <div className="flex items-center gap-1.5 text-[#c2b5a5]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
             <span>نقاء وجودة طبيعية 100% مضمونة</span>
-            <span>🍯</span>
           </div>
         </div>
 
