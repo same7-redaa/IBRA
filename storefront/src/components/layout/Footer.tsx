@@ -6,11 +6,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white border-t border-slate-200/80 text-[#1e293b] py-12 mt-auto">
+    <footer className="w-full bg-[#08090d] border-t border-gray-900/80 text-white py-10 mt-auto">
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         
         {/* Main Clean Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-100">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-900/70">
           
           {/* Logo & Brand Identity */}
           <div className="flex items-center gap-3.5">
@@ -21,11 +21,12 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="عسل زوين"
-                className="h-11 w-auto object-contain drop-shadow-[0_2px_8px_rgba(217,119,6,0.25)]"
+                className="h-10 w-auto object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)]"
               />
+              <span className="text-xl sm:text-2xl font-black text-white">عسل زوين</span>
             </Link>
-            <span className="hidden sm:inline-block text-slate-300">|</span>
-            <span className="text-xs text-slate-500 font-bold">
+            <span className="hidden sm:inline-block text-gray-700">|</span>
+            <span className="text-xs text-gray-400 font-medium">
               عسل نحل طبيعي 100% ومفحوص مخبرياً
             </span>
           </div>
@@ -34,13 +35,13 @@ export default function Footer() {
           <nav className="flex items-center gap-8 text-sm font-bold">
             <Link
               href="/"
-              className="text-slate-600 hover:text-[#d97706] transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] transition-colors"
             >
               الرئيسية
             </Link>
             <Link
               href="/products"
-              className="text-slate-600 hover:text-[#d97706] transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] transition-colors"
             >
               جميع المنتجات
             </Link>
@@ -48,7 +49,7 @@ export default function Footer() {
               href="https://wa.me"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 hover:text-[#d97706] flex items-center gap-1.5 transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] flex items-center gap-1.5 transition-colors"
             >
               <MessageCircle className="w-4 h-4 text-[#25d366]" />
               <span>خدمة العملاء</span>
@@ -56,14 +57,14 @@ export default function Footer() {
           </nav>
 
           {/* Payment Methods Badges */}
-          <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-600 font-bold">
-            <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
+          <div className="flex items-center gap-2 flex-wrap text-[11px] text-gray-400 font-bold">
+            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800">
               الدفع عند الاستلام
             </span>
-            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900">
+            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-[#f59e0b]">
               InstaPay
             </span>
-            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900">
+            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-amber-400">
               فودافون كاش
             </span>
           </div>
@@ -71,12 +72,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Rights Row */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 font-medium">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            جميع الحقوق محفوظة © {currentYear} <span className="text-slate-900 font-bold">مناحل عسل زوين</span> للأعسال الطبيعية والخلطات الفاخرة.
+            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">مناحل عسل زوين</span> للأعسال الطبيعية والخلطات الفاخرة.
           </p>
-          <div className="flex items-center gap-1.5 text-slate-600 font-bold">
-            <ShieldCheck className="w-4 h-4 text-[#d97706]" />
+          <div className="flex items-center gap-1.5 text-gray-400">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
             <span>نقاء وجودة طبيعية 100% مضمونة</span>
             <span>🍯</span>
           </div>
@@ -86,4 +87,3 @@ export default function Footer() {
     </footer>
   );
 }
-

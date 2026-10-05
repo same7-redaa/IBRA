@@ -22,14 +22,13 @@
 }
 
 :root {
-  --background: #f4f8fc;
-  --foreground: #1e293b;
+  --background: #0c0c0c;
+  --foreground: #ffffff;
   --color-neon-lime: #f59e0b;
   --color-honey-gold: #f59e0b;
   --color-honey-light: #fbbf24;
-  --color-honey-amber: #d97706;
-  --color-deep-black: #f4f8fc;
-  --color-soft-gray: #ffffff;
+  --color-deep-black: #0c0c0c;
+  --color-soft-gray: #f5f5f5;
   --color-purple-accent: #fef3c7;
 }
 
@@ -39,7 +38,6 @@
   --color-neon-lime: var(--color-neon-lime);
   --color-honey-gold: var(--color-honey-gold);
   --color-honey-light: var(--color-honey-light);
-  --color-honey-amber: var(--color-honey-amber);
   --color-deep-black: var(--color-deep-black);
   --color-soft-gray: var(--color-soft-gray);
   --color-purple-accent: var(--color-purple-accent);

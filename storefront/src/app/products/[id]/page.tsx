@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = sampleProducts.filter((p) => String(p.id) !== String(product.id)).slice(0, 4);
 
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-[#f4f8fc] text-[#1e293b] pt-28 sm:pt-32 lg:pt-36 pb-20">
+    <main className="flex-grow flex flex-col min-h-screen bg-deep-black text-white pt-28 sm:pt-32 lg:pt-36 pb-20">
       
       {/* Main Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -62,17 +62,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ProductDetailsTabs product={product} />
 
         {/* Bottom Section: You May Also Like / منتجات قد تعجبك (Matches Reference 4-Card Grid) */}
-        <div className="border-t border-slate-200/80 pt-14">
+        <div className="border-t border-gray-900/80 pt-14">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl sm:text-3xl font-black text-[#1e293b] tracking-tight">
-              أعسال <span className="text-[#d97706]">قد تعجبك</span> أيضاً
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              أعسال <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">قد تعجبك</span> أيضاً
             </h3>
             <Link
               href="/products"
-              className="group flex items-center gap-1.5 text-xs sm:text-sm text-slate-500 hover:text-[#d97706] font-bold transition-colors"
+              className="group flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 hover:text-white font-bold transition-colors"
             >
               <span>عرض كل الأعسال</span>
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#d97706]" />
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#f59e0b]" />
             </Link>
           </div>
 
@@ -87,4 +87,3 @@ export default async function ProductPage({ params }: ProductPageProps) {
     </main>
   );
 }
-

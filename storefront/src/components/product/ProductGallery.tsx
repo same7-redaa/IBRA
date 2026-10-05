@@ -36,10 +36,10 @@ export default function ProductGallery({
           <button
             key={idx}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative w-16 sm:w-full aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 shrink-0 bg-white cursor-pointer group shadow-sm ${
+            className={`relative w-16 sm:w-full aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
               selectedIndex === idx
-                ? "border-[#f59e0b] ring-2 ring-[#f59e0b]/30 shadow-md scale-[1.02]"
-                : "border-slate-200 hover:border-amber-300 opacity-80 hover:opacity-100"
+                ? "border-[#f59e0b] ring-2 ring-[#f59e0b]/30 shadow-[0_0_15px_rgba(245,158,11,0.3)] scale-[1.02]"
+                : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
             }`}
           >
             <img
@@ -55,7 +55,7 @@ export default function ProductGallery({
           <button
             onClick={handleNext}
             aria-label="عرض المزيد من الصور"
-            className="hidden sm:flex w-full h-9 rounded-xl bg-white border border-slate-200 hover:border-[#f59e0b] hover:text-[#d97706] text-slate-500 items-center justify-center transition-colors cursor-pointer mt-1 shadow-sm"
+            className="hidden sm:flex w-full h-9 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#f59e0b] hover:text-[#f59e0b] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
           >
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -63,7 +63,7 @@ export default function ProductGallery({
       </div>
 
       {/* Main Square Lookbook Image */}
-      <div className="relative flex-grow w-full aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200/80 group shadow-[0_15px_40px_rgba(0,0,0,0.04)]">
+      <div className="relative flex-grow w-full aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#161822] to-[#0e1017] border border-gray-800/80 group shadow-2xl">
         <img
           src={currentImage}
           alt={productName}
@@ -77,7 +77,7 @@ export default function ProductGallery({
         <button
           onClick={() => setIsZoomed(!isZoomed)}
           aria-label="تكبير الصورة"
-          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-700 flex items-center justify-center hover:bg-[#f59e0b] hover:text-white transition-all shadow-md hover:scale-110 cursor-pointer"
+          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-gray-700/80 text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-all shadow-lg hover:scale-110 cursor-pointer"
         >
           <ZoomIn className="w-4 h-4" />
         </button>
@@ -88,14 +88,14 @@ export default function ProductGallery({
             <button
               onClick={handlePrev}
               aria-label="الصورة السابقة"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-white/90 backdrop-blur-md text-slate-700 shadow-md flex items-center justify-center hover:bg-[#f59e0b] hover:text-white transition-colors cursor-pointer"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="الصورة التالية"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-white/90 backdrop-blur-md text-slate-700 shadow-md flex items-center justify-center hover:bg-[#f59e0b] hover:text-white transition-colors cursor-pointer"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -103,7 +103,7 @@ export default function ProductGallery({
         )}
 
         {/* Counter Badge */}
-        <div className="absolute top-4 left-4 z-10 bg-white/80 backdrop-blur-md border border-slate-200 text-slate-700 text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
+        <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md border border-gray-800 text-gray-300 text-[11px] font-bold px-3 py-1 rounded-full">
           {selectedIndex + 1} / {images.length}
         </div>
       </div>
@@ -111,4 +111,3 @@ export default function ProductGallery({
     </div>
   );
 }
-

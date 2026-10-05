@@ -3,19 +3,19 @@ import styles from "./SocialConnect.module.css";
 
 export default function SocialConnect() {
   return (
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-b border-slate-200/80 relative overflow-hidden">
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-deep-black via-[#0f1118] to-deep-black border-t border-b border-gray-900/60 relative overflow-hidden">
       
       {/* Background Subtle Ambient Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-amber-100/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-72 h-72 bg-amber-200/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-[#f59e0b]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-72 h-72 bg-[#fbbf24]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1e293b] mb-4">
-          انضم إلى عائلة <span className="text-[#d97706]">عسل زوين</span> للأعسال الطبيعية
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
+          انضم إلى عائلة <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">عسل زوين</span> للأعسال الطبيعية
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
+        <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto leading-relaxed mb-8">
           تابعنا على منصات التواصل الاجتماعي لمعرفة مواسم قطف الأعسال الجديدة، والخلطات العلاجية، والتواصل المباشر مع خبرائنا.
         </p>
 
@@ -86,4 +86,3 @@ export default function SocialConnect() {
     </section>
   );
 }
-

@@ -21,62 +21,59 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
   };
 
   return (
-    <div className="flex flex-col gap-5 text-[#1e293b] bg-white p-6 sm:p-8 rounded-[2rem] border border-slate-200/80 shadow-[0_15px_40px_rgba(0,0,0,0.04)]">
+    <div className="flex flex-col gap-5 text-white">
       
       {/* Product Name & Brand */}
       <div>
-        <span className="text-xs font-black tracking-widest text-[#d97706] uppercase block mb-1">
-          {product.brand}
-        </span>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#1e293b] leading-tight tracking-tight mb-2">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight mb-2">
           {product.name}
         </h1>
 
         {/* Rating Stars & Reviews Count */}
-        <div className="flex items-center gap-2 text-xs text-slate-500">
-          <div className="flex items-center gap-1 text-[#f59e0b]">
+        <div className="flex items-center gap-2 text-xs text-gray-400">
+          <div className="flex items-center gap-1 text-[#ffd426]">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
-          <span className="font-bold text-slate-800 text-sm">{product.rating}</span>
+          <span className="font-bold text-white text-sm">{product.rating}</span>
           <span>({product.reviewsCount} تقييم حقيقي)</span>
         </div>
       </div>
 
       {/* Price & Discount Line (Matches Reference Image) */}
       <div className="flex items-baseline gap-3">
-        <span className="text-3xl sm:text-4xl font-black text-[#d97706] tracking-tight">
-          {product.price} <span className="text-lg font-bold text-slate-600">ج.م</span>
+        <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          {product.price} <span className="text-lg font-bold text-gray-400">ج.م</span>
         </span>
         
         {product.oldPrice && (
-          <span className="text-lg text-slate-400 line-through font-normal">
+          <span className="text-lg text-gray-500 line-through font-normal">
             {product.oldPrice} ج.م
           </span>
         )}
 
         {discountPercentage && (
-          <span className="text-xs font-black text-amber-900 bg-amber-100 border border-amber-300 px-2.5 py-1 rounded-full">
+          <span className="text-xs font-black text-[#f59e0b] bg-[#f59e0b]/10 border border-[#f59e0b]/30 px-2.5 py-1 rounded-md">
             خصم {discountPercentage}%
           </span>
         )}
       </div>
 
       {/* Product Short Bio Paragraph */}
-      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
+      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
         {product.description}
       </p>
 
       {/* Divider */}
-      <div className="w-full h-px bg-slate-100" />
+      <div className="w-full h-px bg-gray-800/80" />
 
       {/* Color / Variety Selector (Matches Reference Image) */}
       {product.colors && product.colors.length > 0 && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <span className="font-bold text-slate-500">نوع / درجة العسل:</span>
-            <span className="font-bold text-slate-900">{product.colors[selectedColor].name}</span>
+            <span className="font-bold text-gray-400">نوع / درجة العسل:</span>
+            <span className="font-bold text-white">{product.colors[selectedColor].name}</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -87,8 +84,8 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
                 style={{ backgroundColor: color.hex }}
                 className={`relative w-8 h-8 rounded-full transition-all cursor-pointer border ${
                   selectedColor === idx
-                    ? "ring-2 ring-offset-2 ring-[#f59e0b] ring-offset-white scale-110 border-transparent shadow-[0_0_12px_rgba(245,158,11,0.4)]"
-                    : "border-slate-300 hover:scale-105"
+                    ? "ring-2 ring-offset-2 ring-[#f59e0b] ring-offset-deep-black scale-110 border-transparent shadow-[0_0_12px_rgba(245,158,11,0.4)]"
+                    : "border-gray-600 hover:scale-105"
                 }`}
                 title={color.name}
               />
@@ -102,12 +99,12 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-slate-500">حجم العبوة:</span>
-              <span className="font-bold text-[#d97706] uppercase">{selectedSize}</span>
+              <span className="font-bold text-gray-400">حجم العبوة:</span>
+              <span className="font-bold text-[#f59e0b] uppercase">{selectedSize}</span>
             </div>
 
-            <div className="text-xs text-slate-500 flex items-center gap-1.5 font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
+            <div className="text-xs text-gray-400 flex items-center gap-1.5 font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
               <span>زجاج طبي معقم</span>
             </div>
           </div>
@@ -117,10 +114,10 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`min-w-[70px] h-11 px-4 rounded-xl text-xs font-black transition-all cursor-pointer border ${
+                className={`min-w-[70px] h-11 px-4 rounded-lg text-xs font-black transition-all cursor-pointer border ${
                   selectedSize === size
-                    ? "bg-[#f59e0b] text-white border-[#f59e0b] shadow-md scale-105"
-                    : "bg-slate-50 text-slate-700 border-slate-200 hover:border-amber-300 hover:text-amber-800"
+                    ? "bg-white text-deep-black border-white shadow-lg scale-105"
+                    : "bg-[#14161f] text-gray-300 border-gray-800 hover:border-gray-600 hover:text-white"
                 }`}
               >
                 {size}
@@ -133,7 +130,7 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
       {/* Main Action Buttons Row (Buy Now + Add to Cart Icon + Wishlist Icon) */}
       <div className="flex items-center gap-3 pt-2">
         
-        {/* Instant Buy Now Button */}
+        {/* Instant Buy Now Button (Same style as card buy now) */}
         <ScaleButton
           onClick={handleAddToCart}
           variant="neon"
@@ -149,7 +146,7 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           onClick={handleAddToCart}
           aria-label="إضافة إلى السلة"
           title="إضافة إلى السلة"
-          className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 hover:border-[#f59e0b] hover:bg-[#f59e0b] text-slate-700 hover:text-white flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-sm group"
+          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-700 hover:border-[#f59e0b] hover:bg-[#f59e0b] text-gray-300 hover:text-deep-black flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-md group"
         >
           <ShoppingBag className="w-5 h-5 transition-transform group-hover:scale-110" />
         </button>
@@ -159,11 +156,11 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
           onClick={() => setIsFavorite(!isFavorite)}
           aria-label="إضافة للمفضلة"
           title="إضافة للمفضلة"
-          className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 hover:border-slate-300 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95 shadow-sm"
+          className="w-12 h-12 rounded-xl bg-[#14161f] border border-gray-800 hover:border-gray-700 flex items-center justify-center transition-all cursor-pointer shrink-0 hover:scale-105 active:scale-95"
         >
           <Heart
             className={`w-5 h-5 transition-colors ${
-              isFavorite ? "fill-red-500 text-red-500" : "text-slate-400 hover:text-red-500"
+              isFavorite ? "fill-red-500 text-red-500" : "text-gray-400 hover:text-white"
             }`}
           />
         </button>
@@ -171,29 +168,29 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
       </div>
 
       {/* Micro Guarantees / Service Badges (Matches Reference Image) */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-100">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-gray-800/80">
         
         <div className="flex items-center gap-2.5">
-          <Truck className="w-4 h-4 text-[#d97706] shrink-0" />
+          <Truck className="w-4 h-4 text-[#f59e0b] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-slate-800 block">شحن مجاني وسريع</span>
-            <span className="text-slate-500 text-[10px]">لكافة المحافظات</span>
+            <span className="font-bold text-white block">شحن مجاني وسريع</span>
+            <span className="text-gray-500 text-[10px]">لكافة المحافظات</span>
           </div>
         </div>
 
         <div className="flex items-center gap-2.5">
-          <RefreshCw className="w-4 h-4 text-[#d97706] shrink-0" />
+          <RefreshCw className="w-4 h-4 text-[#f59e0b] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-slate-800 block">استرجاع سهل</span>
-            <span className="text-slate-500 text-[10px]">خلال 14 يوماً</span>
+            <span className="font-bold text-white block">استرجاع سهل</span>
+            <span className="text-gray-500 text-[10px]">خلال 14 يوماً</span>
           </div>
         </div>
 
         <div className="flex items-center gap-2.5">
-          <ShieldCheck className="w-4 h-4 text-[#d97706] shrink-0" />
+          <ShieldCheck className="w-4 h-4 text-[#f59e0b] shrink-0" />
           <div className="text-[11px] leading-tight">
-            <span className="font-bold text-slate-800 block">معاينة قبل الدفع</span>
-            <span className="text-slate-500 text-[10px]">دفع آمن 100%</span>
+            <span className="font-bold text-white block">معاينة قبل الدفع</span>
+            <span className="text-gray-500 text-[10px]">دفع آمن 100%</span>
           </div>
         </div>
 
@@ -202,4 +199,3 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
     </div>
   );
 }
-
