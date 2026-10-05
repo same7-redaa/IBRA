@@ -85,12 +85,15 @@ export default function Hero() {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
         {/* Centered Text Content */}
         <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 w-full text-center leading-tight">
-            تذوق <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">نقاء الطبيعة</span> مع أجود أنواع عسل النحل الأصلي
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-wider mb-4 w-full text-center leading-tight select-none">
+            <span className="text-white">عَـــسَـــل</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff] drop-shadow-[0_4px_25px_rgba(245,158,11,0.35)]">
+              زويـــــن
+            </span>
           </h1>
 
-          <p className="mt-2 text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            نوفر لك أنقى أنواع العسل الجبلي والخلطات الملكية الطبيعية 100% مفحوصة وموثقة مخبرياً. 
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
+            أنقى أنواع عسل النحل الجبلي والخلطات الملكية الطبيعية 100% مفحوصة وموثقة مخبرياً. 
             غذاء ودواء يجمع بين أصالة الطعم والفوائد الشفائية الفائقة حتى باب منزلك.
           </p>
 
