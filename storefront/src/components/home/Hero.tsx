@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Hero.module.css";
-import { ShieldCheck, Award, Sparkles } from "lucide-react";
+import { ShieldCheck, Award, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
 
 export default function Hero() {
   const honeyImages = [
@@ -14,14 +14,34 @@ export default function Hero() {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % honeyImages.length);
-    }, 3200);
+    }, 3500);
 
     return () => clearInterval(timer);
   }, [honeyImages.length]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 35) {
+      if (diff > 0) {
+        // Swiped Right -> Previous in RTL
+        setCurrentImageIndex((prev) => (prev - 1 + honeyImages.length) % honeyImages.length);
+      } else {
+        // Swiped Left -> Next in RTL
+        setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length);
+      }
+    }
+    setTouchStartX(null);
+  };
 
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
@@ -95,11 +115,13 @@ export default function Hero() {
           {/* Left Column: 3D Stacked Image Showcase */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center select-none">
             
-            {/* 3D Symmetrical Winged Carousel Container */}
+            {/* 3D Symmetrical Winged Carousel Container with Touch Gestures */}
             <div 
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
               onClick={() => setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length)}
-              className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-[280px] sm:h-[330px] flex items-center justify-center cursor-pointer group"
-              title="انقر لتدوير الصور"
+              className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-[280px] sm:h-[330px] flex items-center justify-center cursor-pointer group touch-manipulation"
+              title="انقر أو اسحب لتدوير الصور"
             >
               {honeyImages.map((img, idx) => {
                 const offset = (idx - currentImageIndex + honeyImages.length) % honeyImages.length;
@@ -139,7 +161,7 @@ export default function Hero() {
                 return (
                   <div
                     key={idx}
-                    className="absolute inset-0 flex items-center justify-center transition-all duration-800 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
+                    className="absolute inset-0 flex items-center justify-center transition-all duration-800 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform pointer-events-none"
                     style={{
                       ...transformStyle,
                       opacity: opacityStyle,
@@ -158,20 +180,50 @@ export default function Hero() {
               })}
             </div>
 
-            {/* Pagination Indicators */}
-            <div className="mt-4 flex items-center gap-2">
-              {honeyImages.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={() => setCurrentImageIndex(dotIdx)}
-                  aria-label={`عرض الصورة ${dotIdx + 1}`}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    dotIdx === currentImageIndex
-                      ? "w-8 bg-[#d97706] shadow-sm"
-                      : "w-2 bg-[#ebdcc9] hover:bg-[#d97706]/50"
-                  }`}
-                />
-              ))}
+            {/* Pagination Indicators & Next/Prev Controls */}
+            <div className="mt-5 flex items-center gap-3 z-20">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex((prev) => (prev - 1 + honeyImages.length) % honeyImages.length);
+                }}
+                aria-label="الصورة السابقة"
+                className="w-8 h-8 rounded-full bg-white border border-[#ebdcc9] text-[#221c15] hover:bg-[#d97706] hover:text-white flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation"
+              >
+                <ChevronRight className="w-4 h-4 pointer-events-none" />
+              </button>
+
+              <div className="flex items-center gap-1.5">
+                {honeyImages.map((_, dotIdx) => (
+                  <button
+                    key={dotIdx}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImageIndex(dotIdx);
+                    }}
+                    aria-label={`عرض الصورة ${dotIdx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-500 cursor-pointer touch-manipulation ${
+                      dotIdx === currentImageIndex
+                        ? "w-8 bg-[#d97706] shadow-sm"
+                        : "w-2 bg-[#ebdcc9] hover:bg-[#d97706]/50"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length);
+                }}
+                aria-label="الصورة التالية"
+                className="w-8 h-8 rounded-full bg-white border border-[#ebdcc9] text-[#221c15] hover:bg-[#d97706] hover:text-white flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation"
+              >
+                <ChevronLeft className="w-4 h-4 pointer-events-none" />
+              </button>
             </div>
 
           </div>
