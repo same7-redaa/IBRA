@@ -81,7 +81,7 @@ export default function NavigationLoader() {
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <Loader text="عسل زوين" subtext="جاري التحميل..." />
+      <Loader text="عسل زوين" />
     </div>
   );
 }
