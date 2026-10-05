@@ -46,7 +46,8 @@ export default function ProductCarouselSection({
     const el = scrollContainerRef.current;
     if (!el || repeatedProducts.length === 0) return;
 
-    const scrollAmount = Math.max(el.clientWidth * 0.85, 280);
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    const scrollAmount = isMobile ? el.clientWidth : Math.max(el.clientWidth * 0.85, 280);
     const currentScroll = Math.abs(el.scrollLeft);
     const maxScroll = el.scrollWidth - el.clientWidth;
     const isNegativeRtl = el.scrollLeft <= 0;
@@ -119,21 +120,21 @@ export default function ProductCarouselSection({
             type="button"
             onClick={() => handleScroll("prev")}
             aria-label="السابق (يمين)"
-            className="shrink-0 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer ml-1.5 sm:ml-3"
+            className="shrink-0 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] active:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none ml-1 sm:ml-3"
           >
-            <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 pointer-events-none" />
           </button>
 
-          {/* Carousel Scroll Container */}
+          {/* Carousel Scroll Container: 1 card on mobile, 3 on tablet, 4 on desktop */}
           <div
             ref={scrollContainerRef}
-            className="flex-grow flex gap-2.5 sm:gap-4 md:gap-5 lg:gap-6 overflow-x-auto pb-4 pt-1 px-0.5 scrollbar-none snap-x snap-mandatory scroll-smooth"
+            className="flex-grow flex gap-3 sm:gap-4 md:gap-5 lg:gap-6 overflow-x-auto pb-4 pt-1 px-0.5 scrollbar-none snap-x snap-mandatory scroll-smooth"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {repeatedProducts.map(({ item, key }) => (
               <div
                 key={key}
-                className="snap-start shrink-0 w-[calc((100%-0.625rem)/2)] sm:w-[calc((100%-2*1rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)]"
+                className="snap-start shrink-0 w-full sm:w-[calc((100%-2*1rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)]"
               >
                 <ProductCard product={item} />
               </div>
@@ -145,9 +146,9 @@ export default function ProductCarouselSection({
             type="button"
             onClick={() => handleScroll("next")}
             aria-label="التالي (يسار)"
-            className="shrink-0 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer mr-1.5 sm:mr-3"
+            className="shrink-0 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] active:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none mr-1 sm:mr-3"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 pointer-events-none" />
           </button>
 
         </div>
