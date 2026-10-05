@@ -12,11 +12,11 @@ export default function SocialConnect() {
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          انضم إلى مجتمع <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">BISMILLAH</span>
+          انضم إلى عائلة <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">BISMILLAH</span> للعسل الطبيعي
         </h2>
 
         <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto leading-relaxed mb-8">
-          تابعنا على منصات التواصل الاجتماعي لمعرفة أحدث العروض والتشكيلات الحصرية والتواصل المباشر مع فريق الدعم الفني.
+          تابعنا على منصات التواصل الاجتماعي لمعرفة مواسم قطف الأعسال الجديدة، والخلطات العلاجية، والتواصل المباشر مع خبرائنا.
         </p>
 
         {/* Buttons Row (Side by Side) */}

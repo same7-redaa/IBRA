@@ -68,11 +68,11 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
       {/* Divider */}
       <div className="w-full h-px bg-gray-800/80" />
 
-      {/* Color Selector (Matches Reference Image) */}
+      {/* Color / Variety Selector (Matches Reference Image) */}
       {product.colors && product.colors.length > 0 && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <span className="font-bold text-gray-400">اللون:</span>
+            <span className="font-bold text-gray-400">نوع / درجة العسل:</span>
             <span className="font-bold text-white">{product.colors[selectedColor].name}</span>
           </div>
 
@@ -94,19 +94,19 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
         </div>
       )}
 
-      {/* Size Selector (Matches Reference Image) */}
+      {/* Weight / Jar Size Selector */}
       {product.sizes && product.sizes.length > 0 && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-gray-400">المقاس:</span>
-              <span className="font-bold text-white uppercase">{selectedSize}</span>
+              <span className="font-bold text-gray-400">حجم العبوة:</span>
+              <span className="font-bold text-[#b0fb30] uppercase">{selectedSize}</span>
             </div>
 
-            <button className="text-xs text-gray-400 hover:text-[#b0fb30] flex items-center gap-1.5 transition-colors cursor-pointer font-bold">
-              <Ruler className="w-3.5 h-3.5" />
-              <span>دليل المقاسات</span>
-            </button>
+            <div className="text-xs text-gray-400 flex items-center gap-1.5 font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#b0fb30]" />
+              <span>زجاج طبي معقم</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-2.5 flex-wrap">
@@ -114,7 +114,7 @@ export default function ProductOrderBox({ product }: { product: ProductItem }) {
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`min-w-[50px] h-11 px-4 rounded-lg text-xs font-black transition-all cursor-pointer border ${
+                className={`min-w-[70px] h-11 px-4 rounded-lg text-xs font-black transition-all cursor-pointer border ${
                   selectedSize === size
                     ? "bg-white text-deep-black border-white shadow-lg scale-105"
                     : "bg-[#14161f] text-gray-300 border-gray-800 hover:border-gray-600 hover:text-white"

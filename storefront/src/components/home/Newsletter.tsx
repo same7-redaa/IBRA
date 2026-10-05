@@ -24,17 +24,17 @@ export default function Newsletter() {
         
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight">
-          كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">التشكيلات والعروض</span>
+          كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">مواسم القطف والعروض</span>
         </h2>
 
         <p className="text-xs sm:text-sm text-gray-400 max-w-lg mx-auto mb-8 leading-relaxed">
-          سجل معنا لتصلك أحدث صيحات الموضة وخصومات حصرية قبل الجميع مباشرة على هاتفك أو بريدك.
+          سجل معنا لتصلك إشعارات قطفات العسل النادرة والخلطات الملكية وخصومات حصرية قبل الجميع مباشرة على هاتفك أو بريدك.
         </p>
 
         {isSubmitted ? (
           <div className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-[#b0fb30]/10 border border-[#b0fb30]/30 text-[#b0fb30] text-sm font-bold animate-fade-in">
             <CheckCircle2 className="w-5 h-5" />
-            <span>تم اشتراكك بنجاح! تم تطبيق كود الخصم: BISMILLAH15</span>
+            <span>تم اشتراكك بنجاح! تم تطبيق كود الخصم: HONEY15</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto">

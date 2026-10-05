@@ -22,7 +22,7 @@ export default function Footer() {
             </Link>
             <span className="hidden sm:inline-block text-gray-700">|</span>
             <span className="text-xs text-gray-400 font-medium">
-              للأزياء الراقية والقطن المصري 100%
+              عسل نحل طبيعي 100% ومفحوص مخبرياً
             </span>
           </div>
 
@@ -59,7 +59,7 @@ export default function Footer() {
             <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-[#b0fb30]">
               InstaPay
             </span>
-            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-red-400">
+            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-amber-400">
               فودافون كاش
             </span>
           </div>
@@ -69,12 +69,12 @@ export default function Footer() {
         {/* Bottom Rights Row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">متجر BISMILLAH</span> للأزياء الراقية.
+            جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">مناحل BISMILLAH</span> لعسل النحل الطبيعي والأعشاب الفاخرة.
           </p>
           <div className="flex items-center gap-1.5 text-gray-400">
             <ShieldCheck className="w-3.5 h-3.5 text-[#b0fb30]" />
-            <span>منتج مصري أصلي 100%</span>
-            <span>🇪🇬</span>
+            <span>نقاء وجودة طبيعية 100% مضمونة</span>
+            <span>🍯</span>
           </div>
         </div>
 

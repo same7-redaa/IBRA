@@ -1,90 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import ProductCard, { ProductProps } from "@/components/ui/ProductCard";
-import Link from "next/link";
+import ProductCard from "@/components/ui/ProductCard";
 import ScaleButton from "@/components/ui/ScaleButton";
-
-const sampleProducts: (ProductProps & { category: string })[] = [
-  {
-    id: 1,
-    category: "hoodies",
-    brand: "ADIDAS ORIGINALS",
-    name: "هودي أوفر سايز كلاسيك قطن مصري",
-    price: 850,
-    oldPrice: 1100,
-    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80",
-    rating: 4.9,
-    reviewsCount: 142,
-    colors: [
-      { name: "أسود فحم", hex: "#111111" },
-      { name: "ليموني نيون", hex: "#b0fb30" },
-      { name: "أوف وايت", hex: "#f3f0e6" },
-      { name: "كحلي داكن", hex: "#14213d" }
-    ],
-    sizes: ["S", "M", "L", "XL"]
-  },
-  {
-    id: 2,
-    category: "hoodies",
-    brand: "NIKE SPORTSWEAR",
-    name: "سويت شيرت تيك فليس أسود بجيوب مخفية",
-    price: 990,
-    oldPrice: 1350,
-    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=600&q=80",
-    rating: 5.0,
-    reviewsCount: 289,
-    colors: [
-      { name: "رمادي معدني", hex: "#4b5563" },
-      { name: "أسود ملكي", hex: "#0a0a0a" },
-      { name: "زيتي غامق", hex: "#283618" }
-    ],
-    sizes: ["M", "L", "XL", "2XL"]
-  },
-  {
-    id: 3,
-    category: "tshirts",
-    brand: "PUMA SELECT",
-    name: "تيشرت ستريت وير بريميوم مطبوع",
-    price: 490,
-    oldPrice: 650,
-    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80",
-    rating: 4.8,
-    reviewsCount: 95,
-    colors: [
-      { name: "أبيض ناصع", hex: "#ffffff" },
-      { name: "بنفسجي باستيل", hex: "#e2d1f9" },
-      { name: "أسود مطفي", hex: "#1f2421" }
-    ],
-    sizes: ["S", "M", "L", "XL"]
-  },
-  {
-    id: 4,
-    category: "jackets",
-    brand: "ZARA MAN",
-    name: "جاكيت بومبر شتوي مبطن ووتر بروف",
-    price: 1450,
-    oldPrice: 1850,
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
-    rating: 4.9,
-    reviewsCount: 310,
-    colors: [
-      { name: "كحلي كلاسيك", hex: "#0b1d3a" },
-      { name: "أسود جلد", hex: "#181818" },
-      { name: "بيج ترابي", hex: "#d4a373" }
-    ],
-    sizes: ["M", "L", "XL"]
-  }
-];
+import { sampleProducts } from "@/data/products";
 
 export default function BestProducts() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
     { id: "all", label: "الكل" },
-    { id: "hoodies", label: "هوديز وسويت شيرت" },
-    { id: "tshirts", label: "تيشرتات" },
-    { id: "jackets", label: "جواكت ومعاطف" }
+    { id: "sidr", label: "عسل سدر جبلي" },
+    { id: "black_seed", label: "عسل حبة البركة" },
+    { id: "royal", label: "خلطات ملكية" },
+    { id: "citrus", label: "عسل الموالح والزهور" }
   ];
 
   const filteredProducts =
@@ -105,7 +34,7 @@ export default function BestProducts() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9 gap-5">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
-              أفضل <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">المنتجات</span> والتشكيلات
+              أجود <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">أعسال النحل</span> والخلطات الملكية
             </h2>
           </div>
 
@@ -141,7 +70,7 @@ export default function BestProducts() {
             size="lg"
             className="min-w-[270px]"
           >
-            استكشف باقي التشكيلة بالكامل
+            استكشف تشكيلة الأعسال الطبيعية بالكامل
           </ScaleButton>
         </div>
 
@@ -149,3 +78,4 @@ export default function BestProducts() {
     </section>
   );
 }
+

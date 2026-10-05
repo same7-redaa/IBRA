@@ -3,14 +3,14 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   const bgImages = [
-    "https://picsum.photos/seed/bismillah-1/400/600",
-    "https://picsum.photos/seed/bismillah-2/400/600",
-    "https://picsum.photos/seed/bismillah-3/400/600",
-    "https://picsum.photos/seed/bismillah-4/400/600",
-    "https://picsum.photos/seed/bismillah-5/400/600",
-    "https://picsum.photos/seed/bismillah-6/400/600",
-    "https://picsum.photos/seed/bismillah-7/400/600",
-    "https://picsum.photos/seed/bismillah-8/400/600"
+    "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1582845512747-e42001c95638?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=400&q=80"
   ];
 
   return (
@@ -70,12 +70,12 @@ export default function Hero() {
         {/* Centered Text Content */}
         <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 w-full text-center leading-tight">
-            اظبط <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">شياكتك</span> بأحدث ستايلات الموضة
+            تذوق <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">نقاء الطبيعة</span> مع أجود أنواع عسل النحل الأصلي
           </h1>
 
           <p className="mt-2 text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            هتلاقي عندنا أجدد الستايلات اللي بتجمع بين الشياكة والراحة. 
-            قلّب في تشكيلتنا الحصرية اللي متفصلة مخصوص عشان تبرز حلاوة حضورك في أي خروجة.
+            نوفر لك أنقى أنواع العسل الجبلي والخلطات الملكية الطبيعية 100% مفحوصة وموثقة مخبرياً. 
+            غذاء ودواء يجمع بين أصالة الطعم والفوائد الشفائية الفائقة حتى باب منزلك.
           </p>
 
           {/* Centered Buttons */}
@@ -85,7 +85,7 @@ export default function Hero() {
               className={`${styles.button} ${styles.btnPrimary}`}
             >
               <span className={styles.btnTxt}>
-                تسوق دلوقتي
+                اطلب عسلك الآن
               </span>
             </Link>
             <Link
@@ -93,7 +93,7 @@ export default function Hero() {
               className={`${styles.button} ${styles.btnSecondary}`}
             >
               <span className={styles.btnTxt}>
-                شوف التشكيلة
+                تصفح أنواع العسل
               </span>
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Hero() {
               </div>
               <div className="text-right text-xs">
                 <span className="block font-black text-base text-white">١٠,٠٠٠+</span>
-                <span className="text-gray-400">عميل مبسوط</span>
+                <span className="text-gray-400">عميل يثق بنا</span>
               </div>
             </div>
 
@@ -119,12 +119,12 @@ export default function Hero() {
             {/* Stats */}
             <div className="flex items-center gap-8 text-center">
               <div>
-                <h4 className="text-2xl font-black text-white mb-0.5">٤٠K+</h4>
-                <p className="text-gray-400 text-xs">قطعة ملابس</p>
+                <h4 className="text-2xl font-black text-white mb-0.5">100%</h4>
+                <p className="text-gray-400 text-xs">طبيعي ومفحوص</p>
               </div>
               <div>
-                <h4 className="text-2xl font-black text-white mb-0.5">١٥K+</h4>
-                <p className="text-gray-400 text-xs">عملية بيع</p>
+                <h4 className="text-2xl font-black text-white mb-0.5">٢٥K+</h4>
+                <p className="text-gray-400 text-xs">عبوة تم تسليمها</p>
               </div>
             </div>
 

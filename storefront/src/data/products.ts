@@ -20,125 +20,124 @@ export interface ProductItem {
 export const sampleProducts: ProductItem[] = [
   {
     id: 1,
-    category: "hoodies",
-    brand: "ADIDAS ORIGINALS",
-    name: "هودي أوفر سايز كلاسيك قطن مصري 100%",
-    price: 850,
-    oldPrice: 1100,
-    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80",
+    category: "sidr",
+    brand: "مناحل BISMILLAH",
+    name: "عسل سدر جبلي ملكي خام طبيعي 100%",
+    price: 650,
+    oldPrice: 850,
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80"
     ],
     rating: 4.9,
-    reviewsCount: 142,
-    description: "هودي أوفر سايز مصمم بعناية فائقة من أجود أنواع القطن المصري المعالج لمنحك الدفء والراحة القصوى في الأيام الباردة، مع قصة مريحة وعصرية تناسب الإطلالات اليومية والكاجوال.",
-    material: "قطن مصري ميلتون مبطن ناعم 100%",
+    reviewsCount: 384,
+    description: "عسل سدر جبلي أصيل مفحوص مخبرياً ومستخرج من أزهار شجر السدر في أعالي الجبال. يتميز برائحة عطرية زكية وطعم غني مع قوام لزج كثيف، معروف بخصائصه الفعالة في تقوية المناعة وتعزيز صحة الجهاز الهضمي والنشاط البدني.",
+    material: "عسل نحل سدر جبلي خام نقي 100% غير مبستر وبدون أي تغذية سكرية",
     features: [
-      "نسيج ثقيل وناعم لا يتقلص مع الغسيل",
-      "غطاء رأس واسع ومزدوج مع حبال تضييق متينة",
-      "جيب أمامي كانغرو واسع لتدفئة اليدين",
-      "أساور وحافة سفلية مرنة ومحكمة"
+      "مفحوص وموثق مخبرياً لضمان النقاء بنسبة 100%",
+      "غني بالإنزيمات الحية ومضادات الأكسدة القوية",
+      "قوام لزج ذهبي نقي بدون أي إضافات صناعية",
+      "يأتي في عبوة زجاجية فاخرة محكمة الغلق تحافظ على القيمة الغذائية"
     ],
     colors: [
-      { name: "أسود فحم", hex: "#111111" },
-      { name: "ليموني نيون", hex: "#b0fb30" },
-      { name: "أوف وايت", hex: "#f3f0e6" },
-      { name: "كحلي داكن", hex: "#14213d" }
+      { name: "عسل سدر ملكي ذهبي", hex: "#d97706" },
+      { name: "سدر جبلي معتق", hex: "#92400e" },
+      { name: "سدر مع شمع النحل", hex: "#f59e0b" }
     ],
-    sizes: ["S", "M", "L", "XL", "2XL"],
+    sizes: ["250 جم", "500 جم", "1 كجم", "2 كجم عائلي"],
     inStock: true
   },
   {
     id: 2,
-    category: "hoodies",
-    brand: "NIKE SPORTSWEAR",
-    name: "سويت شيرت تيك فليس أسود بجيوب مخفية",
-    price: 990,
-    oldPrice: 1350,
-    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=800&q=80",
+    category: "black_seed",
+    brand: "مناحل BISMILLAH",
+    name: "عسل حبة البركة الخام للوقاية والمناعة",
+    price: 490,
+    oldPrice: 650,
+    image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80"
     ],
     rating: 5.0,
-    reviewsCount: 289,
-    description: "سويت شيرت خفيف الوزن ومقاوم للرياح بتقنية العزل الحراري المتطورة، مزود بسحابات مخفية وجيب أمان للأغراض الشخصية.",
-    material: "بوليستر وتقنية تيك فليس عازلة للحرارة 100%",
+    reviewsCount: 295,
+    description: "مستخرج من رحيق زهور نبات حبة البركة (الحبة السوداء)، يجمع بين مذاق العسل الطبيعي الدافئ وفوائد الحبة السوداء العلاجية. مثالي لرفع كفاءة الجهاز المناعي وصحة الصدر والتنفس.",
+    material: "عسل نحل حبة البركة الطبيعي 100% غني بزيوت الثيموكينون الفعالة",
     features: [
-      "خفيف الوزن وعالي العزل الحراري",
-      "جيوب بسحابات محكمة ومقاومة للماء",
-      "تفاصيل عاكسة للضوء للرؤية الليلية"
+      "داعم قوي ومثبت للجهاز المناعي ومكافحة نزلات البرد",
+      "يحتوي على خلاصة الزيوت الطيارة المفيدة لحبة البركة",
+      "مذاق دافئ ومميز مناسب لجميع أفراد الأسرة",
+      "خام تماماً بدون معالجة حرارية أو تصفية زائدة"
     ],
     colors: [
-      { name: "رمادي معدني", hex: "#4b5563" },
-      { name: "أسود ملكي", hex: "#0a0a0a" },
-      { name: "زيتي غامق", hex: "#283618" }
+      { name: "عنبري داكن غني", hex: "#78350f" },
+      { name: "ذهبي نقي دافئ", hex: "#b45309" }
     ],
-    sizes: ["M", "L", "XL", "2XL"],
+    sizes: ["500 جم", "1 كجم", "2 كجم"],
     inStock: true
   },
   {
     id: 3,
-    category: "tshirts",
-    brand: "PUMA SELECT",
-    name: "تيشرت ستريت وير بريميوم مطبوع",
-    price: 490,
-    oldPrice: 650,
-    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80",
+    category: "royal",
+    brand: "خلطات BISMILLAH الملكية",
+    name: "خلطة الطاقة والمناعة مع غذاء الملكات والبروبوليس",
+    price: 890,
+    oldPrice: 1200,
+    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80"
     ],
-    rating: 4.8,
-    reviewsCount: 95,
-    description: "تيشرت عصري من القطن الطبيعي الصافي بطباعة ستريت وير ثلاثية الأبعاد تدوم طويلاً، مع ياقة مدعمة تمنع التمدد.",
-    material: "قطن سنجل جيرسي 100%",
+    rating: 4.9,
+    reviewsCount: 420,
+    description: "تركيبة حصرية تجمع بين عسل السدر الجبلي وغذاء ملكات النحل الطازج وحبوب اللقاح وصمغ النحل (البروبوليس) ومسحوق الجنسنج الكوري. قنبلة طاقة طبيعية ونشاط وحيوية للجسم والتركيز الذهني.",
+    material: "عسل سدر + غذاء ملكات النحل (20 جم) + صمغ العكبر + حبوب لقاح + جنسنج أحمر",
     features: [
-      "مسامي ومريح للاستخدام الصيفي واليومي",
-      "طباعة سيريجرافي فاخرة لا تتشقق",
-      "خياطة مزدوجة لمتانة تدوم لسنوات"
+      "تجديد طاقة وحيوية الجسم ومكافحة الإرهاق اليومي",
+      "أقوى مضاد حيوي طبيعي من صمغ النحل النقي (العكبر)",
+      "تعزيز الخصوبة والنشاط البدني والذهني",
+      "مكونات طازجة 100% تخلط يدوياً بأعلى درجات العناية"
     ],
     colors: [
-      { name: "أبيض ناصع", hex: "#ffffff" },
-      { name: "بنفسجي باستيل", hex: "#e2d1f9" },
-      { name: "أسود مطفي", hex: "#1f2421" }
+      { name: "خلطة ملكية ممزوجة", hex: "#d97706" },
+      { name: "خلطة مضاعفة الغذاء الملكي", hex: "#fbbf24" }
     ],
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["500 جم", "1 كجم"],
     inStock: true
   },
   {
     id: 4,
-    category: "jackets",
-    brand: "ZARA MAN",
-    name: "جاكيت بومبر شتوي مبطن ووتر بروف",
-    price: 1450,
-    oldPrice: 1850,
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+    category: "citrus",
+    brand: "مناحل BISMILLAH",
+    name: "عسل زهور الموالح والليمون النقي خفيف القوام",
+    price: 350,
+    oldPrice: 480,
+    image: "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80"
     ],
-    rating: 4.9,
-    reviewsCount: 310,
-    description: "جاكيت بومبر فخم مبطن بطبقة عازلة للمطر والرياح الشديدة، يجمع بين الفخامة والعملية مع سحابات معدنية يابانية أصلية.",
-    material: "قماش تقني مقاوم للماء مع بطانة حرارية",
+    rating: 4.8,
+    reviewsCount: 180,
+    description: "عسل خفيف وسلس القوام مستخرج من بساتين البرتقال والليمون، يتميز برائحة حمضية منعشة وطعم محبب جداً للأطفال والكبار، ممتاز للتحلية اليومية ومهدئ للأعصاب قبل النوم.",
+    material: "عسل نحل زهور موالح طبيعي 100% غني بفيتامين C والمعادن",
     features: [
-      "مقاومة تامة للمياه والأمطار",
-      "بطانة داخلية ناعمة تحبس حرارة الجسم",
-      "جيوب جانبية وداخلية لحفظ الهاتف والمحفظة"
+      "خفيف على المعدة وسريع الامتصاص ومثالي للأطفال",
+      "غني بمضادات الأكسدة وفيتامين C الطبيعي",
+      "بديل مثالي وصحي لتحلية المشروبات والعصائر",
+      "رائحة زكية منعشة مستوحاة من بساتين الموالح"
     ],
     colors: [
-      { name: "كحلي كلاسيك", hex: "#0b1d3a" },
-      { name: "أسود جلد", hex: "#181818" },
-      { name: "بيج ترابي", hex: "#d4a373" }
+      { name: "ذهبي فاتح نقي", hex: "#fcd34d" },
+      { name: "عنبري خفيف", hex: "#f59e0b" }
     ],
-    sizes: ["M", "L", "XL", "2XL"],
+    sizes: ["500 جم", "1 كجم", "2 كجم عائلي"],
     inStock: true
   }
 ];
