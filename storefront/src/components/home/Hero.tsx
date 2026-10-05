@@ -92,20 +92,83 @@ export default function Hero() {
 
           </div>
 
-          {/* Left Column: Pure Image Showcase (Native Transparent PNGs) */}
-          <div className="lg:col-span-5 flex justify-center items-center">
+          {/* Left Column: 3D Stacked Image Showcase */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center select-none">
             
-            {/* Direct Image Frame with Transparent Background */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square flex items-center justify-center">
-              {honeyImages.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img}
-                  alt={`عسل زوين - تصميم ${idx + 1}`}
-                  className={`absolute inset-0 w-full h-full object-contain object-center drop-shadow-[0_12px_30px_rgba(180,83,9,0.12)] transition-opacity duration-1000 ease-in-out ${
-                    idx === currentImageIndex
-                      ? "opacity-100"
-                      : "opacity-0 pointer-events-none"
+            {/* 3D Stack Image Container */}
+            <div 
+              onClick={() => setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length)}
+              className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[400px] h-[340px] sm:h-[400px] flex items-center justify-center cursor-pointer group"
+              title="انقر للتبديل للصورة التالية"
+            >
+              {honeyImages.map((img, idx) => {
+                const offset = (idx - currentImageIndex + honeyImages.length) % honeyImages.length;
+                
+                // 3D Deck Transformation Properties
+                let transformStyle = {};
+                let opacityStyle = 0;
+                let zIndexStyle = 0;
+                let filterStyle = "";
+
+                if (offset === 0) {
+                  // Active Front Card
+                  transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
+                  opacityStyle = 1;
+                  zIndexStyle = 40;
+                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22))";
+                } else if (offset === 1) {
+                  // 1st Card Behind (Shifted & Rotated)
+                  transformStyle = { transform: "translate3d(-35px, -18px, 0) scale(0.88) rotate(-7deg)" };
+                  opacityStyle = 0.65;
+                  zIndexStyle = 30;
+                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.12)) brightness(0.92)";
+                } else if (offset === 2) {
+                  // 2nd Card Behind
+                  transformStyle = { transform: "translate3d(-65px, -34px, 0) scale(0.76) rotate(-14deg)" };
+                  opacityStyle = 0.35;
+                  zIndexStyle = 20;
+                  filterStyle = "drop-shadow(0 5px 15px rgba(180, 83, 9, 0.06)) brightness(0.85)";
+                } else {
+                  // Exiting / Hidden Card
+                  transformStyle = { transform: "translate3d(60px, 20px, 0) scale(0.85) rotate(12deg)" };
+                  opacityStyle = 0;
+                  zIndexStyle = 10;
+                  filterStyle = "none";
+                }
+
+                return (
+                  <div
+                    key={idx}
+                    className="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.34,1.4,0.64,1)] will-change-transform"
+                    style={{
+                      ...transformStyle,
+                      opacity: opacityStyle,
+                      zIndex: zIndexStyle,
+                      filter: filterStyle,
+                    }}
+                  >
+                    <img
+                      src={img}
+                      alt={`عسل زوين - تصميم ${idx + 1}`}
+                      className="w-full h-full object-contain pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                      draggable={false}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Pagination Indicators */}
+            <div className="mt-4 flex items-center gap-2">
+              {honeyImages.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  onClick={() => setCurrentImageIndex(dotIdx)}
+                  aria-label={`عرض الصورة ${dotIdx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    dotIdx === currentImageIndex
+                      ? "w-8 bg-[#d97706] shadow-sm"
+                      : "w-2 bg-[#ebdcc9] hover:bg-[#d97706]/50"
                   }`}
                 />
               ))}
