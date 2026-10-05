@@ -121,13 +121,13 @@ export default function Hero() {
           <div className="lg:col-span-5 flex justify-center items-center relative">
             
             {/* Decorative Honeycomb Ring / Aura */}
-            <div className="absolute -inset-3 bg-gradient-to-tr from-[#d97706]/20 via-[#f59e0b]/30 to-[#fbbf24]/20 rounded-[2.5rem] blur-xl opacity-70" />
+            <div className="absolute -inset-2.5 bg-gradient-to-tr from-[#d97706]/20 via-[#f59e0b]/30 to-[#fbbf24]/20 rounded-[2rem] blur-lg opacity-70" />
 
-            {/* Showcase Card Frame */}
-            <div className="relative w-full max-w-md aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden bg-white border-2 border-[#ebdcc9] shadow-[0_20px_50px_rgba(180,83,9,0.12)] p-2.5 sm:p-3">
+            {/* Showcase Card Frame (Compact & Refined) */}
+            <div className="relative w-full max-w-[290px] sm:max-w-[330px] lg:max-w-[340px] aspect-[4/5] rounded-[1.75rem] overflow-hidden bg-white border-2 border-[#ebdcc9] shadow-[0_15px_35px_rgba(180,83,9,0.1)] p-2 sm:p-2.5">
               
               {/* Image Transition Box */}
-              <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-[#fbf7ee]">
+              <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden bg-[#fbf7ee]">
                 {honeyImages.map((img, idx) => (
                   <img
                     key={idx}
@@ -145,13 +145,13 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
 
                 {/* Floating Badge on Image */}
-                <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#ebdcc9] shadow-md text-xs font-extrabold text-[#221c15]">
+                <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#ebdcc9] shadow-md text-[11px] font-extrabold text-[#221c15]">
                   <span className="w-2 h-2 rounded-full bg-[#d97706] animate-ping" />
                   <span>قطفات طبيعية طازجة</span>
                 </div>
 
                 {/* Counter / Indicator Pill */}
-                <div className="absolute top-4 left-4 z-10 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-[11px] font-bold border border-white/20">
+                <div className="absolute top-3 left-3 z-10 px-2.5 py-0.5 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-bold border border-white/20">
                   {currentImageIndex + 1} / {honeyImages.length}
                 </div>
               </div>
