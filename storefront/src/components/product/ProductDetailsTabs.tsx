@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ProductItem } from "@/data/products";
 import {
   Sparkles,
@@ -10,7 +11,8 @@ import {
   ChevronDown,
   FileCheck2,
   HelpCircle,
-  Award
+  Award,
+  Check
 } from "lucide-react";
 
 interface ProductDetailsTabsProps {
@@ -18,7 +20,7 @@ interface ProductDetailsTabsProps {
 }
 
 export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps) {
-  // Only one accordion item open at a time (first one open by default)
+  // Single-open accordion state (first item open by default)
   const [openItem, setOpenItem] = useState<string | null>("details");
 
   const toggleItem = (id: string) => {
@@ -29,19 +31,24 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
     {
       id: "details",
       title: "الفوائد والمواصفات الغذائية",
-      icon: <Sparkles className="w-5 h-5 text-[#d97706]" />,
+      subtitle: "المكونات، الفوائد الصحية والخصائص الفريدة",
+      artImage: "/prod_art_1.jpg",
+      artAlt: "رسمة نباتات طبيعية",
       content: (
-        <div className="space-y-4 pt-2">
-          <p className="text-sm text-[#5c4f42] leading-relaxed">
+        <div className="space-y-4 pt-1 pb-4">
+          <p className="text-sm sm:text-base text-[#5c4f42] leading-relaxed">
             {product.description}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             {product.features.map((feat, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 p-3 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs sm:text-sm text-[#221c15]">
-                <div className="w-4 h-4 rounded-full bg-white border border-[#ebdcc9] flex items-center justify-center shrink-0">
-                  <Sparkles className="w-2.5 h-2.5 text-[#d97706]" />
+              <div
+                key={idx}
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs sm:text-sm text-[#221c15]"
+              >
+                <div className="w-5 h-5 rounded-full bg-[#d97706]/15 border border-[#d97706]/30 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-[#d97706] stroke-[3]" />
                 </div>
-                <span className="font-semibold">{feat}</span>
+                <span className="font-bold">{feat}</span>
               </div>
             ))}
           </div>
@@ -51,21 +58,25 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
     {
       id: "source",
       title: "المصدر وشهادة الفحص المخبري",
-      icon: <FileCheck2 className="w-5 h-5 text-[#d97706]" />,
+      subtitle: "نقاء تام، خام 100% وبأعلى معايير الجودة العالمية",
+      artImage: "/prod_art_2.jpg",
+      artAlt: "رسمة مناحل وأزهار برية",
       content: (
-        <div className="space-y-3 pt-2">
-          <p className="text-sm text-[#5c4f42] leading-relaxed">
+        <div className="space-y-4 pt-1 pb-4">
+          <p className="text-sm sm:text-base text-[#5c4f42] leading-relaxed">
             نحن نضمن أن جميع أعسال مناحل زوين غير مبسترة، خام تماماً، ولم تتعرض لأي درجات حرارة تفقدها الإنزيمات الحية والخصائص العلاجية الطبيعية.
           </p>
-          <div className="p-4 rounded-2xl bg-[#fbf7ee] border border-[#ebdcc9] space-y-2">
-            <div className="flex items-center gap-2 text-xs font-bold text-[#d97706]">
-              <Award className="w-4 h-4" />
-              <span>نتائج الفحص والتحليل المخبري:</span>
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf7ee] border border-[#ebdcc9] space-y-2.5">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-black text-[#d97706]">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span>نتائج الفحص والتحليل المخبري المعتمد:</span>
             </div>
-            <p className="text-xs text-[#221c15] font-medium">{product.material}</p>
-            <p className="text-[12px] text-[#5c4f42]">
-              • نسبة سكروز 0% • خالٍ تماماً من التغذية السكرية • خالٍ من المبيدات والمضادات الحيوية.
-            </p>
+            <p className="text-xs sm:text-sm text-[#221c15] font-semibold">{product.material}</p>
+            <div className="pt-2 border-t border-[#ebdcc9] flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-[#5c4f42]">
+              <span>• نسبة سكروز 0% طبيعية</span>
+              <span>• خالٍ تماماً من التغذية السكرية</span>
+              <span>• خالٍ من المبيدات والمضادات الحيوية</span>
+            </div>
           </div>
         </div>
       ),
@@ -73,20 +84,26 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
     {
       id: "usage",
       title: "طريقة الاستخدام وتوصيات الحفظ",
-      icon: <HelpCircle className="w-5 h-5 text-[#d97706]" />,
+      subtitle: "الجرعة اليومية المثالية وأفضل طرق التخزين للحفاظ على الإنزيمات",
+      artImage: "/prod_art_3.jpg",
+      artAlt: "رسمة خلايا العسل التراثية",
       content: (
-        <div className="space-y-3 pt-2">
-          <p className="text-sm text-[#5c4f42] leading-relaxed">
+        <div className="space-y-4 pt-1 pb-4">
+          <p className="text-sm sm:text-base text-[#5c4f42] leading-relaxed">
             للحصول على أقصى فائدة صحية وعلاجية، يُنصح بتناول ملعقة طعام صباحاً على الريق إما مباشرة أو مذابة في نصف كوب ماء دافئ (أقل من 40 درجة مئوية).
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-            <div className="p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9]">
-              <span className="text-xs font-bold text-[#221c15] block mb-1">طريقة الحفظ</span>
-              <span className="text-xs text-[#5c4f42]">في مكان جاف بدرجة حرارة الغرفة (20-25° م) بعيداً عن أشعة الشمس المباشرة.</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+            <div className="p-4 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9]">
+              <span className="text-xs sm:text-sm font-black text-[#221c15] block mb-1.5">طريقة الحفظ المثالية</span>
+              <span className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed block">
+                في مكان جاف بدرجة حرارة الغرفة (20-25° م) بعيداً عن أشعة الشمس المباشرة.
+              </span>
             </div>
-            <div className="p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9]">
-              <span className="text-xs font-bold text-[#221c15] block mb-1">أداة الاستخدام المثالية</span>
-              <span className="text-xs text-[#d97706] font-bold">ملعقة خشبية أو بلاستيكية مخصصة للعسل لتجنب تفاعل الإنزيمات مع المعادن.</span>
+            <div className="p-4 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9]">
+              <span className="text-xs sm:text-sm font-black text-[#221c15] block mb-1.5">أداة الاستخدام الموصى بها</span>
+              <span className="text-xs sm:text-sm text-[#d97706] font-bold leading-relaxed block">
+                ملعقة خشبية أو بلاستيكية مخصصة للعسل لتجنب تفاعل الإنزيمات الحية مع المعادن.
+              </span>
             </div>
           </div>
         </div>
@@ -95,24 +112,26 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
     {
       id: "shipping",
       title: "الشحن والضمان الذهبي للاسترجاع",
-      icon: <ShieldCheck className="w-5 h-5 text-[#d97706]" />,
+      subtitle: "شحن آمن وتجربة التذوق قبل الاستلام مع ضمان الاسترجاع الفوري",
+      artImage: "/pattern_1.jpg",
+      artAlt: "رسمة نقشة العسل الطبيعي",
       content: (
-        <div className="space-y-3 pt-2">
-          <p className="text-sm text-[#5c4f42] leading-relaxed">
+        <div className="space-y-4 pt-1 pb-4">
+          <p className="text-sm sm:text-base text-[#5c4f42] leading-relaxed">
             شحن فوري ومؤمّن داخل عبوات مخصصة لحماية الزجاج من الكسر، مع ميزة التذوق والمعاينة قبل دفع الحساب.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#221c15]">
-              <Truck className="w-4 h-4 text-[#d97706] shrink-0" />
-              <span>توصيل سريع خلال 24-48 ساعة</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs sm:text-sm text-[#221c15]">
+              <Truck className="w-5 h-5 text-[#d97706] shrink-0" />
+              <span className="font-bold">توصيل سريع خلال 24-48 ساعة</span>
             </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#221c15]">
-              <RefreshCw className="w-4 h-4 text-[#d97706] shrink-0" />
-              <span>ضمان استرجاع فوري 100%</span>
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs sm:text-sm text-[#221c15]">
+              <RefreshCw className="w-5 h-5 text-[#d97706] shrink-0" />
+              <span className="font-bold">ضمان استرجاع فوري 100%</span>
             </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#221c15]">
-              <ShieldCheck className="w-4 h-4 text-[#d97706] shrink-0" />
-              <span>تذوق وافحص مع المندوب</span>
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs sm:text-sm text-[#221c15]">
+              <ShieldCheck className="w-5 h-5 text-[#d97706] shrink-0" />
+              <span className="font-bold">تذوق وافحص مع المندوب</span>
             </div>
           </div>
         </div>
@@ -125,7 +144,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       
       {/* Section Title */}
       <div className="mb-8">
-        <h3 className="text-xl sm:text-2xl font-black text-[#221c15] tracking-tight">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#221c15] tracking-tight">
           تفاصيل ومعلومات <span className="text-[#d97706]">المنتج</span>
         </h3>
         <p className="text-xs sm:text-sm text-[#5c4f42] mt-1 font-medium">
@@ -133,48 +152,60 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
         </p>
       </div>
 
-      {/* Vertical Accordion Stack - Full Width */}
-      <div className="flex flex-col gap-3.5 w-full">
+      {/* Borderless / Unboxed Accordion Stack */}
+      <div className="divide-y divide-[#ebdcc9] border-y border-[#ebdcc9] w-full">
         {accordionSections.map((sec) => {
           const isOpen = openItem === sec.id;
           return (
             <div
               key={sec.id}
-              className={`rounded-2xl border transition-all duration-300 bg-white overflow-hidden shadow-sm ${
-                isOpen ? "border-[#d97706] shadow-[0_6px_25px_rgba(217,119,6,0.08)]" : "border-[#ebdcc9] hover:border-[#d97706]/50"
-              }`}
+              className="transition-colors duration-200"
             >
-              {/* Accordion Header Button */}
+              {/* Accordion Trigger Header */}
               <button
                 type="button"
                 onClick={() => toggleItem(sec.id)}
-                className="w-full flex items-center justify-between p-4 sm:p-5 text-right transition-colors hover:bg-[#fbf7ee]/60 cursor-pointer group"
+                className="w-full flex items-center justify-between py-4 sm:py-5 px-1 sm:px-2 text-right transition-colors hover:bg-[#fbf7ee]/40 cursor-pointer group"
                 aria-expanded={isOpen}
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 shadow-sm">
-                    {sec.icon}
+                {/* Title + Artwork Drawing Thumbnail */}
+                <div className="flex items-center gap-3.5 sm:gap-4.5">
+                  {/* Vintage Botanical Artwork Drawing Thumbnail */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden bg-[#fbf7ee] border border-[#ebdcc9] shrink-0 p-1 flex items-center justify-center shadow-sm group-hover:border-[#d97706]/50 transition-colors">
+                    <Image
+                      src={sec.artImage}
+                      alt={sec.artAlt}
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    />
                   </div>
-                  <span className="font-black text-base sm:text-lg text-[#221c15] group-hover:text-[#d97706] transition-colors">
-                    {sec.title}
-                  </span>
+
+                  <div>
+                    <h4 className="font-black text-base sm:text-lg lg:text-xl text-[#221c15] group-hover:text-[#d97706] transition-colors">
+                      {sec.title}
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-[#5c4f42] mt-0.5 line-clamp-1 font-medium">
+                      {sec.subtitle}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Highly Visible Arrow Indicator */}
+                {/* Arrow Indicator */}
                 <div
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm shrink-0 ${
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 mr-2 ${
                     isOpen
-                      ? "bg-[#d97706] text-white rotate-180 shadow-md"
-                      : "bg-[#221c15] text-white hover:bg-[#d97706]"
+                      ? "bg-[#d97706] text-white rotate-180 shadow-md shadow-[#d97706]/20"
+                      : "bg-[#fbf7ee] border border-[#ebdcc9] text-[#221c15] group-hover:border-[#d97706] group-hover:text-[#d97706]"
                   }`}
                 >
-                  <ChevronDown className="w-5 h-5 stroke-[2.5]" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                 </div>
               </button>
 
               {/* Accordion Body Content */}
               {isOpen && (
-                <div className="px-5 pb-6 pt-2 border-t border-[#ebdcc9]/60 animate-fade-in bg-white">
+                <div className="px-1 sm:px-2 pb-6 pt-1 sm:pr-[4.5rem] animate-fade-in">
                   {sec.content}
                 </div>
               )}
