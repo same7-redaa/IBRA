@@ -7,8 +7,8 @@
 .loader {
   --main-size: clamp(10rem, 24vw, 22rem);
   --text-color: #ffffff;
-  --shine-color: rgba(176, 251, 48, 0.6);
-  --shadow-color: #b0fb30;
+  --shine-color: rgba(245, 158, 11, 0.6);
+  --shadow-color: #f59e0b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   width: 7.3em;
   height: 1.1em;
   letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 0.35em var(--shine-color)) drop-shadow(0 0 0.9em rgba(176, 251, 48, 0.4));
+  filter: drop-shadow(0 0 0.35em var(--shine-color)) drop-shadow(0 0 0.9em rgba(245, 158, 11, 0.4));
 }
 
 .text {

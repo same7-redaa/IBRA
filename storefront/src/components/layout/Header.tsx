@@ -18,23 +18,23 @@ export default function Header() {
           {/* Logo (Right Side in RTL) */}
           <div className="flex-shrink-0 z-10">
             <Link href="/" className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity">
-              BISM<span className="text-[#b0fb30]">ILLAH</span>
+              BISM<span className="text-[#f59e0b]">ILLAH</span>
             </Link>
           </div>
 
           {/* Desktop Navigation (Perfectly Centered) */}
           <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-10">
-            <Link href="/" className="text-white hover:text-[#b0fb30] font-medium text-lg transition-colors">
+            <Link href="/" className="text-white hover:text-[#f59e0b] font-medium text-lg transition-colors">
               الرئيسية
             </Link>
-            <Link href="/products" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
-              المنتجات
+            <Link href="/products" className="text-gray-300 hover:text-[#f59e0b] font-medium text-lg transition-colors">
+              الأعسال والمنتجات
             </Link>
-            <Link href="/categories" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
+            <Link href="/categories" className="text-gray-300 hover:text-[#f59e0b] font-medium text-lg transition-colors">
               التصنيفات
             </Link>
-            <Link href="/offers" className="text-gray-300 hover:text-[#b0fb30] font-medium text-lg transition-colors">
-              العروض
+            <Link href="/offers" className="text-gray-300 hover:text-[#f59e0b] font-medium text-lg transition-colors">
+              العروض الخاصة
             </Link>
           </nav>
 
@@ -46,7 +46,7 @@ export default function Header() {
             <button className="text-gray-300 hover:text-white transition-transform hover:scale-110 relative">
               <ShoppingCart className="h-[1.4rem] w-[1.4rem]" />
               {cartCount > 0 && (
-                <span className="absolute -top-2.5 -left-2.5 flex h-[1.15rem] w-[1.15rem] items-center justify-center rounded-full bg-[#b0fb30] text-[0.65rem] font-black text-deep-black shadow-[0_0_8px_rgba(176,251,48,0.5)] animate-scale-up">
+                <span className="absolute -top-2.5 -left-2.5 flex h-[1.15rem] w-[1.15rem] items-center justify-center rounded-full bg-[#f59e0b] text-[0.65rem] font-black text-deep-black shadow-[0_0_8px_rgba(245,158,11,0.5)] animate-scale-up">
                   {cartCount}
                 </span>
               )}
@@ -73,17 +73,17 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-gray-700/60 bg-[#0c0c0c]/95 rounded-b-[2rem]">
           <div className="space-y-1 px-6 pb-4 pt-4">
-            <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-800 hover:text-[#b0fb30]">
+            <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-800 hover:text-[#f59e0b]">
               الرئيسية
             </Link>
-            <Link href="/products" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#b0fb30]">
-              المنتجات
+            <Link href="/products" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#f59e0b]">
+              الأعسال والمنتجات
             </Link>
-            <Link href="/categories" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#b0fb30]">
+            <Link href="/categories" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#f59e0b]">
               التصنيفات
             </Link>
-            <Link href="/offers" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#b0fb30]">
-              العروض
+            <Link href="/offers" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-[#f59e0b]">
+              العروض الخاصة
             </Link>
             
             <div className="border-t border-gray-800 pt-4 pb-2 flex justify-around">
@@ -93,8 +93,8 @@ export default function Header() {
               </button>
               <button className="flex flex-col items-center text-gray-300 hover:text-white relative">
                 <ShoppingCart className="h-6 w-6 mb-1" />
-                <span className="absolute -top-2 left-4 flex h-5 w-5 items-center justify-center rounded-full bg-[#b0fb30] text-xs font-bold text-deep-black">
-                  2
+                <span className="absolute -top-2 left-4 flex h-5 w-5 items-center justify-center rounded-full bg-[#f59e0b] text-xs font-bold text-deep-black">
+                  {cartCount}
                 </span>
                 <span className="text-xs">السلة</span>
               </button>

@@ -123,7 +123,7 @@ export function AccordionTrigger({
           <div
             className={`w-8 h-8 rounded-[5px] flex items-center justify-center transition-all duration-300 ${
               isOpen
-                ? "bg-[#b0fb30]/15 text-[#b0fb30] shadow-[0_0_10px_rgba(176,251,48,0.2)]"
+                ? "bg-[#f59e0b]/15 text-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.2)]"
                 : "bg-gray-800/60 text-gray-400"
             }`}
           >
@@ -136,7 +136,7 @@ export function AccordionTrigger({
       <div
         className={`w-7 h-7 rounded-[5px] flex items-center justify-center transition-transform duration-300 shrink-0 ${
           isOpen
-            ? "rotate-180 text-[#b0fb30] bg-[#b0fb30]/10"
+            ? "rotate-180 text-[#f59e0b] bg-[#f59e0b]/10"
             : "text-gray-400 bg-gray-800/40"
         }`}
       >

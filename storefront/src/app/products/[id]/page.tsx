@@ -65,14 +65,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="border-t border-gray-900/80 pt-14">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              منتجات <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">قد تعجبك</span> أيضاً
+              أعسال <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">قد تعجبك</span> أيضاً
             </h3>
             <Link
               href="/products"
               className="group flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 hover:text-white font-bold transition-colors"
             >
-              <span>عرض الكل</span>
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#b0fb30]" />
+              <span>عرض كل الأعسال</span>
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#f59e0b]" />
             </Link>
           </div>
 

@@ -38,7 +38,7 @@ export default function ProductGallery({
             onClick={() => setSelectedIndex(idx)}
             className={`relative w-16 sm:w-full aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 bg-[#14161f] cursor-pointer group ${
               selectedIndex === idx
-                ? "border-[#b0fb30] ring-2 ring-[#b0fb30]/30 shadow-[0_0_15px_rgba(176,251,48,0.25)] scale-[1.02]"
+                ? "border-[#f59e0b] ring-2 ring-[#f59e0b]/30 shadow-[0_0_15px_rgba(245,158,11,0.3)] scale-[1.02]"
                 : "border-gray-800 hover:border-gray-600 opacity-70 hover:opacity-100"
             }`}
           >
@@ -55,7 +55,7 @@ export default function ProductGallery({
           <button
             onClick={handleNext}
             aria-label="عرض المزيد من الصور"
-            className="hidden sm:flex w-full h-9 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#b0fb30] hover:text-[#b0fb30] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
+            className="hidden sm:flex w-full h-9 rounded-lg bg-[#14161f] border border-gray-800 hover:border-[#f59e0b] hover:text-[#f59e0b] text-gray-400 items-center justify-center transition-colors cursor-pointer mt-1"
           >
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -77,7 +77,7 @@ export default function ProductGallery({
         <button
           onClick={() => setIsZoomed(!isZoomed)}
           aria-label="تكبير الصورة"
-          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-gray-700/80 text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-all shadow-lg hover:scale-110 cursor-pointer"
+          className="absolute bottom-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-gray-700/80 text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-all shadow-lg hover:scale-110 cursor-pointer"
         >
           <ZoomIn className="w-4 h-4" />
         </button>
@@ -88,14 +88,14 @@ export default function ProductGallery({
             <button
               onClick={handlePrev}
               aria-label="الصورة السابقة"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors cursor-pointer"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="الصورة التالية"
-              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#b0fb30] hover:text-deep-black transition-colors cursor-pointer"
+              className="pointer-events-auto w-9 h-9 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#f59e0b] hover:text-deep-black transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>

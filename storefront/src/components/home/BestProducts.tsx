@@ -25,8 +25,8 @@ export default function BestProducts() {
     <section className="relative w-full py-14 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-deep-black text-white border-t border-gray-900 overflow-hidden">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#b0fb30]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 -left-40 w-96 h-96 bg-[#e2d1f9]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#f59e0b]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -left-40 w-96 h-96 bg-[#fbbf24]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
         
@@ -34,7 +34,7 @@ export default function BestProducts() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9 gap-5">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
-              أجود <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">أعسال النحل</span> والخلطات الملكية
+              أجود <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">أعسال النحل</span> والخلطات الملكية
             </h2>
           </div>
 

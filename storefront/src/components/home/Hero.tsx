@@ -3,14 +3,30 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   const bgImages = [
-    "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1582845512747-e42001c95638?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=400&q=80"
+    "/hero/hero_1.jpg",
+    "/hero/hero_2.jpg",
+    "/hero/hero_3.jpg",
+    "/hero/hero_4.jpg",
+    "/hero/hero_5.jpg",
+    "/hero/hero_6.jpg",
+    "/hero/hero_7.jpg",
+    "/hero/hero_8.jpg",
+    "/hero/hero_9.jpg",
+    "/hero/hero_10.jpg",
+    "/hero/hero_11.jpg",
+    "/hero/hero_12.jpg",
+    "/hero/hero_13.jpg",
+    "/hero/hero_14.jpg",
+    "/hero/hero_15.jpg",
+    "/hero/hero_16.jpg",
+    "/hero/hero_17.jpg",
+    "/hero/hero_18.jpg",
+    "/hero/hero_19.jpg",
+    "/hero/hero_20.jpg",
+    "/hero/hero_21.jpg",
+    "/hero/hero_22.jpg",
+    "/hero/hero_23.jpg",
+    "/hero/hero_24.jpg"
   ];
 
   return (
@@ -22,8 +38,8 @@ export default function Hero() {
         {/* Strip 1 */}
         <div className="absolute top-[-5%] left-[-100%] flex w-max gap-4 animate-slide-right">
            <div className="flex gap-4">
-              {[...bgImages, ...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-gray-800/80 shadow-lg" style={{backgroundImage: `url('${img}')`}} />
+              {[...bgImages, ...bgImages].map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
@@ -31,8 +47,8 @@ export default function Hero() {
         {/* Strip 2 */}
         <div className="absolute top-[22%] left-[-100%] flex w-max gap-4 animate-slide-left">
            <div className="flex gap-4">
-              {[...bgImages, ...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-gray-800/80 shadow-lg" style={{backgroundImage: `url('${img}')`}} />
+              {[...bgImages, ...bgImages].reverse().map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
@@ -40,8 +56,8 @@ export default function Hero() {
         {/* Strip 3 */}
         <div className="absolute top-[49%] left-[-100%] flex w-max gap-4 animate-slide-right">
            <div className="flex gap-4">
-              {[...bgImages, ...bgImages, ...bgImages].map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-gray-800/80 shadow-lg" style={{backgroundImage: `url('${img}')`}} />
+              {[...bgImages, ...bgImages].map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
@@ -49,28 +65,28 @@ export default function Hero() {
         {/* Strip 4 */}
         <div className="absolute top-[76%] left-[-100%] flex w-max gap-4 animate-slide-left">
            <div className="flex gap-4">
-              {[...bgImages, ...bgImages, ...bgImages].reverse().map((img, i) => (
-                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-gray-800/80 shadow-lg" style={{backgroundImage: `url('${img}')`}} />
+              {[...bgImages, ...bgImages].reverse().map((img, i) => (
+                <div key={i} className="w-44 h-56 sm:w-48 sm:h-64 rounded-2xl bg-gray-900 bg-cover bg-center shrink-0 border border-amber-950/40 shadow-lg hover:border-[#f59e0b]/40 transition-colors" style={{backgroundImage: `url('${img}')`}} />
               ))}
            </div>
         </div>
         
         {/* Layer 1: Light Tint & Subtle Backdrop Blur */}
-        <div className="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]" />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[0.5px]" />
         
         {/* Layer 2: Balanced Radial Vignette Focus */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,12,12,0.4)_0%,rgba(12,12,12,0.85)_75%,#0c0c0c_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,12,12,0.45)_0%,rgba(12,12,12,0.9)_75%,#0c0c0c_100%)]" />
 
         {/* Layer 3: Top and Bottom Smooth Edge Fades */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c]/60 via-transparent to-[#0c0c0c]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c]/65 via-transparent to-[#0c0c0c]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center h-full">
         {/* Centered Text Content */}
         <div className="w-full max-w-3xl mx-auto flex flex-col items-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 w-full text-center leading-tight">
-            تذوق <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">نقاء الطبيعة</span> مع أجود أنواع عسل النحل الأصلي
+            تذوق <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">نقاء الطبيعة</span> مع أجود أنواع عسل النحل الأصلي
           </h1>
 
           <p className="mt-2 text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -119,7 +135,7 @@ export default function Hero() {
             {/* Stats */}
             <div className="flex items-center gap-8 text-center">
               <div>
-                <h4 className="text-2xl font-black text-white mb-0.5">100%</h4>
+                <h4 className="text-2xl font-black text-[#f59e0b] mb-0.5">100%</h4>
                 <p className="text-gray-400 text-xs">طبيعي ومفحوص</p>
               </div>
               <div>

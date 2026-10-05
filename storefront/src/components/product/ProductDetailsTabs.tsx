@@ -63,7 +63,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
                   {product.features.map((feat, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-gray-300">
                       <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                        <Sparkles className="w-3 h-3 text-[#b0fb30]" />
+                        <Sparkles className="w-3 h-3 text-[#f59e0b]" />
                       </div>
                       <span>{feat}</span>
                     </li>
@@ -78,7 +78,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
                   نحن نضمن أن جميع أعسالنا غير مبسترة، خام تماماً، ولم تتعرض لأي درجات حرارة تفقدها الإنزيمات الحية والخصائص العلاجية الطبيعية.
                 </p>
                 <div className="p-4 rounded-xl bg-[#14161f] border border-gray-800 space-y-2">
-                  <span className="text-xs font-bold text-[#b0fb30] block">المكونات والنقاء:</span>
+                  <span className="text-xs font-bold text-[#f59e0b] block">المكونات والنقاء:</span>
                   <p className="text-xs text-gray-300">{product.material}</p>
                   <p className="text-[11px] text-gray-400">الفحص المخبري: نسبة سكروز 0%، خالٍ تماماً من بقايا المبيدات والمضادات الحيوية والتغذية السكرية.</p>
                 </div>
@@ -97,7 +97,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
                   </div>
                   <div className="p-3 rounded-lg bg-[#14161f] border border-gray-800 text-center">
                     <span className="text-xs font-bold text-white block">أداة الاستخدام</span>
-                    <span className="text-xs text-[#b0fb30]">ملعقة خشبية أو بلاستيكية</span>
+                    <span className="text-xs text-[#f59e0b]">ملعقة خشبية أو بلاستيكية</span>
                   </div>
                 </div>
               </div>
@@ -110,15 +110,15 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
                 </p>
                 <div className="space-y-2 pt-1">
                   <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <Truck className="w-4 h-4 text-[#b0fb30]" />
+                    <Truck className="w-4 h-4 text-[#f59e0b]" />
                     <span>توصيل سريع ومغلف بعناية خلال 24-48 ساعة</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <RefreshCw className="w-4 h-4 text-[#b0fb30]" />
+                    <RefreshCw className="w-4 h-4 text-[#f59e0b]" />
                     <span>الضمان الذهبي: استرجاع فوري إذا لم ينل إعجابك</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <ShieldCheck className="w-4 h-4 text-[#b0fb30]" />
+                    <ShieldCheck className="w-4 h-4 text-[#f59e0b]" />
                     <span>معاينة وتذوق مع المندوب قبل استلام الشحنة</span>
                   </div>
                 </div>
@@ -139,7 +139,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
             
             {/* Subtle Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 sm:p-8">
-              <span className="text-[11px] font-black uppercase tracking-widest text-[#b0fb30] mb-1">
+              <span className="text-[11px] font-black uppercase tracking-widest text-[#f59e0b] mb-1">
                 BISMILLAH PURE HONEY
               </span>
               <h4 className="text-lg sm:text-xl font-black text-white">

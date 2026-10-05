@@ -18,7 +18,7 @@ export default function Footer() {
               href="/"
               className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-white hover:opacity-90 transition-opacity"
             >
-              BISM<span className="text-[#b0fb30]">ILLAH</span>
+              BISM<span className="text-[#f59e0b]">ILLAH</span>
             </Link>
             <span className="hidden sm:inline-block text-gray-700">|</span>
             <span className="text-xs text-gray-400 font-medium">
@@ -30,13 +30,13 @@ export default function Footer() {
           <nav className="flex items-center gap-8 text-sm font-bold">
             <Link
               href="/"
-              className="text-gray-300 hover:text-[#b0fb30] transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] transition-colors"
             >
               الرئيسية
             </Link>
             <Link
               href="/products"
-              className="text-gray-300 hover:text-[#b0fb30] transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] transition-colors"
             >
               جميع المنتجات
             </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
               href="https://wa.me"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#b0fb30] flex items-center gap-1.5 transition-colors"
+              className="text-gray-300 hover:text-[#f59e0b] flex items-center gap-1.5 transition-colors"
             >
               <MessageCircle className="w-4 h-4 text-[#25d366]" />
               <span>خدمة العملاء</span>
@@ -56,7 +56,7 @@ export default function Footer() {
             <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800">
               الدفع عند الاستلام
             </span>
-            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-[#b0fb30]">
+            <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-[#f59e0b]">
               InstaPay
             </span>
             <span className="px-2.5 py-1 rounded-[5px] bg-[#14161f] border border-gray-800 text-amber-400">
@@ -72,7 +72,7 @@ export default function Footer() {
             جميع الحقوق محفوظة © {currentYear} <span className="text-white font-bold">مناحل BISMILLAH</span> لعسل النحل الطبيعي والأعشاب الفاخرة.
           </p>
           <div className="flex items-center gap-1.5 text-gray-400">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#b0fb30]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#f59e0b]" />
             <span>نقاء وجودة طبيعية 100% مضمونة</span>
             <span>🍯</span>
           </div>

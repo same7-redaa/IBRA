@@ -32,7 +32,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #b0fb30;
+  background-color: #f59e0b;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -41,9 +41,9 @@
 }
 
 .button:hover {
-  box-shadow: 0 0 30px rgba(176, 251, 48, 0.35);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
   color: #0c0c0c;
-  border-color: #b0fb30;
+  border-color: #f59e0b;
 }
 
 .type1:hover::after {

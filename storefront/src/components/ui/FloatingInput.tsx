@@ -38,8 +38,8 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
             className={`peer w-full bg-[#111319] text-white font-medium text-sm sm:text-base rounded-2xl border ${
               error
                 ? "border-red-500/80 focus:border-red-500 focus:ring-red-500/20"
-                : "border-gray-800 hover:border-gray-700 focus:border-[#b0fb30] focus:ring-[#b0fb30]/20"
-            } px-4 py-3.5 sm:py-4 transition-all duration-200 outline-none focus:ring-4 focus:shadow-[0_0_20px_rgba(176,251,48,0.15)] ${
+                : "border-gray-800 hover:border-gray-700 focus:border-[#f59e0b] focus:ring-[#f59e0b]/20"
+            } px-4 py-3.5 sm:py-4 transition-all duration-200 outline-none focus:ring-4 focus:shadow-[0_0_20px_rgba(245,158,11,0.15)] ${
               icon ? "pl-11" : ""
             } ${className}`}
             {...props}
@@ -49,8 +49,8 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
           <label
             htmlFor={inputId}
             className={`pointer-events-none absolute right-4 top-3.5 sm:top-4 text-xs sm:text-sm font-bold text-gray-400 transition-all duration-200 ease-out origin-right 
-              peer-focus:-top-2.5 peer-focus:right-3 peer-focus:text-xs peer-focus:text-[#b0fb30] peer-focus:bg-[#0c0c0c] peer-focus:px-2 peer-focus:rounded
-              peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:right-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#b0fb30] peer-[:not(:placeholder-shown)]:bg-[#0c0c0c] peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:rounded`}
+              peer-focus:-top-2.5 peer-focus:right-3 peer-focus:text-xs peer-focus:text-[#f59e0b] peer-focus:bg-[#0c0c0c] peer-focus:px-2 peer-focus:rounded
+              peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:right-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#f59e0b] peer-[:not(:placeholder-shown)]:bg-[#0c0c0c] peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:rounded`}
           >
             {label}
           </label>

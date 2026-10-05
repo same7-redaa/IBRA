@@ -34,19 +34,19 @@ export default function FancyCornerButton({
     <span
       className={`relative flex items-center justify-center ${sizeClasses} overflow-hidden font-black transition-all duration-300 rounded-[5px] group select-none ${
         isNeonVariant
-          ? "bg-[#b0fb30] text-deep-black shadow-[0_0_20px_rgba(176,251,48,0.35)] hover:shadow-[0_0_25px_rgba(176,251,48,0.5)] border border-[#b0fb30]"
-          : "bg-[#14161f] text-white border border-gray-800 hover:border-[#b0fb30] shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(176,251,48,0.25)]"
+          ? "bg-[#f59e0b] text-deep-black shadow-[0_0_20px_rgba(245,158,11,0.35)] hover:shadow-[0_0_25px_rgba(245,158,11,0.55)] border border-[#f59e0b]"
+          : "bg-[#14161f] text-white border border-gray-800 hover:border-[#f59e0b] shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(245,158,11,0.25)]"
       } ${fullWidth ? "w-full" : ""}`}
     >
       {/* Top Right Corner Fold */}
       <span
         className={`absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out rounded-bl group-hover:-mr-4 group-hover:-mt-4 ${
-          isNeonVariant ? "bg-white" : "bg-[#b0fb30]"
+          isNeonVariant ? "bg-white" : "bg-[#f59e0b]"
         }`}
       >
         <span
           className={`absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 ${
-            isNeonVariant ? "bg-[#b0fb30]" : "bg-[#0c0c0c]"
+            isNeonVariant ? "bg-[#f59e0b]" : "bg-[#0c0c0c]"
           }`}
         />
       </span>
@@ -54,12 +54,12 @@ export default function FancyCornerButton({
       {/* Bottom Left Corner Fold */}
       <span
         className={`absolute bottom-0 left-0 inline-block w-4 h-4 rotate-180 transition-all duration-500 ease-in-out rounded-bl group-hover:-ml-4 group-hover:-mb-4 ${
-          isNeonVariant ? "bg-white" : "bg-[#b0fb30]"
+          isNeonVariant ? "bg-white" : "bg-[#f59e0b]"
         }`}
       >
         <span
           className={`absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 ${
-            isNeonVariant ? "bg-[#b0fb30]" : "bg-[#0c0c0c]"
+            isNeonVariant ? "bg-[#f59e0b]" : "bg-[#0c0c0c]"
           }`}
         />
       </span>
@@ -67,7 +67,7 @@ export default function FancyCornerButton({
       {/* Background Sliding Fill */}
       <span
         className={`absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out -translate-x-full rounded-[5px] group-hover:translate-x-0 ${
-          isNeonVariant ? "bg-[#9de42b]" : "bg-[#b0fb30]"
+          isNeonVariant ? "bg-[#d97706]" : "bg-[#f59e0b]"
         }`}
       />
 

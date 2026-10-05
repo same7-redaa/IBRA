@@ -18,13 +18,13 @@ export default function Newsletter() {
   return (
     <section className="relative w-full py-16 px-4 sm:px-8 lg:px-16 bg-[#0c0c0c] border-t border-gray-900 overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#b0fb30]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#f59e0b]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-4xl mx-auto relative z-10 bg-gradient-to-b from-[#14161f] to-[#0e1017] border border-gray-800/80 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] text-center">
         
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight">
-          كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#b0fb30] to-[#e2d1f9]">مواسم القطف والعروض</span>
+          كن أول من يعلم بأحدث <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#f59e0b] via-[#fbbf24] to-[#ffffff]">مواسم القطف والعروض</span>
         </h2>
 
         <p className="text-xs sm:text-sm text-gray-400 max-w-lg mx-auto mb-8 leading-relaxed">
@@ -32,7 +32,7 @@ export default function Newsletter() {
         </p>
 
         {isSubmitted ? (
-          <div className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-[#b0fb30]/10 border border-[#b0fb30]/30 text-[#b0fb30] text-sm font-bold animate-fade-in">
+          <div className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[#f59e0b] text-sm font-bold animate-fade-in">
             <CheckCircle2 className="w-5 h-5" />
             <span>تم اشتراكك بنجاح! تم تطبيق كود الخصم: HONEY15</span>
           </div>

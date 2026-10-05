@@ -24,10 +24,10 @@
   transition: color 0.4s ease-in-out;
 }
 
-/* Primary Hero Button: Neon Lime Expand */
+/* Primary Hero Button: Honey Gold Expand */
 .btnPrimary {
-  border: 2px solid #b0fb30;
-  color: #b0fb30;
+  border: 2px solid #f59e0b;
+  color: #f59e0b;
 }
 
 .btnPrimary::after {
@@ -36,7 +36,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #b0fb30;
+  background-color: #f59e0b;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -45,9 +45,9 @@
 }
 
 .btnPrimary:hover {
-  box-shadow: 0 0 35px rgba(176, 251, 48, 0.45);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
   color: #0c0c0c;
-  border-color: #b0fb30;
+  border-color: #f59e0b;
 }
 
 .btnPrimary:hover::after {
