@@ -94,17 +94,17 @@ export default function Hero() {
 
           </div>
 
-          {/* Left Column: Pure Image Showcase (No Container, No Glow) */}
+          {/* Left Column: Pure Image Showcase (Transparent Blended Background) */}
           <div className="lg:col-span-5 flex justify-center items-center">
             
-            {/* Direct Image Frame with No Container / No Glow */}
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[4/5] rounded-2xl overflow-hidden">
+            {/* Direct Image Frame with Transparent Background Blend */}
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] aspect-[4/5] flex items-center justify-center">
               {honeyImages.map((img, idx) => (
                 <img
                   key={idx}
                   src={img}
                   alt={`عسل زوين - صورة ${idx + 1}`}
-                  className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                  className={`absolute inset-0 w-full h-full object-contain object-center mix-blend-multiply transition-opacity duration-1000 ease-in-out ${
                     idx === currentImageIndex
                       ? "opacity-100"
                       : "opacity-0 pointer-events-none"
