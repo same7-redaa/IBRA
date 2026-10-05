@@ -24,15 +24,15 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
         </AccordionTrigger>
         <AccordionContent>
           <div className="space-y-3">
-            <p className="text-white font-medium">عسل نحل طبيعي 100% غير مبستر</p>
-            <p className="text-gray-400">
+            <p className="text-slate-900 font-bold">عسل نحل طبيعي 100% غير مبستر</p>
+            <p className="text-slate-600">
               جميع منتجاتنا مفحوصة وموثقة مخبرياً بأعلى معايير الجودة لضمان خلوها التام من أي تغذية سكرية أو إضافات صناعية أو مبسترة.
             </p>
             {product.features && product.features.length > 0 && (
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                 {product.features.map((feat, idx) => (
-                  <li key={idx} className="flex items-center gap-2 text-xs text-gray-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shrink-0" />
+                  <li key={idx} className="flex items-center gap-2 text-xs text-slate-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#d97706] shrink-0" />
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -49,10 +49,10 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
         </AccordionTrigger>
         <AccordionContent>
           <div className="space-y-2">
-            <p className="text-[#f59e0b] font-bold">
+            <p className="text-[#d97706] font-bold">
               {product.material}
             </p>
-            <p className="text-gray-400">
+            <p className="text-slate-600">
               مستخرج من مناحل جبلية طبيعية معزولة بيئياً لضمان أعلى تركيز للإنزيمات ومضادات الأكسدة الحيوية.
             </p>
           </div>
@@ -65,17 +65,17 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
           طريقة الحفظ والاستخدام الأمثل
         </AccordionTrigger>
         <AccordionContent>
-          <ul className="space-y-2 text-xs text-gray-300">
+          <ul className="space-y-2 text-xs text-slate-700">
             <li className="flex items-start gap-2">
-              <span className="text-[#f59e0b] font-bold">•</span>
+              <span className="text-[#d97706] font-bold">•</span>
               <span>يُحفظ في درجة حرارة الغرفة (20-25 مئوية) في مكان جاف ومظلم بعيداً عن أشعة الشمس المباشرة.</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[#f59e0b] font-bold">•</span>
+              <span className="text-[#d97706] font-bold">•</span>
               <span>تجنب استخدام الملاعق المعدنية واستخدم الملاعق الخشبية أو البلاستيكية للحفاظ على فاعلية الإنزيمات.</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-[#f59e0b] font-bold">•</span>
+              <span className="text-[#d97706] font-bold">•</span>
               <span>التبلور في بعض أنواع العسل الخام ظاهرة طبيعية تدل على نقاء العسل وعدم تعرضه للتسخين.</span>
             </li>
           </ul>
@@ -89,8 +89,8 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
         </AccordionTrigger>
         <AccordionContent>
           <div className="space-y-2">
-            <p className="text-white font-bold">شحن سريع وعبوات معزولة ضد الكسر</p>
-            <p className="text-gray-400">
+            <p className="text-slate-900 font-bold">شحن سريع وعبوات معزولة ضد الكسر</p>
+            <p className="text-slate-600">
               نوفر خدمة الشحن السريع لكافة المحافظات مع تغليف حراري ووسائد هوائية لحماية البرطمانات الزجاجية.
             </p>
           </div>
@@ -105,17 +105,17 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
         <AccordionContent>
           <div className="space-y-3">
             <div className="flex items-start gap-2.5">
-              <ShieldCheck className="w-4 h-4 text-[#f59e0b] mt-0.5 shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-[#d97706] mt-0.5 shrink-0" />
               <div>
-                <span className="text-white font-bold">تذوق وافحص مع المندوب: </span>
-                <span className="text-gray-400">يحق لك فتح الشحنة وتذوق العسل والتأكد من الجودة قبل دفع أي جنيه.</span>
+                <span className="text-slate-900 font-bold">تذوق وافحص مع المندوب: </span>
+                <span className="text-slate-600">يحق لك فتح الشحنة وتذوق العسل والتأكد من الجودة قبل دفع أي جنيه.</span>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <RefreshCw className="w-4 h-4 text-[#f59e0b] mt-0.5 shrink-0" />
+              <RefreshCw className="w-4 h-4 text-[#d97706] mt-0.5 shrink-0" />
               <div>
-                <span className="text-white font-bold">استرجاع فوري مضمون: </span>
-                <span className="text-gray-400">ضمان استرجاع القيمة كاملة في حال ثبوت عدم نقاء العسل بأي فحص مخبري.</span>
+                <span className="text-slate-900 font-bold">استرجاع فوري مضمون: </span>
+                <span className="text-slate-600">ضمان استرجاع القيمة كاملة في حال ثبوت عدم نقاء العسل بأي فحص مخبري.</span>
               </div>
             </div>
           </div>
@@ -124,3 +124,4 @@ export default function ProductAccordion({ product }: ProductAccordionProps) {
     </Accordion>
   );
 }
+

@@ -7,7 +7,7 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 30px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,14 +20,16 @@
   z-index: 2;
   font-weight: 800;
   font-size: 15px;
-  letter-spacing: 1px;
-  transition: color 0.4s ease-in-out;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease-in-out;
 }
 
-/* Primary Hero Button: Honey Gold Expand */
+/* Primary Hero Button: Solid Honey Amber */
 .btnPrimary {
+  background-color: #f59e0b;
   border: 2px solid #f59e0b;
-  color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
 }
 
 .btnPrimary::after {
@@ -35,8 +37,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  transition: all 0.5s ease-in-out;
-  background-color: #f59e0b;
+  transition: all 0.4s ease-in-out;
+  background-color: #d97706;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -45,9 +47,10 @@
 }
 
 .btnPrimary:hover {
-  box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
-  color: #0c0c0c;
-  border-color: #f59e0b;
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.45);
+  color: #ffffff;
+  border-color: #d97706;
+  transform: translateY(-2px);
 }
 
 .btnPrimary:hover::after {
@@ -55,10 +58,12 @@
   transform: scale(100) translateX(2px);
 }
 
-/* Secondary Hero Button: Clean White / Dark Expand */
+/* Secondary Hero Button: Clean White Pill with Soft Border */
 .btnSecondary {
-  border: 2px solid #343b4f;
-  color: #f3f4f6;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  color: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
 .btnSecondary::after {
@@ -66,8 +71,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  transition: all 0.5s ease-in-out;
-  background-color: #ffffff;
+  transition: all 0.4s ease-in-out;
+  background-color: #fef3c7;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -76,12 +81,14 @@
 }
 
 .btnSecondary:hover {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
-  color: #0c0c0c;
-  border-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  color: #d97706;
+  border-color: #f59e0b;
+  transform: translateY(-2px);
 }
 
 .btnSecondary:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
+

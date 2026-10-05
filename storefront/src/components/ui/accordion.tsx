@@ -77,10 +77,10 @@ export function AccordionItem({ value, children, className = "" }: AccordionItem
     <AccordionItemContext.Provider value={{ value, isOpen }}>
       <div
         data-state={isOpen ? "open" : "closed"}
-        className={`rounded-[5px] border transition-all duration-300 overflow-hidden ${
+        className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
           isOpen
-            ? "bg-[#14161f] border-gray-700/90 shadow-[0_4px_25px_rgba(0,0,0,0.4)]"
-            : "bg-[#10121a]/70 border-gray-800/80 hover:border-gray-700"
+            ? "bg-amber-50/40 border-amber-200 shadow-sm"
+            : "bg-white border-slate-200 hover:border-amber-200"
         } ${className}`}
       >
         {children}
@@ -115,16 +115,16 @@ export function AccordionTrigger({
       onClick={() => accContext.toggleValue(value)}
       aria-expanded={isOpen}
       className={`w-full px-5 py-4 flex items-center justify-between text-right gap-4 transition-colors font-bold text-sm sm:text-base cursor-pointer select-none ${
-        isOpen ? "text-white" : "text-gray-300 hover:text-white"
+        isOpen ? "text-[#d97706]" : "text-slate-800 hover:text-[#d97706]"
       } ${className}`}
     >
       <div className="flex items-center gap-3">
         {icon && (
           <div
-            className={`w-8 h-8 rounded-[5px] flex items-center justify-center transition-all duration-300 ${
+            className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
               isOpen
-                ? "bg-[#f59e0b]/15 text-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.2)]"
-                : "bg-gray-800/60 text-gray-400"
+                ? "bg-amber-100 text-[#d97706] shadow-sm"
+                : "bg-slate-100 text-slate-500"
             }`}
           >
             {icon}
@@ -134,10 +134,10 @@ export function AccordionTrigger({
       </div>
 
       <div
-        className={`w-7 h-7 rounded-[5px] flex items-center justify-center transition-transform duration-300 shrink-0 ${
+        className={`w-7 h-7 rounded-xl flex items-center justify-center transition-transform duration-300 shrink-0 ${
           isOpen
-            ? "rotate-180 text-[#f59e0b] bg-[#f59e0b]/10"
-            : "text-gray-400 bg-gray-800/40"
+            ? "rotate-180 text-[#d97706] bg-amber-100"
+            : "text-slate-400 bg-slate-100"
         }`}
       >
         <ChevronDown className="w-4 h-4" />
@@ -171,7 +171,7 @@ export function AccordionContent({
     >
       <div className="overflow-hidden">
         <div
-          className={`px-5 pb-5 pt-2 border-t border-gray-800/50 text-xs sm:text-sm text-gray-300 leading-relaxed ${className}`}
+          className={`px-5 pb-5 pt-2 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed ${className}`}
         >
           {children}
         </div>
@@ -179,3 +179,4 @@ export function AccordionContent({
     </div>
   );
 }
+
