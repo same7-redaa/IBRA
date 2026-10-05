@@ -5,7 +5,7 @@
 }
 
 .loader {
-  --main-size: clamp(3rem, 7vw, 5.5rem);
+  --main-size: clamp(2.25rem, 5.2vw, 4rem);
   --text-color: #ffffff;
   --shine-color: rgba(245, 158, 11, 0.7);
   --shadow-color: #f59e0b;
@@ -20,8 +20,8 @@
   font-weight: 900;
   color: var(--text-color);
   width: 7.5em;
-  height: 1.6em;
-  letter-spacing: 0.05em;
+  height: 1.5em;
+  letter-spacing: 0.04em;
   direction: rtl;
   font-feature-settings: "calt" 1, "liga" 1, "rlig" 1, "kern" 1;
   filter: drop-shadow(0 0 0.35em var(--shine-color)) drop-shadow(0 0 0.9em rgba(245, 158, 11, 0.45));
