@@ -33,7 +33,7 @@ export default function ProductCard({ product }: { product: ProductProps }) {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-contain p-2 drop-shadow-[0_8px_18px_rgba(0,0,0,0.12)] transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
           />
         </Link>

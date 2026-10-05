@@ -25,13 +25,8 @@ export const sampleProducts: ProductItem[] = [
     name: "عسل سدر جبلي ملكي خام طبيعي 100%",
     price: 650,
     oldPrice: 850,
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80"
-    ],
+    image: "/hero/png_1.png",
+    gallery: ["/hero/png_1.png"],
     rating: 4.9,
     reviewsCount: 384,
     description: "عسل سدر جبلي أصيل مفحوص مخبرياً ومستخرج من أزهار شجر السدر في أعالي الجبال. يتميز برائحة عطرية زكية وطعم غني مع قوام لزج كثيف، معروف بخصائصه الفعالة في تقوية المناعة وتعزيز صحة الجهاز الهضمي والنشاط البدني.",
@@ -57,12 +52,8 @@ export const sampleProducts: ProductItem[] = [
     name: "عسل حبة البركة الخام للوقاية والمناعة",
     price: 490,
     oldPrice: 650,
-    image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80"
-    ],
+    image: "/hero/png_2.png",
+    gallery: ["/hero/png_2.png"],
     rating: 5.0,
     reviewsCount: 295,
     description: "مستخرج من رحيق زهور نبات حبة البركة (الحبة السوداء)، يجمع بين مذاق العسل الطبيعي الدافئ وفوائد الحبة السوداء العلاجية. مثالي لرفع كفاءة الجهاز المناعي وصحة الصدر والتنفس.",
@@ -87,12 +78,8 @@ export const sampleProducts: ProductItem[] = [
     name: "خلطة الطاقة والمناعة مع غذاء الملكات والبروبوليس",
     price: 890,
     oldPrice: 1200,
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80"
-    ],
+    image: "/hero/png_3.png",
+    gallery: ["/hero/png_3.png"],
     rating: 4.9,
     reviewsCount: 420,
     description: "تركيبة حصرية تجمع بين عسل السدر الجبلي وغذاء ملكات النحل الطازج وحبوب اللقاح وصمغ النحل (البروبوليس) ومسحوق الجنسنج الكوري. قنبلة طاقة طبيعية ونشاط وحيوية للجسم والتركيز الذهني.",
@@ -117,12 +104,8 @@ export const sampleProducts: ProductItem[] = [
     name: "عسل زهور الموالح والليمون النقي خفيف القوام",
     price: 350,
     oldPrice: 480,
-    image: "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80"
-    ],
+    image: "/hero/png_4.png",
+    gallery: ["/hero/png_4.png"],
     rating: 4.8,
     reviewsCount: 180,
     description: "عسل خفيف وسلس القوام مستخرج من بساتين البرتقال والليمون، يتميز برائحة حمضية منعشة وطعم محبب جداً للأطفال والكبار، ممتاز للتحلية اليومية ومهدئ للأعصاب قبل النوم.",
