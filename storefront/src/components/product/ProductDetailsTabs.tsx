@@ -135,45 +135,48 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
         </p>
       </div>
 
-      {/* Vertical Accordion Stack */}
-      <div className="flex flex-col gap-3.5 max-w-4xl">
+      {/* Vertical Accordion Stack - Full Width */}
+      <div className="flex flex-col gap-3.5 w-full">
         {accordionSections.map((sec) => {
           const isOpen = openItems.includes(sec.id);
           return (
             <div
               key={sec.id}
               className={`rounded-2xl border transition-all duration-300 bg-white overflow-hidden shadow-sm ${
-                isOpen ? "border-[#d97706]/60 shadow-[0_4px_20px_rgba(217,119,6,0.06)]" : "border-[#ebdcc9] hover:border-[#d97706]/40"
+                isOpen ? "border-[#d97706] shadow-[0_6px_25px_rgba(217,119,6,0.08)]" : "border-[#ebdcc9] hover:border-[#d97706]/50"
               }`}
             >
               {/* Accordion Header Button */}
               <button
                 type="button"
                 onClick={() => toggleItem(sec.id)}
-                className="w-full flex items-center justify-between p-4 sm:p-5 text-right transition-colors hover:bg-[#fbf7ee]/60 cursor-pointer"
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-right transition-colors hover:bg-[#fbf7ee]/60 cursor-pointer group"
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 shadow-sm">
                     {sec.icon}
                   </div>
-                  <span className="font-bold text-base sm:text-lg text-[#221c15]">
+                  <span className="font-black text-base sm:text-lg text-[#221c15] group-hover:text-[#d97706] transition-colors">
                     {sec.title}
                   </span>
                 </div>
 
+                {/* Highly Visible Arrow Indicator */}
                 <div
-                  className={`w-8 h-8 rounded-full bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center text-[#5c4f42] transition-transform duration-300 ${
-                    isOpen ? "rotate-180 bg-[#d97706] text-white border-[#d97706]" : ""
+                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm shrink-0 ${
+                    isOpen
+                      ? "bg-[#d97706] text-white rotate-180 shadow-md"
+                      : "bg-[#221c15] text-white hover:bg-[#d97706]"
                   }`}
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-5 h-5 stroke-[2.5]" />
                 </div>
               </button>
 
               {/* Accordion Body Content */}
               {isOpen && (
-                <div className="px-5 pb-5 pt-1 border-t border-[#ebdcc9]/50 animate-fade-in">
+                <div className="px-5 pb-6 pt-2 border-t border-[#ebdcc9]/60 animate-fade-in bg-white">
                   {sec.content}
                 </div>
               )}
