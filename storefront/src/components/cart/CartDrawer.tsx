@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowLeft, ShieldCheck } from "lucide-react";
@@ -76,10 +77,12 @@ export default function CartDrawer() {
                 className="p-3.5 rounded-2xl bg-white border border-[#ebdcc9] flex items-center gap-3.5 shadow-sm"
               >
                 {/* Product Thumbnail */}
-                <div className="w-16 h-16 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 p-1">
-                  <img
+                <div className="w-16 h-16 relative rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 p-1 overflow-hidden">
+                  <Image
                     src={item.image}
                     alt={item.name}
+                    width={64}
+                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </div>

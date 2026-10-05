@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ShoppingCart, MessageCircle, Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import { useState, useRef } from "react";
@@ -62,9 +63,12 @@ export default function Header() {
             {/* Logo (Right Side in RTL) */}
             <div className="flex-shrink-0 z-10 flex items-center">
               <Link href="/" className="flex items-center hover:opacity-90 transition-opacity py-1">
-                <img
+                <Image
                   src="/logo.png"
                   alt="عسل زوين"
+                  width={140}
+                  height={48}
+                  priority
                   className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(245,158,11,0.35)]"
                 />
               </Link>

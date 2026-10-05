@@ -15,7 +15,7 @@ interface CartContextType {
   isCartOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
-  addToCart: (product: ProductProps) => void;
+  addToCart: (product: ProductProps, showToast?: boolean) => void;
   removeFromCart: (id: string | number) => void;
   updateQuantity: (id: string | number, delta: number) => void;
   clearCart: () => void;
@@ -37,7 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
-  const addToCart = (product: ProductProps) => {
+  const addToCart = (product: ProductProps, showToast: boolean = true) => {
     setCartItems((prev) => {
       const existing = prev.find((item) => String(item.id) === String(product.id));
       if (existing) {
@@ -50,11 +50,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { ...product, quantity: 1 }];
     });
 
-    // Show Notification Toast and optionally open drawer
-    setToastData({
-      visible: true,
-      productName: product.name,
-    });
+    // Show Notification Toast only if requested
+    if (showToast) {
+      setToastData({
+        visible: true,
+        productName: product.name,
+      });
+    }
   };
 
   const removeFromCart = (id: string | number) => {

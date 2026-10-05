@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ZoomIn, ShieldCheck } from "lucide-react";
 
 interface ProductGalleryProps {
@@ -39,14 +40,19 @@ export default function ProductGallery({
         </div>
 
         {/* Frameless Transparent Studio PNG Image */}
-        <img
-          src={mainImage}
-          alt={productName}
-          className={`w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.18)] transition-transform duration-500 ${
-            isZoomed ? "scale-125 cursor-zoom-out" : "group-hover:scale-105 cursor-zoom-in"
-          }`}
-          onClick={() => setIsZoomed(!isZoomed)}
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={mainImage}
+            alt={productName}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 500px"
+            className={`object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.18)] transition-transform duration-500 ${
+              isZoomed ? "scale-125 cursor-zoom-out" : "group-hover:scale-105 cursor-zoom-in"
+            }`}
+            onClick={() => setIsZoomed(!isZoomed)}
+          />
+        </div>
 
         {/* Floating Zoom Action Button */}
         <button

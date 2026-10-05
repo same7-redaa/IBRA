@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle, ShieldCheck, CheckCircle2 } from "lucide-react";
 
@@ -18,9 +19,11 @@ export default function Footer() {
               href="/"
               className="inline-block hover:opacity-90 transition-opacity"
             >
-              <img
+              <Image
                 src="/logo.png"
                 alt="عسل زوين"
+                width={130}
+                height={48}
                 className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_10px_rgba(245,158,11,0.25)]"
               />
             </Link>

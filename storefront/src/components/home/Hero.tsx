@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.css";
 import { ShieldCheck, Award, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
@@ -169,10 +170,13 @@ export default function Hero() {
                       filter: filterStyle,
                     }}
                   >
-                    <img
+                    <Image
                       src={img}
                       alt={`عسل زوين - تصميم ${idx + 1}`}
-                      className="w-full h-full object-contain pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      priority={idx === 0 || idx === 1}
+                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 380px, 480px"
+                      className="object-contain pointer-events-none transition-transform duration-500 group-hover:scale-105"
                       draggable={false}
                     />
                   </div>

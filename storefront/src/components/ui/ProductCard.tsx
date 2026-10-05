@@ -30,11 +30,13 @@ export default function ProductCard({ product }: { product: ProductProps }) {
       
       {/* Top Image Container with Unique Asymmetrical Curve */}
       <div className="relative w-full h-40 sm:h-44 md:h-52 rounded-xl rounded-tr-[2rem] sm:rounded-tr-[3rem] overflow-hidden bg-gradient-to-br from-[#fbf8f3] to-[#f5ede2] border border-[#ebdcc9]">
-        <Link href={`/products/${product.id}`} className="block w-full h-full">
-          <img
+        <Link href={`/products/${product.id}`} className="block relative w-full h-full">
+          <Image
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain p-2 sm:p-2.5 drop-shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover:scale-110"
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-contain p-2 sm:p-2.5 drop-shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
           />
         </Link>

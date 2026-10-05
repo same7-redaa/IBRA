@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import {
@@ -281,8 +282,14 @@ export default function CheckoutPage() {
                 cartItems.map((item) => (
                   <div key={item.id} className="flex items-center justify-between gap-3 text-xs">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-10 h-10 rounded-lg bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center p-0.5 shrink-0">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
+                      <div className="w-10 h-10 relative rounded-lg bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={40}
+                          height={40}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <div className="truncate">
                         <span className="font-bold text-[#221c15] block truncate">{item.name}</span>
