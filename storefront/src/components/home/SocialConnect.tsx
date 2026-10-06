@@ -1,5 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import styles from "./SocialConnect.module.css";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function SocialConnect() {
   return (
@@ -23,14 +25,15 @@ export default function SocialConnect() {
       <div className="absolute inset-x-0 top-0 h-20 sm:h-28 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
       <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
 
-      <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
+      <ScrollReveal direction="up" delay={0}>
+        <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          انضم إلى عائلة <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">عسل زوين</span> للأعسال الطبيعية
+          تواصل مع <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">إبراهيم علي</span>
         </h2>
 
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed mb-8">
-          تابعنا على منصات التواصل الاجتماعي لمعرفة مواسم قطف الأعسال الجديدة، والخلطات العلاجية، والتواصل المباشر مع خبرائنا.
+        <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto leading-relaxed mb-8 font-medium">
+          متاح للاستشارات التسويقية، إدارة وتوسيع الحملات الإعلانية، وبناء الشراكات الاستراتيجية لنمو المتاجر الإلكترونية.
         </p>
 
         {/* Buttons Row (Side by Side) */}
@@ -88,15 +91,21 @@ export default function SocialConnect() {
             className={`${styles.socialButton} ${styles.btnTikTok}`}
             aria-label="تيك توك"
           >
-            <svg className="w-5 h-5 fill-currentColor" viewBox="0 0 24 24">
-              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.48 2.84 1.55-.02 2.96-.98 3.48-2.42.27-.67.36-1.4.35-2.12V.02h-2.52z" />
-            </svg>
+            <Image
+              src="/hero-icons/tiktok.png"
+              alt="تيك توك"
+              width={22}
+              height={22}
+              unoptimized
+              className="w-5 h-5 object-contain"
+            />
             <span>تيك توك</span>
           </a>
 
         </div>
 
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

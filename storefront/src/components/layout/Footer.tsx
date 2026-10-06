@@ -1,7 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { MessageCircle, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,98 +15,94 @@ export default function Footer() {
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-white/5">
           
-          {/* Column 1: Brand & Quality Mission */}
+          {/* Column 1: Brand & Bio */}
           <div className="space-y-3.5">
             <Link
               href="/"
               className="inline-block hover:opacity-90 transition-opacity"
             >
-              <Image
-                src="/logo.png"
-                alt="عسل زوين"
-                width={130}
-                height={48}
-                className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,139,44,0.35)]"
-              />
+              <span className="text-xl sm:text-2xl font-black text-white tracking-wider">
+                ابـــراهـــيــــم <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">عـــــلــــي</span>
+              </span>
             </Link>
-            <p className="text-xs text-zinc-400 leading-relaxed max-w-xs font-medium">
-              نقدم لكم خلاصة الطبيعة النقية من أجود المناحل الطبيعية، مفحوصة وموثقة مخبرياً لضمان أعلى معايير الجودة والأمانة.
+            <p className="text-xs text-zinc-300 leading-relaxed max-w-xs font-medium">
+              خبير تسويق رقمي، إدارة الحملات الإعلانية وتوسيع المتاجر الإلكترونية. بناء استراتيجيات نمو تعتمد على تحليل البيانات لتعظيم العائد الاستثماري (ROAS).
             </p>
             <div className="flex items-center gap-2 text-xs text-[#FF8B2C] font-bold">
               <CheckCircle2 className="w-4 h-4" />
-              <span>نقاء وجودة طبيعية 100% مضمونة</span>
+              <span>نتائج موثقة بالأرقام ومعدلات تحويل قياسية</span>
             </div>
           </div>
 
-          {/* Column 2: Natural Honeys & Blends */}
+          {/* Column 2: Core Services */}
           <div className="space-y-3">
-            <h3 className="text-sm font-black text-white tracking-wide">أعسال وخلطات فاخرة</h3>
+            <h3 className="text-sm font-black text-white tracking-wide">خـــدمـــاتـــي</h3>
             <ul className="space-y-2 text-xs font-bold text-zinc-400">
               <li>
-                <Link href="/categories/royal" className="hover:text-[#FF8B2C] transition-colors">
-                  عسل ملكي فاخر
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>شراء وإدارة الحملات (Media Buying)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/special_blends" className="hover:text-[#FF8B2C] transition-colors">
-                  خلطات زوين الخاصة
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>تحسين معدلات التحويل (CRO)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/cave_honey" className="hover:text-[#FF8B2C] transition-colors">
-                  عسل الكهوف الجبلي
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>استراتيجيات البراند وتوسيع المتاجر</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/honeycomb" className="hover:text-[#FF8B2C] transition-colors">
-                  شمع العسل العضوي
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>التصميم الجرافيكي والإعلاني</span>
                 </Link>
               </li>
               <li>
-                <Link href="/offers" className="hover:text-[#FF8B2C] transition-colors">
-                  العروض والباقات الخاصة
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>التحليلات المتقدمة والتقارير</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Health Needs */}
+          {/* Column 3: Quick Navigation */}
           <div className="space-y-3">
-            <h3 className="text-sm font-black text-white tracking-wide">حسب احتياجك الصحي</h3>
+            <h3 className="text-sm font-black text-white tracking-wide">أقـــســـام الـــمـــوقـــع</h3>
             <ul className="space-y-2 text-xs font-bold text-zinc-400">
               <li>
-                <Link href="/categories/immunity_energy" className="hover:text-[#FF8B2C] transition-colors">
-                  المناعة والطاقة الحيوية
+                <Link href="/" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>الرئيسية</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/respiratory" className="hover:text-[#FF8B2C] transition-colors">
-                  الصحة التنفسية والمدخنون
+                <Link href="/#services" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>خدماتي الاحترافية</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/digestive" className="hover:text-[#FF8B2C] transition-colors">
-                  صحة الجهاز الهضمي والقولون
+                <Link href="/#portfolio" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>التأثير والمشاريع المميزة</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories/diabetic_friendly" className="hover:text-[#FF8B2C] transition-colors">
-                  أعسال مناسبة لمرضى السكري
+                <Link href="/#impact" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>أثر يُثبت بالأرقام</span>
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-[#FF8B2C] transition-colors">
-                  استعراض كافة الفئات
+                <Link href="/#contact" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>تواصل معي واطلب مشروعك</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact & Payment */}
+          {/* Column 4: Contact & Direct Consultation */}
           <div className="space-y-3.5">
-            <h3 className="text-sm font-black text-white tracking-wide">خدمة العملاء والطلب</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              فريقنا جاهز لمساعدتك والرد على استفساراتك على مدار الساعة.
+            <h3 className="text-sm font-black text-white tracking-wide">اســـتـــشـــارة وتـــواصـــل</h3>
+            <p className="text-xs text-zinc-400 leading-relaxed font-medium">
+              هل ترغب في مضاعفة مبيعات متجرك وتوسيع حملاتك الإعلانية؟ دعنا نبدأ الآن.
             </p>
             
             <a
@@ -120,29 +115,27 @@ export default function Footer() {
               <span>محادثة فورية عبر واتساب</span>
             </a>
 
-            <div className="flex items-center gap-1.5 flex-wrap text-[10px] font-bold text-zinc-300">
-              <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10">
-                الدفع عند الاستلام
-              </span>
-              <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[#FF8B2C]">
-                InstaPay
-              </span>
-              <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-amber-400">
-                فودافون كاش
-              </span>
+            <div className="flex items-center gap-2 pt-1">
+              <Link
+                href="/#contact"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF8B2C] hover:text-[#FFA857] transition-colors"
+              >
+                <span>حجز جلسة استراتيجية</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Rights Row */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400 font-medium">
           <p>
-            جميع الحقوق محفوظة © {currentYear} مناحل الأعسال الطبيعية والخلطات الفاخرة.
+            جميع الحقوق محفوظة © {currentYear} إبراهيم علي | خبير التسويق الرقمي وتوسيع المتاجر.
           </p>
           <div className="flex items-center gap-1.5 text-zinc-400">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#FF8B2C]" />
-            <span>معاينة وتذوق الطلب متاح قبل الاستلام</span>
+            <span className="text-[#FF8B2C] font-bold">●</span>
+            <span>جاهز لاستقبال المشروعات والشراكات الجديدة</span>
           </div>
         </div>
 

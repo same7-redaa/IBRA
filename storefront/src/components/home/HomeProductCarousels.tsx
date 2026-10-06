@@ -98,8 +98,10 @@ const CATEGORY_META: Record<
 };
 
 export default function HomeProductCarousels() {
-  // Get all active categories except "all"
-  const activeCategories = productCategories.filter((cat) => cat.id !== "all");
+  // Get all active categories except "all", "royal" (Services), and "offers" (Portfolio)
+  const activeCategories = productCategories.filter(
+    (cat) => cat.id !== "all" && cat.id !== "royal" && cat.id !== "offers"
+  );
 
   return (
     <div className="w-full flex flex-col space-y-1">

@@ -4,252 +4,263 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.css";
-import { ShieldCheck, Award, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
+
+// 8 Exact Icons orbiting continuously around the hero portrait
+const CIRCLE_ICONS = [
+  { src: "/hero-icons/meta.png", alt: "Meta", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/facebook.png", alt: "Facebook", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/instagram.png", alt: "Instagram", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/tiktok.png", alt: "TikTok", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/google-ads.png", alt: "Google Ads", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/photoshop.png", alt: "Adobe Photoshop", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/premiere-pro.png", alt: "Adobe Premiere Pro", size: "w-9 h-9 sm:w-14 sm:h-14" },
+  { src: "/hero-icons/illustrator.png", alt: "Adobe Illustrator", size: "w-9 h-9 sm:w-14 sm:h-14" },
+];
 
 export default function Hero() {
-  const honeyImages = [
-    "/hero/png_1.png",
-    "/hero/png_2.png",
-    "/hero/png_3.png",
-    "/hero/png_4.png"
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [radius, setRadius] = useState(195);
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-
+  // Handle responsive radius calculation and trigger entrance + opening animations
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % honeyImages.length);
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, [honeyImages.length]);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const diff = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(diff) > 35) {
-      if (diff > 0) {
-        // Swiped Right -> Previous in RTL
-        setCurrentImageIndex((prev) => (prev - 1 + honeyImages.length) % honeyImages.length);
-      } else {
-        // Swiped Left -> Next in RTL
-        setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length);
+    const updateRadius = () => {
+      if (typeof window !== "undefined") {
+        if (window.innerWidth < 400) {
+          setRadius(110);
+        } else if (window.innerWidth < 640) {
+          setRadius(135);
+        } else if (window.innerWidth < 1024) {
+          setRadius(165);
+        } else {
+          setRadius(195);
+        }
       }
-    }
-    setTouchStartX(null);
-  };
+    };
+
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+
+    // Staggered trigger for hero load animation
+    const mountTimer = setTimeout(() => {
+      setMounted(true);
+    }, 60);
+
+    const openTimer = setTimeout(() => {
+      setIsOpen(true);
+    }, 280);
+
+    return () => {
+      window.removeEventListener("resize", updateRadius);
+      clearTimeout(mountTimer);
+      clearTimeout(openTimer);
+    };
+  }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden text-white flex items-center">
+    <section className="relative w-full pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden text-white flex items-center">
       
       {/* Ambient Radial Mesh Glow behind Hero */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-1/4 w-[400px] h-[400px] bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div 
+        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/15 rounded-full blur-[140px] pointer-events-none -z-10 transition-opacity duration-1000"
+        style={{ opacity: mounted ? 1 : 0 }}
+      />
+      <div 
+        className="absolute bottom-10 left-1/4 w-[400px] h-[400px] bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none -z-10 transition-opacity duration-1000 delay-200"
+        style={{ opacity: mounted ? 1 : 0 }}
+      />
 
       {/* Decorative Background Artworks */}
       <div
-        className="absolute top-8 right-6 w-52 h-52 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none -rotate-[14deg] -z-10"
-        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
+        className="absolute top-8 right-6 w-52 h-52 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none -rotate-[14deg] -z-10 transition-all duration-1000"
+        style={{ 
+          backgroundImage: `url('/bg-art/logo.png')`,
+          opacity: mounted ? 0.15 : 0,
+          transform: mounted ? "rotate(-14deg) scale(1)" : "rotate(-14deg) scale(0.85)",
+        }}
       />
       <div
-        className="absolute bottom-12 left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[22deg] -z-10"
-        style={{ backgroundImage: `url('/bg-art/social-media.png')` }}
+        className="absolute bottom-12 left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[22deg] -z-10 transition-all duration-1000 delay-150"
+        style={{ 
+          backgroundImage: `url('/bg-art/social-media.png')`,
+          opacity: mounted ? 0.12 : 0,
+          transform: mounted ? "rotate(22deg) scale(1)" : "rotate(22deg) scale(0.85)",
+        }}
       />
-      {/* Seamless Black Gradient Transition at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
 
-      {/* 2. Main Content Container */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* Main Content Container */}
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px] w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 lg:gap-14 items-center">
           
-          {/* Right Column: Hero Content with dedicated Text Background */}
-          <div className="lg:col-span-7 flex flex-col items-start text-right relative p-2 sm:p-4">
+          {/* Right Column: Hero Text Content with Tatweel (Lifted higher on Desktop) */}
+          <div className="lg:col-span-7 flex flex-col items-center sm:items-start text-center sm:text-right w-full lg:-translate-y-8 xl:-translate-y-10">
             
-            {/* Background Image scoped exclusively behind the Text */}
-            <div className="absolute -inset-4 sm:-inset-8 -z-10 rounded-3xl overflow-hidden pointer-events-none">
-              <div
-                className="w-full h-full bg-cover bg-center bg-no-repeat opacity-25 mix-blend-screen"
-                style={{ backgroundImage: `url('/hero_bg.jpg')` }}
-              />
-              {/* Soft edge feathering */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-[#060608]/80" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#060608] via-transparent to-[#060608]/80" />
+            {/* Main Brand Title with Tatweel on Single Line + Entrance Blur Animation */}
+            <div 
+              style={{
+                opacity: mounted ? 1 : 0,
+                filter: mounted ? "blur(0px)" : "blur(18px)",
+                transform: mounted ? "translate3d(0,0,0)" : "translate3d(0, 32px, 0)",
+                transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.08s, filter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.08s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.08s",
+              }}
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-normal sm:tracking-wide text-white leading-tight select-none drop-shadow-[0_4px_25px_rgba(0,0,0,0.8)]">
+                ابـــراهـــيـــم <span className="text-[#FF8B2C] drop-shadow-[0_0_30px_rgba(255,139,44,0.4)]">عـــلـــي</span>
+              </h1>
             </div>
 
-            {/* Main Brand Title with Tatweel */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider text-white leading-tight select-none drop-shadow-[0_4px_25px_rgba(0,0,0,0.8)]">
-              عَـــسَـــل <span className="text-[#FF8B2C] drop-shadow-[0_0_30px_rgba(255,139,44,0.4)]">زويـــــن</span>
-            </h1>
-
-            {/* Subtitle Description */}
-            <p className="mt-4 text-base sm:text-lg lg:text-xl text-zinc-300 font-semibold leading-relaxed max-w-xl">
-              عسل نقي 100%، غني طبيعياً ومختار بعناية من أصفى المناحل الجبلية
-            </p>
-
-            {/* Feature Highlights Pills */}
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#FF8B2C]" />
-                <span>مفحوص وموثق مخبرياً 100%</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
-                <Award className="w-4 h-4 text-[#FF8B2C]" />
-                <span>أعلى درجات النقاء الطبيعي</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
-                <Sparkles className="w-4 h-4 text-[#FF8B2C]" />
-                <span>بدون أي تغذية سكرية</span>
-              </div>
+            {/* Subtitle Description with Tatweel + Entrance Blur Animation */}
+            <div
+              style={{
+                opacity: mounted ? 1 : 0,
+                filter: mounted ? "blur(0px)" : "blur(14px)",
+                transform: mounted ? "translate3d(0,0,0)" : "translate3d(0, 24px, 0)",
+                transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.22s, filter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.22s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.22s",
+              }}
+            >
+              <p className="mt-3 sm:mt-5 text-base sm:text-xl lg:text-2xl text-zinc-300 font-bold leading-relaxed">
+                أفـــكـــار إبـــداعـــيـــة.
+                <br />
+                نـــتـــائـــج مـــلـــمـــوســـة.
+              </p>
             </div>
 
-            {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            {/* Action Buttons + Entrance Blur Animation */}
+            <div 
+              className="mt-5 sm:mt-8 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none"
+              style={{
+                opacity: mounted ? 1 : 0,
+                filter: mounted ? "blur(0px)" : "blur(12px)",
+                transform: mounted ? "translate3d(0,0,0) scale(1)" : "translate3d(0, 20px, 0) scale(0.96)",
+                transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s, filter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s",
+              }}
+            >
               <Link
-                href="/products"
+                href="#services"
                 className={`${styles.button} ${styles.btnPrimary} w-full sm:w-auto`}
               >
                 <span className={styles.btnTxt}>
-                  اطلب عسلك الآن
+                  خـــدمـــاتـــي
                 </span>
               </Link>
               <Link
-                href="/products"
+                href="#contact"
                 className={`${styles.button} ${styles.btnSecondary} w-full sm:w-auto`}
               >
                 <span className={styles.btnTxt}>
-                  تصفح أنواع العسل
+                  تـــواصـــل مـــعـــي
                 </span>
               </Link>
             </div>
 
           </div>
 
-          {/* Left Column: 3D Stacked Image Showcase */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center select-none">
+          {/* Left Column: Hero Image with 10 Orbiting Icons Streaming Behind Image */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none mt-4 sm:mt-8 lg:mt-0">
             
-            {/* 3D Symmetrical Winged Carousel Container with Touch Gestures */}
+            {/* Ambient Backglow behind person */}
             <div 
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-              onClick={() => setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length)}
-              className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-[280px] sm:h-[330px] flex items-center justify-center cursor-pointer group touch-manipulation"
-              title="انقر أو اسحب لتدوير الصور"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-[#FF8B2C]/20 rounded-full blur-[100px] pointer-events-none transition-opacity duration-1000 delay-200"
+              style={{ opacity: mounted ? 1 : 0 }}
+            />
+
+            {/* Relative Image Stage (Enlarged on mobile) + Entrance Blur Animation */}
+            <div 
+              className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] aspect-[4/5] flex items-center justify-center scale-105 sm:scale-100"
+              style={{
+                opacity: mounted ? 1 : 0,
+                filter: mounted ? "blur(0px)" : "blur(18px)",
+                transform: mounted ? "translate3d(0,0,0) scale(1)" : "translate3d(0, 24px, 0) scale(0.92)",
+                transition: "opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, filter 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s",
+              }}
             >
-              {honeyImages.map((img, idx) => {
-                const offset = (idx - currentImageIndex + honeyImages.length) % honeyImages.length;
-                
-                // 3D Symmetrical Carousel Styles (Front Center, Left Wing, Right Wing)
-                let transformStyle = {};
-                let opacityStyle = 0;
-                let zIndexStyle = 0;
-                let filterStyle = "";
-
-                if (offset === 0) {
-                  // 1. Main Center Front Card (Sharp & Focused)
-                  transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
-                  opacityStyle = 1;
-                  zIndexStyle = 40;
-                  filterStyle = "drop-shadow(0 20px 40px rgba(255, 139, 44, 0.35)) blur(0px)";
-                } else if (offset === 1) {
-                  // 2. Right Wing Card (Behind & Soft Blur)
-                  transformStyle = { transform: "translate3d(62px, -12px, 0) scale(0.78) rotate(9deg)" };
-                  opacityStyle = 0.65;
-                  zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 25px rgba(255, 139, 44, 0.15)) brightness(0.85) blur(2.5px)";
-                } else if (offset === honeyImages.length - 1) {
-                  // 3. Left Wing Card (Behind & Soft Blur)
-                  transformStyle = { transform: "translate3d(-62px, -12px, 0) scale(0.78) rotate(-9deg)" };
-                  opacityStyle = 0.65;
-                  zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 25px rgba(255, 139, 44, 0.15)) brightness(0.85) blur(2.5px)";
-                } else {
-                  // 4. Back / Hidden Queue Card
-                  transformStyle = { transform: "translate3d(0, -35px, 0) scale(0.58) rotate(0deg)" };
-                  opacityStyle = 0;
-                  zIndexStyle = 10;
-                  filterStyle = "blur(6px)";
-                }
-
-                return (
-                  <div
-                    key={idx}
-                    className="absolute inset-0 flex items-center justify-center transition-all duration-800 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform pointer-events-none"
-                    style={{
-                      ...transformStyle,
-                      opacity: opacityStyle,
-                      zIndex: zIndexStyle,
-                      filter: filterStyle,
-                    }}
-                  >
-                    <Image
-                      src={img}
-                      alt={`عسل زوين - تصميم ${idx + 1}`}
-                      fill
-                      priority={idx === 0 || idx === 1}
-                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 380px, 480px"
-                      className="object-contain pointer-events-none transition-transform duration-500 group-hover:scale-105"
-                      draggable={false}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Pagination Indicators & Next/Prev Controls */}
-            <div className="mt-5 flex items-center gap-3 z-20">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentImageIndex((prev) => (prev - 1 + honeyImages.length) % honeyImages.length);
+              
+              {/* 8 Orbiting Icons Spinning Continuously BEHIND the person from Top Center */}
+              <div 
+                className={styles.orbitTrack}
+                style={{
+                  opacity: isOpen ? 1 : 0,
+                  filter: isOpen ? "blur(0px)" : "blur(14px)",
+                  transform: isOpen ? "translate(-50%, -50%) scale(1)" : "translate(-50%, -50%) scale(0.4)",
+                  transition: "opacity 0.9s ease-out 0.3s, filter 0.9s ease-out 0.3s, transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s",
                 }}
-                aria-label="الصورة السابقة"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white border border-white/15 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation hover:border-[#FF8B2C]"
               >
-                <ChevronRight className="w-4 h-4 pointer-events-none" />
-              </button>
+                {CIRCLE_ICONS.map((icon, idx) => {
+                  // Evenly distributed angles starting from top center (-90deg)
+                  const angleDeg = -90 + idx * (360 / CIRCLE_ICONS.length);
+                  const angleRad = (angleDeg * Math.PI) / 180;
+                  
+                  const targetX = Math.round(Math.cos(angleRad) * radius);
+                  const targetY = Math.round(Math.sin(angleRad) * radius);
 
-              <div className="flex items-center gap-1.5">
-                {honeyImages.map((_, dotIdx) => (
-                  <button
-                    key={dotIdx}
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentImageIndex(dotIdx);
-                    }}
-                    aria-label={`عرض الصورة ${dotIdx + 1}`}
-                    className={`h-2 rounded-full transition-all duration-500 cursor-pointer touch-manipulation ${
-                      dotIdx === currentImageIndex
-                        ? "w-8 bg-[#FF8B2C] shadow-[0_0_10px_rgba(255,139,44,0.6)]"
-                        : "w-2 bg-white/20 hover:bg-[#FF8B2C]/50"
-                    }`}
-                  />
-                ))}
+                  return (
+                    <div
+                      key={idx}
+                      className={styles.radialItem}
+                      style={{
+                        transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px))`,
+                      }}
+                    >
+                      <div
+                        className={`${icon.size} ${styles.iconBadge}`}
+                        title={icon.alt}
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={icon.src}
+                            alt={icon.alt}
+                            fill
+                            sizes="64px"
+                            className="object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)] pointer-events-none"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length);
-                }}
-                aria-label="الصورة التالية"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white border border-white/15 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation hover:border-[#FF8B2C]"
-              >
-                <ChevronLeft className="w-4 h-4 pointer-events-none" />
-              </button>
+              {/* Solid Black Blocker Silhouette (z-[8]) - Blocks orbiting icons from shining through the body */}
+              <div className="absolute inset-0 flex items-center justify-center z-[8] pointer-events-none">
+                <Image
+                  src="/hero-main.png"
+                  alt=""
+                  fill
+                  unoptimized
+                  aria-hidden="true"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 440px"
+                  className="object-contain filter brightness-0"
+                />
+              </div>
+
+              {/* Visible Person Image Container in front (z-10) */}
+              <div className="relative w-full h-full flex items-center justify-center z-10 pointer-events-none">
+                <Image
+                  src="/hero-main.png"
+                  alt="ابراهيم علي"
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 440px"
+                  className="object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 pointer-events-auto hover:scale-[1.02]"
+                />
+              </div>
+
             </div>
 
           </div>
 
         </div>
       </div>
+
+
+      {/* Seamless Deep Rich Black Gradient Transition across the entire section width (z-30 in front of image) */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-36 sm:h-64 pointer-events-none z-30" 
+        style={{
+          background: "linear-gradient(to top, #060608 0%, #060608 28%, rgba(6,6,8,0.95) 55%, rgba(6,6,8,0.55) 80%, transparent 100%)",
+        }}
+      />
 
     </section>
   );
