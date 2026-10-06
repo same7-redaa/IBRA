@@ -17,6 +17,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface PortfolioCategory {
   id: string;
+  slug: string;
   departmentNumber: string;
   field: string;
   category: string;
@@ -36,6 +37,7 @@ interface PortfolioCategory {
 const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   {
     id: "media-buying-gallery",
+    slug: "media-buying",
     departmentNumber: "قسم 01",
     field: "Meta & TikTok & Google Ads",
     category: "معرض الميديا باينج",
@@ -60,6 +62,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   },
   {
     id: "motion-video-gallery",
+    slug: "motion-video",
     departmentNumber: "قسم 02",
     field: "Motion Graphics & Reels",
     category: "الموشن جرافيك والفيديو",
@@ -84,6 +87,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   },
   {
     id: "social-designs-gallery",
+    slug: "social-designs",
     departmentNumber: "قسم 03",
     field: "Social Media & Ads",
     category: "تصميمات سوشيال",
@@ -108,6 +112,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   },
   {
     id: "ecommerce-scaling-gallery",
+    slug: "ecommerce-scaling",
     departmentNumber: "قسم 04",
     field: "E-Commerce & CRO",
     category: "معرض المتاجر",
@@ -256,7 +261,7 @@ export default function PortfolioSection() {
                     {/* Bottom: Direct Action Button */}
                     <div className="pt-2 flex items-center justify-between gap-2">
                       <Link
-                        href="#contact"
+                        href={`/portfolio/${dept.slug}`}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs hover:bg-[#FFA857] transition-all shadow-[0_2px_12px_rgba(255,139,44,0.35)] hover:scale-105 group/btn"
                       >
                         <span>{dept.ctaText}</span>
@@ -264,9 +269,9 @@ export default function PortfolioSection() {
                       </Link>
 
                       <Link
-                        href="#contact"
+                        href={`/portfolio/${dept.slug}`}
                         className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#FF8B2C] transition-colors flex-shrink-0 group-hover:border-white/30"
-                        title="تفاصيل إضافية"
+                        title="عرض دراسات الحالة والمعرض"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                       </Link>
