@@ -6,6 +6,11 @@ import { ChevronRight, ChevronLeft, ArrowLeft } from "lucide-react";
 import ProductCard from "@/components/ui/ProductCard";
 import { ProductItem } from "@/data/products";
 
+export interface BackgroundArtItem {
+  src: string;
+  className?: string;
+}
+
 interface ProductCarouselSectionProps {
   title: string;
   highlightedWord?: string;
@@ -15,6 +20,7 @@ interface ProductCarouselSectionProps {
   viewAllHref?: string;
   viewAllLabel?: string;
   bgPattern?: string;
+  bgArt?: BackgroundArtItem[];
 }
 
 export default function ProductCarouselSection({
@@ -25,6 +31,7 @@ export default function ProductCarouselSection({
   viewAllHref = "/products",
   viewAllLabel = "عرض الكل",
   bgPattern,
+  bgArt,
 }: ProductCarouselSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -89,13 +96,21 @@ export default function ProductCarouselSection({
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-[#FF8B2C]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Decorative Background Artwork if provided */}
-      {bgPattern && (
+      {/* Decorative Background Artworks with varied positions, sizes & angles */}
+      {bgArt && bgArt.length > 0 ? (
+        bgArt.map((art, idx) => (
+          <div
+            key={idx}
+            className={`absolute bg-contain bg-no-repeat mix-blend-screen pointer-events-none ${art.className || "w-64 h-64 opacity-15"}`}
+            style={{ backgroundImage: `url('${art.src}')` }}
+          />
+        ))
+      ) : bgPattern ? (
         <div
-          className="absolute -top-10 -left-10 w-72 h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none"
+          className="absolute -top-10 -left-10 w-72 h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none -rotate-12"
           style={{ backgroundImage: `url('${bgPattern}')` }}
         />
-      )}
+      ) : null}
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
         

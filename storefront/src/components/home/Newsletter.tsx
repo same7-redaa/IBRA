@@ -20,6 +20,16 @@ export default function Newsletter() {
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FF8B2C]/10 rounded-full blur-3xl pointer-events-none" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute -top-10 -right-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[25deg]"
+        style={{ backgroundImage: `url('/bg-art/instagram.png')` }}
+      />
+      <div
+        className="absolute -bottom-10 -left-8 w-40 h-40 sm:w-56 sm:h-56 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none rotate-[18deg]"
+        style={{ backgroundImage: `url('/bg-art/google.png')` }}
+      />
+
       <div className="w-full max-w-4xl mx-auto relative z-10 glass-panel rounded-3xl p-6 sm:p-10 lg:p-12 text-center overflow-hidden">
         
         {/* Title */}

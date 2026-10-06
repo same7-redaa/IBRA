@@ -117,6 +117,16 @@ export default async function CategoryDetailPage({
       {/* Background Glow */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute -top-12 -left-10 w-64 h-64 sm:w-96 sm:h-96 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none -rotate-[18deg]"
+        style={{ backgroundImage: `url('${meta.pattern}')` }}
+      />
+      <div
+        className="absolute top-1/2 -right-10 w-48 h-48 sm:w-68 sm:h-68 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none rotate-[26deg]"
+        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
+      />
+
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
         {/* Category Header Banner */}

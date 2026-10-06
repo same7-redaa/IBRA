@@ -9,6 +9,16 @@ export default function SocialConnect() {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute top-1/4 -left-8 w-52 h-52 sm:w-76 sm:h-76 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[15deg]"
+        style={{ backgroundImage: `url('/bg-art/facebook-page.png')` }}
+      />
+      <div
+        className="absolute -top-6 -right-6 w-40 h-40 sm:w-60 sm:h-60 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[30deg]"
+        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
+      />
+
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">

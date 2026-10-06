@@ -23,10 +23,14 @@ export default function BestProducts() {
       {/* Ambient background glow */}
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#FF8B2C]/8 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Decorative Cutout Illustration Behind Header */}
+      {/* Decorative Background Artworks */}
       <div 
-        className="absolute -top-6 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none"
-        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
+        className="absolute -top-6 -left-6 w-44 h-44 sm:w-60 sm:h-60 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none rotate-[14deg]"
+        style={{ backgroundImage: `url('/bg-art/facebook.png')` }}
+      />
+      <div 
+        className="absolute -bottom-10 -right-8 w-60 h-60 sm:w-88 sm:h-88 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none -rotate-[22deg]"
+        style={{ backgroundImage: `url('/bg-art/facebook-page.png')` }}
       />
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">

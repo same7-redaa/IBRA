@@ -20,6 +20,16 @@ export default function OffersPage() {
       {/* Background Glow */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#FF8B2C]/12 rounded-full blur-[140px] pointer-events-none" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute -top-12 -right-10 w-64 h-64 sm:w-96 sm:h-96 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none rotate-[15deg]"
+        style={{ backgroundImage: `url('/bg-art/social-media.png')` }}
+      />
+      <div
+        className="absolute top-1/2 -left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none -rotate-[24deg]"
+        style={{ backgroundImage: `url('/bg-art/facebook.png')` }}
+      />
+
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
         {/* Header Title */}

@@ -8,6 +8,16 @@ export default function HoneyFeatures() {
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FF8B2C]/5 rounded-full blur-[140px] pointer-events-none" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute top-1/3 -right-8 w-56 h-56 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[25deg]"
+        style={{ backgroundImage: `url('/bg-art/google.png')` }}
+      />
+      <div
+        className="absolute -top-6 -left-6 w-36 h-36 sm:w-52 sm:h-52 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[16deg]"
+        style={{ backgroundImage: `url('/bg-art/instagram.png')` }}
+      />
+
       <div className="w-full max-w-[1440px] mx-auto relative z-10">
         
         {/* Section Heading */}

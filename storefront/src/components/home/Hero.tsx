@@ -51,6 +51,16 @@ export default function Hero() {
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-1/4 w-[400px] h-[400px] bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
+      {/* Decorative Background Artworks */}
+      <div
+        className="absolute top-8 right-6 w-52 h-52 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none -rotate-[14deg] -z-10"
+        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
+      />
+      <div
+        className="absolute bottom-8 left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[22deg] -z-10"
+        style={{ backgroundImage: `url('/bg-art/social-media.png')` }}
+      />
+
       {/* 2. Main Content Container */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
