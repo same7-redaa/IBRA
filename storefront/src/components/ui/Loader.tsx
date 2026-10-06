@@ -7,7 +7,7 @@ interface LoaderProps {
 }
 
 export default function Loader({
-  text = "عسل زوين",
+  text = "إبراهيم علي",
   className = ""
 }: LoaderProps) {
   return (

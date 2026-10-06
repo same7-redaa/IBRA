@@ -107,17 +107,17 @@ export default function NavigationLoader() {
       role="status"
       aria-live="polite"
       aria-label="جاري التحميل"
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#1c1813] select-none transition-opacity ease-out ${
+      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#060608] select-none transition-opacity ease-out ${
         phase === "fading" ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
       }`}
       style={{ transitionDuration: `${FADE_OUT_MS}ms` }}
     >
       <div className="flex flex-col items-center gap-5">
-        <Loader text="عسل زوين" />
+        <Loader text="إبراهيم علي" />
         {/* Progress line that fills exactly over one animation cycle */}
-        <div className="w-32 h-1 bg-[#3d3226] rounded-full overflow-hidden">
+        <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#d97706] rounded-full origin-right"
+            className="h-full bg-[#FF8B2C] rounded-full origin-right"
             style={{ animation: `loaderProgress ${FULL_CYCLE_MS}ms linear infinite` }}
           />
         </div>

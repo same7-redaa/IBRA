@@ -81,8 +81,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#portfolio" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
-                  <span>التأثير والمشاريع المميزة</span>
+                <Link href="/portfolio" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>معارض الأعمال ودراسات الحالة</span>
                 </Link>
               </li>
               <li>

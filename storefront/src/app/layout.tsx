@@ -7,8 +7,6 @@ import SplashScreen from "@/components/layout/SplashScreen";
 import NavigationLoader from "@/components/providers/NavigationLoader";
 import ScrollToTop from "@/components/providers/ScrollToTop";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
-import CartDrawer from "@/components/cart/CartDrawer";
-import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
   title: "إبراهيم علي | خبير التسويق الرقمي وتوسيع المتاجر الإلكترونية",
@@ -37,18 +35,15 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col ambient-glow-bg text-[#f4f4f6] relative selection:bg-[#FF8B2C]/30 selection:text-white">
         <SplashScreen />
         <SmoothScrollProvider>
-          <CartProvider>
-            <Suspense fallback={null}>
-              <ScrollToTop />
-              <NavigationLoader />
-            </Suspense>
-            <Header />
-            <CartDrawer />
-            <div className="relative z-10 flex-grow flex flex-col">
-              {children}
-            </div>
-            <Footer />
-          </CartProvider>
+          <Suspense fallback={null}>
+            <ScrollToTop />
+            <NavigationLoader />
+          </Suspense>
+          <Header />
+          <div className="relative z-10 flex-grow flex flex-col">
+            {children}
+          </div>
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>
