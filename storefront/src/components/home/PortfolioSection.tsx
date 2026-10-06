@@ -8,16 +8,19 @@ import {
   BarChart3,
   Layers,
   Sparkles,
-  ExternalLink
+  ExternalLink,
+  Film,
+  Palette,
+  LineChart
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-interface ProjectCase {
+interface PortfolioCategory {
   id: string;
-  year: string;
-  countryOrPlatform: string;
+  departmentNumber: string;
+  field: string;
   category: string;
-  clientSubtitle: string;
+  subtitle: string;
   title: string;
   description: string;
   image: string;
@@ -27,133 +30,134 @@ interface ProjectCase {
   cardRotate: string;
   strategicPillars: string[];
   kpiBadges: { text: string; rotate: string }[];
+  ctaText: string;
 }
 
-const FEATURED_PROJECTS: ProjectCase[] = [
+const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   {
-    id: "peak-feb-2026",
-    year: "فبراير 2026",
-    countryOrPlatform: "Meta & TikTok Ads",
-    category: "مبيعات وتوسع استثنائي",
-    clientSubtitle: "E-commerce Analytics · Peak Month Record",
-    title: "ذروة الأداء التاريخي 1.44M جنيه ومعدل تحويل 1,546%",
-    description: "تحقيق أعلى أداء شهري موثق في تاريخ المتجر بإيرادات بلغت 1.44 مليون جنيه من خلال معالجة 5,100 طلب عبر التوسع المالي المدروس وإعادة استهداف عالية الدقة.",
+    id: "media-buying-gallery",
+    departmentNumber: "قسم 01",
+    field: "Meta & TikTok & Google Ads",
+    category: "معرض حملات الميديا باينج",
+    subtitle: "Media Buying Portfolio · Scaling Success",
+    title: "إدارة وتوسيع الحملات الإعلانية الممولة",
+    description: "نماذج ودراسات حالة تفصيلية لإدارة ميزانيات إعلانية ضخمة وتحقيق أعلى عائد على الإنفاق الإعلاني (ROAS) عبر Meta Ads و TikTok Ads و Google Ads باستراتيجيات التوسع المالي المتسارع.",
     image: "/portfolio/2a9b34945a84d3883bef59ee57fb0121.jpg",
     icon: TrendingUp,
     spanClass: "md:col-span-7",
     nudgeClass: "md:translate-y-0",
     cardRotate: "hover:rotate-0 md:-rotate-1",
     strategicPillars: [
-      "استراتيجية التوسع المالي المتسارع (Aggressive Scaling)",
-      "هندسة تحسين معدلات التحويل (CRO) وتجربة الشراء",
-      "إعادة استهداف ذكية لرواد المتجر والسلات المتروكة",
+      "حملات الـ Full-Funnel (Testing, Optimization, Scaling)",
+      "إعادة الاستهداف الذكي وتخفيض تكلفة الاقتناء (CPP)",
     ],
     kpiBadges: [
-      { text: "1.44M EGP مبيعات", rotate: "-rotate-2" },
-      { text: "5,100 طلب معالج", rotate: "rotate-2" },
-      { text: "1,546.7% معدل تحويل", rotate: "-rotate-1" },
-      { text: "100K+ ذروة يومية", rotate: "rotate-3" },
+      { text: "+3.8M EGP مبيعات موثقة", rotate: "-rotate-2" },
+      { text: "ROAS استثنائي يصل 15x", rotate: "rotate-2" },
+      { text: "خفض تكلفة الطلب 74%", rotate: "-rotate-1" },
+      { text: "+25 حملة ناجحة", rotate: "rotate-3" },
     ],
+    ctaText: "استكشف معرض الحملات",
   },
   {
-    id: "scale-jan-2026",
-    year: "يناير 2026",
-    countryOrPlatform: "E-Commerce Scaling",
-    category: "توسيع المتاجر الإلكترونية",
-    clientSubtitle: "E-commerce Growth · Scaling Success",
-    title: "مضاعفة المبيعات إلى 1.38M جنيه",
-    description: "مضاعفة نتائج المتجر بنجاح في شهر يناير عبر توسيع شرائح الجماهير وتكثيف اختبارات الإعلانات الإبداعية مع معالجة 4,700 طلب بنجاح ومعدل تحويل 359.6%.",
+    id: "ecommerce-scaling-gallery",
+    departmentNumber: "قسم 02",
+    field: "E-Commerce Growth & CRO",
+    category: "معرض نمو وتوسيع المتاجر",
+    subtitle: "Store Scaling Portfolio · CRO Mastery",
+    title: "توسيع المتاجر وهندسة التحويل الشرائي",
+    description: "معرض استراتيجيات مضاعفة مبيعات المتاجر الإلكترونية، تحسين رحلة العميل، ورفع معدل التحويل الشرائي لمعالجة آلاف الطلبات شهرياً وتحقيق هوامش ربحية قياسية.",
     image: "/portfolio/a6d2c954f419aa7199d41d1bdf61f9de.jpg",
     icon: Target,
     spanClass: "md:col-span-5",
     nudgeClass: "md:translate-y-8",
     cardRotate: "hover:rotate-0 md:rotate-1.5",
     strategicPillars: [
-      "مضاعفة الجلسات النشطة إلى 3,200 جلسة شرائية",
-      "إدارة الحملات متعددة الزوايا الإعلانية",
-      "تحسين رحلة العميل من الإعلان حتى إتمام الطلب",
+      "تحسين صفحات الهبوط وتجربة الدفع السريع",
+      "هيكلة العروض والباقات الشرائية المغرية",
     ],
     kpiBadges: [
-      { text: "1.38M EGP مبيعات", rotate: "-rotate-3" },
-      { text: "4,700 طلب ناجح", rotate: "rotate-2.5" },
-      { text: "359.6% Conv. Rate", rotate: "-rotate-1.5" },
-      { text: "3.2K جلسة نشطة", rotate: "rotate-2" },
+      { text: "+12.5K طلب معالج", rotate: "-rotate-3" },
+      { text: "1,546% معدل تحويل CRO", rotate: "rotate-2.5" },
+      { text: "مضاعفة المبيعات 3x", rotate: "-rotate-1.5" },
+      { text: "+15 متجر تم توسيعه", rotate: "rotate-2" },
     ],
+    ctaText: "استكشف معرض المتاجر",
   },
   {
-    id: "olz-meta-ads",
-    year: "2025 - 2026",
-    countryOrPlatform: "Meta Ads Performance",
-    category: "تحسين تكلفة الاقتناء",
-    clientSubtitle: "Campaign Breakdown · OLZ Brand",
-    title: "تحقيق 960K جنيه مبيعات وخفض الـ CPP",
-    description: "إدارة شاملة لميزانيات إعلانية بلغت 70K جنيه وتحقيق عائد إيرادات تجاوز 960K جنيه مع خفض تكلفة الطلب (CPP) من 77 ج.م إلى 20 ج.م فقط وتنفيذ 4,875 طلب.",
+    id: "branding-creatives-gallery",
+    departmentNumber: "قسم 03",
+    field: "Brand Identity & Ad Creatives",
+    category: "معرض التصميم والهوية",
+    subtitle: "Visual Identity · High-Converting Creatives",
+    title: "الهوية البصرية وتصميم الإعلانات الإبداعية",
+    description: "معرض الأعمال الفنية وصياغة الهويات البصرية المتكاملة وتصميم الأصول الإعلانية الجذابة التي توقف التمرير وتحفز الشراء الفوري بأسلوب بصري فريد.",
     image: "/portfolio/0eb69c9aba3b9e587f00ebb3976d7cb1.jpg",
     icon: Sparkles,
     spanClass: "md:col-span-5",
     nudgeClass: "md:translate-y-0",
     cardRotate: "hover:rotate-0 md:-rotate-1.5",
     strategicPillars: [
-      "خفض تكلفة الطلب (CPP) بنسبة 74%",
-      "اختبارات A/B مستمرة على النصوص والعناوين",
-      "إدارة ميزانية 70K لتحقيق 960K عائد إعلاني",
+      "تصميم الهويات البصرية والأدلة الإرشادية للعلامات",
+      "ابتكار كرييتفز إعلانية تحقق أعلى معدل نقر (CTR)",
     ],
     kpiBadges: [
-      { text: "960K EGP مبيعات", rotate: "-rotate-2" },
-      { text: "70K EGP إنفاق", rotate: "rotate-2" },
-      { text: "CPP: 20 EGP فقط", rotate: "-rotate-3" },
-      { text: "4,875 طلب مكتمل", rotate: "rotate-1.5" },
+      { text: "+40 هوية بصرية كاملة", rotate: "-rotate-2" },
+      { text: "+500 كرييتف إعلاني", rotate: "rotate-2" },
+      { text: "Photoshop & Illustrator", rotate: "-rotate-3" },
+      { text: "زيادة الـ CTR بنسبة 3.4x", rotate: "rotate-1.5" },
     ],
+    ctaText: "استكشف معرض التصاميم",
   },
   {
-    id: "dec-2025-sales",
-    year: "ديسمبر 2025",
-    countryOrPlatform: "E-Commerce Operations",
-    category: "كفاءة التشغيل والمبيعات",
-    clientSubtitle: "E-commerce Analytics · December 2025",
-    title: "مبيعات قياسية واستقرار في ديسمبر",
-    description: "بناء وإدارة البنية التحتية للحملات الإعلانية مع الحفاظ على استقرار وثبات المبيعات اليومية، ومعالجة أكثر من 2,700 طلب بمعدل تحويل مرتفع بلغ 107.9%.",
+    id: "motion-video-gallery",
+    departmentNumber: "قسم 04",
+    field: "Motion Graphics & Video Ads",
+    category: "معرض الموشن والفيديو",
+    subtitle: "Motion Graphics · Video Production",
+    title: "الموشن جرافيك ومونتاج الفيديوهات الإعلانية",
+    description: "معرض الفيديوهات الإعلانية الموجهة لمنصات تيك توك وريلز وموشن جرافيك عالي الدقة مصمم لإيصال فكرة المنتج وسرد قصته بأسلوب مشوق يحقق أعلى مبيعات.",
     image: "/portfolio/8d26727dd84afc3d2d99da81126bdcfe.jpg",
-    icon: BarChart3,
+    icon: Film,
     spanClass: "md:col-span-7",
     nudgeClass: "md:translate-y-8",
     cardRotate: "hover:rotate-0 md:rotate-1",
     strategicPillars: [
-      "استقرار معدل التحويل اليومي فوق 100%",
-      "معالجة 2,700+ طلب مع هوامش ربحية ممتازة",
-      "تجهيز المتجر لمرحلة التوسع الكبرى",
+      "مونتاج احترافي بـ Premiere Pro و After Effects",
+      "سرد بصري وتأثيرات صوتية ترفع معدل المشاهدة",
     ],
     kpiBadges: [
-      { text: "102.7K+ مبيعات", rotate: "-rotate-2.5" },
-      { text: "2.7K+ طلب معالج", rotate: "rotate-2" },
-      { text: "107.9% Conv. Rate", rotate: "-rotate-1" },
-      { text: "1K ذروة يومية", rotate: "rotate-3" },
+      { text: "+120 فيديو إعلاني ناجح", rotate: "-rotate-2.5" },
+      { text: "Premiere & After Effects", rotate: "rotate-2" },
+      { text: "ملايين المشاهدات", rotate: "-rotate-1" },
+      { text: "معدل استكمال 85%+", rotate: "rotate-3" },
     ],
+    ctaText: "استكشف معرض الفيديوهات",
   },
   {
-    id: "meta-full-funnel",
-    year: "2025 - 2026",
-    countryOrPlatform: "Facebook & Instagram",
-    category: "إدارة وتوجيه الجماهير",
-    clientSubtitle: "Full-Funnel Campaign Management",
-    title: "إدارة الحملات الإعلانية الشاملة (Full-Funnel)",
-    description: "هيكلة متكاملة للحملات الإعلانية على فيسبوك وإنستغرام باستهداف شرائح متعددة تشمل الجماهير المخصصة والواسعة لتحقيق أعلى معدل محادثات وشراء مباشر.",
+    id: "data-analytics-gallery",
+    departmentNumber: "قسم 05",
+    field: "Data Tracking & Meta CAPI",
+    category: "معرض البيانات والتتبع",
+    subtitle: "Advanced Tracking · Conversion API",
+    title: "بنية تتبع البيانات المتقدمة وتحليل التحويلات",
+    description: "معرض تأسيس وربط البكسلات (Meta CAPI & TikTok Pixel & Google Analytics 4) وتطوير لوحات المتابعة اللحظية لعزل الإعلانات غير المجدية ومضاعفة المبيعات.",
     image: "/portfolio/5a0180169cf5c10d6ae9a4f883938f81.jpg",
-    icon: Layers,
+    icon: LineChart,
     spanClass: "md:col-span-12",
     nudgeClass: "md:translate-y-0",
     cardRotate: "hover:rotate-0 md:-rotate-0.5",
     strategicPillars: [
-      "تقسيم الجماهير المستهدفة بدقة وتفادي تداخل الإعلانات",
-      "تحسين سرعة الاستجابة وتوجيه المحادثات للشراء الفوري",
-      "خفض تكلفة المحادثة المؤهلة مع زيادة القيمة الشرائية",
+      "تثبيت Meta Conversions API وتخطي قيود التتبع",
+      "بناء لوحات بيانات دقيقة لمراقبة الـ ROAS والـ CPP",
     ],
     kpiBadges: [
-      { text: "270 محادثة مباشرة", rotate: "-rotate-2" },
-      { text: "112 نتيجة شراء", rotate: "rotate-2.5" },
-      { text: "Full-Funnel Strategy", rotate: "-rotate-1.5" },
-      { text: "Multi-Audience Setup", rotate: "rotate-2" },
+      { text: "دقة تتبع 99.8%", rotate: "-rotate-2" },
+      { text: "Meta CAPI Setup", rotate: "rotate-2.5" },
+      { text: "Google Analytics 4", rotate: "-rotate-1.5" },
+      { text: "تقارير أداء لحظية", rotate: "rotate-2" },
     ],
+    ctaText: "استكشف معرض التحليلات",
   },
 ];
 
@@ -183,30 +187,30 @@ export default function PortfolioSection() {
       {/* Section Container */}
       <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1280px]">
         
-        {/* Section Header: Exact Ahmed Ali Services style with Blur Reveal */}
+        {/* Section Header: Structured for Portfolio Galleries */}
         <ScrollReveal direction="up" blurAmount={16}>
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-sm sm:text-base md:text-lg font-black text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)] mb-2.5 tracking-wide">
-              الـــتـــأثـــيـــر والـــنـــمـــو
+              مـــعـــارض الأعـــمـــال والـــنـــتـــائـــج
             </p>
             <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-              مشاريع <span className="text-[#FF8B2C]">تصنع الفارق</span>
+              أقسام <span className="text-[#FF8B2C]">معرض الأعمال</span>
             </h2>
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
-              دراسات حالة تفصيلية لحملات إعلانية وتوسيع متاجر حققت مبيعات قياسية وعوائد استثنائية موثقة بالأرقام
+              تصفح معارض الأعمال المتخصصة لكل خدمة، والتي تضم نماذج حية وحملات إعلانية موثقة حققت نتائج استثنائية بالأرقام
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Sticker Masonry Grid (Ahmed Ali Services Staggered Layout - Compact Height) */}
+        {/* Sticker Masonry Grid (Categories/Departments Showcase) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 md:gap-6 items-stretch">
-          {FEATURED_PROJECTS.map((project, idx) => {
-            const Icon = project.icon;
+          {PORTFOLIO_CATEGORIES.map((dept, idx) => {
+            const Icon = dept.icon;
 
             return (
               <div
-                key={project.id}
-                className={`${project.spanClass} ${project.nudgeClass} transition-transform duration-300`}
+                key={dept.id}
+                className={`${dept.spanClass} ${dept.nudgeClass} transition-transform duration-300`}
               >
                 <ScrollReveal 
                   direction="up" 
@@ -215,11 +219,11 @@ export default function PortfolioSection() {
                   className="h-full"
                 >
                 <article
-                  className={`relative rounded-[20px] sm:rounded-[22px] p-4 sm:p-5 md:p-6 h-full bg-[#0d0d14]/95 border-2 border-[#FF8B2C] shadow-[0_10px_30px_rgba(0,0,0,0.75)] hover:shadow-[0_20px_50px_rgba(255,139,44,0.2)] transition-all duration-300 flex flex-col justify-between group ${project.cardRotate}`}
+                  className={`relative rounded-[20px] sm:rounded-[22px] p-4 sm:p-5 md:p-6 h-full bg-[#0d0d14]/95 border-2 border-[#FF8B2C] shadow-[0_10px_30px_rgba(0,0,0,0.75)] hover:shadow-[0_20px_50px_rgba(255,139,44,0.2)] transition-all duration-300 flex flex-col justify-between group ${dept.cardRotate}`}
                   style={{ willChange: "transform" }}
                 >
                   <div>
-                    {/* Top Row: Sticker Icon Badge & Category Pill */}
+                    {/* Top Row: Department Icon Badge & Category Pill */}
                     <div className="flex items-center justify-between gap-2.5 mb-3">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[12px] flex items-center justify-center bg-[#FF8B2C]/10 border-2 border-[#FF8B2C] text-[#FF8B2C] shadow-[0_0_12px_rgba(255,139,44,0.25)] group-hover:scale-105 transition-transform flex-shrink-0">
                         <Icon className="w-5 h-5" />
@@ -227,10 +231,10 @@ export default function PortfolioSection() {
 
                       <div className="flex items-center gap-1.5">
                         <span className="text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40">
-                          {project.category}
+                          {dept.category}
                         </span>
                         <span className="text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 text-zinc-400 border border-white/10 hidden sm:inline-block">
-                          {project.year}
+                          {dept.departmentNumber}
                         </span>
                       </div>
                     </div>
@@ -238,8 +242,8 @@ export default function PortfolioSection() {
                     {/* Image Preview with Zoom on Hover - Compact Height */}
                     <div className="relative w-full h-32 sm:h-36 md:h-40 rounded-lg sm:rounded-xl overflow-hidden mb-3.5 bg-[#060608] border border-white/10 shadow-inner">
                       <Image
-                        src={project.image}
-                        alt={project.title}
+                        src={dept.image}
+                        alt={dept.title}
                         fill
                         unoptimized
                         sizes="(max-width: 768px) 100vw, 600px"
@@ -247,23 +251,23 @@ export default function PortfolioSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent opacity-60 pointer-events-none" />
                       <div className="absolute top-2 left-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded bg-[#060608]/85 text-[#FF8B2C] border border-[#FF8B2C]/30 backdrop-blur-sm">
-                        {project.countryOrPlatform}
+                        {dept.field}
                       </div>
                     </div>
 
                     {/* Title */}
                     <h3 className="text-base sm:text-lg md:text-xl font-black text-white leading-snug mb-2 group-hover:text-[#FF8B2C] transition-colors line-clamp-2">
-                      {project.title}
+                      {dept.title}
                     </h3>
 
-                    {/* Description - Concise & Compact */}
+                    {/* Description */}
                     <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal mb-3 line-clamp-2">
-                      {project.description}
+                      {dept.description}
                     </p>
 
-                    {/* Strategic Pillars List */}
+                    {/* Scope / Strategic Pillars List */}
                     <div className="space-y-1 mb-3 pb-3 border-b border-white/10">
-                      {project.strategicPillars.slice(0, 2).map((pillar, pIdx) => (
+                      {dept.strategicPillars.map((pillar, pIdx) => (
                         <div key={pIdx} className="flex items-start gap-2 text-zinc-300 text-[11px] sm:text-xs">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#FF8B2C] mt-1 flex-shrink-0" />
                           <span className="leading-tight truncate">{pillar}</span>
@@ -272,10 +276,10 @@ export default function PortfolioSection() {
                     </div>
                   </div>
 
-                  {/* Bottom: Floating Sticker KPI Badges & CTA */}
+                  {/* Bottom: Floating Sticker Badges & CTA */}
                   <div className="mt-auto pt-1">
                     <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
-                      {project.kpiBadges.map((badge, bIdx) => (
+                      {dept.kpiBadges.map((badge, bIdx) => (
                         <span
                           key={bIdx}
                           className={`inline-block text-[10px] sm:text-[11px] font-black rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white text-[#060608] border-2 border-[#FF8B2C] shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition-all duration-200 hover:scale-105 hover:rotate-0 ${badge.rotate}`}
@@ -291,7 +295,7 @@ export default function PortfolioSection() {
                         href="#contact"
                         className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs hover:bg-[#FFA857] transition-all shadow-[0_3px_12px_rgba(255,139,44,0.3)] hover:scale-105 group/btn"
                       >
-                        <span>اطـــلـــب مـــثـــل هـــذا الـــمـــشـــروع</span>
+                        <span>{dept.ctaText}</span>
                         <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover/btn:-translate-x-1" />
                       </Link>
 
