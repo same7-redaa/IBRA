@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import SplashScreen from "@/components/layout/SplashScreen";
 import NavigationLoader from "@/components/providers/NavigationLoader";
 import ScrollToTop from "@/components/providers/ScrollToTop";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import CartDrawer from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/context/CartContext";
 
@@ -35,18 +36,20 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col ambient-glow-bg text-[#f4f4f6] relative selection:bg-[#FF8B2C]/30 selection:text-white">
         <SplashScreen />
-        <CartProvider>
-          <Suspense fallback={null}>
-            <ScrollToTop />
-            <NavigationLoader />
-          </Suspense>
-          <Header />
-          <CartDrawer />
-          <div className="relative z-10 flex-grow flex flex-col">
-            {children}
-          </div>
-          <Footer />
-        </CartProvider>
+        <SmoothScrollProvider>
+          <CartProvider>
+            <Suspense fallback={null}>
+              <ScrollToTop />
+              <NavigationLoader />
+            </Suspense>
+            <Header />
+            <CartDrawer />
+            <div className="relative z-10 flex-grow flex flex-col">
+              {children}
+            </div>
+            <Footer />
+          </CartProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

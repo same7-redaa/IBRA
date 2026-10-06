@@ -59,6 +59,25 @@ body {
   width: 100%;
 }
 
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 139, 44, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF8B2C;
+}
+
 :root {
   --background: #060608;
   --foreground: #ffffff;
@@ -93,6 +112,20 @@ body {
 @keyframes slide-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.3333%); }
+}
+
+@keyframes tickerMoveLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+}
+
+.animate-ticker-left {
+  animation: tickerMoveLeft 32s linear infinite;
+  will-change: transform;
 }
 
 @keyframes slideInRight {

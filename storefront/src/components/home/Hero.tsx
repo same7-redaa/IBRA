@@ -17,6 +17,8 @@ const CIRCLE_ICONS = [
   { src: "/hero-icons/illustrator.png", alt: "Adobe Illustrator", size: "w-9 h-9 sm:w-14 sm:h-14" },
 ];
 
+import HeroTickerTape from "./HeroTickerTape";
+
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -256,11 +258,16 @@ export default function Hero() {
 
       {/* Seamless Deep Rich Black Gradient Transition across the entire section width (z-30 in front of image) */}
       <div 
-        className="absolute inset-x-0 bottom-0 h-36 sm:h-64 pointer-events-none z-30" 
+        className="absolute inset-x-0 bottom-0 h-40 sm:h-64 pointer-events-none z-30" 
         style={{
-          background: "linear-gradient(to top, #060608 0%, #060608 28%, rgba(6,6,8,0.95) 55%, rgba(6,6,8,0.55) 80%, transparent 100%)",
+          background: "linear-gradient(to top, #060608 0%, #060608 30%, rgba(6,6,8,0.95) 60%, rgba(6,6,8,0.5) 82%, transparent 100%)",
         }}
       />
+
+      {/* Moving Text Chips Ticker Tape (First layer applied directly on bottom fade) */}
+      <div className="absolute inset-x-0 bottom-2 sm:bottom-4 z-35 pointer-events-auto">
+        <HeroTickerTape />
+      </div>
 
     </section>
   );
