@@ -50,15 +50,22 @@ export default function SplashScreen() {
       setIsExpanded(true);
     }, 100);
 
-    // Step 2: Trigger 3D Camera Plunge right INTO the randomly selected icon
+    // Step 2: Trigger 3D Camera Plunge right INTO the randomly selected icon (Hero reveals here!)
     const t1 = setTimeout(() => {
       setPhase("plunge");
+      if (typeof window !== "undefined") {
+        (window as unknown as { __heroReady?: boolean }).__heroReady = true;
+        window.dispatchEvent(new CustomEvent("hero-ready"));
+      }
     }, 1800);
 
     // Step 3: Complete plunge transition and unmount splash
     const t2 = setTimeout(() => {
       setPhase("done");
       setIsRendered(false);
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("splash-finished"));
+      }
     }, 2800);
 
     return () => {

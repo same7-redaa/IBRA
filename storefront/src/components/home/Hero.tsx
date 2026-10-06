@@ -24,7 +24,7 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [radius, setRadius] = useState(195);
 
-  // Handle responsive radius calculation and trigger entrance + opening animations
+  // Handle responsive radius calculation and trigger entrance + opening animations synchronized with Splash
   useEffect(() => {
     const updateRadius = () => {
       if (typeof window !== "undefined") {
@@ -43,19 +43,40 @@ export default function Hero() {
     updateRadius();
     window.addEventListener("resize", updateRadius);
 
-    // Staggered trigger for hero load animation
-    const mountTimer = setTimeout(() => {
-      setMounted(true);
-    }, 60);
+    // Trigger the staggered blur entrance when splash plunges
+    const triggerHeroEntrance = () => {
+      setTimeout(() => {
+        setMounted(true);
+      }, 50);
 
-    const openTimer = setTimeout(() => {
-      setIsOpen(true);
-    }, 280);
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 300);
+    };
+
+    // Check if splash already completed or listen for hero-ready event
+    if (typeof window !== "undefined" && (window as unknown as { __heroReady?: boolean }).__heroReady) {
+      triggerHeroEntrance();
+    } else if (typeof window !== "undefined") {
+      const onHeroReady = () => {
+        triggerHeroEntrance();
+      };
+      window.addEventListener("hero-ready", onHeroReady);
+
+      // Fallback safety timeout in case splash was skipped or already gone
+      const fallbackTimer = setTimeout(() => {
+        triggerHeroEntrance();
+      }, 2000);
+
+      return () => {
+        window.removeEventListener("resize", updateRadius);
+        window.removeEventListener("hero-ready", onHeroReady);
+        clearTimeout(fallbackTimer);
+      };
+    }
 
     return () => {
       window.removeEventListener("resize", updateRadius);
-      clearTimeout(mountTimer);
-      clearTimeout(openTimer);
     };
   }, []);
 
