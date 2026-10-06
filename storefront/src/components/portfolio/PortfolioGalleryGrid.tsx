@@ -57,14 +57,14 @@ export default function PortfolioGalleryGrid({
       {/* Section Header */}
       <ScrollReveal direction="up" blurAmount={12}>
         <div className="text-center mb-10 sm:mb-14">
-          <p className="text-xs sm:text-sm font-black text-[#FF8B2C] mb-2 tracking-wide uppercase">
-            معرض الأعمال والمشاريع
+          <p className="text-xs sm:text-sm font-black text-[#FF8B2C] mb-2 tracking-wide">
+            مـــعـــارض الأعـــمــــال والـــمـــشـــاريـــع
           </p>
           <h2 className="text-2xl sm:text-4xl font-black text-white leading-tight">
-            معرض صور الأعمال
+            مـــعـــرض <span className="text-[#FF8B2C] drop-shadow-[0_0_24px_rgba(255,139,44,0.45)]">صـــور الأعـــمــــال</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
-            نماذج حية وتصاميم ونتائج حملات حقيقية تم تنفيذها بأعلى معايير الجودة
+          <p className="mt-3 text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto font-normal leading-relaxed">
+            نـــمـــاذج حـــيـــة وتـــصـــامـــيـــم ونـــتـــائـــج حـــمـــلات تـــم تـــنـــفـــيـــذهـــا بـــأعـــلـــى مـــعـــايـــيـــر الـــجـــودة
           </p>
         </div>
       </ScrollReveal>

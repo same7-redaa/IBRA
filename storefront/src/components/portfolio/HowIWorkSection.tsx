@@ -222,14 +222,14 @@ export default function HowIWorkSection({
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px]">
         
-        {/* Section Header: Centered Ahmed Ali Style */}
+        {/* Section Header: Centered Ahmed Ali Style with Tatweel */}
         <ScrollReveal direction="up" blurAmount={12}>
           <div className="text-center mb-14 sm:mb-18">
-            <p className="text-lg sm:text-xl font-black text-[#FF8B2C] mb-2 tracking-wide drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">
-              المنهجية
+            <p className="text-sm sm:text-base md:text-lg font-black text-[#FF8B2C] mb-2 tracking-wide drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">
+              الـــمـــنـــهـــجـــيـــة
             </p>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-              كيف أشتغل
+              كـــيـــف <span className="text-[#FF8B2C] drop-shadow-[0_0_24px_rgba(255,139,44,0.45)]">أشـــتـــغـــل</span>
             </h2>
           </div>
         </ScrollReveal>

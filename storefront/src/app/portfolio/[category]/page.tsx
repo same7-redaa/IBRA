@@ -71,56 +71,18 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1280px]">
-        {/* Breadcrumb Navigation */}
-        <ScrollReveal direction="down" blurAmount={8}>
-          <nav className="flex items-center justify-center gap-2 text-xs sm:text-sm text-zinc-400 mb-8 sm:mb-10 font-medium">
-            <Link href="/" className="hover:text-[#FF8B2C] transition-colors">
-              الرئيسية
-            </Link>
-            <ChevronLeft className="w-3.5 h-3.5 text-zinc-600" />
-            <Link href="/portfolio" className="hover:text-[#FF8B2C] transition-colors">
-              معرض الأعمال
-            </Link>
-            <ChevronLeft className="w-3.5 h-3.5 text-zinc-600" />
-            <span className="text-[#FF8B2C] font-bold">{category.categoryName}</span>
-          </nav>
-        </ScrollReveal>
-
-        {/* 1. Centered Hero: Page Title Centered + Short Description */}
-        <section className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
+        {/* 1. Centered Hero: Pure Page Title Centered + Short Description (No badges/breadcrumbs) */}
+        <section className="text-center max-w-4xl mx-auto mb-16 sm:mb-20 pt-4">
           <ScrollReveal direction="up" blurAmount={12}>
-            {/* Centered Department Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FF8B2C]/10 border border-[#FF8B2C]/30 text-[#FF8B2C] text-xs sm:text-sm font-black mb-5">
-              <span className="w-2 h-2 rounded-full bg-[#FF8B2C] animate-pulse" />
-              <span>{category.departmentNumber} · {category.categoryName}</span>
-            </div>
-
-            {/* Centered Page Title */}
+            {/* Centered Main Title with Tatweel */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-5 tracking-tight">
-              {category.title.replace("معرض أعمال ", "")}
+              {category.title}
             </h1>
 
-            {/* Centered Short Description */}
-            <p className="text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed font-normal max-w-2xl mx-auto mb-8">
+            {/* Centered Short Description with Tatweel */}
+            <p className="text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed font-normal max-w-2xl mx-auto">
               {category.heroDescription}
             </p>
-
-            {/* Quick Primary Actions */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="#how-i-work"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs sm:text-sm hover:bg-[#FFA857] transition-all shadow-[0_4px_20px_rgba(255,139,44,0.35)] hover:scale-105"
-              >
-                <span>المنهجية: كيف أشتغل</span>
-                <ArrowLeft className="w-4 h-4" />
-              </a>
-              <a
-                href="#gallery"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#14141f] border border-[#FF8B2C]/40 text-white font-bold text-xs sm:text-sm hover:border-[#FF8B2C] hover:bg-[#FF8B2C]/10 transition-all"
-              >
-                <span>معرض صور الأعمال</span>
-              </a>
-            </div>
           </ScrollReveal>
         </section>
 
