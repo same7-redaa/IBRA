@@ -285,8 +285,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Moving Text Chips Ticker Tape (First layer applied directly on bottom fade) */}
-      <div className="absolute inset-x-0 bottom-2 sm:bottom-4 z-35 pointer-events-auto">
+      {/* Moving Text Chips Ticker Tape (First layer applied directly on bottom fade, lifted higher) */}
+      <div className="absolute inset-x-0 bottom-6 sm:bottom-10 md:bottom-12 z-35 pointer-events-auto">
         <HeroTickerTape />
       </div>
 
