@@ -52,7 +52,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
       "خفض تكلفة الاقتناء (CPP) وإعادة الاستهداف",
     ],
     kpiBadges: [
-      { text: "+3.8M EGP مبيعات", rotate: "-rotate-2" },
+      { text: "+14.8M EGP مبيعات", rotate: "-rotate-2" },
       { text: "ROAS يصل 15x", rotate: "rotate-2" },
       { text: "خفض التكلفة 74%", rotate: "-rotate-1" },
     ],
@@ -124,7 +124,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
       "هيكلة باقات وعروض تزيد المبيعات",
     ],
     kpiBadges: [
-      { text: "+12.5K طلب معالج", rotate: "-rotate-2" },
+      { text: "+36.3K طلب معالج", rotate: "-rotate-2" },
       { text: "تحويل CRO قياسي", rotate: "rotate-2" },
       { text: "مضاعفة المبيعات 3x", rotate: "-rotate-1" },
     ],

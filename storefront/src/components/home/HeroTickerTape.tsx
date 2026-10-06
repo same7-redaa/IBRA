@@ -5,7 +5,7 @@ import { Sparkles, TrendingUp, Zap, Target, Award, Rocket, BarChart2, ShieldChec
 
 const ROW_1_ITEMS = [
   { text: "أعـــلـــى عـــائـــد اســـتـــثـــمـــاري ROAS", icon: TrendingUp },
-  { text: "خـــبـــرة 5+ ســـنـــوات فـــي الـــســـوق", icon: Award },
+  { text: "خـــبـــرة 8+ ســـنـــوات فـــي الـــســـوق", icon: Award },
   { text: "اســـتـــهـــداف جـــمـــاهـــيـــر دقـــيـــق 100%", icon: Target },
   { text: "تـــصـــامـــيـــم إعـــلانـــيـــة فـــائـــقـــة الـــتـــأثـــيـــر", icon: Sparkles },
   { text: "نـــمـــو مـــتـــســـارع لـــلـــمـــتـــاجـــر", icon: Flame },
