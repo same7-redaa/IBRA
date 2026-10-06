@@ -81,7 +81,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden text-white flex items-center">
+    <section className="relative w-full pt-24 sm:pt-32 lg:pt-28 pb-12 sm:pb-16 overflow-hidden text-white flex items-center">
       
       {/* Ambient Radial Mesh Glow behind Hero */}
       <div 

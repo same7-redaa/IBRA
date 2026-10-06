@@ -202,74 +202,74 @@ export default function PortfolioSection() {
           </div>
         </ScrollReveal>
 
-        {/* Sticker Masonry Grid (Categories/Departments Showcase) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 md:gap-6 items-stretch">
+        {/* Sticker Masonry Grid (3 cards per row on Desktop, 2 cards per row on Mobile) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6 items-stretch">
           {PORTFOLIO_CATEGORIES.map((dept, idx) => {
             const Icon = dept.icon;
 
             return (
               <div
                 key={dept.id}
-                className={`${dept.spanClass} ${dept.nudgeClass} transition-transform duration-300`}
+                className="w-full h-full transition-transform duration-300"
               >
                 <ScrollReveal 
                   direction="up" 
-                  delay={idx * 80}
-                  blurAmount={14}
+                  delay={idx * 60}
+                  blurAmount={12}
                   className="h-full"
                 >
                 <article
-                  className={`relative rounded-[20px] sm:rounded-[22px] p-4 sm:p-5 md:p-6 h-full bg-[#0d0d14]/95 border-2 border-[#FF8B2C] shadow-[0_10px_30px_rgba(0,0,0,0.75)] hover:shadow-[0_20px_50px_rgba(255,139,44,0.2)] transition-all duration-300 flex flex-col justify-between group ${dept.cardRotate}`}
+                  className={`relative rounded-[16px] sm:rounded-[22px] p-3 sm:p-4 md:p-5 lg:p-6 h-full bg-[#0d0d14]/95 border-2 border-[#FF8B2C] shadow-[0_8px_25px_rgba(0,0,0,0.75)] hover:shadow-[0_18px_45px_rgba(255,139,44,0.22)] transition-all duration-300 flex flex-col justify-between group ${dept.cardRotate}`}
                   style={{ willChange: "transform" }}
                 >
                   <div>
                     {/* Top Row: Department Icon Badge & Category Pill */}
-                    <div className="flex items-center justify-between gap-2.5 mb-3">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[12px] flex items-center justify-center bg-[#FF8B2C]/10 border-2 border-[#FF8B2C] text-[#FF8B2C] shadow-[0_0_12px_rgba(255,139,44,0.25)] group-hover:scale-105 transition-transform flex-shrink-0">
-                        <Icon className="w-5 h-5" />
+                    <div className="flex items-center justify-between gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-[10px] sm:rounded-[12px] flex items-center justify-center bg-[#FF8B2C]/10 border-2 border-[#FF8B2C] text-[#FF8B2C] shadow-[0_0_10px_rgba(255,139,44,0.25)] group-hover:scale-105 transition-transform flex-shrink-0">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
 
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40">
+                      <div className="flex items-center gap-1 sm:gap-1.5">
+                        <span className="text-[9px] sm:text-[10px] md:text-[11px] font-black px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 truncate max-w-[90px] xs:max-w-none">
                           {dept.category}
                         </span>
-                        <span className="text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 text-zinc-400 border border-white/10 hidden sm:inline-block">
+                        <span className="text-[8px] sm:text-[9px] md:text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-white/5 text-zinc-400 border border-white/10 hidden sm:inline-block">
                           {dept.departmentNumber}
                         </span>
                       </div>
                     </div>
 
-                    {/* Image Preview with Zoom on Hover - Compact Height */}
-                    <div className="relative w-full h-32 sm:h-36 md:h-40 rounded-lg sm:rounded-xl overflow-hidden mb-3.5 bg-[#060608] border border-white/10 shadow-inner">
+                    {/* Image Preview with Zoom on Hover */}
+                    <div className="relative w-full h-24 xs:h-28 sm:h-36 md:h-40 rounded-lg sm:rounded-xl overflow-hidden mb-2.5 sm:mb-3.5 bg-[#060608] border border-white/10 shadow-inner">
                       <Image
                         src={dept.image}
                         alt={dept.title}
                         fill
                         unoptimized
-                        sizes="(max-width: 768px) 100vw, 600px"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px"
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent opacity-60 pointer-events-none" />
-                      <div className="absolute top-2 left-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded bg-[#060608]/85 text-[#FF8B2C] border border-[#FF8B2C]/30 backdrop-blur-sm">
+                      <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 text-[8px] sm:text-[9px] md:text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#060608]/85 text-[#FF8B2C] border border-[#FF8B2C]/30 backdrop-blur-sm truncate max-w-[120px]">
                         {dept.field}
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl font-black text-white leading-snug mb-2 group-hover:text-[#FF8B2C] transition-colors line-clamp-2">
+                    <h3 className="text-xs xs:text-sm sm:text-base md:text-lg font-black text-white leading-snug mb-1.5 sm:mb-2 group-hover:text-[#FF8B2C] transition-colors line-clamp-2">
                       {dept.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal mb-3 line-clamp-2">
+                    <p className="text-[10px] xs:text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal mb-2.5 sm:mb-3 line-clamp-2">
                       {dept.description}
                     </p>
 
                     {/* Scope / Strategic Pillars List */}
-                    <div className="space-y-1 mb-3 pb-3 border-b border-white/10">
+                    <div className="space-y-1 mb-2.5 sm:mb-3 pb-2.5 sm:pb-3 border-b border-white/10">
                       {dept.strategicPillars.map((pillar, pIdx) => (
-                        <div key={pIdx} className="flex items-start gap-2 text-zinc-300 text-[11px] sm:text-xs">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF8B2C] mt-1 flex-shrink-0" />
+                        <div key={pIdx} className="flex items-start gap-1.5 sm:gap-2 text-zinc-300 text-[9px] xs:text-[10px] sm:text-xs">
+                          <span className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-[#FF8B2C] mt-1 flex-shrink-0" />
                           <span className="leading-tight truncate">{pillar}</span>
                         </div>
                       ))}
@@ -278,11 +278,11 @@ export default function PortfolioSection() {
 
                   {/* Bottom: Floating Sticker Badges & CTA */}
                   <div className="mt-auto pt-1">
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
-                      {dept.kpiBadges.map((badge, bIdx) => (
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-2.5 sm:mb-3">
+                      {dept.kpiBadges.slice(0, 3).map((badge, bIdx) => (
                         <span
                           key={bIdx}
-                          className={`inline-block text-[10px] sm:text-[11px] font-black rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white text-[#060608] border-2 border-[#FF8B2C] shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition-all duration-200 hover:scale-105 hover:rotate-0 ${badge.rotate}`}
+                          className={`inline-block text-[8px] xs:text-[9px] sm:text-[10px] md:text-[11px] font-black rounded-full px-2 py-0.5 sm:px-2.5 sm:py-0.5 bg-white text-[#060608] border-2 border-[#FF8B2C] shadow-[0_2px_6px_rgba(0,0,0,0.35)] transition-all duration-200 hover:scale-105 hover:rotate-0 ${badge.rotate}`}
                         >
                           {badge.text}
                         </span>
@@ -290,21 +290,21 @@ export default function PortfolioSection() {
                     </div>
 
                     {/* Action Button */}
-                    <div className="pt-2.5 border-t border-white/10 flex items-center justify-between gap-2">
+                    <div className="pt-2 sm:pt-2.5 border-t border-white/10 flex items-center justify-between gap-1.5 sm:gap-2">
                       <Link
                         href="#contact"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs hover:bg-[#FFA857] transition-all shadow-[0_3px_12px_rgba(255,139,44,0.3)] hover:scale-105 group/btn"
+                        className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-[10px] sm:text-xs hover:bg-[#FFA857] transition-all shadow-[0_2px_10px_rgba(255,139,44,0.3)] hover:scale-105 group/btn"
                       >
-                        <span>{dept.ctaText}</span>
-                        <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover/btn:-translate-x-1" />
+                        <span className="truncate">{dept.ctaText}</span>
+                        <ArrowLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover/btn:-translate-x-1 flex-shrink-0" />
                       </Link>
 
                       <Link
                         href="#contact"
-                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#FF8B2C] transition-colors flex-shrink-0"
+                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border border-white/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#FF8B2C] transition-colors flex-shrink-0"
                         title="تفاصيل إضافية"
                       >
-                        <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                        <ExternalLink className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       </Link>
                     </div>
                   </div>
@@ -321,3 +321,4 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
