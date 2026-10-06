@@ -18,55 +18,55 @@ const CATEGORY_META: Record<
     highlightedWord: "الملكي الفاخر",
     subtitle: "خلاصة الأعسال الملكية الفاخرة الممزوجة بأجود أنواع غذاء الملكات الطبيعي الصافي",
     badge: "مجموعة العسل الملكي",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/logo.png",
   },
   offers: {
     highlightedWord: "والباقات الحصرية",
     subtitle: "باقات وعروض توفير استثنائية مع خصومات تصل إلى 40% لفترة محدودة",
     badge: "عروض وباقات التوفير",
-    pattern: "/pattern_1.jpg",
+    pattern: "/bg-art/social-media.png",
   },
   immunity_energy: {
     highlightedWord: "والطاقة الحيوية",
     subtitle: "تركيبات غنية بالمغذيات الحيوية ومضادات الأكسدة لتعزيز النشاط والدفاعات الطبيعية",
     badge: "دعم المناعة والنشاط",
-    pattern: "/pattern_4.jpg",
+    pattern: "/bg-art/google.png",
   },
   special_blends: {
     highlightedWord: "الحصرية الفاخرة",
     subtitle: "ابتكارات عسل زوين الخاصة مع الجينسينج الكوري، غذاء الملكات، وحبوب اللقاح",
     badge: "خلطات حصرية مبتكرة",
-    pattern: "/pattern_2.jpg",
+    pattern: "/bg-art/facebook-page.png",
   },
   cave_honey: {
     highlightedWord: "الجبلي النادر",
     subtitle: "أندر أنواع العسل الجبلي المعتق المستخرج من كهوف الجبال الشاهقة العذراء",
     badge: "قطفات جبلية نادرة",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/instagram.png",
   },
   honeycomb: {
     highlightedWord: "العضوي النقي",
     subtitle: "أقراص شمع العسل العضوي الصافي مباشرة من خلايا النحل الطبيعية لمائدتك",
     badge: "شمع طبيعي 100%",
-    pattern: "/pattern_1.jpg",
+    pattern: "/bg-art/facebook.png",
   },
   respiratory: {
     highlightedWord: "وللمدخنين",
     subtitle: "تركيبات وأعسال مهدئة للحلق تدعم راحة الشعب الهوائية وتنقية الصدر",
     badge: "الصحة التنفسية",
-    pattern: "/pattern_4.jpg",
+    pattern: "/bg-art/social-media.png",
   },
   digestive: {
     highlightedWord: "والقولون",
     subtitle: "أعسال طبيعية تساهم في تهدئة المعدة ودعم الهضم السليم وراحة الجهاز الهضمي",
     badge: "صحة الجهاز الهضمي",
-    pattern: "/pattern_2.jpg",
+    pattern: "/bg-art/google.png",
   },
   diabetic_friendly: {
     highlightedWord: "لمرضى السكري",
     subtitle: "أعسال منتقاة بمؤشر جلايسيمي منخفض تناسب الاستخدام المقنن لمرضى السكري",
     badge: "حميات وسكري",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/logo.png",
   },
 };
 
@@ -91,7 +91,7 @@ export default function HomeProductCarousels() {
         const meta = CATEGORY_META[cat.id] || {
           highlightedWord: "الفاخر",
           subtitle: `تصفح أجود منتجات ${cat.label} الطبيعية والمفحوصة مخبرياً`,
-          pattern: index % 2 === 0 ? "/pattern_3.jpg" : "/pattern_1.jpg",
+          pattern: index % 2 === 0 ? "/bg-art/logo.png" : "/bg-art/social-media.png",
         };
 
         const targetHref = cat.id === "offers" ? "/offers" : `/categories/${cat.id}`;

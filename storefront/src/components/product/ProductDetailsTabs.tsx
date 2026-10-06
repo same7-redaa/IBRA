@@ -32,8 +32,8 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       id: "details",
       title: "الفوائد والمواصفات الغذائية",
       subtitle: "المكونات، الفوائد الصحية والخصائص الفريدة",
-      artImage: "/prod_art_1.jpg",
-      artAlt: "رسمة نباتات طبيعية",
+      artImage: "/bg-art/logo.png",
+      artAlt: "لوجو زوين الذهبي",
       content: (
         <div className="space-y-4 pt-1 pb-4">
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
@@ -59,8 +59,8 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       id: "source",
       title: "المصدر وشهادة الفحص المخبري",
       subtitle: "نقاء تام، خام 100% وبأعلى معايير الجودة العالمية",
-      artImage: "/prod_art_2.jpg",
-      artAlt: "رسمة مناحل وأزهار برية",
+      artImage: "/bg-art/social-media.png",
+      artAlt: "فحص وضمان الجودة",
       content: (
         <div className="space-y-4 pt-1 pb-4">
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
@@ -85,8 +85,8 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       id: "usage",
       title: "طريقة الاستخدام وتوصيات الحفظ",
       subtitle: "الجرعة اليومية المثالية وأفضل طرق التخزين للحفاظ على الإنزيمات",
-      artImage: "/prod_art_3.jpg",
-      artAlt: "رسمة خلايا العسل التراثية",
+      artImage: "/bg-art/google.png",
+      artAlt: "طريقة الاستخدام",
       content: (
         <div className="space-y-4 pt-1 pb-4">
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
@@ -113,8 +113,8 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
       id: "shipping",
       title: "الشحن والضمان الذهبي للاسترجاع",
       subtitle: "شحن آمن وتجربة التذوق قبل الاستلام مع ضمان الاسترجاع الفوري",
-      artImage: "/pattern_1.jpg",
-      artAlt: "رسمة نقشة العسل الطبيعي",
+      artImage: "/bg-art/facebook-page.png",
+      artAlt: "الشحن والضمان الذهبي",
       content: (
         <div className="space-y-4 pt-1 pb-4">
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">

@@ -19,55 +19,55 @@ const CATEGORY_DETAILS: Record<
     title: "عسل ملكي",
     subtitle: "خلاصة الأعسال الملكية الفاخرة الممزوجة بأجود أنواع غذاء الملكات الطبيعي الصافي",
     badge: "مجموعة العسل الملكي",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/logo.png",
   },
   offers: {
     title: "العروض الخاصة",
     subtitle: "باقات وعروض توفير استثنائية مع خصومات حصرية لفترة محدودة",
     badge: "عروض وباقات التوفير",
-    pattern: "/pattern_1.jpg",
+    pattern: "/bg-art/social-media.png",
   },
   immunity_energy: {
     title: "المناعة والطاقة",
     subtitle: "تركيبات غنية بالمغذيات الحيوية ومضادات الأكسدة لتعزيز النشاط والدفاعات الطبيعية",
     badge: "دعم المناعة والنشاط",
-    pattern: "/pattern_4.jpg",
+    pattern: "/bg-art/google.png",
   },
   special_blends: {
     title: "خلطات مميزة",
     subtitle: "ابتكارات عسل زوين الخاصة مع الجينسينج الكوري، غذاء الملكات، وحبوب اللقاح",
     badge: "خلطات حصرية مبتكرة",
-    pattern: "/pattern_2.jpg",
+    pattern: "/bg-art/facebook-page.png",
   },
   cave_honey: {
     title: "عسل الكهوف",
     subtitle: "أندر أنواع العسل الجبلي المعتق المستخرج من كهوف الجبال الشاهقة العذراء",
     badge: "قطفات جبلية نادرة",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/instagram.png",
   },
   honeycomb: {
     title: "شمع العسل",
     subtitle: "أقراص شمع العسل العضوي الصافي مباشرة من خلايا النحل الطبيعية لمائدتك",
     badge: "شمع طبيعي 100%",
-    pattern: "/pattern_1.jpg",
+    pattern: "/bg-art/facebook.png",
   },
   respiratory: {
     title: "الصحة التنفسية والمدخنون",
     subtitle: "تركيبات وأعسال مهدئة للحلق تدعم راحة الشعب الهوائية وتنقية الصدر",
     badge: "الصحة التنفسية",
-    pattern: "/pattern_4.jpg",
+    pattern: "/bg-art/social-media.png",
   },
   digestive: {
     title: "صحة الجهاز الهضمي",
     subtitle: "أعسال طبيعية تساهم في تهدئة المعدة ودعم الهضم السليم وراحة الجهاز الهضمي",
     badge: "صحة الجهاز الهضمي",
-    pattern: "/pattern_2.jpg",
+    pattern: "/bg-art/google.png",
   },
   diabetic_friendly: {
     title: "مناسب لمرضى السكري",
     subtitle: "أعسال منتقاة بمؤشر جلايسيمي منخفض تناسب الاستخدام المقنن لمرضى السكري",
     badge: "حميات وسكري",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/logo.png",
   },
 };
 
@@ -104,7 +104,7 @@ export default async function CategoryDetailPage({
     title: currentCategory?.label || "منتجات الفئة",
     subtitle: "أجود قطفات العسل الطبيعي المفحوص والموثق مخبرياً",
     badge: "عسل زوين الطبيعي",
-    pattern: "/pattern_3.jpg",
+    pattern: "/bg-art/logo.png",
   };
 
   const otherCategories = productCategories.filter(

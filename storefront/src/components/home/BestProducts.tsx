@@ -26,7 +26,7 @@ export default function BestProducts() {
       {/* Decorative Cutout Illustration Behind Header */}
       <div 
         className="absolute -top-6 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_3.jpg')` }}
+        style={{ backgroundImage: `url('/bg-art/logo.png')` }}
       />
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
