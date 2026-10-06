@@ -173,15 +173,15 @@ export default function PortfolioSection() {
           </div>
         </ScrollReveal>
 
-        {/* Portfolio 2x2 Grid (1 card per row on Mobile, 2 cards over 2 cards on Desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-5xl mx-auto">
+        {/* Portfolio 2x2 Grid with 3D Stack Fan-Out Hover Effect */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-5xl mx-auto pt-6 pb-8">
           {PORTFOLIO_CATEGORIES.map((dept, idx) => {
             const Icon = dept.icon;
 
             return (
               <div
                 key={dept.id}
-                className="w-full h-full transition-transform duration-300"
+                className="w-full h-full"
               >
                 <ScrollReveal 
                   direction="up" 
@@ -189,28 +189,23 @@ export default function PortfolioSection() {
                   blurAmount={12}
                   className="h-full"
                 >
-                <article
-                  className={`relative rounded-[22px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 h-full bg-[#0d0d14]/95 border-2 border-[#FF8B2C] shadow-[0_12px_35px_rgba(0,0,0,0.85)] hover:shadow-[0_22px_55px_rgba(255,139,44,0.32)] transition-all duration-500 overflow-hidden flex flex-col justify-between group ${dept.cardRotate}`}
-                  style={{ willChange: "transform" }}
-                >
-                  {/* Top-Right Expanding Corner (matches user CSS .card::before) */}
+                {/* 3D Stack Card Outer Wrapper */}
+                <div className="relative w-full h-full group cursor-pointer transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-4">
+                  
+                  {/* Layer 2 (Deepest Stack Layer - rotates +7deg on hover) */}
                   <div 
-                    className="absolute top-0 right-0 w-[22%] h-[22%] bg-gradient-to-bl from-[#FF8B2C]/45 via-[#FF8B2C]/15 to-transparent border-b-2 border-l-2 border-[#FF8B2C]/60 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:w-full group-hover:h-full group-hover:border-transparent group-hover:bg-[#FF8B2C]/15 pointer-events-none z-0"
-                    style={{
-                      borderRadius: "0 22px 0 100%",
-                    }}
+                    className="absolute top-[-7%] left-1/2 -translate-x-1/2 w-[82%] h-[82%] rounded-[24px] sm:rounded-[28px] bg-[#0c0c14] border border-[#FF8B2C]/30 shadow-[0_8px_20px_rgba(0,0,0,0.6)] origin-bottom z-0 transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-[7deg] group-hover:top-0 group-hover:w-full group-hover:h-full group-hover:border-[#FF8B2C]/60 group-hover:bg-[#FF8B2C]/10 pointer-events-none"
                   />
 
-                  {/* Bottom-Left Expanding Corner (matches user CSS .card::after) */}
+                  {/* Layer 1 (Middle Stack Layer - rotates -7deg on hover) */}
                   <div 
-                    className="absolute bottom-0 left-0 w-[22%] h-[22%] bg-gradient-to-tr from-[#FF8B2C]/45 via-[#FF8B2C]/15 to-transparent border-t-2 border-r-2 border-[#FF8B2C]/60 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:w-full group-hover:h-full group-hover:border-transparent group-hover:bg-[#FF8B2C]/15 pointer-events-none z-0"
-                    style={{
-                      borderRadius: "0 100% 0 22px",
-                    }}
+                    className="absolute top-[-3.5%] left-1/2 -translate-x-1/2 w-[91%] h-[91%] rounded-[24px] sm:rounded-[28px] bg-[#14141f] border border-[#FF8B2C]/50 shadow-[0_10px_25px_rgba(0,0,0,0.7)] origin-bottom z-0 transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-rotate-[7deg] group-hover:top-0 group-hover:w-full group-hover:h-full group-hover:border-[#FF8B2C] group-hover:bg-[#FF8B2C]/15 pointer-events-none"
                   />
 
-                  {/* Inner Content Layer (elevated above hover corners) */}
-                  <div className="relative z-10 flex flex-col justify-between h-full">
+                  {/* Main Front Content Card */}
+                  <article
+                    className="relative z-10 rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 h-full bg-[#0d0d14] border-2 border-[#FF8B2C] shadow-[0_12px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_65px_rgba(255,139,44,0.35)] transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col justify-between overflow-hidden"
+                  >
                     <div>
                       {/* Top Row: Department Icon Badge & Category Pill */}
                       <div className="flex items-center justify-between gap-3 mb-4">
@@ -297,8 +292,8 @@ export default function PortfolioSection() {
                         </Link>
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </div>
                 </ScrollReveal>
               </div>
             );
@@ -310,4 +305,5 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
 
