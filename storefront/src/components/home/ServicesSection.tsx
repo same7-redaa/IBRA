@@ -66,6 +66,7 @@ function AdobeIllustratorIcon({ className = "w-4 h-4" }: { className?: string })
 interface ToolBadge {
   name: string;
   icon?: React.ElementType;
+  image?: string;
 }
 
 interface ServiceItem {
@@ -74,7 +75,8 @@ interface ServiceItem {
   enTitle: string;
   description: string;
   primaryImage: string;
-  brandIcons: React.ElementType[];
+  brandIcons?: React.ElementType[];
+  brandImagePills?: string[];
   toolBadges: ToolBadge[];
 }
 
@@ -84,12 +86,12 @@ const SERVICES_LIST: ServiceItem[] = [
     title: "إدارة إعـــلانـــات مـــيـــتـــا",
     enTitle: "Meta Ads Management",
     description: "إطلاق وتوسيع حملات Facebook & Instagram Ads الشاملة (Full-Funnel) مع إعادة الاستهداف الذكي والـ Scaling لتحقيق أعلى عائد استثماري (ROAS).",
-    primaryImage: "/hero-icons/meta.png",
-    brandIcons: [SiMeta, SiInstagram],
+    primaryImage: "/hero-icons/meta-verse.png",
+    brandImagePills: ["/hero-icons/facebook-custom.png", "/hero-icons/instagram-custom.png"],
     toolBadges: [
-      { name: "Facebook Ads", icon: SiFacebook },
-      { name: "Instagram Ads", icon: SiInstagram },
-      { name: "Meta Pixel & CAPI", icon: SiMeta },
+      { name: "Facebook Ads", image: "/hero-icons/facebook-custom.png" },
+      { name: "Instagram Ads", image: "/hero-icons/instagram-custom.png" },
+      { name: "Meta Pixel & CAPI", image: "/hero-icons/meta-verse.png" },
     ],
   },
   {
@@ -210,8 +212,8 @@ export default function ServicesSection() {
         {/* 6 Services Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {SERVICES_LIST.map((service, idx) => {
-            const PrimaryIcon = service.brandIcons[0];
-            const SecondaryIcon = service.brandIcons[1];
+            const PrimaryIcon = service.brandIcons?.[0];
+            const SecondaryIcon = service.brandIcons?.[1];
 
             return (
               <ScrollReveal
@@ -252,12 +254,28 @@ export default function ServicesSection() {
                         />
                       </div>
 
-                      {/* Tool Brand Icons Pills (Premiere, After Effects, Photoshop, Illustrator, Instagram, YouTube) */}
+                      {/* Tool Brand Icons & Image Pills (Facebook, Instagram, Premiere, After Effects, Photoshop, Illustrator) */}
                       <div className="flex items-center gap-1.5">
-                        {service.brandIcons.map((IconComp, bIdx) => (
+                        {service.brandImagePills?.map((imgSrc, pIdx) => (
                           <div 
-                            key={bIdx}
-                            className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:border-[#FF8B2C]/40 group-hover:text-white transition-all duration-300"
+                            key={`pill-${pIdx}`}
+                            className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-1.5 group-hover:border-[#FF8B2C]/40 transition-all duration-300 shadow-sm"
+                          >
+                            <Image
+                              src={imgSrc}
+                              alt=""
+                              width={20}
+                              height={20}
+                              unoptimized
+                              className="w-full h-full object-contain filter drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
+                            />
+                          </div>
+                        ))}
+
+                        {service.brandIcons?.map((IconComp, bIdx) => (
+                          <div 
+                            key={`icon-${bIdx}`}
+                            className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:border-[#FF8B2C]/40 group-hover:text-white transition-all duration-300 shadow-sm"
                           >
                             <IconComp className="w-4 h-4" />
                           </div>
@@ -281,7 +299,7 @@ export default function ServicesSection() {
                     </p>
                   </div>
 
-                  {/* Service Tool Badges with Crisp Icons */}
+                  {/* Service Tool Badges with Crisp Icons / Images */}
                   <div className="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-white/10 group-hover:border-[#FF8B2C]/30 transition-colors">
                     {service.toolBadges.map((badge) => {
                       const BadgeIcon = badge.icon;
@@ -290,7 +308,18 @@ export default function ServicesSection() {
                           key={badge.name}
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/5 text-zinc-300 border border-white/10 group-hover:border-[#FF8B2C]/40 group-hover:text-white group-hover:bg-white/10 transition-all shadow-sm"
                         >
-                          {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 text-[#FF8B2C]" />}
+                          {badge.image ? (
+                            <Image
+                              src={badge.image}
+                              alt=""
+                              width={14}
+                              height={14}
+                              unoptimized
+                              className="w-3.5 h-3.5 object-contain"
+                            />
+                          ) : BadgeIcon ? (
+                            <BadgeIcon className="w-3.5 h-3.5 text-[#FF8B2C]" />
+                          ) : null}
                           <span>{badge.name}</span>
                         </span>
                       );
