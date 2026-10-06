@@ -115,16 +115,6 @@ export default function PortfolioIndexPage() {
                     <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
                       {cat.heroDescription}
                     </p>
-
-                    {/* 2 Top KPIs */}
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      {cat.stats.slice(0, 2).map((st, sIdx) => (
-                        <div key={sIdx} className="p-3 rounded-xl bg-[#14141f] border border-white/10">
-                          <p className="text-xs text-zinc-400">{st.label}</p>
-                          <p className="text-base sm:text-lg font-black text-[#FF8B2C]">{st.value}</p>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Bottom Action */}

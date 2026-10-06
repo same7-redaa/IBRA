@@ -23,19 +23,19 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "01",
       title: "البحث والتحليل أولاً",
-      subtitle: "بيانات دقيقة مش مجرد افتراضات",
-      description: "كل حملة ناجحة تبدأ بفهم عميق لزوايا الجمهور المستهدف وسلوك المنافسين. أحلل الحساب الإعلاني، أراجع معدلات التحويل السابقة، وأحدد الفرص الأعلى عائداً قبل صرف جنيه واحد في الإعلانات.",
+      subtitle: "بيانات دقيقة مش افتراضات",
+      description: "كل حملة ناجحة تبدأ بفهم عميق لزوايا الجمهور المستهدف وسلوك المنافسين. أحلل الحساب الإعلاني وأحدد الفرص الأعلى عائداً قبل صرف جنيه واحد.",
       chips: [
         { label: "تحليل الحساب وتدقيق البكسل", tilt: "-3deg", isFilled: true },
-        { label: "دراسة زوايا المنافسين الإعلانية", tilt: "2.2deg", isFilled: false },
-        { label: "هندسة خريطة الجماهير المخصصة", tilt: "-1.4deg", isFilled: true },
+        { label: "دراسة زوايا المنافسين", tilt: "2.2deg", isFilled: false },
+        { label: "خريطة الجماهير المخصصة", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "02",
       title: "هندسة القمع الإعلاني",
-      subtitle: "استراتيجية مدروسة تلتقي بالذكاء الاصطناعي",
-      description: "لا أطلق إعلانات عشوائية. أصمم مسار شراء متكامل (Full-Funnel) من خطاف الفيديو (Hook) مروراً بصفحة الهبوط وحتى إعادة الاستهداف الديناميكي لضمان أعلى معدل إتمام شراء.",
+      subtitle: "استراتيجية تلتقي بالذكاء",
+      description: "أصمم مسار شراء متكامل (Full-Funnel) من خطاف الفيديو (Hook) مروراً بصفحة الهبوط وحتى إعادة الاستهداف الديناميكي لضمان أعلى تحويل.",
       chips: [
         { label: "هيكلة الـ Full-Funnel", tilt: "-3deg", isFilled: true },
         { label: "اختبار زوايا الكرييتف A/B", tilt: "2.2deg", isFilled: false },
@@ -45,8 +45,8 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "03",
       title: "الإطلاق والتوسع الذكي",
-      subtitle: "سرعة في التنفيذ مع انضباط مالي",
-      description: "أطلق الحملات باختبارات سريعة لعدة زوايا إعلانية وجمهور محدد. بمجرد اكتشاف الإعلان الفائز (Winning Ad)، أبدأ بالتوسع الأفقي والعمودي لمضاعفة المبيعات مع الحفاظ على تكلفة الشراء منخفضة.",
+      subtitle: "سرعة في التنفيذ ودقة مالية",
+      description: "أطلق الحملات باختبارات سريعة. وبمجرد اكتشاف الإعلان الفائز، نبدأ بالتوسع الأفقي والعمودي لمضاعفة المبيعات مع خفض تكلفة الطلب.",
       chips: [
         { label: "توسع مالي آمن (Scaling)", tilt: "-3deg", isFilled: true },
         { label: "تخفيض تكلفة الطلب (CPP)", tilt: "2.2deg", isFilled: false },
@@ -56,11 +56,11 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "04",
       title: "القياس والتحسين المستمر",
-      subtitle: "قرارات مبنية على الأرقام والعائد ROAS",
-      description: "أتابع كل مؤشر دقيقة بدقيقة: معدل النقر CTR، تكلفة الزيارة CPC، تكلفة الطلب CPP، والعائد الصافي على الإنفاق الإعلاني ROAS. لا نترك مجالاً للصدفة بل نعتمد على البيانات لتطوير النتائج يومياً.",
+      subtitle: "قرارات مبنية على الـ ROAS",
+      description: "متابعة دقيقة لكل مؤشر: CTR، CPC، CPP، والعائد الصافي ROAS. نعتمد على البيانات الحية لتطوير الأداء وزيادة الأرباح يومياً.",
       chips: [
-        { label: "لوحات تحكم مباشرة GA4", tilt: "-3deg", isFilled: true },
-        { label: "تقارير أداء يومية ومفصلة", tilt: "2.2deg", isFilled: false },
+        { label: "لوحات تحكم GA4 المباشرة", tilt: "-3deg", isFilled: true },
+        { label: "تقارير أداء يومية مفصلة", tilt: "2.2deg", isFilled: false },
         { label: "مضاعفة العائد الصافي ROAS", tilt: "-1.4deg", isFilled: true },
       ],
     },
@@ -70,44 +70,44 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "01",
       title: "البحث وصياغة السكريبت",
-      subtitle: "فهم العميل وصناعة الخطاف الإعلاني",
-      description: "يبدأ كل فيديو بفهم عميق للمنتج والمشكلة التي يعالجها. نقوم بكتابة سكريبت إعلاني قوي يركز على أول 3 ثوانٍ (Hook) لكسر التمرير وإثارة فضول المشتري فوراً.",
+      subtitle: "فهم العميل وصناعة الخطاف",
+      description: "كتابة سكريبت إعلاني قوي يركز على أول 3 ثوانٍ (Hook) لكسر التمرير وإثارة فضول المشتري فوراً في شاشات الموبايل.",
       chips: [
         { label: "كتابة سكريبت بيعي مباشر", tilt: "-3deg", isFilled: true },
         { label: "تصميم خطافات بصرية قوية", tilt: "2.2deg", isFilled: false },
-        { label: "دراسة تريندات التيك توك والريلز", tilt: "-1.4deg", isFilled: true },
+        { label: "تريندات التيك توك والريلز", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "02",
       title: "المونتاج وهندسة الإيقاع",
       subtitle: "دمج احترافي بالصوت والمؤثرات",
-      description: "أستخدم Premiere Pro و After Effects لقص اللقطات بإيقاع سريع وجذاب، مع إضافة مؤثرات صوتية وبصرية (SFX & VFX) تجعل تجربة المشاهدة ممتعة ومحفزة للطلب.",
+      description: "قص اللقطات بإيقاع سريع وجذاب بـ Premiere Pro، مع إضافة مؤثرات صوتية وبصرية تجعل الفيديو ممتعاً ومحفزاً للشراء الفوري.",
       chips: [
-        { label: "مونتاج سريع بـ Premiere Pro", tilt: "-3deg", isFilled: true },
+        { label: "مونتاج سريع بـ Premiere", tilt: "-3deg", isFilled: true },
         { label: "مؤثرات صوتية هوليوودية SFX", tilt: "2.2deg", isFilled: false },
-        { label: "تعديل ألوان سينمائي (Color Grading)", tilt: "-1.4deg", isFilled: true },
+        { label: "تعديل ألوان سينمائي", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "03",
-      title: "الموشن جرافيك والتايبوجرافي",
-      subtitle: "نصوص متحركة وتأثيرات تخطف العين",
-      description: "تحريك نصوص العروض الترويجية والأسعار والمميزات الفريدة عبر After Effects بطريقة عصرية وواضحة تناسب شاشات الموبايل حتى بدون تشغيل الصوت.",
+      title: "الموشن والتايبوجرافي",
+      subtitle: "نصوص متحركة تخطف العين",
+      description: "تحريك نصوص العروض والأسعار والمميزات الفريدة عبر After Effects بأسلوب عصري واضح وجذاب للمشاهد.",
       chips: [
-        { label: "تحريك متقدم بـ After Effects", tilt: "-3deg", isFilled: true },
+        { label: "تحريك متقدم After Effects", tilt: "-3deg", isFilled: true },
         { label: "كاينتك تايبوجرافي عربي", tilt: "2.2deg", isFilled: false },
-        { label: "عناصر بصرية مخصصة 3D/2D", tilt: "-1.4deg", isFilled: true },
+        { label: "عناصر بصرية مخصصة 2D/3D", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "04",
-      title: "التصدير واختبار معدل المشاهدة",
-      subtitle: "أعلى جودة وأعلى معدل تحويل",
-      description: "تصدير الفيديوهات بأبعاد مثالية للريلز والتيك توك (9:16) وبأعلى جودة ضغط 4K/1080p، ومتابعة مؤشرات الـ Retention Rate لضمان تحقيق أعلى معدل مبيعات ممكن.",
+      title: "التصدير واختبار المشاهدة",
+      subtitle: "أعلى جودة وأعلى تحويل",
+      description: "تصدير الفيديوهات بأبعاد مثالية للريلز والتيك توك (9:16) ومتابعة الـ Retention Rate لضمان أعلى مبيعات.",
       chips: [
-        { label: "تصدير مخصص لمنصات الإعلانات", tilt: "-3deg", isFilled: true },
-        { label: "متابعة معدل المشاهدة والاحتفاظ", tilt: "2.2deg", isFilled: false },
+        { label: "تصدير مخصص للإعلانات", tilt: "-3deg", isFilled: true },
+        { label: "متابعة معدل الاحتفاظ", tilt: "2.2deg", isFilled: false },
         { label: "زيادة معدل الشراء الفوري", tilt: "-1.4deg", isFilled: true },
       ],
     },
@@ -117,10 +117,10 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "01",
       title: "دراسة البراند والجمهور",
-      subtitle: "بناء أسس الهوية والرسالة البصرية",
-      description: "أدرس هوية البراند، ألوانه، ونبرة صوته لابتكار أفكار تصاميم توقف التمرير (Thumb-Stopping Creatives) وتعبر عن قيمة المنتج الحقيقية بأناقة ووضوح.",
+      subtitle: "بناء أسس الهوية البصرية",
+      description: "دراسة ألوان وهوية البراند ونبرة صوته لابتكار تصاميم توقف التمرير (Thumb-Stopping) وتعبر عن قيمة المنتج الحقيقية.",
       chips: [
-        { label: "دراسة نبرة وهوية البراند", tilt: "-3deg", isFilled: true },
+        { label: "دراسة هوية البراند", tilt: "-3deg", isFilled: true },
         { label: "أفكار تصاميم تكسر الروتين", tilt: "2.2deg", isFilled: false },
         { label: "تناسق الألوان والخطوط", tilt: "-1.4deg", isFilled: true },
       ],
@@ -128,32 +128,32 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
     {
       number: "02",
       title: "التصميم والدمج الرقمي",
-      subtitle: "إتقان أدوات Adobe Photoshop & Illustrator",
-      description: "دمج صور المنتجات مع خلفيات احترافية، ضبط الإضاءات والظلال، وتوزيع النصوص بشكل يوجه عين العميل مباشرة إلى العرض وزر اتخاذ القرار.",
+      subtitle: "إتقان أدوات Adobe Photoshop",
+      description: "دمج صور المنتجات مع خلفيات احترافية، ضبط الإضاءات والظلال، وتوزيع النصوص لتوجيه عين العميل نحو زر الشراء.",
       chips: [
-        { label: "دمج وتعديل احترافي فوتوشوب", tilt: "-3deg", isFilled: true },
+        { label: "دمج فوتوشوب احترافي", tilt: "-3deg", isFilled: true },
         { label: "فيكتور ورسومات Illustrator", tilt: "2.2deg", isFilled: false },
-        { label: "تصحيح إضاءة وظلال المنتجات", tilt: "-1.4deg", isFilled: true },
+        { label: "تصحيح إضاءة وظلال المنتج", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "03",
       title: "تجهيز البوستات والإعلانات",
-      subtitle: "تنسيق متكامل لكافة منصات السوشيال",
-      description: "توفير كافة المقاسات المطلوبة للإنستجرام والفيسبوك والتيك توك (سكوير، ستوري، بنرات عريضة) مع باقات التصاميم الجاهزة للنشر المباشر.",
+      subtitle: "تنسيق متكامل لكافة المنصات",
+      description: "توفير كافة المقاسات المطلوبة للإنستجرام والفيسبوك والتيك توك (سكوير، ستوري، بنرات) جاهزة للنشر المباشر.",
       chips: [
-        { label: "مقاسات مخصصة لجميع المنصات", tilt: "-3deg", isFilled: true },
+        { label: "مقاسات لجميع المنصات", tilt: "-3deg", isFilled: true },
         { label: "بانرات وعروض ترويجية", tilt: "2.2deg", isFilled: false },
         { label: "قوالب قابلة للتكرار السريع", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "04",
-      title: "قياس التفاعل ومعدل النقر CTR",
-      subtitle: "تصاميم تحقق أرقاماً لا مجرد شكل",
-      description: "نقيس نجاح التصميم من خلال معدل التفاعل والنقر (CTR) واستجابة الجمهور للإعلانات، مع تحديث الأفكار باستمرار لتفادي تشبع الحملات.",
+      title: "قياس التفاعل والـ CTR",
+      subtitle: "تصاميم تحقق أرقاماً ومبيعات",
+      description: "نقيس نجاح التصميم من خلال معدل النقر (CTR) واستجابة الجمهور للإعلانات مع تجديد الأفكار باستمرار.",
       chips: [
-        { label: "مضاعفة معدل النقر (CTR)", tilt: "-3deg", isFilled: true },
+        { label: "مضاعفة معدل النقر CTR", tilt: "-3deg", isFilled: true },
         { label: "تطوير التصاميم الفائزة", tilt: "2.2deg", isFilled: false },
         { label: "جذب انتباه العملاء الجدد", tilt: "-1.4deg", isFilled: true },
       ],
@@ -163,46 +163,46 @@ const DEFAULT_HOW_I_WORK_STEPS: Record<string, HowIWorkStep[]> = {
   "ecommerce-scaling": [
     {
       number: "01",
-      title: "تدقيق المتجر وسلوك الزوار",
-      subtitle: "اكتشاف نقاط تسرب العملاء والطلبات",
-      description: "أحلل مسار رحلة العميل من دخوله لصفحة المنتج حتى زر الدفع باستخدام خرائط الحرارة (Heatmaps) وسجلات الجلسات لتحديد أسباب التخلي عن السلة.",
+      title: "تدقيق المتجر والزوار",
+      subtitle: "كشف أسباب التخلي عن السلة",
+      description: "تحليل رحلة العميل من صفحة المنتج حتى الدفع باستخدام خرائط الحرارة لفحص سرعة المتجر ونقاط تسرب الطلبات.",
       chips: [
-        { label: "تحليل خرائط الحرارة والتمرير", tilt: "-3deg", isFilled: true },
-        { label: "كشف أسباب التخلي عن السلة", tilt: "2.2deg", isFilled: false },
-        { label: "فحص سرعة المتجر على الموبايل", tilt: "-1.4deg", isFilled: true },
+        { label: "تحليل خرائط الحرارة", tilt: "-3deg", isFilled: true },
+        { label: "فحص أسباب ترك السلة", tilt: "2.2deg", isFilled: false },
+        { label: "فحص السرعة على الموبايل", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "02",
-      title: "هندسة صفحات الهبوط (CRO)",
+      title: "هندسة صفحات الهبوط CRO",
       subtitle: "صفحات بيع سريعة ومقنعة",
-      description: "إعادة تصميم صفحات الهبوط لتركز على فوائد المنتج، آراء العملاء الموثقة، عروض الباقات، وزر الشراء الثابت لتقليل التردد ورفع التحويل.",
+      description: "إعادة بناء صفحات الهبوط بنظام الدفع بصفحة واحدة مع مراجعات العملاء وزر شراء ثابت لتقليل التردد ومضاعفة المبيعات.",
       chips: [
         { label: "صفحات هبوط عالية التحويل", tilt: "-3deg", isFilled: true },
-        { label: "نظام الدفع في صفحة واحدة", tilt: "2.2deg", isFilled: false },
+        { label: "الدفع بصفحة واحدة One-Page", tilt: "2.2deg", isFilled: false },
         { label: "إضافة إثبات اجتماعي ومراجعات", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "03",
-      title: "هيكلة العروض وزيادة الـ AOV",
-      subtitle: "رفع قيمة سلة الشراء لكل زائر",
-      description: "تطبيق استراتيجيات الباقات الذكية (Bundles) وعروض الشراء الفوري (Upsell & Cross-sell) لزيادة متوسط قيمة الطلب ومضاعفة هوامش الربح الصافية.",
+      title: "هيكلة باقات الـ AOV",
+      subtitle: "رفع قيمة سلة كل عميل",
+      description: "تطبيق استراتيجيات الباقات الذكية (Bundles) وعروض الشراء الفوري (Upsell) لزيادة متوسط قيمة الطلب وهوامش الربح.",
       chips: [
         { label: "باقات وعروض كميات مغرية", tilt: "-3deg", isFilled: true },
-        { label: "زيادة متوسط قيمة الطلب (AOV)", tilt: "2.2deg", isFilled: false },
+        { label: "زيادة متوسط الطلب AOV", tilt: "2.2deg", isFilled: false },
         { label: "حوافز الشحن والتوصيل المجاني", tilt: "-1.4deg", isFilled: true },
       ],
     },
     {
       number: "04",
-      title: "الربط التقني والتوسع في المبيعات",
-      subtitle: "معالجة آلاف الطلبات بأعلى كفاءة",
-      description: "ربط البكسل بدقة 100% عبر Conversions API، وأتمتة تأكيد الطلبات عبر واتساب لتقليل المرتجعات وضمان تسليم ناجح لآلاف الطلبات شهرياً.",
+      title: "الربط التقني والتوسع",
+      subtitle: "معالجة آلاف الطلبات بنجاح",
+      description: "ربط البكسل بدقة 100% عبر Conversions API وأتمتة تأكيد الطلبات عبر واتساب لتقليل المرتجعات وضمان تسليم ناجح.",
       chips: [
         { label: "تتبع كامل عبر Meta CAPI", tilt: "-3deg", isFilled: true },
-        { label: "أتمتة تأكيد الطلبات وتتبعها", tilt: "2.2deg", isFilled: false },
-        { label: "توسيع المبيعات 3x بشكل مستدام", tilt: "-1.4deg", isFilled: true },
+        { label: "أتمتة تأكيد الطلبات بالواتساب", tilt: "2.2deg", isFilled: false },
+        { label: "توسيع المبيعات 3x باستدامة", tilt: "-1.4deg", isFilled: true },
       ],
     },
   ],
@@ -217,126 +217,101 @@ export default function HowIWorkSection({
   return (
     <section 
       id="how-i-work" 
-      className="relative overflow-hidden py-20 sm:py-28 text-white select-none"
+      className="relative overflow-hidden py-16 sm:py-24 text-white select-none"
       dir="rtl"
     >
-      {/* Background Subtle Gradient */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px]">
         
-        {/* Section Header: Styled exactly like Ahmed Ali */}
+        {/* Section Header: Centered Ahmed Ali Style */}
         <ScrollReveal direction="up" blurAmount={12}>
-          <div className="text-center mb-16 sm:mb-20">
-            <p className="text-lg sm:text-xl md:text-2xl font-black text-[#FF8B2C] mb-3 tracking-wide drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">
+          <div className="text-center mb-14 sm:mb-18">
+            <p className="text-lg sm:text-xl font-black text-[#FF8B2C] mb-2 tracking-wide drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">
               المنهجية
             </p>
-            <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               كيف أشتغل
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Steps Container with Timeline Connector Line */}
+        {/* Horizontal Timeline Connector Bar (Desktop) */}
         <div className="relative">
-          {/* Vertical Connector Line (Desktop) */}
           <div 
-            className="hidden md:block absolute top-0 bottom-0 w-[2px] pointer-events-none" 
+            className="hidden lg:block absolute top-[48px] right-[10%] left-[10%] h-[2px] pointer-events-none z-0"
             style={{ 
-              right: "156px", 
-              background: "rgba(255, 139, 44, 0.15)" 
-            }} 
-          />
-          <div 
-            className="hidden md:block absolute top-0 bottom-0 w-[2px] origin-top pointer-events-none" 
-            style={{ 
-              right: "156px", 
-              background: "linear-gradient(to bottom, #FF8B2C, rgba(255,139,44,0.4))" 
+              background: "linear-gradient(90deg, rgba(255,139,44,0.15), #FF8B2C, rgba(255,139,44,0.15))" 
             }} 
           />
 
-          <div className="flex flex-col">
-            {steps.map((step, idx) => {
-              const isLast = idx === steps.length - 1;
+          {/* Horizontal 4-Column Grid (عرضي) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 relative z-10">
+            {steps.map((step, idx) => (
+              <ScrollReveal 
+                key={step.number} 
+                direction="up" 
+                delay={idx * 70} 
+                blurAmount={10}
+                className="h-full"
+              >
+                <div className="group relative h-full rounded-2xl sm:rounded-3xl p-6 sm:p-6 bg-[#0d0d14] border-2 border-[#FF8B2C]/30 hover:border-[#FF8B2C] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_20px_45px_rgba(255,139,44,0.22)] hover:-translate-y-2 flex flex-col justify-between">
+                  
+                  {/* Subtle Background Glow on Hover */}
+                  <div 
+                    className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+                    style={{ background: "radial-gradient(circle at top right, rgba(255,139,44,0.08), transparent 70%)" }} 
+                  />
 
-              return (
-                <ScrollReveal 
-                  key={step.number} 
-                  direction="up" 
-                  delay={idx * 70} 
-                  blurAmount={12}
-                >
-                  <div className="group relative">
-                    <div 
-                      className={`grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-12 items-start py-10 md:py-14 relative ${
-                        !isLast ? "border-b border-[#FF8B2C]/15" : "border-b-0"
-                      }`}
-                    >
-                      {/* Hover Backdrop Glass Highlight */}
-                      <div 
-                        className="absolute -inset-x-4 sm:-inset-x-6 inset-y-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                        style={{ background: "rgba(255, 139, 44, 0.05)" }} 
-                      />
-
-                      {/* Number + Indicator Node Column */}
-                      <div className="relative z-10">
-                        <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-2">
-                          {/* Giant Step Number */}
-                          <span 
-                            className="font-black text-5xl sm:text-6xl md:text-[84px] text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.35)] leading-[1.1] transition-transform duration-300 group-hover:scale-105"
-                          >
-                            {step.number}
-                          </span>
-
-                          {/* Node Dot on Desktop Timeline */}
-                          <div 
-                            className="hidden md:block absolute" 
-                            style={{ right: "149px", top: "27px" }}
-                          >
-                            <div className="w-3.5 h-3.5 rounded-full bg-[#FF8B2C] border-2 border-[#FF8B2C] shadow-[0_0_10px_#FF8B2C] group-hover:scale-125 transition-transform duration-300" />
-                          </div>
-                        </div>
+                  <div className="relative z-10">
+                    {/* Top Row: Giant Number + Connected Glowing Dot */}
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <span className="font-black text-5xl sm:text-6xl text-[#FF8B2C] drop-shadow-[0_0_18px_rgba(255,139,44,0.4)] leading-none transition-transform duration-300 group-hover:scale-105">
+                        {step.number}
+                      </span>
+                      
+                      {/* Timeline Node Dot */}
+                      <div className="w-4 h-4 rounded-full bg-[#0d0d14] border-2 border-[#FF8B2C] shadow-[0_0_10px_#FF8B2C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#FF8B2C] transition-colors">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FF8B2C] group-hover:bg-[#060608]" />
                       </div>
-
-                      {/* Step Content Column */}
-                      <div className="relative z-10">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 transition-colors duration-300 group-hover:text-[#FF8B2C]">
-                          {step.title}
-                        </h3>
-
-                        <p className="text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 text-[#FF8B2C] drop-shadow-[0_0_10px_rgba(255,139,44,0.3)]">
-                          {step.subtitle}
-                        </p>
-
-                        <p className="text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-xl text-zinc-300 font-normal">
-                          {step.description}
-                        </p>
-
-                        {/* Tilted Chips / Pills Row */}
-                        <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-1">
-                          {step.chips.map((chip, cIdx) => (
-                            <span
-                              key={cIdx}
-                              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 shadow-sm ${
-                                chip.isFilled
-                                  ? "bg-[#FF8B2C] text-[#060608] border border-[#FF8B2C] shadow-[0_2px_12px_rgba(255,139,44,0.3)] hover:brightness-110"
-                                  : "bg-[#FF8B2C]/10 text-[#FF8B2C] border border-[#FF8B2C]/50 hover:border-[#FF8B2C] hover:bg-[#FF8B2C]/20"
-                              }`}
-                              style={{
-                                transform: `rotate(${chip.tilt})`,
-                              }}
-                            >
-                              {chip.label}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
                     </div>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
 
+                    {/* Step Title & Subtitle */}
+                    <h3 className="text-lg sm:text-xl font-black text-white mb-1.5 transition-colors duration-300 group-hover:text-[#FF8B2C] leading-snug">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 text-[#FF8B2C] drop-shadow-[0_0_8px_rgba(255,139,44,0.3)]">
+                      {step.subtitle}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-[13px] leading-relaxed text-zinc-300 font-normal mb-5">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Tilted Chips / Pills Row at Bottom of Card */}
+                  <div className="relative z-10 flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                    {step.chips.map((chip, cIdx) => (
+                      <span
+                        key={cIdx}
+                        className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all duration-300 ${
+                          chip.isFilled
+                            ? "bg-[#FF8B2C] text-[#060608] border border-[#FF8B2C] shadow-[0_2px_10px_rgba(255,139,44,0.25)] hover:brightness-110"
+                            : "bg-[#FF8B2C]/10 text-[#FF8B2C] border border-[#FF8B2C]/50 hover:border-[#FF8B2C] hover:bg-[#FF8B2C]/20"
+                        }`}
+                        style={{
+                          transform: `rotate(${chip.tilt})`,
+                        }}
+                      >
+                        {chip.label}
+                      </span>
+                    ))}
+                  </div>
+
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
 
       </div>

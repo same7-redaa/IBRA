@@ -106,7 +106,7 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
             </p>
 
             {/* Quick Primary Actions */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#how-i-work"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs sm:text-sm hover:bg-[#FFA857] transition-all shadow-[0_4px_20px_rgba(255,139,44,0.35)] hover:scale-105"
@@ -120,23 +120,6 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
               >
                 <span>معرض صور الأعمال</span>
               </a>
-            </div>
-
-            {/* Centered 4 Key Metrics Bar */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto pt-4 border-t border-white/10">
-              {category.stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="p-3.5 sm:p-4 rounded-2xl bg-[#0d0d14] border border-[#FF8B2C]/25 text-center shadow-md hover:border-[#FF8B2C] transition-colors"
-                >
-                  <p className="text-lg sm:text-2xl font-black text-[#FF8B2C] drop-shadow-[0_0_12px_rgba(255,139,44,0.3)]">
-                    {stat.value}
-                  </p>
-                  <p className="text-[11px] sm:text-xs font-bold text-zinc-300 mt-0.5">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </ScrollReveal>
         </section>
