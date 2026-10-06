@@ -204,27 +204,21 @@ export default function PortfolioSection() {
 
                   {/* Main Front Content Card */}
                   <article
-                    className="relative z-10 rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 h-full bg-[#0d0d14] border-2 border-[#FF8B2C] shadow-[0_12px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_65px_rgba(255,139,44,0.35)] transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col justify-between overflow-hidden"
+                    className="relative z-10 rounded-[22px] sm:rounded-[26px] p-5 sm:p-6 h-full bg-[#0d0d14] border-2 border-[#FF8B2C] shadow-[0_10px_30px_rgba(0,0,0,0.85)] group-hover:shadow-[0_20px_50px_rgba(255,139,44,0.32)] transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col justify-between overflow-hidden"
                   >
                     <div>
-                      {/* Top Row: Department Icon Badge & Category Pill */}
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[14px] flex items-center justify-center bg-[#FF8B2C]/15 border-2 border-[#FF8B2C] text-[#FF8B2C] shadow-[0_0_15px_rgba(255,139,44,0.35)] group-hover:scale-110 group-hover:bg-[#FF8B2C] group-hover:text-[#060608] transition-all duration-400 flex-shrink-0">
-                          <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      {/* Top Row: Department Icon & Title */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-[12px] flex items-center justify-center bg-[#FF8B2C]/15 border border-[#FF8B2C] text-[#FF8B2C] shadow-[0_0_12px_rgba(255,139,44,0.3)] group-hover:scale-105 group-hover:bg-[#FF8B2C] group-hover:text-[#060608] transition-all duration-300 flex-shrink-0">
+                          <Icon className="w-5 h-5" />
                         </div>
-
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs sm:text-sm font-black px-3.5 py-1 rounded-full bg-[#FF8B2C]/20 text-[#FF8B2C] border border-[#FF8B2C]/50 group-hover:border-[#FF8B2C] group-hover:shadow-[0_0_12px_rgba(255,139,44,0.3)] transition-all">
-                            {dept.category}
-                          </span>
-                          <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-zinc-400 border border-white/10">
-                            {dept.departmentNumber}
-                          </span>
-                        </div>
+                        <h3 className="text-base sm:text-lg font-black text-white leading-snug group-hover:text-[#FF8B2C] transition-colors">
+                          {dept.title}
+                        </h3>
                       </div>
 
-                      {/* Image Preview with Zoom on Hover */}
-                      <div className="relative w-full h-44 sm:h-52 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 bg-[#060608] border border-white/10 shadow-inner group-hover:border-[#FF8B2C]/40 transition-colors">
+                      {/* Compact Image Preview */}
+                      <div className="relative w-full h-32 sm:h-36 md:h-40 rounded-xl overflow-hidden mb-3 bg-[#060608] border border-white/10 shadow-inner group-hover:border-[#FF8B2C]/40 transition-colors">
                         <Image
                           src={dept.image}
                           alt={dept.title}
@@ -233,64 +227,42 @@ export default function PortfolioSection() {
                           sizes="(max-width: 768px) 100vw, 600px"
                           className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent opacity-60 pointer-events-none" />
-                        <div className="absolute top-2.5 left-2.5 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-md bg-[#060608]/90 text-[#FF8B2C] border border-[#FF8B2C]/30 backdrop-blur-sm">
-                          {dept.field}
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14]/70 via-transparent to-transparent pointer-events-none" />
                       </div>
 
-                      {/* Title */}
-                      <h3 className="text-lg sm:text-xl font-black text-white leading-snug mb-2 group-hover:text-[#FF8B2C] transition-colors">
-                        {dept.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-4">
+                      {/* Concise Description */}
+                      <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal mb-3">
                         {dept.description}
                       </p>
 
                       {/* Scope / Strategic Pillars List */}
-                      <div className="space-y-2 mb-4 pb-4 border-b border-white/10 group-hover:border-[#FF8B2C]/30 transition-colors">
+                      <div className="space-y-1.5 mb-3.5 pb-3 border-b border-white/10 group-hover:border-[#FF8B2C]/30 transition-colors">
                         {dept.strategicPillars.map((pillar, pIdx) => (
-                          <div key={pIdx} className="flex items-start gap-2.5 text-zinc-300 text-xs sm:text-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#FF8B2C] mt-2 flex-shrink-0 shadow-[0_0_8px_#FF8B2C]" />
+                          <div key={pIdx} className="flex items-start gap-2 text-zinc-300 text-xs">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#FF8B2C] mt-1.5 flex-shrink-0 shadow-[0_0_6px_#FF8B2C]" />
                             <span className="leading-snug">{pillar}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Bottom: Floating Sticker Badges & CTA */}
-                    <div className="mt-auto pt-1">
-                      <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3.5">
-                        {dept.kpiBadges.map((badge, bIdx) => (
-                          <span
-                            key={bIdx}
-                            className={`inline-block text-[10px] sm:text-[11px] font-black rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white text-[#060608] border-2 border-[#FF8B2C] shadow-[0_2px_8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:rotate-0 group-hover:border-[#FF8B2C] group-hover:shadow-[0_2px_12px_rgba(255,139,44,0.3)] ${badge.rotate}`}
-                          >
-                            {badge.text}
-                          </span>
-                        ))}
-                      </div>
+                    {/* Bottom: Direct Action Button */}
+                    <div className="pt-2 flex items-center justify-between gap-2">
+                      <Link
+                        href="#contact"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs hover:bg-[#FFA857] transition-all shadow-[0_2px_12px_rgba(255,139,44,0.35)] hover:scale-105 group/btn"
+                      >
+                        <span>{dept.ctaText}</span>
+                        <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover/btn:-translate-x-1 flex-shrink-0" />
+                      </Link>
 
-                      {/* Action Button */}
-                      <div className="pt-3 border-t border-white/10 group-hover:border-[#FF8B2C]/30 transition-colors flex items-center justify-between gap-2">
-                        <Link
-                          href="#contact"
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs hover:bg-[#FFA857] transition-all shadow-[0_2px_12px_rgba(255,139,44,0.35)] hover:scale-105 group/btn"
-                        >
-                          <span>{dept.ctaText}</span>
-                          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover/btn:-translate-x-1 flex-shrink-0" />
-                        </Link>
-
-                        <Link
-                          href="#contact"
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#FF8B2C] transition-colors flex-shrink-0 group-hover:border-white/30"
-                          title="تفاصيل إضافية"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </Link>
-                      </div>
+                      <Link
+                        href="#contact"
+                        className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#FF8B2C] transition-colors flex-shrink-0 group-hover:border-white/30"
+                        title="تفاصيل إضافية"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </Link>
                     </div>
                   </article>
                 </div>
