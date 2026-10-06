@@ -217,33 +217,23 @@ export default function PortfolioSection() {
                         </h3>
                       </div>
 
-                      {/* Interactive 3D Opening Folder Component */}
-                      <div className="relative w-full h-36 sm:h-40 flex items-center justify-center overflow-visible mb-3 select-none">
+                      {/* Original 3D Opening Folder Component (Pure Vector/CSS without images) */}
+                      <div className="relative w-full h-36 sm:h-44 flex items-center justify-center overflow-visible mb-3 select-none py-2">
                         <div className="file relative w-48 sm:w-56 h-28 sm:h-32 cursor-pointer origin-bottom [perspective:1500px] z-20">
                           {/* Folder Back Flap (work-5) */}
-                          <div className="work-5 bg-amber-600 w-full h-full origin-top rounded-2xl rounded-tl-none group-hover:shadow-[0_20px_40px_rgba(255,139,44,.35)] transition-all ease duration-300 relative after:absolute after:content-[''] after:bottom-[99%] after:left-0 after:w-16 sm:after:w-20 after:h-4 after:bg-amber-600 after:rounded-t-2xl before:absolute before:content-[''] before:-top-[15px] before:left-[60px] sm:before:left-[75.5px] before:w-4 before:h-4 before:bg-amber-600 before:[clip-path:polygon(0_35%,0%_100%,50%_100%);]" />
+                          <div className="work-5 bg-amber-600 w-full h-full origin-top rounded-2xl rounded-tl-none group-hover:shadow-[0_20px_40px_rgba(0,0,0,.2)] transition-all ease duration-300 relative after:absolute after:content-[''] after:bottom-[99%] after:left-0 after:w-16 sm:after:w-20 after:h-4 after:bg-amber-600 after:rounded-t-2xl before:absolute before:content-[''] before:-top-[15px] before:left-[60px] sm:before:left-[75.5px] before:w-4 before:h-4 before:bg-amber-600 before:[clip-path:polygon(0_35%,0%_100%,50%_100%);]" />
                           
                           {/* Inner Document Sheet 4 (work-4) */}
-                          <div className="work-4 absolute inset-1 bg-zinc-600 rounded-2xl transition-all ease duration-300 origin-bottom select-none group-hover:[transform:rotateX(-20deg)] border border-white/10" />
+                          <div className="work-4 absolute inset-1 bg-zinc-400 rounded-2xl transition-all ease duration-300 origin-bottom select-none group-hover:[transform:rotateX(-20deg)]" />
                           
                           {/* Inner Document Sheet 3 (work-3) */}
-                          <div className="work-3 absolute inset-1 bg-zinc-400 rounded-2xl transition-all ease duration-300 origin-bottom group-hover:[transform:rotateX(-30deg)] border border-white/10" />
+                          <div className="work-3 absolute inset-1 bg-zinc-300 rounded-2xl transition-all ease duration-300 origin-bottom group-hover:[transform:rotateX(-30deg)]" />
                           
-                          {/* Inner Project Preview Document Sheet (work-2) */}
-                          <div className="work-2 absolute inset-1 bg-zinc-800 rounded-2xl transition-all ease duration-300 origin-bottom group-hover:[transform:rotateX(-38deg)] overflow-hidden border border-[#FF8B2C]/40 shadow-md">
-                            <Image
-                              src={dept.image}
-                              alt={dept.title}
-                              fill
-                              unoptimized
-                              sizes="250px"
-                              className="object-cover object-top opacity-85 group-hover:opacity-100 transition-opacity"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                          </div>
+                          {/* Inner Document Sheet 2 (work-2) */}
+                          <div className="work-2 absolute inset-1 bg-zinc-200 rounded-2xl transition-all ease duration-300 origin-bottom group-hover:[transform:rotateX(-38deg)]" />
 
                           {/* Folder Front Flap (work-1) that swings open */}
-                          <div className="work-1 absolute bottom-0 bg-gradient-to-t from-amber-500 to-amber-400 w-full h-[104px] sm:h-[118px] rounded-2xl rounded-tr-none after:absolute after:content-[''] after:bottom-[99%] after:right-0 after:w-[110px] sm:after:w-[132px] after:h-[14px] after:bg-amber-400 after:rounded-t-2xl before:absolute before:content-[''] before:-top-[10px] before:right-[106px] sm:before:right-[128px] before:size-3 before:bg-amber-400 before:[clip-path:polygon(100%_14%,50%_100%,100%_100%);] transition-all ease duration-300 origin-bottom flex items-end group-hover:shadow-[inset_0_20px_40px_#fbbf24,_inset_0_-20px_40px_#d97706] group-hover:[transform:rotateX(-46deg)_translateY(1px)] shadow-lg" />
+                          <div className="work-1 absolute bottom-0 bg-gradient-to-t from-amber-500 to-amber-400 w-full h-[104px] sm:h-[120px] rounded-2xl rounded-tr-none after:absolute after:content-[''] after:bottom-[99%] after:right-0 after:w-[110px] sm:after:w-[136px] after:h-[14px] after:bg-amber-400 after:rounded-t-2xl before:absolute before:content-[''] before:-top-[10px] before:right-[106px] sm:before:right-[132px] before:size-3 before:bg-amber-400 before:[clip-path:polygon(100%_14%,50%_100%,100%_100%);] transition-all ease duration-300 origin-bottom flex items-end group-hover:shadow-[inset_0_20px_40px_#fbbf24,_inset_0_-20px_40px_#d97706] group-hover:[transform:rotateX(-46deg)_translateY(1px)] shadow-lg" />
                         </div>
                       </div>
 
