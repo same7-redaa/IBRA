@@ -160,15 +160,15 @@ export default function PortfolioSection() {
         
         {/* Section Header: Structured for Portfolio Galleries */}
         <ScrollReveal direction="up" blurAmount={16}>
-          <div className="text-center mb-12 sm:mb-16">
-            <p className="text-sm sm:text-base md:text-lg font-black text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)] mb-2.5 tracking-wide">
-              مـــعـــارض الأعـــمـــال والـــنـــتـــائـــج
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-sm sm:text-base md:text-lg font-black text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)] mb-2 tracking-wide">
+              مـــعـــارض الأعـــمــــال والـــنـــتـــائــــج
             </p>
             <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-              أقسام <span className="text-[#FF8B2C]">معرض الأعمال</span>
+              أقـــســــام <span className="text-[#FF8B2C] drop-shadow-[0_0_24px_rgba(255,139,44,0.45)]">مـــعـــرض الأعـــمــــال</span>
             </h2>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
-              تصفح معارض الأعمال المتخصصة لكل خدمة، والتي تضم نماذج حية وحملات إعلانية موثقة حققت نتائج استثنائية بالأرقام
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-zinc-400 font-bold max-w-xl mx-auto leading-relaxed">
+              نـــمـــاذج حـــيـــة وحـــمـــلات مـــوثـــقـــة حـــقـــقـــت نـــتـــائـــج اســـتـــثـــنـــائـــيـــة بـــالأرقــــام
             </p>
           </div>
         </ScrollReveal>
