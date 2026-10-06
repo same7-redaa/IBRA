@@ -3,7 +3,7 @@ import { ShieldCheck, Award, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function HoneyFeatures() {
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-white border-t border-b border-white/10 overflow-hidden">
+    <section className="relative w-full py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-white overflow-hidden">
       
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FF8B2C]/5 rounded-full blur-[140px] pointer-events-none" />

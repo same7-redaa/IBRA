@@ -91,7 +91,7 @@ export default function ProductCarouselSection({
   };
 
   return (
-    <section className="relative w-full py-10 sm:py-14 px-2 sm:px-6 md:px-10 lg:px-14 xl:px-16 text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-10 sm:py-14 px-2 sm:px-6 md:px-10 lg:px-14 xl:px-16 text-white overflow-hidden">
       
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-[#FF8B2C]/5 rounded-full blur-[120px] pointer-events-none" />

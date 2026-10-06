@@ -3,7 +3,7 @@ import styles from "./SocialConnect.module.css";
 
 export default function SocialConnect() {
   return (
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 text-white border-t border-b border-white/10 relative overflow-hidden">
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
       
       {/* Background Subtle Ambient Glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />

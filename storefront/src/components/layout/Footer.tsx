@@ -7,11 +7,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#08080d]/90 backdrop-blur-xl border-t border-white/10 text-white pt-12 pb-8 mt-auto relative z-10">
+    <footer className="w-full bg-transparent text-white pt-16 pb-8 mt-auto relative z-10 overflow-hidden">
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-white/5">
           
           {/* Column 1: Brand & Quality Mission */}
           <div className="space-y-3.5">

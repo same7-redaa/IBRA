@@ -16,7 +16,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-16 border-t border-white/10 overflow-hidden text-white">
+    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-16 overflow-hidden text-white">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FF8B2C]/10 rounded-full blur-3xl pointer-events-none" />
 

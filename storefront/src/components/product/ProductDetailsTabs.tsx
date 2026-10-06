@@ -140,7 +140,7 @@ export default function ProductDetailsTabs({ product }: ProductDetailsTabsProps)
   ];
 
   return (
-    <div className="w-full border-t border-white/10 pt-12 mt-12 mb-16 relative z-20">
+    <div className="w-full pt-12 mt-12 mb-16 relative z-20">
       
       {/* Section Title */}
       <div className="mb-8">
