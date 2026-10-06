@@ -6,7 +6,7 @@ import SocialConnect from "@/components/home/SocialConnect";
 
 export default function Home() {
   return (
-    <main className="flex-grow flex flex-col min-h-screen bg-[#fbf7ee]">
+    <main className="flex-grow flex flex-col min-h-screen">
       <Hero />
       <HomeProductCarousels />
       <HoneyFeatures />

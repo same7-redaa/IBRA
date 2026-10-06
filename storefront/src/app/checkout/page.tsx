@@ -67,32 +67,32 @@ export default function CheckoutPage() {
 
   if (isOrdered) {
     return (
-      <main className="min-h-screen bg-[#fbf7ee] text-[#221c15] pt-32 sm:pt-36 pb-20 flex items-center justify-center px-4">
-        <div className="w-full max-w-lg bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-10 text-center shadow-xl animate-scale-up">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#fbf7ee] border-2 border-[#d97706] flex items-center justify-center text-[#d97706] mx-auto mb-5 shadow-sm">
+      <main className="min-h-screen text-white pt-32 sm:pt-36 pb-20 flex items-center justify-center px-4">
+        <div className="w-full max-w-lg glass-panel rounded-3xl p-6 sm:p-10 text-center shadow-2xl animate-scale-up">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#FF8B2C]/15 border-2 border-[#FF8B2C] flex items-center justify-center text-[#FF8B2C] mx-auto mb-5 shadow-[0_0_20px_rgba(255,139,44,0.35)]">
             <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#221c15] mb-2">
+          <h1 className="text-2xl sm:text-3xl font-black text-white mb-2">
             تم تسجيل طلبك بنجاح!
           </h1>
-          <p className="text-xs sm:text-sm text-[#5c4f42] leading-relaxed mb-6 font-medium">
-            شكراً لثقتك في <span className="font-bold text-[#221c15]">مناحل عسل زوين</span>. تم تجهيز تفاصيل طلبك وإرسالها إلى واتساب خدمة العملاء مباشرة.
+          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-medium">
+            شكراً لثقتك في <span className="font-bold text-[#FF8B2C]">مناحل عسل زوين</span>. تم تجهيز تفاصيل طلبك وإرسالها إلى واتساب خدمة العملاء مباشرة.
           </p>
 
-          <div className="p-4 rounded-2xl bg-[#fbf7ee] border border-[#ebdcc9] text-xs text-[#5c4f42] mb-6 space-y-2 text-right">
+          <div className="p-4 rounded-2xl glass-card text-xs text-zinc-300 mb-6 space-y-2 text-right">
             <div className="flex justify-between font-bold">
-              <span>اسم العميل:</span>
-              <span className="text-[#221c15]">{fullName}</span>
+              <span className="text-zinc-400">اسم العميل:</span>
+              <span className="text-white">{fullName}</span>
             </div>
             <div className="flex justify-between font-bold">
-              <span>رقم الهاتف:</span>
-              <span className="text-[#221c15]">{phone}</span>
+              <span className="text-zinc-400">رقم الهاتف:</span>
+              <span className="text-white">{phone}</span>
             </div>
             <div className="flex justify-between font-bold">
-              <span>العنوان:</span>
-              <span className="text-[#221c15]">{city} - {address}</span>
+              <span className="text-zinc-400">العنوان:</span>
+              <span className="text-white">{city} - {address}</span>
             </div>
-            <div className="flex justify-between font-bold text-sm text-[#d97706] pt-2 border-t border-[#ebdcc9]">
+            <div className="flex justify-between font-bold text-sm text-[#FF8B2C] pt-2 border-t border-white/10">
               <span>المبلغ الإجمالي عند الاستلام:</span>
               <span>{finalTotal} ج.م</span>
             </div>
@@ -104,7 +104,7 @@ export default function CheckoutPage() {
               href={orderWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full h-12 sm:h-13 rounded-xl bg-[#25d366] hover:bg-[#20bd5a] text-white font-black text-xs sm:text-sm transition-colors shadow-lg shadow-[#25d366]/20 mb-3"
+              className="inline-flex items-center justify-center gap-2 w-full h-12 sm:h-13 rounded-xl bg-[#25d366] hover:bg-[#20bd5a] text-white font-black text-xs sm:text-sm transition-colors shadow-lg shadow-[#25d366]/25 mb-3"
             >
               <MessageCircle className="w-5 h-5" />
               <span>إرسال تفاصيل الطلب عبر واتساب ({STORE_WHATSAPP_DISPLAY})</span>
@@ -113,7 +113,7 @@ export default function CheckoutPage() {
 
           <Link
             href="/"
-            className="inline-flex items-center justify-center w-full h-11 sm:h-12 rounded-xl bg-[#221c15] hover:bg-[#d97706] text-white font-black text-xs sm:text-sm transition-colors shadow-sm"
+            className="inline-flex items-center justify-center w-full h-11 sm:h-12 rounded-xl bg-[#FF8B2C] hover:bg-[#FFA857] text-black font-black text-xs sm:text-sm transition-colors shadow-lg shadow-[#FF8B2C]/20"
           >
             العودة للرئيسية
           </Link>
@@ -123,20 +123,20 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-36 pb-20">
+    <main className="min-h-screen text-white pt-28 sm:pt-36 pb-20">
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Heading */}
         <div className="mb-8">
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-xs text-[#5c4f42] hover:text-[#d97706] font-bold mb-3 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-zinc-400 hover:text-[#FF8B2C] font-bold mb-3 transition-colors"
           >
             <ArrowRight className="w-4 h-4" />
             <span>متابعة التسوق</span>
           </Link>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#221c15] tracking-tight">
-            إتمام <span className="text-[#d97706]">الطلب والدفع</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+            إتمام <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">الطلب والدفع</span>
           </h1>
         </div>
 
@@ -146,8 +146,8 @@ export default function CheckoutPage() {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Customer Details Card */}
-            <div className="bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-5">
-              <h2 className="text-lg font-black text-[#221c15] border-b border-[#ebdcc9] pb-3">
+            <div className="glass-panel rounded-3xl p-6 sm:p-8 space-y-5">
+              <h2 className="text-lg font-black text-white border-b border-white/10 pb-3">
                 1. بيانات المستلم وعنوان التوصيل
               </h2>
 
@@ -195,8 +195,8 @@ export default function CheckoutPage() {
             </div>
 
             {/* Payment Method Card */}
-            <div className="bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
-              <h2 className="text-lg font-black text-[#221c15] border-b border-[#ebdcc9] pb-3">
+            <div className="glass-panel rounded-3xl p-6 sm:p-8 space-y-4">
+              <h2 className="text-lg font-black text-white border-b border-white/10 pb-3">
                 2. طريقة الدفع
               </h2>
 
@@ -208,18 +208,18 @@ export default function CheckoutPage() {
                   onClick={() => setPaymentMethod("cod")}
                   className={`p-4 rounded-2xl border text-right transition-all flex flex-col justify-between cursor-pointer ${
                     paymentMethod === "cod"
-                      ? "border-[#d97706] bg-[#fbf7ee] shadow-sm"
-                      : "border-[#ebdcc9] bg-white hover:border-[#d97706]/50"
+                      ? "border-[#FF8B2C] bg-[#FF8B2C]/15 shadow-md shadow-[#FF8B2C]/20"
+                      : "border-white/10 bg-white/5 hover:border-[#FF8B2C]/50"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Banknote className="w-5 h-5 text-[#d97706]" />
-                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#d97706] flex items-center justify-center">
-                      {paymentMethod === "cod" && <span className="w-2 h-2 rounded-full bg-[#d97706]" />}
+                    <Banknote className="w-5 h-5 text-[#FF8B2C]" />
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#FF8B2C] flex items-center justify-center">
+                      {paymentMethod === "cod" && <span className="w-2 h-2 rounded-full bg-[#FF8B2C]" />}
                     </span>
                   </div>
-                  <span className="font-bold text-sm text-[#221c15] block">الدفع عند الاستلام</span>
-                  <span className="text-[10px] text-[#5c4f42]">معاينة وتذوق مجاناً</span>
+                  <span className="font-bold text-sm text-white block">الدفع عند الاستلام</span>
+                  <span className="text-[10px] text-zinc-400">معاينة وتذوق مجاناً</span>
                 </button>
 
                 {/* InstaPay */}
@@ -228,18 +228,18 @@ export default function CheckoutPage() {
                   onClick={() => setPaymentMethod("instapay")}
                   className={`p-4 rounded-2xl border text-right transition-all flex flex-col justify-between cursor-pointer ${
                     paymentMethod === "instapay"
-                      ? "border-[#d97706] bg-[#fbf7ee] shadow-sm"
-                      : "border-[#ebdcc9] bg-white hover:border-[#d97706]/50"
+                      ? "border-[#FF8B2C] bg-[#FF8B2C]/15 shadow-md shadow-[#FF8B2C]/20"
+                      : "border-white/10 bg-white/5 hover:border-[#FF8B2C]/50"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <CreditCard className="w-5 h-5 text-[#d97706]" />
-                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#d97706] flex items-center justify-center">
-                      {paymentMethod === "instapay" && <span className="w-2 h-2 rounded-full bg-[#d97706]" />}
+                    <CreditCard className="w-5 h-5 text-[#FF8B2C]" />
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#FF8B2C] flex items-center justify-center">
+                      {paymentMethod === "instapay" && <span className="w-2 h-2 rounded-full bg-[#FF8B2C]" />}
                     </span>
                   </div>
-                  <span className="font-bold text-sm text-[#221c15] block">InstaPay</span>
-                  <span className="text-[10px] text-[#5c4f42]">تحويل بنكي فوري</span>
+                  <span className="font-bold text-sm text-white block">InstaPay</span>
+                  <span className="text-[10px] text-zinc-400">تحويل بنكي فوري</span>
                 </button>
 
                 {/* Vodafone Cash */}
@@ -248,18 +248,18 @@ export default function CheckoutPage() {
                   onClick={() => setPaymentMethod("vodafone")}
                   className={`p-4 rounded-2xl border text-right transition-all flex flex-col justify-between cursor-pointer ${
                     paymentMethod === "vodafone"
-                      ? "border-[#d97706] bg-[#fbf7ee] shadow-sm"
-                      : "border-[#ebdcc9] bg-white hover:border-[#d97706]/50"
+                      ? "border-[#FF8B2C] bg-[#FF8B2C]/15 shadow-md shadow-[#FF8B2C]/20"
+                      : "border-white/10 bg-white/5 hover:border-[#FF8B2C]/50"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <CreditCard className="w-5 h-5 text-amber-500" />
-                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#d97706] flex items-center justify-center">
-                      {paymentMethod === "vodafone" && <span className="w-2 h-2 rounded-full bg-[#d97706]" />}
+                    <CreditCard className="w-5 h-5 text-amber-400" />
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#FF8B2C] flex items-center justify-center">
+                      {paymentMethod === "vodafone" && <span className="w-2 h-2 rounded-full bg-[#FF8B2C]" />}
                     </span>
                   </div>
-                  <span className="font-bold text-sm text-[#221c15] block">فودافون كاش</span>
-                  <span className="text-[10px] text-[#5c4f42]">محفظة إلكترونية</span>
+                  <span className="font-bold text-sm text-white block">فودافون كاش</span>
+                  <span className="text-[10px] text-zinc-400">محفظة إلكترونية</span>
                 </button>
 
               </div>
@@ -268,21 +268,21 @@ export default function CheckoutPage() {
           </div>
 
           {/* Order Summary Column */}
-          <div className="lg:col-span-5 bg-white border border-[#ebdcc9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-5 lg:sticky lg:top-28">
-            <h2 className="text-lg font-black text-[#221c15] border-b border-[#ebdcc9] pb-3 flex items-center justify-between">
+          <div className="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 space-y-5 lg:sticky lg:top-28">
+            <h2 className="text-lg font-black text-white border-b border-white/10 pb-3 flex items-center justify-between">
               <span>ملخص الطلب</span>
-              <span className="text-xs text-[#d97706] font-bold">{cartItems.length} منتجات</span>
+              <span className="text-xs text-[#FF8B2C] font-bold">{cartItems.length} منتجات</span>
             </h2>
 
             {/* Items List */}
             <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
               {cartItems.length === 0 ? (
-                <p className="text-xs text-[#8a7a6b] text-center py-4">لم تقم بإضافة أي منتجات بعد</p>
+                <p className="text-xs text-zinc-500 text-center py-4">لم تقم بإضافة أي منتجات بعد</p>
               ) : (
                 cartItems.map((item) => (
                   <div key={item.id} className="flex items-center justify-between gap-3 text-xs">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-10 h-10 relative rounded-lg bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
+                      <div className="w-10 h-10 relative rounded-lg bg-black/40 border border-white/10 flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -292,29 +292,29 @@ export default function CheckoutPage() {
                         />
                       </div>
                       <div className="truncate">
-                        <span className="font-bold text-[#221c15] block truncate">{item.name}</span>
-                        <span className="text-[#8a7a6b] text-[11px]">الكمية: {item.quantity}</span>
+                        <span className="font-bold text-white block truncate">{item.name}</span>
+                        <span className="text-zinc-400 text-[11px]">الكمية: {item.quantity}</span>
                       </div>
                     </div>
-                    <span className="font-black text-[#d97706] shrink-0">{item.price * item.quantity} ج.م</span>
+                    <span className="font-black text-[#FF8B2C] shrink-0">{item.price * item.quantity} ج.م</span>
                   </div>
                 ))
               )}
             </div>
 
             {/* Price Calculations */}
-            <div className="space-y-2 border-t border-[#ebdcc9] pt-4 text-xs">
-              <div className="flex justify-between text-[#5c4f42] font-semibold">
+            <div className="space-y-2 border-t border-white/10 pt-4 text-xs">
+              <div className="flex justify-between text-zinc-300 font-semibold">
                 <span>المجموع الفرعي:</span>
                 <span>{totalAmount} ج.م</span>
               </div>
-              <div className="flex justify-between text-[#5c4f42] font-semibold">
+              <div className="flex justify-between text-zinc-300 font-semibold">
                 <span>مصاريف الشحن:</span>
-                <span className="text-green-600 font-bold">مجاني 100%</span>
+                <span className="text-[#25d366] font-bold">مجاني 100%</span>
               </div>
-              <div className="flex justify-between text-base font-black text-[#221c15] border-t border-[#ebdcc9] pt-3">
+              <div className="flex justify-between text-base font-black text-white border-t border-white/10 pt-3">
                 <span>المجموع الإجمالي:</span>
-                <span className="text-[#d97706] text-xl">{finalTotal} ج.م</span>
+                <span className="text-[#FF8B2C] text-xl drop-shadow-[0_0_12px_rgba(255,139,44,0.4)]">{finalTotal} ج.م</span>
               </div>
             </div>
 
@@ -325,14 +325,14 @@ export default function CheckoutPage() {
               size="lg"
               fullWidth
               disabled={cartItems.length === 0}
-              className="font-black text-sm sm:text-base h-13"
+              className="font-black text-sm sm:text-base h-13 shadow-lg shadow-[#FF8B2C]/25"
             >
               تأكيد الطلب الآن
             </ScaleButton>
 
             {/* Trust Badges */}
-            <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-[#5c4f42] font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#d97706]" />
+            <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-zinc-300 font-bold">
+              <ShieldCheck className="w-4 h-4 text-[#FF8B2C]" />
               <span>ضمان استرجاع ذهبي 100%</span>
             </div>
 

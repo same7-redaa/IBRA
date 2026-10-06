@@ -35,11 +35,11 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
             id={inputId}
             type={type}
             placeholder={placeholder}
-            className={`peer w-full bg-[#111319] text-white font-medium text-sm sm:text-base rounded-2xl border ${
+            className={`peer w-full bg-black/50 text-white font-medium text-sm sm:text-base rounded-2xl border ${
               error
                 ? "border-red-500/80 focus:border-red-500 focus:ring-red-500/20"
-                : "border-gray-800 hover:border-gray-700 focus:border-[#f59e0b] focus:ring-[#f59e0b]/20"
-            } px-4 py-3.5 sm:py-4 transition-all duration-200 outline-none focus:ring-4 focus:shadow-[0_0_20px_rgba(245,158,11,0.15)] ${
+                : "border-white/10 hover:border-[#FF8B2C]/40 focus:border-[#FF8B2C] focus:ring-[#FF8B2C]/20"
+            } px-4 py-3.5 sm:py-4 transition-all duration-200 outline-none focus:ring-4 focus:shadow-[0_0_20px_rgba(255,139,44,0.25)] ${
               icon ? "pl-11" : ""
             } ${className}`}
             {...props}
@@ -48,16 +48,16 @@ const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
           {/* Floating Arabic Label (RTL Aligned) */}
           <label
             htmlFor={inputId}
-            className={`pointer-events-none absolute right-4 top-3.5 sm:top-4 text-xs sm:text-sm font-bold text-gray-400 transition-all duration-200 ease-out origin-right 
-              peer-focus:-top-2.5 peer-focus:right-3 peer-focus:text-xs peer-focus:text-[#f59e0b] peer-focus:bg-[#0c0c0c] peer-focus:px-2 peer-focus:rounded
-              peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:right-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#f59e0b] peer-[:not(:placeholder-shown)]:bg-[#0c0c0c] peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:rounded`}
+            className={`pointer-events-none absolute right-4 top-3.5 sm:top-4 text-xs sm:text-sm font-bold text-zinc-400 transition-all duration-200 ease-out origin-right 
+              peer-focus:-top-2.5 peer-focus:right-3 peer-focus:text-xs peer-focus:text-[#FF8B2C] peer-focus:bg-[#0b0b10] peer-focus:px-2 peer-focus:rounded
+              peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:right-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#FF8B2C] peer-[:not(:placeholder-shown)]:bg-[#0b0b10] peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:rounded`}
           >
             {label}
           </label>
 
           {/* Optional Icon */}
           {icon && (
-            <div className="absolute left-4 text-gray-400 pointer-events-none flex items-center justify-center">
+            <div className="absolute left-4 text-zinc-400 pointer-events-none flex items-center justify-center">
               {icon}
             </div>
           )}

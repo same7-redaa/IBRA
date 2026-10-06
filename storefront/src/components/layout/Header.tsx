@@ -56,7 +56,7 @@ export default function Header() {
       onMouseLeave={handleMouseLeave}
     >
       {/* 1. Main Header Capsule */}
-      <header className="w-[98%] max-w-[1920px] rounded-[1.8rem] sm:rounded-[2rem] border border-[#3d3226] bg-[#1c1813] shadow-[0_10px_35px_rgba(0,0,0,0.35)] transition-all">
+      <header className="w-[98%] max-w-[1920px] rounded-[1.8rem] sm:rounded-[2rem] border border-[#FF8B2C]/25 bg-[#0b0b10]/80 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.7)] transition-all">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 sm:h-18 items-center justify-between gap-4 relative">
             
@@ -69,7 +69,7 @@ export default function Header() {
                   width={140}
                   height={48}
                   priority
-                  className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(245,158,11,0.35)]"
+                  className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_14px_rgba(255,139,44,0.45)]"
                 />
               </Link>
             </div>
@@ -86,11 +86,11 @@ export default function Header() {
                       onClick={() => setIsNeedsHovered(!isNeedsHovered)}
                       className={`text-xs xl:text-sm font-bold transition-all relative py-1.5 px-3 rounded-xl whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                         isActive
-                          ? "text-[#f59e0b] bg-[#2a221a] border border-[#d97706]/40 shadow-[0_0_12px_rgba(217,119,6,0.2)]"
-                          : "text-[#c2b5a5] hover:text-[#f59e0b] hover:bg-[#2a221a]/60"
+                          ? "text-[#FF8B2C] bg-[#FF8B2C]/15 border border-[#FF8B2C]/40 shadow-[0_0_16px_rgba(255,139,44,0.25)]"
+                          : "text-zinc-300 hover:text-[#FF8B2C] hover:bg-white/5"
                       }`}
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-[#f59e0b]" />
+                      <Sparkles className="w-3.5 h-3.5 text-[#FF8B2C]" />
                       <span>{link.label}</span>
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-300 ${
@@ -109,8 +109,8 @@ export default function Header() {
                     onMouseEnter={() => setIsNeedsHovered(false)}
                     className={`text-xs xl:text-sm font-bold transition-all relative py-1.5 px-2.5 rounded-lg whitespace-nowrap ${
                       isActive
-                        ? "text-[#f59e0b] bg-[#2a221a] border border-[#3d3226]"
-                        : "text-[#c2b5a5] hover:text-[#f59e0b] hover:bg-[#2a221a]/60"
+                        ? "text-[#FF8B2C] bg-[#FF8B2C]/15 border border-[#FF8B2C]/35 shadow-[0_0_12px_rgba(255,139,44,0.2)]"
+                        : "text-zinc-300 hover:text-[#FF8B2C] hover:bg-white/5"
                     }`}
                   >
                     {link.label}
@@ -127,7 +127,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="تواصل معنا عبر واتساب"
-                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border border-[#3d3226] bg-[#2a221a]/60 text-[#c2b5a5] hover:text-[#25d366] hover:border-[#25d366]/40 transition-all"
+                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-zinc-300 hover:text-[#25d366] hover:border-[#25d366]/40 hover:bg-[#25d366]/10 transition-all"
               >
                 <MessageCircle className="h-4 w-4 text-[#25d366]" />
                 <span className="hidden xl:inline">تواصل معنا</span>
@@ -137,11 +137,11 @@ export default function Header() {
               <button
                 onClick={openCart}
                 aria-label="عرض سلة المشتريات"
-                className="text-[#c2b5a5] hover:text-white transition-transform hover:scale-110 relative p-1 cursor-pointer"
+                className="text-zinc-200 hover:text-[#FF8B2C] transition-transform hover:scale-110 relative p-1 cursor-pointer"
               >
                 <ShoppingCart className="h-[1.35rem] w-[1.35rem]" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -left-1.5 flex h-[1.15rem] w-[1.15rem] items-center justify-center rounded-full bg-[#d97706] text-[0.65rem] font-black text-white shadow-[0_0_8px_rgba(217,119,6,0.5)] animate-scale-up">
+                  <span className="absolute -top-1.5 -left-1.5 flex h-[1.15rem] w-[1.15rem] items-center justify-center rounded-full bg-[#FF8B2C] text-[0.65rem] font-black text-black shadow-[0_0_12px_rgba(255,139,44,0.7)] animate-scale-up">
                     {cartCount}
                   </span>
                 )}
@@ -158,11 +158,11 @@ export default function Header() {
                   openCart();
                 }}
                 aria-label="عرض سلة المشتريات"
-                className="text-[#c2b5a5] hover:text-white active:text-[#f59e0b] relative p-2 cursor-pointer touch-manipulation select-none"
+                className="text-zinc-200 hover:text-[#FF8B2C] active:text-[#FF8B2C] relative p-2 cursor-pointer touch-manipulation select-none"
               >
                 <ShoppingCart className="h-5 w-5 pointer-events-none" />
                 {cartCount > 0 && (
-                  <span className="absolute top-0.5 left-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#d97706] text-[0.6rem] font-black text-white pointer-events-none">
+                  <span className="absolute top-0.5 left-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#FF8B2C] text-[0.6rem] font-black text-black pointer-events-none shadow-[0_0_8px_rgba(255,139,44,0.6)]">
                     {cartCount}
                   </span>
                 )}
@@ -176,7 +176,7 @@ export default function Header() {
                   setIsMobileMenuOpen((prev) => !prev);
                 }}
                 aria-label="القائمة الرئيسية"
-                className="text-[#c2b5a5] hover:text-white active:text-[#f59e0b] focus:outline-none p-2 cursor-pointer touch-manipulation select-none"
+                className="text-zinc-200 hover:text-[#FF8B2C] active:text-[#FF8B2C] focus:outline-none p-2 cursor-pointer touch-manipulation select-none"
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6 pointer-events-none" />
@@ -190,7 +190,7 @@ export default function Header() {
 
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-[#3d3226] bg-[#1c1813] rounded-b-[1.8rem] sm:rounded-b-[2rem] shadow-2xl animate-fade-in max-h-[75vh] overflow-y-auto">
+          <div className="lg:hidden border-t border-white/10 bg-[#0c0c12]/95 backdrop-blur-2xl rounded-b-[1.8rem] sm:rounded-b-[2rem] shadow-2xl animate-fade-in max-h-[75vh] overflow-y-auto">
             <div className="p-4 sm:p-5 space-y-2">
               <div className="grid grid-cols-2 gap-1.5">
                 <Link
@@ -198,8 +198,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   الرئيسية
@@ -209,8 +209,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/categories/royal"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   عسل ملكي
@@ -220,8 +220,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/categories/special_blends"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   خلطات مميزة
@@ -231,8 +231,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/categories/cave_honey"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   عسل الكهوف
@@ -242,8 +242,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/categories/honeycomb"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   شمع العسل
@@ -253,8 +253,8 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors text-center ${
                     pathname === "/offers"
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                      : "text-[#c2b5a5] hover:bg-[#2a221a] hover:text-white border border-[#3d3226]/30"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white border border-white/5"
                   }`}
                 >
                   العروض
@@ -262,14 +262,14 @@ export default function Header() {
               </div>
 
               {/* Mobile "حسب احتياجك" Accordion Section */}
-              <div className="border-t border-[#3d3226] pt-3">
+              <div className="border-t border-white/10 pt-3">
                 <button
                   type="button"
                   onClick={() => setIsMobileNeedsOpen(!isMobileNeedsOpen)}
-                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#2a221a] border border-[#3d3226] text-xs sm:text-sm font-black text-[#f59e0b] cursor-pointer touch-manipulation select-none active:bg-[#342a20]"
+                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-black text-[#FF8B2C] cursor-pointer touch-manipulation select-none active:bg-white/10"
                 >
                   <div className="flex items-center gap-2 pointer-events-none">
-                    <Sparkles className="w-4 h-4" />
+                    <Sparkles className="w-4 h-4 text-[#FF8B2C]" />
                     <span>أعسال وخلطات حسب احتياجك الصحي</span>
                   </div>
                   <ChevronDown
@@ -288,8 +288,8 @@ export default function Header() {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`block rounded-lg px-3 py-2 text-xs font-bold transition-colors ${
                           pathname === item.href
-                            ? "bg-[#2a221a] text-[#f59e0b] border border-[#3d3226]"
-                            : "text-[#c2b5a5] hover:text-white"
+                            ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40"
+                            : "text-zinc-300 hover:text-white hover:bg-white/5"
                         }`}
                       >
                         <span>{item.label}</span>
@@ -301,13 +301,13 @@ export default function Header() {
             </div>
 
             {/* Mobile Actions in Drawer */}
-            <div className="border-t border-[#3d3226] p-4 flex items-center justify-between gap-3">
+            <div className="border-t border-white/10 p-4 flex items-center justify-between gap-3">
               <a
                 href="https://wa.me/201023160657"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#2a221a] border border-[#3d3226] text-xs font-bold text-[#c2b5a5] hover:text-[#25d366]"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-zinc-300 hover:text-[#25d366]"
               >
                 <MessageCircle className="h-4 w-4 text-[#25d366]" />
                 <span>تواصل معنا (واتساب)</span>
@@ -318,7 +318,7 @@ export default function Header() {
                   setIsMobileMenuOpen(false);
                   openCart();
                 }}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#d97706] text-xs font-bold text-white shadow-md"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#FF8B2C] text-xs font-black text-black shadow-lg shadow-[#FF8B2C]/25"
               >
                 <ShoppingCart className="h-4 w-4" />
                 <span>السلة ({cartCount})</span>
@@ -333,10 +333,10 @@ export default function Header() {
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="hidden lg:flex w-[96%] max-w-[1400px] mt-2 rounded-[1.6rem] border border-[#3d3226] bg-[#1c1813] shadow-[0_15px_40px_rgba(0,0,0,0.45)] px-6 py-2.5 items-center justify-center gap-4 xl:gap-8 transition-all animate-fade-in z-40 backdrop-blur-md"
+          className="hidden lg:flex w-[96%] max-w-[1400px] mt-2 rounded-[1.6rem] border border-[#FF8B2C]/25 bg-[#0b0b10]/85 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.7)] px-6 py-2.5 items-center justify-center gap-4 xl:gap-8 transition-all animate-fade-in z-40"
         >
-          <div className="flex items-center gap-2 text-xs font-black text-[#d97706] pl-4 border-l border-[#3d3226]">
-            <Sparkles className="w-4 h-4" />
+          <div className="flex items-center gap-2 text-xs font-black text-[#FF8B2C] pl-4 border-l border-white/10">
+            <Sparkles className="w-4 h-4 text-[#FF8B2C]" />
             <span>حسب احتياجك الصحي:</span>
           </div>
 
@@ -349,8 +349,8 @@ export default function Header() {
                   href={item.href}
                   className={`text-xs xl:text-sm font-bold px-3.5 py-1.5 rounded-xl transition-all ${
                     isActive
-                      ? "bg-[#2a221a] text-[#f59e0b] border border-[#d97706]/40 shadow-sm"
-                      : "text-[#c2b5a5] hover:text-[#f59e0b] hover:bg-[#2a221a]"
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/40 shadow-sm"
+                      : "text-zinc-300 hover:text-[#FF8B2C] hover:bg-white/5"
                   }`}
                 >
                   <span>{item.label}</span>

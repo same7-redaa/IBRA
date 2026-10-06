@@ -20,16 +20,16 @@
   z-index: 2;
   font-weight: 800;
   font-size: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: color 0.4s ease-in-out;
 }
 
-/* Primary Hero Button: Warm Honey Amber */
+/* Primary Hero Button: #FF8B2C Glow */
 .btnPrimary {
-  border: 2px solid #d97706;
-  background-color: #d97706;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
+  border: 2px solid #FF8B2C;
+  background-color: #FF8B2C;
+  color: #060608;
+  box-shadow: 0 4px 25px rgba(255, 139, 44, 0.45);
 }
 
 .btnPrimary::after {
@@ -38,7 +38,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #b45309;
+  background-color: #FFA857;
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -47,9 +47,9 @@
 }
 
 .btnPrimary:hover {
-  box-shadow: 0 6px 28px rgba(217, 119, 6, 0.45);
-  color: #ffffff;
-  border-color: #b45309;
+  box-shadow: 0 6px 35px rgba(255, 139, 44, 0.65);
+  color: #060608;
+  border-color: #FFA857;
 }
 
 .btnPrimary:hover::after {
@@ -57,12 +57,13 @@
   transform: scale(100) translateX(2px);
 }
 
-/* Secondary Hero Button: Warm Cream Outline */
+/* Secondary Hero Button: Glass Outline */
 .btnSecondary {
-  border: 2px solid #ebdcc9;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #221c15;
-  box-shadow: 0 4px 15px rgba(180, 83, 9, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .btnSecondary::after {
@@ -71,7 +72,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #ffffff;
+  background-color: rgba(255, 139, 44, 0.15);
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -80,9 +81,9 @@
 }
 
 .btnSecondary:hover {
-  box-shadow: 0 6px 22px rgba(217, 119, 6, 0.2);
-  color: #d97706;
-  border-color: #d97706;
+  box-shadow: 0 6px 25px rgba(255, 139, 44, 0.25);
+  color: #FF8B2C;
+  border-color: rgba(255, 139, 44, 0.6);
 }
 
 .btnSecondary:hover::after {

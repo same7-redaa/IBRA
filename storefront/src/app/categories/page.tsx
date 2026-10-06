@@ -18,26 +18,19 @@ export default function CategoriesPage() {
         );
 
   return (
-    <main className="relative flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-36 pb-20 overflow-hidden">
+    <main className="relative flex-grow flex flex-col min-h-screen text-white pt-28 sm:pt-36 pb-20 overflow-hidden">
       
-      {/* Background Decorative Pattern */}
-      <div 
-        className="absolute top-0 right-0 w-80 h-80 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_1.jpg')` }}
-      />
-      <div 
-        className="absolute bottom-10 left-0 w-80 h-80 bg-contain bg-no-repeat opacity-20 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_3.jpg')` }}
-      />
+      {/* Background Glow */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
         {/* Header Title */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#221c15] tracking-tight">
-            تصنيفات <span className="text-[#d97706]">أعسال زوين</span> الفاخرة
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            تصنيفات <span className="text-[#FF8B2C] drop-shadow-[0_0_25px_rgba(255,139,44,0.4)]">أعسال زوين</span> الفاخرة
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-[#5c4f42] font-semibold">
+          <p className="mt-3 text-sm sm:text-base text-zinc-400 font-semibold">
             تصفح قطفات العسل حسب الاحتياج الصحي والعلاجي والنوع المفضل لديك
           </p>
         </div>

@@ -34,25 +34,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = sampleProducts.filter((p) => String(p.id) !== String(product.id)).slice(0, 4);
 
   return (
-    <main className="relative flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
+    <main className="relative flex-grow flex flex-col min-h-screen text-white pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
       
-      {/* 1. Cutout Decorative Illustration - Top Left (Vintage Botanical Engraving) */}
-      <div 
-        className="absolute -top-6 -left-6 w-64 h-64 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-30 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/prod_art_1.jpg')` }}
-      />
-
-      {/* 2. Cutout Decorative Illustration - Middle Right (Honey Honeycomb & Flora) */}
-      <div 
-        className="absolute top-[42%] -right-10 w-64 h-64 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/prod_art_2.jpg')` }}
-      />
-
-      {/* 3. Cutout Decorative Illustration - Bottom Left (Vintage Apiary Etching) */}
-      <div 
-        className="absolute bottom-10 -left-10 w-72 h-72 sm:w-96 sm:h-96 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/prod_art_3.jpg')` }}
-      />
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Main Container */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
@@ -80,17 +65,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ProductDetailsTabs product={product} />
 
         {/* Bottom Section: You May Also Like / منتجات قد تعجبك */}
-        <div className="border-t border-[#ebdcc9] pt-14">
+        <div className="border-t border-white/10 pt-14">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl sm:text-3xl font-black text-[#221c15] tracking-tight">
-              أعسال <span className="text-[#d97706]">قد تعجبك</span> أيضاً
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              أعسال <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">قد تعجبك</span> أيضاً
             </h3>
             <Link
               href="/products"
-              className="group flex items-center gap-1.5 text-xs sm:text-sm text-[#5c4f42] hover:text-[#d97706] font-bold transition-colors"
+              className="group flex items-center gap-1.5 text-xs sm:text-sm text-zinc-400 hover:text-[#FF8B2C] font-bold transition-colors"
             >
               <span>عرض كل الأعسال</span>
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#d97706]" />
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#FF8B2C]" />
             </Link>
           </div>
 

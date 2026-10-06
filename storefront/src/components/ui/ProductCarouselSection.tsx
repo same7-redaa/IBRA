@@ -84,12 +84,15 @@ export default function ProductCarouselSection({
   };
 
   return (
-    <section className="relative w-full py-10 sm:py-14 px-2 sm:px-6 md:px-10 lg:px-14 xl:px-16 text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
+    <section className="relative w-full py-10 sm:py-14 px-2 sm:px-6 md:px-10 lg:px-14 xl:px-16 text-white border-t border-white/10 overflow-hidden">
       
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-[#FF8B2C]/5 rounded-full blur-[120px] pointer-events-none" />
+
       {/* Decorative Background Artwork if provided */}
       {bgPattern && (
         <div
-          className="absolute -top-10 -left-10 w-72 h-72 bg-contain bg-no-repeat opacity-20 mix-blend-multiply pointer-events-none"
+          className="absolute -top-10 -left-10 w-72 h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none"
           style={{ backgroundImage: `url('${bgPattern}')` }}
         />
       )}
@@ -98,15 +101,15 @@ export default function ProductCarouselSection({
         
         {/* Header with Title and Subtitle */}
         <div className="mb-6 sm:mb-8 px-2 sm:px-4 text-center sm:text-right">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white">
             {title}{" "}
             {highlightedWord && (
-              <span className="text-[#d97706]">{highlightedWord}</span>
+              <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.35)]">{highlightedWord}</span>
             )}
           </h2>
           
           {subtitle && (
-            <p className="text-xs sm:text-sm text-[#5c4f42] font-semibold mt-1">
+            <p className="text-xs sm:text-sm text-zinc-400 font-semibold mt-1">
               {subtitle}
             </p>
           )}
@@ -129,7 +132,7 @@ export default function ProductCarouselSection({
             type="button"
             onClick={() => handleScroll("prev")}
             aria-label="السابق (يمين)"
-            className="shrink-0 z-30 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] active:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none ml-2 sm:ml-3"
+            className="shrink-0 z-30 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#0d0d14] hover:bg-[#FF8B2C] hover:text-black active:bg-[#FF8B2C] text-white border border-[#FF8B2C]/30 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none ml-2 sm:ml-3 hover:border-[#FF8B2C]"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 pointer-events-none" />
           </button>
@@ -155,7 +158,7 @@ export default function ProductCarouselSection({
             type="button"
             onClick={() => handleScroll("next")}
             aria-label="التالي (يسار)"
-            className="shrink-0 z-30 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1c1813] hover:bg-[#d97706] active:bg-[#d97706] text-white border border-[#4a3d2e] shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none mr-2 sm:mr-3"
+            className="shrink-0 z-30 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#0d0d14] hover:bg-[#FF8B2C] hover:text-black active:bg-[#FF8B2C] text-white border border-[#FF8B2C]/30 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer touch-manipulation select-none mr-2 sm:mr-3 hover:border-[#FF8B2C]"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 pointer-events-none" />
           </button>
@@ -167,10 +170,10 @@ export default function ProductCarouselSection({
           <div className="mt-8 flex justify-center">
             <Link
               href={viewAllHref}
-              className="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full bg-white hover:bg-[#221c15] text-[#221c15] hover:text-white border border-[#ebdcc9] hover:border-[#221c15] text-xs sm:text-sm font-black shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full bg-white/5 hover:bg-[#FF8B2C] text-white hover:text-black border border-white/10 hover:border-[#FF8B2C] text-xs sm:text-sm font-black shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-[#FF8B2C]/20 hover:scale-105 active:scale-95"
             >
               <span>{viewAllLabel}</span>
-              <ArrowLeft className="w-4 h-4 text-[#d97706]" />
+              <ArrowLeft className="w-4 h-4 text-[#FF8B2C] group-hover:text-black" />
             </Link>
           </div>
         )}

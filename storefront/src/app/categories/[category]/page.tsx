@@ -112,27 +112,20 @@ export default async function CategoryDetailPage({
   );
 
   return (
-    <main className="relative flex-grow flex flex-col min-h-screen bg-[#fbf7ee] text-[#221c15] pt-28 sm:pt-36 pb-20 overflow-hidden">
+    <main className="relative flex-grow flex flex-col min-h-screen text-white pt-28 sm:pt-36 pb-20 overflow-hidden">
       
-      {/* Background Decorative Pattern */}
-      <div 
-        className="absolute top-0 right-0 w-80 h-80 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('${meta.pattern}')` }}
-      />
-      <div 
-        className="absolute bottom-10 left-0 w-80 h-80 bg-contain bg-no-repeat opacity-20 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_1.jpg')` }}
-      />
+      {/* Background Glow */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
         {/* Category Header Banner */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#221c15] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             {meta.title}
           </h1>
 
-          <p className="mt-3 text-xs sm:text-sm text-[#5c4f42] font-semibold leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-semibold leading-relaxed">
             {meta.subtitle}
           </p>
         </div>
@@ -141,7 +134,7 @@ export default async function CategoryDetailPage({
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
           <Link
             href="/categories"
-            className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-[#5c4f42] border border-[#ebdcc9] hover:border-[#d97706] hover:text-[#221c15] whitespace-nowrap transition-all"
+            className="px-4 py-2 rounded-xl text-xs font-bold bg-white/5 text-zinc-300 border border-white/10 hover:border-[#FF8B2C] hover:text-[#FF8B2C] whitespace-nowrap transition-all"
           >
             كافة الفئات
           </Link>
@@ -149,7 +142,7 @@ export default async function CategoryDetailPage({
             <Link
               key={cat.id}
               href={`/categories/${cat.id}`}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-[#5c4f42] border border-[#ebdcc9] hover:border-[#d97706] hover:text-[#221c15] whitespace-nowrap transition-all"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-white/5 text-zinc-300 border border-white/10 hover:border-[#FF8B2C] hover:text-[#FF8B2C] whitespace-nowrap transition-all"
             >
               {cat.label}
             </Link>
@@ -158,13 +151,13 @@ export default async function CategoryDetailPage({
 
         {/* Products Grid */}
         {categoryProducts.length === 0 ? (
-          <div className="text-center py-16 bg-white border border-[#ebdcc9] rounded-3xl p-8 max-w-md mx-auto shadow-sm">
-            <p className="text-sm font-bold text-[#5c4f42] mb-4">
+          <div className="text-center py-16 glass-panel rounded-3xl p-8 max-w-md mx-auto shadow-sm">
+            <p className="text-sm font-bold text-zinc-300 mb-4">
               سيتم إضافة المزيد من منتجات هذا القسم قريباً
             </p>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#221c15] text-white text-xs font-black hover:bg-[#d97706] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FF8B2C] text-black text-xs font-black hover:bg-[#FFA857] transition-colors shadow-lg shadow-[#FF8B2C]/25"
             >
               <span>تصفح كافة المنتجات</span>
               <ArrowRight className="w-4 h-4" />

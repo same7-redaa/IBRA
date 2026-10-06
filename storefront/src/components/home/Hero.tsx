@@ -45,8 +45,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-[#fbf7ee] text-[#221c15] flex items-center">
+    <section className="relative w-full min-h-[90vh] lg:min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden text-white flex items-center">
       
+      {/* Ambient Radial Mesh Glow behind Hero */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-1/4 w-[400px] h-[400px] bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
       {/* 2. Main Content Container */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -57,36 +61,36 @@ export default function Hero() {
             {/* Background Image scoped exclusively behind the Text */}
             <div className="absolute -inset-4 sm:-inset-8 -z-10 rounded-3xl overflow-hidden pointer-events-none">
               <div
-                className="w-full h-full bg-cover bg-center bg-no-repeat opacity-65 mix-blend-multiply"
+                className="w-full h-full bg-cover bg-center bg-no-repeat opacity-25 mix-blend-screen"
                 style={{ backgroundImage: `url('/hero_bg.jpg')` }}
               />
               {/* Soft edge feathering */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7ee] via-transparent to-[#fbf7ee]/40" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#fbf7ee] via-transparent to-[#fbf7ee]/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-[#060608]/80" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#060608] via-transparent to-[#060608]/80" />
             </div>
 
             {/* Main Brand Title with Tatweel */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider text-[#221c15] leading-tight select-none">
-              عَـــسَـــل زويـــــن
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider text-white leading-tight select-none drop-shadow-[0_4px_25px_rgba(0,0,0,0.8)]">
+              عَـــسَـــل <span className="text-[#FF8B2C] drop-shadow-[0_0_30px_rgba(255,139,44,0.4)]">زويـــــن</span>
             </h1>
 
             {/* Subtitle Description */}
-            <p className="mt-4 text-base sm:text-lg lg:text-xl text-[#5c4f42] font-semibold leading-relaxed max-w-xl">
-              عسل نقي 100%، غني طبيعياً ومختار بعناية
+            <p className="mt-4 text-base sm:text-lg lg:text-xl text-zinc-300 font-semibold leading-relaxed max-w-xl">
+              عسل نقي 100%، غني طبيعياً ومختار بعناية من أصفى المناحل الجبلية
             </p>
 
             {/* Feature Highlights Pills */}
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
-                <ShieldCheck className="w-4 h-4 text-[#d97706]" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-[#FF8B2C]" />
                 <span>مفحوص وموثق مخبرياً 100%</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
-                <Award className="w-4 h-4 text-[#d97706]" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
+                <Award className="w-4 h-4 text-[#FF8B2C]" />
                 <span>أعلى درجات النقاء الطبيعي</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebdcc9] shadow-sm text-xs font-bold text-[#221c15]">
-                <Sparkles className="w-4 h-4 text-[#d97706]" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-white border border-white/10 hover:border-[#FF8B2C]/40 transition-colors shadow-sm">
+                <Sparkles className="w-4 h-4 text-[#FF8B2C]" />
                 <span>بدون أي تغذية سكرية</span>
               </div>
             </div>
@@ -138,19 +142,19 @@ export default function Hero() {
                   transformStyle = { transform: "translate3d(0, 0, 0) scale(1) rotate(0deg)" };
                   opacityStyle = 1;
                   zIndexStyle = 40;
-                  filterStyle = "drop-shadow(0 20px 35px rgba(180, 83, 9, 0.22)) blur(0px)";
+                  filterStyle = "drop-shadow(0 20px 40px rgba(255, 139, 44, 0.35)) blur(0px)";
                 } else if (offset === 1) {
                   // 2. Right Wing Card (Behind & Soft Blur)
                   transformStyle = { transform: "translate3d(62px, -12px, 0) scale(0.78) rotate(9deg)" };
                   opacityStyle = 0.65;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92) blur(2.5px)";
+                  filterStyle = "drop-shadow(0 10px 25px rgba(255, 139, 44, 0.15)) brightness(0.85) blur(2.5px)";
                 } else if (offset === honeyImages.length - 1) {
                   // 3. Left Wing Card (Behind & Soft Blur)
                   transformStyle = { transform: "translate3d(-62px, -12px, 0) scale(0.78) rotate(-9deg)" };
                   opacityStyle = 0.65;
                   zIndexStyle = 20;
-                  filterStyle = "drop-shadow(0 10px 20px rgba(180, 83, 9, 0.10)) brightness(0.92) blur(2.5px)";
+                  filterStyle = "drop-shadow(0 10px 25px rgba(255, 139, 44, 0.15)) brightness(0.85) blur(2.5px)";
                 } else {
                   // 4. Back / Hidden Queue Card
                   transformStyle = { transform: "translate3d(0, -35px, 0) scale(0.58) rotate(0deg)" };
@@ -193,7 +197,7 @@ export default function Hero() {
                   setCurrentImageIndex((prev) => (prev - 1 + honeyImages.length) % honeyImages.length);
                 }}
                 aria-label="الصورة السابقة"
-                className="w-8 h-8 rounded-full bg-white border border-[#ebdcc9] text-[#221c15] hover:bg-[#d97706] hover:text-white flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white border border-white/15 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation hover:border-[#FF8B2C]"
               >
                 <ChevronRight className="w-4 h-4 pointer-events-none" />
               </button>
@@ -210,8 +214,8 @@ export default function Hero() {
                     aria-label={`عرض الصورة ${dotIdx + 1}`}
                     className={`h-2 rounded-full transition-all duration-500 cursor-pointer touch-manipulation ${
                       dotIdx === currentImageIndex
-                        ? "w-8 bg-[#d97706] shadow-sm"
-                        : "w-2 bg-[#ebdcc9] hover:bg-[#d97706]/50"
+                        ? "w-8 bg-[#FF8B2C] shadow-[0_0_10px_rgba(255,139,44,0.6)]"
+                        : "w-2 bg-white/20 hover:bg-[#FF8B2C]/50"
                     }`}
                   />
                 ))}
@@ -224,7 +228,7 @@ export default function Hero() {
                   setCurrentImageIndex((prev) => (prev + 1) % honeyImages.length);
                 }}
                 aria-label="الصورة التالية"
-                className="w-8 h-8 rounded-full bg-white border border-[#ebdcc9] text-[#221c15] hover:bg-[#d97706] hover:text-white flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white border border-white/15 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer touch-manipulation hover:border-[#FF8B2C]"
               >
                 <ChevronLeft className="w-4 h-4 pointer-events-none" />
               </button>

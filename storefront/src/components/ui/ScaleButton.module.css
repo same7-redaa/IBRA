@@ -43,81 +43,83 @@
 
 /* Honey Amber Variant */
 .variantNeon {
-  border: 2px solid #d97706;
-  background-color: #d97706;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
+  border: 2px solid #FF8B2C;
+  background-color: #FF8B2C;
+  color: #060608;
+  box-shadow: 0 4px 20px rgba(255, 139, 44, 0.35);
 }
 .variantNeon::after {
-  background-color: #b45309;
+  background-color: #FFA857;
 }
 .variantNeon:hover {
-  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
-  color: #ffffff;
-  border-color: #b45309;
+  box-shadow: 0 6px 30px rgba(255, 139, 44, 0.6);
+  color: #060608;
+  border-color: #FFA857;
 }
 .variantNeon:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantNeon:hover .btnTxt {
-  color: #ffffff;
+  color: #060608;
 }
 
-/* Cream / Card Variant */
+/* Dark Glass Variant */
 .variantDark {
-  border: 1.5px solid #ebdcc9;
-  color: #221c15;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 .variantDark::after {
-  background-color: #fbf7ee;
+  background-color: rgba(255, 139, 44, 0.15);
 }
 .variantDark:hover {
-  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.15);
-  color: #d97706;
-  border-color: #d97706;
+  box-shadow: 0 4px 22px rgba(255, 139, 44, 0.25);
+  color: #FF8B2C;
+  border-color: #FF8B2C;
 }
 .variantDark:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantDark:hover .btnTxt {
-  color: #d97706;
+  color: #FF8B2C;
 }
 
-/* White Outline Variant */
+/* White / Subtle Outline Variant */
 .variantWhite {
-  border: 2px solid #ebdcc9;
-  color: #221c15;
-  background-color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
 }
 .variantWhite::after {
-  background-color: #fbf7ee;
+  background-color: rgba(255, 139, 44, 0.15);
 }
 .variantWhite:hover {
-  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.15);
-  color: #d97706;
-  border-color: #d97706;
+  box-shadow: 0 4px 20px rgba(255, 139, 44, 0.25);
+  color: #FF8B2C;
+  border-color: #FF8B2C;
 }
 .variantWhite:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
 .variantWhite:hover .btnTxt {
-  color: #d97706;
+  color: #FF8B2C;
 }
 
 /* Active State (e.g. for selected Category Tab) */
 .activeTab {
-  background-color: #d97706 !important;
-  border-color: #d97706 !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35) !important;
+  background-color: #FF8B2C !important;
+  border-color: #FF8B2C !important;
+  color: #060608 !important;
+  box-shadow: 0 4px 22px rgba(255, 139, 44, 0.5) !important;
 }
 .activeTab .btnTxt {
-  color: #ffffff !important;
+  color: #060608 !important;
 }
 .activeTab::after {
   display: none !important;

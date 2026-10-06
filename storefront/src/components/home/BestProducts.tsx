@@ -18,18 +18,15 @@ export default function BestProducts() {
         );
 
   return (
-    <section className="relative w-full py-14 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-[#fbf7ee] text-[#221c15] border-t border-[#ebdcc9] overflow-hidden">
+    <section className="relative w-full py-14 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-white border-t border-white/10 overflow-hidden">
       
-      {/* Cutout Decorative Botanical Illustration Behind Header */}
-      <div 
-        className="absolute -top-6 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-30 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_3.jpg')` }}
-      />
+      {/* Ambient background glow */}
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#FF8B2C]/8 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Cutout Decorative Illustration Bottom Left */}
+      {/* Decorative Cutout Illustration Behind Header */}
       <div 
-        className="absolute bottom-4 -left-8 w-60 h-60 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-25 mix-blend-multiply pointer-events-none"
-        style={{ backgroundImage: `url('/pattern_4.jpg')` }}
+        className="absolute -top-6 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-contain bg-no-repeat opacity-15 mix-blend-screen pointer-events-none"
+        style={{ backgroundImage: `url('/pattern_3.jpg')` }}
       />
 
       <div className="w-full max-w-[1550px] mx-auto relative z-10">
@@ -37,8 +34,8 @@ export default function BestProducts() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9 gap-5">
           <div className="relative">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#221c15]">
-              أجود <span className="text-[#d97706]">أعسال النحل</span> والخلطات الملكية
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
+              أجود <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.35)]">أعسال النحل</span> والخلطات الملكية
             </h2>
           </div>
 
@@ -70,9 +67,9 @@ export default function BestProducts() {
         <div className="mt-12 text-center">
           <ScaleButton
             href="/products"
-            variant="dark"
+            variant="neon"
             size="lg"
-            className="min-w-[270px]"
+            className="min-w-[270px] shadow-lg shadow-[#FF8B2C]/25"
           >
             استكشف تشكيلة الأعسال الطبيعية بالكامل
           </ScaleButton>

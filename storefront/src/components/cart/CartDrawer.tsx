@@ -25,28 +25,28 @@ export default function CartDrawer() {
       {/* Backdrop */}
       <div
         onClick={closeCart}
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity animate-fade-in"
+        className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity animate-fade-in"
       />
 
       {/* Slide-over Drawer Panel */}
-      <div className="relative z-10 w-full max-w-md bg-[#fbf7ee] text-[#221c15] h-full shadow-2xl flex flex-col justify-between border-r border-[#ebdcc9] animate-slide-in-right">
+      <div className="relative z-10 w-full max-w-md bg-[#0b0b10]/95 backdrop-blur-2xl text-white h-full shadow-2xl flex flex-col justify-between border-r border-white/10 animate-slide-in-right">
         
         {/* Drawer Header */}
-        <div className="p-5 border-b border-[#ebdcc9] bg-white flex items-center justify-between">
+        <div className="p-5 border-b border-white/10 bg-white/5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center text-[#d97706]">
+            <div className="w-9 h-9 rounded-xl bg-[#FF8B2C]/15 border border-[#FF8B2C]/35 flex items-center justify-center text-[#FF8B2C] shadow-[0_0_12px_rgba(255,139,44,0.3)]">
               <ShoppingBag className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-black text-[#221c15]">سلة المشتريات</h2>
-              <p className="text-xs text-[#5c4f42] font-semibold">{cartCount} منتجات في السلة</p>
+              <h2 className="text-lg font-black text-white">سلة المشتريات</h2>
+              <p className="text-xs text-zinc-400 font-semibold">{cartCount} منتجات في السلة</p>
             </div>
           </div>
 
           <button
             onClick={closeCart}
             aria-label="إغلاق السلة"
-            className="w-8 h-8 rounded-full bg-[#fbf7ee] border border-[#ebdcc9] text-[#5c4f42] hover:text-[#221c15] hover:bg-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -56,16 +56,16 @@ export default function CartDrawer() {
         <div className="flex-grow overflow-y-auto p-5 space-y-4">
           {cartItems.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-16">
-              <div className="w-16 h-16 rounded-full bg-white border border-[#ebdcc9] flex items-center justify-center text-[#8a7a6b] mb-4 shadow-sm">
+              <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-500 mb-4 shadow-sm">
                 <ShoppingBag className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-bold text-[#221c15] mb-1">السلة فارغة حالياً</h3>
-              <p className="text-xs text-[#5c4f42] max-w-xs mb-6">
+              <h3 className="text-lg font-bold text-white mb-1">السلة فارغة حالياً</h3>
+              <p className="text-xs text-zinc-400 max-w-xs mb-6">
                 تصفح أجود قطفات عسل زوين وأضف ما يناسبك إلى سلتك
               </p>
               <button
                 onClick={closeCart}
-                className="px-6 py-2.5 rounded-xl bg-[#221c15] text-white text-xs font-bold hover:bg-[#d97706] transition-colors"
+                className="px-6 py-2.5 rounded-xl bg-[#FF8B2C] text-black font-black text-xs hover:bg-[#FFA857] transition-colors shadow-lg shadow-[#FF8B2C]/25 cursor-pointer"
               >
                 تصفح المنتجات الآن
               </button>
@@ -74,10 +74,10 @@ export default function CartDrawer() {
             cartItems.map((item) => (
               <div
                 key={item.id}
-                className="p-3.5 rounded-2xl bg-white border border-[#ebdcc9] flex items-center gap-3.5 shadow-sm"
+                className="p-3.5 rounded-2xl glass-card flex items-center gap-3.5"
               >
                 {/* Product Thumbnail */}
-                <div className="w-16 h-16 relative rounded-xl bg-[#fbf7ee] border border-[#ebdcc9] flex items-center justify-center shrink-0 p-1 overflow-hidden">
+                <div className="w-16 h-16 relative rounded-xl bg-black/40 border border-white/10 flex items-center justify-center shrink-0 p-1 overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -89,28 +89,28 @@ export default function CartDrawer() {
 
                 {/* Details */}
                 <div className="flex-grow min-w-0">
-                  <h4 className="text-xs font-bold text-[#221c15] truncate mb-1">
+                  <h4 className="text-xs font-bold text-white truncate mb-1">
                     {item.name}
                   </h4>
-                  <div className="text-xs font-black text-[#d97706] mb-2">
+                  <div className="text-xs font-black text-[#FF8B2C] mb-2">
                     {item.price} ج.م
                   </div>
 
                   {/* Quantity Controls */}
                   <div className="flex items-center gap-2">
-                    <div className="flex items-center border border-[#ebdcc9] rounded-lg bg-[#fbf7ee]">
+                    <div className="flex items-center border border-white/10 rounded-lg bg-black/40">
                       <button
                         onClick={() => updateQuantity(item.id, -1)}
-                        className="w-6 h-6 flex items-center justify-center text-[#5c4f42] hover:text-[#221c15]"
+                        className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
-                      <span className="w-6 text-center text-xs font-bold text-[#221c15]">
+                      <span className="w-6 text-center text-xs font-bold text-white">
                         {item.quantity}
                       </span>
                       <button
                         onClick={() => updateQuantity(item.id, 1)}
-                        className="w-6 h-6 flex items-center justify-center text-[#5c4f42] hover:text-[#221c15]"
+                        className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
                       >
                         <Plus className="w-3 h-3" />
                       </button>
@@ -118,7 +118,7 @@ export default function CartDrawer() {
 
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="text-red-500 hover:text-red-700 p-1 mr-auto transition-colors"
+                      className="text-red-400 hover:text-red-300 p-1 mr-auto transition-colors cursor-pointer"
                       title="حذف من السلة"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -132,19 +132,19 @@ export default function CartDrawer() {
 
         {/* Drawer Footer & Checkout */}
         {cartItems.length > 0 && (
-          <div className="p-5 border-t border-[#ebdcc9] bg-white space-y-4">
+          <div className="p-5 border-t border-white/10 bg-white/5 space-y-4">
             
             {/* Guarantee Pill */}
-            <div className="flex items-center justify-center gap-2 text-[11px] text-[#5c4f42] font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
+            <div className="flex items-center justify-center gap-2 text-[11px] text-zinc-300 font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FF8B2C]" />
               <span>ضمان ذهبي مع إمكانية المعاينة قبل الدفع</span>
             </div>
 
             {/* Total Price Row */}
-            <div className="flex items-center justify-between border-t border-[#ebdcc9] pt-3">
-              <span className="text-sm font-bold text-[#5c4f42]">الإجمالي النهائي:</span>
-              <span className="text-xl font-black text-[#d97706]">
-                {totalAmount} <span className="text-xs font-bold text-[#5c4f42]">ج.م</span>
+            <div className="flex items-center justify-between border-t border-white/10 pt-3">
+              <span className="text-sm font-bold text-zinc-400">الإجمالي النهائي:</span>
+              <span className="text-xl font-black text-[#FF8B2C] drop-shadow-[0_0_12px_rgba(255,139,44,0.4)]">
+                {totalAmount} <span className="text-xs font-bold text-zinc-400">ج.م</span>
               </span>
             </div>
 
@@ -152,7 +152,7 @@ export default function CartDrawer() {
             <Link
               href="/checkout"
               onClick={closeCart}
-              className="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-[#221c15] hover:bg-[#d97706] text-white font-black text-sm transition-all shadow-md active:scale-95"
+              className="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-[#FF8B2C] hover:bg-[#FFA857] text-black font-black text-sm transition-all shadow-lg shadow-[#FF8B2C]/30 active:scale-95"
             >
               <span>إتمام الطلب والدفع</span>
               <ArrowLeft className="w-4 h-4" />

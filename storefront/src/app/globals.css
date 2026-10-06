@@ -46,14 +46,14 @@
 }
 
 :root {
-  --background: #fbf7ee;
-  --foreground: #221c15;
-  --color-neon-lime: #d97706;
-  --color-honey-gold: #d97706;
-  --color-honey-light: #f59e0b;
-  --color-deep-black: #221c15;
-  --color-soft-gray: #f5efe3;
-  --color-purple-accent: #fef3c7;
+  --background: #060608;
+  --foreground: #ffffff;
+  --color-neon-lime: #FF8B2C;
+  --color-honey-gold: #FF8B2C;
+  --color-honey-light: #FFA959;
+  --color-deep-black: #060608;
+  --color-soft-gray: #121218;
+  --color-purple-accent: #1e140d;
 }
 
 @theme inline {
@@ -129,6 +129,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-display), var(--font-thmanyah), serif;
+  overflow-x: hidden;
 }
 
 button, input, select, textarea, a, p, span, div, label {
@@ -140,4 +141,44 @@ h1, h2, h3, h4, h5, h6, .heading, .font-display {
   font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
   font-variant-ligatures: contextual common-ligatures;
   text-rendering: optimizeLegibility;
+}
+
+/* Atmospheric Glowing Ambient Gradient Backdrop */
+.ambient-glow-bg {
+  background-color: #060608;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 139, 44, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 40%, rgba(255, 139, 44, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 70%, rgba(255, 139, 44, 0.08), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 110%, rgba(255, 139, 44, 0.14), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(14, 14, 19, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 139, 44, 0.18);
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.65), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(18, 18, 24, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 139, 44, 0.45);
+  box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 139, 44, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill {
+  background: rgba(255, 139, 44, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 139, 44, 0.25);
 }

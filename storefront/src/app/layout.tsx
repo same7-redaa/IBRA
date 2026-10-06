@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#fbf7ee] text-[#221c15] relative selection:bg-[#d97706]/20 selection:text-[#221c15]">
+    <html lang="ar" dir="rtl" className="h-full antialiased dark">
+      <body className="min-h-full flex flex-col ambient-glow-bg text-[#f4f4f6] relative selection:bg-[#FF8B2C]/30 selection:text-white">
         <CartProvider>
           <Suspense fallback={null}>
             <ScrollToTop />
