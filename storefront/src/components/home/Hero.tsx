@@ -57,9 +57,11 @@ export default function Hero() {
         style={{ backgroundImage: `url('/bg-art/logo.png')` }}
       />
       <div
-        className="absolute bottom-8 left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[22deg] -z-10"
+        className="absolute bottom-12 left-8 w-44 h-44 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[22deg] -z-10"
         style={{ backgroundImage: `url('/bg-art/social-media.png')` }}
       />
+      {/* Seamless Black Gradient Transition at bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
 
       {/* 2. Main Content Container */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">

@@ -19,6 +19,10 @@ export default function SocialConnect() {
         style={{ backgroundImage: `url('/bg-art/logo.png')` }}
       />
 
+      {/* Seamless Black Gradient Transitions (Top & Bottom Fades) */}
+      <div className="absolute inset-x-0 top-0 h-20 sm:h-28 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+
       <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">

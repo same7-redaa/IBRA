@@ -30,6 +30,10 @@ export default function OffersPage() {
         style={{ backgroundImage: `url('/bg-art/facebook.png')` }}
       />
 
+      {/* Seamless Black Gradient Transitions */}
+      <div className="absolute inset-x-0 top-0 h-24 sm:h-36 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         
         {/* Header Title */}

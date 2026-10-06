@@ -17,6 +17,9 @@ export default function HoneyFeatures() {
         className="absolute -top-6 -left-6 w-36 h-36 sm:w-52 sm:h-52 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[16deg]"
         style={{ backgroundImage: `url('/bg-art/instagram.png')` }}
       />
+      {/* Seamless Black Gradient Transitions (Top & Bottom Fades) */}
+      <div className="absolute inset-x-0 top-0 h-20 sm:h-28 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
 
       <div className="w-full max-w-[1440px] mx-auto relative z-10">
         

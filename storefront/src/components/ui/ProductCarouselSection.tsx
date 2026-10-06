@@ -96,6 +96,10 @@ export default function ProductCarouselSection({
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-[#FF8B2C]/5 rounded-full blur-[120px] pointer-events-none" />
 
+      {/* Seamless Black Gradient Transitions (Top & Bottom Fades) */}
+      <div className="absolute inset-x-0 top-0 h-20 sm:h-28 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+
       {/* Decorative Background Artworks with varied positions, sizes & angles */}
       {bgArt && bgArt.length > 0 ? (
         bgArt.map((art, idx) => (

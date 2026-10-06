@@ -8,6 +8,9 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-transparent text-white pt-16 pb-8 mt-auto relative z-10 overflow-hidden">
+      {/* Seamless Black Gradient Transition at Top */}
+      <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[#060608] via-[#060608]/80 to-transparent pointer-events-none z-[2]" />
+
       <div className="w-full max-w-[1550px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         
         {/* Main 4-Column Grid */}
