@@ -60,24 +60,34 @@ export default function Header() {
       e.preventDefault();
       setIsMobileMenuOpen(false);
 
+      const lenisInstance = typeof window !== "undefined" ? (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { duration?: number; offset?: number; immediate?: boolean }) => void } }).lenis : null;
+
       if (id === "top") {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        if (lenisInstance) {
+          lenisInstance.scrollTo(0, { duration: 1.2 });
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
         setActiveSection("top");
         window.history.pushState(null, "", "/");
       } else {
         const element = document.getElementById(id);
         if (element) {
-          const headerOffset = 90;
+          const headerOffset = 85;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
+          if (lenisInstance) {
+            lenisInstance.scrollTo(offsetPosition, { duration: 1.2 });
+          } else {
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
           setActiveSection(id);
           window.history.pushState(null, "", `#${id}`);
         }
@@ -90,7 +100,7 @@ export default function Header() {
   return (
     <div className="fixed top-2.5 sm:top-4 inset-x-0 z-50 w-full px-3 sm:px-6 max-w-[1440px] mx-auto">
       {/* Main Header Capsule */}
-      <header className="relative w-full rounded-2xl sm:rounded-full border border-[#FF8B2C]/25 bg-[#0b0b10]/90 backdrop-blur-2xl shadow-[0_10px_35px_rgba(0,0,0,0.7)] transition-all">
+      <header className="relative w-full rounded-2xl sm:rounded-full border border-[#FF8B2C]/25 bg-[#0b0b10]/92 backdrop-blur-2xl shadow-[0_10px_35px_rgba(0,0,0,0.7)] transition-all">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 sm:h-16 items-center justify-between gap-3 sm:gap-4 relative">
             
@@ -107,7 +117,7 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Desktop Navigation Links with Smooth Active Animation & Highlighting */}
+            {/* Desktop Navigation Links with Lenis Smooth Navigation */}
             <nav className="hidden lg:flex items-center justify-center flex-grow gap-4 xl:gap-8 py-1 px-2">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
@@ -168,7 +178,7 @@ export default function Header() {
                 <span className="font-mono">{currentLang === "ar" ? "EN" : "عربي"}</span>
               </button>
 
-              {/* Hamburger Button with Accent Glow */}
+              {/* Hamburger Button with Smooth Icon Animation */}
               <button
                 type="button"
                 onClick={(e) => {
@@ -176,48 +186,59 @@ export default function Header() {
                   setIsMobileMenuOpen((prev) => !prev);
                 }}
                 aria-label="القائمة الرئيسية"
-                className={`flex items-center justify-center w-9 h-9 rounded-xl border transition-all cursor-pointer select-none ${
+                className={`relative flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-300 cursor-pointer select-none overflow-hidden ${
                   isMobileMenuOpen 
-                    ? "border-[#FF8B2C] bg-[#FF8B2C]/15 text-[#FF8B2C]" 
+                    ? "border-[#FF8B2C] bg-[#FF8B2C]/15 text-[#FF8B2C] shadow-[0_0_15px_rgba(255,139,44,0.3)]" 
                     : "border-white/10 bg-white/5 text-zinc-200 active:text-[#FF8B2C]"
                 }`}
               >
-                {isMobileMenuOpen ? (
-                  <X className="h-5 w-5 pointer-events-none" />
-                ) : (
-                  <Menu className="h-5 w-5 pointer-events-none" />
-                )}
+                <div className={`transition-all duration-300 transform ${isMobileMenuOpen ? "rotate-90 scale-110" : "rotate-0 scale-100"}`}>
+                  {isMobileMenuOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </div>
               </button>
             </div>
 
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown Menu (Floating inside capsule with smooth animation) */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/10 bg-[#0c0c12]/98 backdrop-blur-3xl rounded-b-2xl shadow-2xl p-4 transition-all">
-            <div className="space-y-1.5 pb-3">
-              {NAV_LINKS.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href, link.id)}
-                    className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-bold transition-all text-right ${
-                      isActive
-                        ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border-r-4 border-[#FF8B2C] font-black"
-                        : "text-zinc-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#FF8B2C] shadow-[0_0_8px_#FF8B2C]" />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
+        {/* Mobile Navigation Dropdown Menu with Rich Smooth Animation */}
+        <div 
+          className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isMobileMenuOpen 
+              ? "max-h-[420px] opacity-100 border-t border-white/10" 
+              : "max-h-0 opacity-0 border-t-0 pointer-events-none"
+          } bg-[#0c0c12]/98 backdrop-blur-3xl rounded-b-2xl shadow-2xl`}
+        >
+          <div className="p-4 space-y-1.5">
+            {NAV_LINKS.map((link, idx) => {
+              const isActive = activeSection === link.id;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
+                  style={{
+                    transitionDelay: isMobileMenuOpen ? `${idx * 40}ms` : "0ms",
+                  }}
+                  className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300 text-right ${
+                    isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+                  } ${
+                    isActive
+                      ? "bg-[#FF8B2C]/15 text-[#FF8B2C] border-r-4 border-[#FF8B2C] font-black shadow-inner"
+                      : "text-zinc-300 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#FF8B2C] shadow-[0_0_8px_#FF8B2C]" />
+                  )}
+                </Link>
+              );
+            })}
 
             {/* Mobile Menu Bottom Direct CTA Button */}
             <div className="pt-3 border-t border-white/10">
@@ -230,8 +251,9 @@ export default function Header() {
               </Link>
             </div>
           </div>
-        )}
+        </div>
       </header>
     </div>
   );
 }
+
