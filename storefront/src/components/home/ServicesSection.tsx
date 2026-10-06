@@ -125,10 +125,9 @@ const SERVICES_LIST: ServiceItem[] = [
     title: "تـــوســـيـــع الـــمـــتـــاجـــر وتـــحـــســـيـــن CRO",
     enTitle: "E-Commerce Scaling & CRO",
     description: "تحسين مسار الشراء وصفحات الهبوط لرفع معدل التحويل الشرائي (CRO) ومضاعفة مبيعات وأرباح المتاجر الإلكترونية لمعالجة آلاف الطلبات شهرياً.",
-    primaryImage: "/hero-icons/instagram.png",
-    brandIcons: [SiShopify, ShoppingBag],
+    primaryImage: "/hero-icons/social-store.png",
     toolBadges: [
-      { name: "Shopify Stores", icon: SiShopify },
+      { name: "E-Commerce Growth", image: "/hero-icons/social-store.png" },
       { name: "CRO Testing", icon: Target },
       { name: "AOV Scaling", icon: TrendingUp },
     ],
