@@ -4,25 +4,78 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  TrendingUp, 
-  BarChart3, 
-  Compass, 
-  Palette, 
-  LineChart, 
-  Share2, 
   ArrowLeft,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  Target,
+  Zap,
+  Film,
+  Palette,
+  ShoppingBag
 } from "lucide-react";
+import { 
+  SiMeta, 
+  SiTiktok, 
+  SiGoogleads, 
+  SiGoogle, 
+  SiShopify, 
+  SiInstagram, 
+  SiFacebook, 
+  SiYoutube 
+} from "react-icons/si";
 
 import ScrollReveal from "@/components/ui/ScrollReveal";
+
+// Crisp SVG Vector Badges for Adobe Suite
+function AdobePremiereIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="5" fill="#00005B" stroke="#9999FF" strokeWidth="1.5" />
+      <text x="5" y="16.5" fill="#9999FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Pr</text>
+    </svg>
+  );
+}
+
+function AdobeAfterEffectsIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="5" fill="#1B003A" stroke="#D291FF" strokeWidth="1.5" />
+      <text x="4" y="16.5" fill="#D291FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ae</text>
+    </svg>
+  );
+}
+
+function AdobePhotoshopIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="5" fill="#001E36" stroke="#31A8FF" strokeWidth="1.5" />
+      <text x="4.5" y="16.5" fill="#31A8FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ps</text>
+    </svg>
+  );
+}
+
+function AdobeIllustratorIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="5" fill="#330000" stroke="#FF9A00" strokeWidth="1.5" />
+      <text x="5" y="16.5" fill="#FF9A00" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ai</text>
+    </svg>
+  );
+}
+
+interface ToolBadge {
+  name: string;
+  icon?: React.ElementType;
+}
 
 interface ServiceItem {
   id: string;
   title: string;
   enTitle: string;
   description: string;
-  iconImage: string;
-  tags: string[];
+  primaryImage: string;
+  brandIcons: React.ElementType[];
+  toolBadges: ToolBadge[];
 }
 
 const SERVICES_LIST: ServiceItem[] = [
@@ -31,48 +84,78 @@ const SERVICES_LIST: ServiceItem[] = [
     title: "إدارة إعـــلانـــات مـــيـــتـــا",
     enTitle: "Meta Ads Management",
     description: "إطلاق وتوسيع حملات Facebook & Instagram Ads الشاملة (Full-Funnel) مع إعادة الاستهداف الذكي والـ Scaling لتحقيق أعلى عائد استثماري (ROAS).",
-    iconImage: "/hero-icons/meta.png",
-    tags: ["Facebook Ads", "Instagram Ads", "ROAS Scaling", "CAPI"],
+    primaryImage: "/hero-icons/meta.png",
+    brandIcons: [SiMeta, SiInstagram],
+    toolBadges: [
+      { name: "Facebook Ads", icon: SiFacebook },
+      { name: "Instagram Ads", icon: SiInstagram },
+      { name: "Meta Pixel & CAPI", icon: SiMeta },
+    ],
   },
   {
     id: "tiktok-ads",
     title: "إعـــلانـــات تـــيـــك تـــوك الـــمـــمـــولـــة",
     enTitle: "TikTok Ads Specialist",
     description: "استراتيجيات إعلانية متخصصة لمنصة TikTok مع استهداف الشرائح الأعلى تفاعلاً، إدارة Spark Ads، وحملات تحويل ومبيعات سريعة الانتشار.",
-    iconImage: "/hero-icons/tiktok.png",
-    tags: ["TikTok Ads", "Spark Ads", "Viral Conversions", "High CTR"],
+    primaryImage: "/hero-icons/tiktok.png",
+    brandIcons: [SiTiktok],
+    toolBadges: [
+      { name: "TikTok Ads", icon: SiTiktok },
+      { name: "Spark Ads", icon: Zap },
+      { name: "Viral Conversions", icon: TrendingUp },
+    ],
   },
   {
     id: "google-ads",
     title: "إعـــلانـــات جـــوجـــل والـــبـــحـــث",
     enTitle: "Google Ads & Search",
     description: "إدارة حملات Google Search و Performance Max و YouTube Ads لاستهداف العملاء ذوي النوايا الشرائية المباشرة وتخفيض تكلفة الاقتناء (CPP).",
-    iconImage: "/hero-icons/google-ads.png",
-    tags: ["Google Search", "Performance Max", "YouTube Ads", "High Intent"],
+    primaryImage: "/hero-icons/google-ads.png",
+    brandIcons: [SiGoogleads, SiGoogle],
+    toolBadges: [
+      { name: "Google Search", icon: SiGoogle },
+      { name: "Performance Max", icon: SiGoogleads },
+      { name: "YouTube Ads", icon: SiYoutube },
+    ],
   },
   {
     id: "ecommerce-scaling",
     title: "تـــوســـيـــع الـــمـــتـــاجـــر وتـــحـــســـيـــن CRO",
     enTitle: "E-Commerce Scaling & CRO",
     description: "تحسين مسار الشراء وصفحات الهبوط لرفع معدل التحويل الشرائي (CRO) ومضاعفة مبيعات وأرباح المتاجر الإلكترونية لمعالجة آلاف الطلبات شهرياً.",
-    iconImage: "/hero-icons/instagram.png",
-    tags: ["CRO Mastery", "Funnel Optimization", "AOV Booster", "Scaling"],
+    primaryImage: "/hero-icons/instagram.png",
+    brandIcons: [SiShopify, ShoppingBag],
+    toolBadges: [
+      { name: "Shopify Stores", icon: SiShopify },
+      { name: "CRO Testing", icon: Target },
+      { name: "AOV Scaling", icon: TrendingUp },
+    ],
   },
   {
     id: "motion-video",
     title: "الـــمـــوشـــن والـــفـــيـــديـــوهـــات الإعـــلانـــيـــة",
     enTitle: "Motion Graphics & Video Ads",
     description: "صناعة ومونتاج فيديوهات إعلانية سينمائية وموشن جرافيك للريلز وتيك توك بـ Premiere Pro و After Effects تخطف الانتباه وتحفز الشراء الفوري.",
-    iconImage: "/hero-icons/premiere-pro.png",
-    tags: ["Premiere Pro", "After Effects", "Reels & TikTok", "Viral Ads"],
+    primaryImage: "/hero-icons/premiere-pro.png",
+    brandIcons: [AdobePremiereIcon, AdobeAfterEffectsIcon],
+    toolBadges: [
+      { name: "Premiere Pro", icon: AdobePremiereIcon },
+      { name: "After Effects", icon: AdobeAfterEffectsIcon },
+      { name: "Reels & TikTok", icon: Film },
+    ],
   },
   {
     id: "graphic-design",
     title: "الـــتـــصـــمـــيـــم والـــهـــويـــة الـــبـــصـــريـــة",
     enTitle: "Graphic Design & Creatives",
     description: "تصميم بوستات، بانرات، وهوية بصرية كاملة بـ Photoshop و Illustrator توقف التمرير وتحقق أعلى تفاعل ومعدل نقر إعلاني (CTR).",
-    iconImage: "/hero-icons/photoshop.png",
-    tags: ["Photoshop", "Illustrator", "Ad Creatives", "Visual Identity"],
+    primaryImage: "/hero-icons/photoshop.png",
+    brandIcons: [AdobePhotoshopIcon, AdobeIllustratorIcon],
+    toolBadges: [
+      { name: "Photoshop", icon: AdobePhotoshopIcon },
+      { name: "Illustrator", icon: AdobeIllustratorIcon },
+      { name: "Ad Creatives", icon: Palette },
+    ],
   },
 ];
 
@@ -127,6 +210,9 @@ export default function ServicesSection() {
         {/* 6 Services Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {SERVICES_LIST.map((service, idx) => {
+            const PrimaryIcon = service.brandIcons[0];
+            const SecondaryIcon = service.brandIcons[1];
+
             return (
               <ScrollReveal
                 key={service.id}
@@ -135,15 +221,15 @@ export default function ServicesSection() {
                 className="h-full"
               >
                 <div
-                  className="group relative flex flex-col justify-between h-full p-7 sm:p-8 rounded-2xl bg-[#0e0e14]/85 backdrop-blur-xl border border-white/10 hover:border-[#FF8B2C]/50 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(255,139,44,0.18)] hover:-translate-y-1.5 overflow-hidden"
+                  className="group relative flex flex-col justify-between h-full p-7 sm:p-8 rounded-2xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#FF8B2C]/60 transition-all duration-400 hover:shadow-[0_16px_45px_rgba(255,139,44,0.22)] hover:-translate-y-2 overflow-hidden"
                 >
                   {/* Glow on Hover */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FF8B2C]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FF8B2C]/12 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
 
-                  {/* Large Transparent Ambient Brand Icon in Background / Bottom-Left */}
-                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-36 h-36 sm:w-44 sm:h-44 opacity-[0.07] group-hover:opacity-[0.16] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-400 pointer-events-none select-none z-0">
+                  {/* Large Ambient Brand Icon in Card Background */}
+                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-36 h-36 sm:w-44 sm:h-44 opacity-[0.06] group-hover:opacity-[0.16] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pointer-events-none select-none z-0">
                     <Image
-                      src={service.iconImage}
+                      src={service.primaryImage}
                       alt=""
                       fill
                       unoptimized
@@ -152,16 +238,31 @@ export default function ServicesSection() {
                   </div>
 
                   <div className="relative z-10">
-                    {/* Service Icon Badge with Hero Brand Image */}
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#FF8B2C]/20 to-[#FF8B2C]/5 border border-[#FF8B2C]/35 flex items-center justify-center p-3 shadow-[0_6px_20px_rgba(255,139,44,0.15)] mb-6 group-hover:scale-110 group-hover:border-[#FF8B2C] group-hover:shadow-[0_10px_28px_rgba(255,139,44,0.3)] transition-all duration-300">
-                      <Image
-                        src={service.iconImage}
-                        alt={service.title}
-                        width={44}
-                        height={44}
-                        unoptimized
-                        className="w-full h-full object-contain filter drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
-                      />
+                    {/* Multi-Icon Header Capsule */}
+                    <div className="flex items-center gap-3 mb-6">
+                      {/* Main Service Brand Badge */}
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#FF8B2C]/20 to-[#FF8B2C]/5 border border-[#FF8B2C]/40 flex items-center justify-center p-3 shadow-[0_4px_18px_rgba(255,139,44,0.2)] group-hover:scale-110 group-hover:border-[#FF8B2C] group-hover:shadow-[0_10px_28px_rgba(255,139,44,0.35)] transition-all duration-400">
+                        <Image
+                          src={service.primaryImage}
+                          alt={service.title}
+                          width={44}
+                          height={44}
+                          unoptimized
+                          className="w-full h-full object-contain filter drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
+                        />
+                      </div>
+
+                      {/* Tool Brand Icons Pills (Premiere, After Effects, Photoshop, Illustrator, Instagram, YouTube) */}
+                      <div className="flex items-center gap-1.5">
+                        {service.brandIcons.map((IconComp, bIdx) => (
+                          <div 
+                            key={bIdx}
+                            className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 group-hover:border-[#FF8B2C]/40 group-hover:text-white transition-all duration-300"
+                          >
+                            <IconComp className="w-4 h-4" />
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {/* English Label Subtitle */}
@@ -180,16 +281,20 @@ export default function ServicesSection() {
                     </p>
                   </div>
 
-                  {/* Service Tags */}
-                  <div className="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-white/5">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/5 text-zinc-300 border border-white/10 group-hover:border-[#FF8B2C]/30 group-hover:text-white transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Service Tool Badges with Crisp Icons */}
+                  <div className="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-white/10 group-hover:border-[#FF8B2C]/30 transition-colors">
+                    {service.toolBadges.map((badge) => {
+                      const BadgeIcon = badge.icon;
+                      return (
+                        <span
+                          key={badge.name}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/5 text-zinc-300 border border-white/10 group-hover:border-[#FF8B2C]/40 group-hover:text-white group-hover:bg-white/10 transition-all shadow-sm"
+                        >
+                          {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 text-[#FF8B2C]" />}
+                          <span>{badge.name}</span>
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </ScrollReveal>
