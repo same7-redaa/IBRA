@@ -126,8 +126,9 @@ const SERVICES_LIST: ServiceItem[] = [
     enTitle: "E-Commerce Scaling & CRO",
     description: "تحسين مسار الشراء وصفحات الهبوط لرفع معدل التحويل الشرائي (CRO) ومضاعفة مبيعات وأرباح المتاجر الإلكترونية لمعالجة آلاف الطلبات شهرياً.",
     primaryImage: "/hero-icons/social-store.png",
+    brandIcons: [ShoppingBag],
     toolBadges: [
-      { name: "E-Commerce Growth", image: "/hero-icons/social-store.png" },
+      { name: "معالجة الطلبات (Orders)", icon: ShoppingBag },
       { name: "CRO Testing", icon: Target },
       { name: "AOV Scaling", icon: TrendingUp },
     ],
