@@ -104,7 +104,7 @@ export default function Header() {
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 sm:h-16 items-center justify-between gap-3 sm:gap-4 relative">
             
-            {/* Logo Text: "ابراهيم علي" with Tatweel (Right side in RTL) */}
+            {/* Logo Text: "ابراهيم علي سليم" with Tatweel (Right side in RTL) */}
             <div className="flex-shrink-0 z-10 flex items-center">
               <Link 
                 href="/" 
@@ -112,7 +112,7 @@ export default function Header() {
                 className="flex items-center hover:opacity-90 transition-opacity py-1 group"
               >
                 <span className="text-sm xs:text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide group-hover:text-[#FF8B2C] transition-colors whitespace-nowrap">
-                  ابـــراهـــيــــم <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">عـــــلــــي</span>
+                  ابـــراهـــيــــم عـــــلــــي <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">ســـلـــيـــم</span>
                 </span>
               </Link>
             </div>

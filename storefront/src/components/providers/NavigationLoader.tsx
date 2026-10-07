@@ -113,7 +113,7 @@ export default function NavigationLoader() {
       style={{ transitionDuration: `${FADE_OUT_MS}ms` }}
     >
       <div className="flex flex-col items-center gap-5">
-        <Loader text="إبراهيم علي" />
+        <Loader text="إبراهيم علي سليم" />
         {/* Progress line that fills exactly over one animation cycle */}
         <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
           <div

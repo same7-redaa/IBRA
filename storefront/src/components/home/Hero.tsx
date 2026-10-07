@@ -128,7 +128,7 @@ export default function Hero() {
               }}
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-normal sm:tracking-wide text-white leading-tight select-none drop-shadow-[0_4px_25px_rgba(0,0,0,0.8)]">
-                ابـــراهـــيـــم <span className="text-[#FF8B2C] drop-shadow-[0_0_30px_rgba(255,139,44,0.4)]">عـــلـــي</span>
+                ابـــراهـــيـــم عـــلـــي <span className="text-[#FF8B2C] drop-shadow-[0_0_30px_rgba(255,139,44,0.4)]">ســـلـــيـــم</span>
               </h1>
             </div>
 
@@ -260,7 +260,7 @@ export default function Hero() {
               <div className="relative w-full h-full flex items-center justify-center z-10 pointer-events-none">
                 <Image
                   src="/hero-main.png"
-                  alt="ابراهيم علي"
+                  alt="ابراهيم علي سليم"
                   fill
                   priority
                   unoptimized

@@ -17,8 +17,8 @@ import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "معرض الأعمال والنتائج | إبراهيم علي",
-  description: "استكشف معارض الأعمال المتخصصة لإبراهيم علي: ميديا باينج، موشن جرافيك، تصاميم سوشيال ميديا، وتوسيع المتاجر الإلكترونية.",
+  title: "معرض الأعمال والنتائج | إبراهيم علي سليم",
+  description: "استكشف معارض الأعمال المتخصصة لإبراهيم علي سليم: ميديا باينج، موشن جرافيك، تصاميم سوشيال ميديا، وتوسيع المتاجر الإلكترونية.",
 };
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {

@@ -35,12 +35,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!category) {
     return {
-      title: "معرض الأعمال | إبراهيم علي",
+      title: "معرض الأعمال | إبراهيم علي سليم",
     };
   }
 
   return {
-    title: `${category.title} | إبراهيم علي`,
+    title: `${category.title} | إبراهيم علي سليم`,
     description: category.heroDescription,
   };
 }

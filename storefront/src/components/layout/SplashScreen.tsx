@@ -117,7 +117,7 @@ export default function SplashScreen() {
         {/* Center Site Name */}
         <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-xs">
           <h1 className="text-xl sm:text-3xl lg:text-4xl font-black text-white tracking-wider mb-1">
-            ابـــراهـــيــــم <span className="text-[#FF8B2C] drop-shadow-[0_0_25px_rgba(255,139,44,0.65)]">عـــــلــــي</span>
+            ابـــراهـــيــــم عـــــلــــي <span className="text-[#FF8B2C] drop-shadow-[0_0_25px_rgba(255,139,44,0.65)]">ســـلـــيـــم</span>
           </h1>
           <p className="text-[10px] sm:text-xs font-bold text-zinc-400 tracking-[0.2em] uppercase">
             Marketing Strategist

@@ -9,8 +9,8 @@ import ScrollToTop from "@/components/providers/ScrollToTop";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 export const metadata: Metadata = {
-  title: "إبراهيم علي | خبير التسويق الرقمي وتوسيع المتاجر الإلكترونية",
-  description: "الموقع الرسمي لإبراهيم علي - خبير التسويق الرقمي وإدارة الحملات الإعلانية وتوسيع المتاجر عبر Meta و TikTok و Google",
+  title: "إبراهيم علي سليم | خبير التسويق الرقمي وتوسيع المتاجر الإلكترونية",
+  description: "الموقع الرسمي لإبراهيم علي سليم - خبير التسويق الرقمي وإدارة الحملات الإعلانية وتوسيع المتاجر عبر Meta و TikTok و Google",
 };
 
 export default function RootLayout({

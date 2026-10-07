@@ -29,7 +29,7 @@ export default function SocialConnect() {
         <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          تواصل مع <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">إبراهيم علي</span>
+          تواصل مع <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">إبراهيم علي سليم</span>
         </h2>
 
         <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto leading-relaxed mb-8 font-medium">

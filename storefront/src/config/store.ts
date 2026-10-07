@@ -6,7 +6,7 @@ export const STORE_WHATSAPP_NUMBER = "201023160657";
 /** Human-readable local format shown in the UI */
 export const STORE_WHATSAPP_DISPLAY = "01023160657";
 
-export const STORE_NAME = "إبراهيم علي";
+export const STORE_NAME = "إبراهيم علي سليم";
 
 export const PAYMENT_METHOD_LABELS: Record<string, string> = {
   cod: "الدفع عند الاستلام",

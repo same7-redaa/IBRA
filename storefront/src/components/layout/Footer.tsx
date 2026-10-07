@@ -22,7 +22,7 @@ export default function Footer() {
               className="inline-block hover:opacity-90 transition-opacity"
             >
               <span className="text-xl sm:text-2xl font-black text-white tracking-wider">
-                ابـــراهـــيــــم <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">عـــــلــــي</span>
+                ابـــراهـــيــــم عـــــلــــي <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">ســـلـــيـــم</span>
               </span>
             </Link>
             <p className="text-xs text-zinc-300 leading-relaxed max-w-xs font-medium">
@@ -131,7 +131,7 @@ export default function Footer() {
         {/* Bottom Rights Row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400 font-medium">
           <p>
-            جميع الحقوق محفوظة © {currentYear} إبراهيم علي | خبير التسويق الرقمي وتوسيع المتاجر.
+            جميع الحقوق محفوظة © {currentYear} إبراهيم علي سليم | خبير التسويق الرقمي وتوسيع المتاجر.
           </p>
           <div className="flex items-center gap-1.5 text-zinc-400">
             <span className="text-[#FF8B2C] font-bold">●</span>
