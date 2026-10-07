@@ -7,37 +7,6 @@
   user-select: none;
 }
 
-.hintPop {
-  font-family: var(--font-sans, "Inter", sans-serif);
-  font-weight: 800;
-  font-size: 0.65rem;
-  letter-spacing: 2px;
-  color: #FF8B2C;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  animation: pulseHint 2s infinite ease-in-out;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 139, 44, 0.1);
-  border: 1px solid rgba(255, 139, 44, 0.3);
-  padding: 4px 12px;
-  border-radius: 9999px;
-  box-shadow: 0 0 15px rgba(255, 139, 44, 0.2);
-}
-
-@keyframes pulseHint {
-  0%, 100% {
-    opacity: 0.85;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-3px);
-  }
-}
-
 .radioInputContainer {
   position: relative;
   height: 270px;

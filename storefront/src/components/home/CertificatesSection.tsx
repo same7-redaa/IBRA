@@ -5,8 +5,7 @@ import {
   Award, 
   CheckCircle2, 
   ShieldCheck, 
-  RotateCw,
-  ChevronLeft,
+  ChevronLeft, 
   ChevronRight
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -29,73 +28,73 @@ const CERTIFICATES: CertificateItem[] = [
   {
     id: "adobe-certified",
     num: "01",
-    title: "Adobe Certified Expert",
-    shortLabel: "ADOBE",
-    issuer: "Photoshop & Illustrator",
-    org: "Adobe Systems",
+    title: "خبير معتمد من أدوبي (Adobe Expert)",
+    shortLabel: "أدوبــي",
+    issuer: "فوتوشوب وإليستريتور",
+    org: "شركة Adobe العالمية",
     year: "معتمد دولياً",
-    badge: "Expert Design",
-    skills: ["Photoshop", "Illustrator", "Visual Ads", "Brand Identity"],
+    badge: "خبير تصميم معتمد",
+    skills: ["فوتوشوب", "إليستريتور", "تصميم إعلاني", "هويات بصرية"],
     description: "شهادة اعتماد تخصصية في برامج التصميم المتقدمة، إنتاج الهويات البصرية، والتصميم الإعلاني عالي التحويل."
   },
   {
     id: "google-ads",
     num: "02",
-    title: "Google Ads Certified",
-    shortLabel: "GOOGLE",
-    issuer: "Google",
-    org: "Google Skillshop",
+    title: "شهادة إعلانات جوجل المعتمدة",
+    shortLabel: "جــوجــل",
+    issuer: "منصة Google Skillshop",
+    org: "شركة Google",
     year: "معتمد",
-    badge: "Search & Display Ads",
-    skills: ["Search Campaigns", "Display Network", "Smart Bidding", "Conversion Tracking"],
-    description: "اعتماد رسمي في تخطيط، تشغيل، وتحسين الحملات الإعلانية على شبكة بحث جوجل والشبكة الإعلانية."
+    badge: "إعلانات البحث والعرض",
+    skills: ["حملات البحث", "شبكة العرض", "المزايدة الذكية", "تتبع التحويلات"],
+    description: "اعتماد رسمي في تخطيط، إدارة وتحسين الحملات الإعلانية على شبكة بحث جوجل والشبكة الإعلانية."
   },
   {
     id: "udacity-nanodegree",
     num: "03",
-    title: "Digital Marketing Nanodegree",
-    shortLabel: "UDACITY",
-    issuer: "Udacity · 2021",
-    org: "Udacity Global",
+    title: "نانوديجري التسويق الرقمي",
+    shortLabel: "يوداسيتي",
+    issuer: "يوداسيتي (Udacity) · 2021",
+    org: "منصة Udacity العالمية",
     year: "2021",
-    badge: "Nanodegree Graduate",
-    skills: ["Growth Marketing", "Marketing Analytics", "Email Automation", "Content Strategy"],
+    badge: "خريج نانوديجري",
+    skills: ["تسويق النمو", "تحليل البيانات", "الأتمتة التسويقية", "استراتيجيات المحتوى"],
     description: "درجة النانو الاحترافية العالمية في التسويق الرقمي وبناء استراتيجيات النمو المعتمدة على البيانات الحية."
   },
   {
     id: "egypt-fwd",
     num: "04",
-    title: "Egypt FWD Challenger Track",
-    shortLabel: "EGYPT FWD",
-    issuer: "Udacity / Egypt FWD · 2021",
-    org: "Ministry of Communications & IT",
+    title: "مسار التحدي - مصر الرقمية (FWD)",
+    shortLabel: "مصر FWD",
+    issuer: "مبادرة FWD / يوداسيتي · 2021",
+    org: "وزارة الاتصالات وتكنولوجيا المعلومات",
     year: "2021",
-    badge: "Challenger Graduate",
-    skills: ["Market Research", "Targeting Strategies", "Social Media Ads", "Funnel Optimization"],
+    badge: "مسار التحدي المتقدم",
+    skills: ["أبحاث السوق", "استراتيجيات الاستهداف", "إعلانات السوشيال", "تحسين القمع الإعلاني"],
     description: "تخرج معتمد من مبادرة مصر الرقمية المستقبلية بالتعاون مع Udacity لتطوير حلول التسويق الرقمي وإدارة الحملات."
   },
   {
     id: "greaters-diploma",
     num: "05",
-    title: "Digital Marketing Diploma",
-    shortLabel: "DIPLOMA",
-    issuer: "Greaters Marketing Solutions · 2021",
-    org: "Greaters Academy",
+    title: "دبلومة التسويق الرقمي المتقدمة",
+    shortLabel: "دبلومة",
+    issuer: "جريترز لحلول التسويق · 2021",
+    org: "أكاديمية Greaters",
     year: "2021",
-    badge: "Advanced Diploma",
-    skills: ["Media Buying Full-Funnel", "Copywriting", "Pixel & CAPI", "E-commerce Scaling"],
+    badge: "دبلومة متقدمة",
+    skills: ["ميديا باينج متكامل", "كتابة الإعلانات", "ربط البكسل و CAPI", "توسيع المتاجر"],
     description: "دبلومة متقدمة ومكثفة في الشراء الإعلاني المباشر، تحسين معدلات التحويل، ومضاعفة مبيعات المتاجر الإلكترونية."
   },
   {
     id: "hubspot-inbound",
     num: "06",
-    title: "HubSpot Inbound Marketing",
-    shortLabel: "HUBSPOT",
-    issuer: "HubSpot Academy",
-    org: "HubSpot Certified",
+    title: "شهادة التسويق الداخلي (HubSpot)",
+    shortLabel: "هاب سبوت",
+    issuer: "أكاديمية HubSpot Academy",
+    org: "منصة HubSpot",
     year: "معتمد",
-    badge: "Inbound Certified",
-    skills: ["Inbound Strategy", "Lead Nurturing", "Customer Journey", "Retention & CRO"],
+    badge: "اعتماد Inbound",
+    skills: ["استراتيجية الجذب", "رعاية العملاء", "رحلة العميل", "زيادة معدل التحويل"],
     description: "شهادة معتمدة في جذب العملاء المحتملين وبناء مسارات تسويقية آلية لزيادة ولاء العملاء والقيمة الدائمة (LTV)."
   }
 ];
@@ -141,12 +140,6 @@ export default function CertificatesSection() {
           <div className="lg:col-span-4 flex flex-col items-center justify-center order-2 lg:order-1">
             <ScrollReveal direction="right" delay={100}>
               <div className={styles.wheelWrapper}>
-                
-                {/* Hint Label */}
-                <div className={styles.hintPop}>
-                  <RotateCw className="w-3 h-3 text-[#FF8B2C] animate-spin" style={{ animationDuration: "5s" }} />
-                  <span>اضغط للتدوير · SPIN DIAL</span>
-                </div>
 
                 {/* Rotary Dial Container */}
                 <div 
