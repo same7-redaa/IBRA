@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 
 // Primary Main Navigation Links matching home sections
 const NAV_LINKS = [
-  { href: "/", id: "top", label: "الــرئــيــســيــة" },
-  { href: "/#services", id: "services", label: "خــــدمــــاتــــي" },
-  { href: "/#portfolio", id: "portfolio", label: "الـــتـــأثـــيـــر" },
-  { href: "/#impact", id: "impact", label: "الـــأرقــــام" },
-  { href: "/#contact", id: "contact", label: "تــــواصــــل مــــعــــي" },
+  { href: "/", id: "top", label: "الرئيسية" },
+  { href: "/#services", id: "services", label: "خدماتي" },
+  { href: "/#clients", id: "clients", label: "عملائي" },
+  { href: "/#portfolio", id: "portfolio", label: "أعمالي" },
+  { href: "/#certificates", id: "certificates", label: "شهاداتي" },
+  { href: "/#impact", id: "impact", label: "خبراتي بالأرقام" },
+  { href: "/#contact", id: "contact", label: "تواصل معي" },
 ];
 
 export default function Header() {
@@ -35,7 +37,7 @@ export default function Header() {
         return;
       }
 
-      const sections = ["services", "portfolio", "certificates", "impact", "contact"];
+      const sections = ["services", "clients", "portfolio", "certificates", "impact", "contact"];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -118,7 +120,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation Links with Lenis Smooth Navigation */}
-            <nav className="hidden lg:flex items-center justify-center flex-grow gap-3 xl:gap-6 py-0.5 px-2">
+            <nav className="hidden lg:flex items-center justify-center flex-grow gap-2 xl:gap-4.5 2xl:gap-6 py-0.5 px-1 sm:px-2">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -126,7 +128,7 @@ export default function Header() {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href, link.id)}
-                    className={`relative py-1 text-[11px] xl:text-[13px] font-bold transition-all duration-300 whitespace-nowrap group ${
+                    className={`relative py-1 text-[11px] xl:text-[12.5px] 2xl:text-[13.5px] font-bold transition-all duration-300 whitespace-nowrap group ${
                       isActive
                         ? "text-[#FF8B2C] font-black drop-shadow-[0_0_12px_rgba(255,139,44,0.5)] scale-105"
                         : "text-zinc-300 hover:text-[#FF8B2C]"

@@ -100,7 +100,7 @@ export default function ClientsTickerSection() {
   const repeatedRow2 = [...LOGOS_ROW_2, ...LOGOS_ROW_2, ...LOGOS_ROW_2];
 
   return (
-    <section className="w-full py-10 sm:py-16 relative overflow-hidden bg-[#060608] select-none">
+    <section id="clients" className="w-full py-10 sm:py-16 relative overflow-hidden bg-[#060608] select-none">
       
       {/* Seamless Black Gradient Transitions at Top & Bottom */}
       <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
