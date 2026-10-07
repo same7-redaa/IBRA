@@ -27,27 +27,36 @@ export default function Header() {
     setCurrentLang((prev) => (prev === "ar" ? "en" : "ar"));
   };
 
-  // Active section scroll spy
+  // Active section scroll spy with requestAnimationFrame throttle
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 140;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + 140;
 
-      if (scrollPos < 400) {
-        setActiveSection("top");
-        return;
-      }
-
-      const sections = ["services", "clients", "portfolio", "certificates", "impact", "contact"];
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
+          if (scrollPos < 400) {
+            setActiveSection("top");
+            ticking = false;
+            return;
           }
-        }
+
+          const sections = ["services", "clients", "portfolio", "certificates", "impact", "contact"];
+          for (const sectionId of sections) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPos >= top && scrollPos < top + height) {
+                setActiveSection(sectionId);
+                break;
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

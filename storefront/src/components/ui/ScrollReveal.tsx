@@ -17,9 +17,9 @@ export default function ScrollReveal({
   className = "",
   delay = 0,
   direction = "up",
-  threshold = 0.12,
+  threshold = 0.01,
   blur = true,
-  blurAmount = 14,
+  blurAmount = 10,
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -28,16 +28,25 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    // If element is already in or above viewport on mount, reveal immediately
+    if (typeof window !== "undefined") {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 120) {
+        setIsVisible(true);
+        return;
+      }
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(el); // trigger once for maximum performance
+          observer.unobserve(el); // trigger once for zero overhead
         }
       },
       {
         threshold,
-        rootMargin: "0px 0px -30px 0px", // triggers smoothly as user scrolls
+        rootMargin: "140px 0px 80px 0px", // Eager anticipation: elements reveal before reaching screen edge
       }
     );
 
@@ -51,17 +60,17 @@ export default function ScrollReveal({
 
     switch (direction) {
       case "up":
-        return "translate3d(0, 28px, 0) scale(0.98)";
+        return "translate3d(0, 20px, 0) scale(0.99)";
       case "down":
-        return "translate3d(0, -28px, 0) scale(0.98)";
+        return "translate3d(0, -20px, 0) scale(0.99)";
       case "left":
-        return "translate3d(28px, 0, 0) scale(0.98)";
+        return "translate3d(20px, 0, 0) scale(0.99)";
       case "right":
-        return "translate3d(-28px, 0, 0) scale(0.98)";
+        return "translate3d(-20px, 0, 0) scale(0.99)";
       case "none":
-        return "translate3d(0, 0, 0) scale(0.96)";
+        return "translate3d(0, 0, 0) scale(0.98)";
       default:
-        return "translate3d(0, 28px, 0) scale(0.98)";
+        return "translate3d(0, 20px, 0) scale(0.99)";
     }
   };
 
@@ -73,7 +82,7 @@ export default function ScrollReveal({
         opacity: isVisible ? 1 : 0,
         filter: isVisible ? "blur(0px)" : blur ? `blur(${blurAmount}px)` : "none",
         transform: getTransformStyle(),
-        transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, filter 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: `opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         willChange: isVisible ? "auto" : "opacity, transform, filter",
       }}
     >
