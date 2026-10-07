@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import { 
-  Award, 
-  CheckCircle2, 
   ShieldCheck, 
   ChevronLeft, 
   ChevronRight
@@ -28,33 +26,33 @@ const CERTIFICATES: CertificateItem[] = [
   {
     id: "adobe-certified",
     num: "01",
-    title: "خبير معتمد من أدوبي (Adobe Expert)",
-    shortLabel: "أدوبــي",
+    title: "خبير معتمد من أدوبي (Adobe Certified Expert)",
+    shortLabel: "أدوبـــي",
     issuer: "فوتوشوب وإليستريتور",
-    org: "شركة Adobe العالمية",
+    org: "شركة Adobe Systems العالمية",
     year: "معتمد دولياً",
     badge: "خبير تصميم معتمد",
     skills: ["فوتوشوب", "إليستريتور", "تصميم إعلاني", "هويات بصرية"],
-    description: "شهادة اعتماد تخصصية في برامج التصميم المتقدمة، إنتاج الهويات البصرية، والتصميم الإعلاني عالي التحويل."
+    description: "شهادة اعتماد تخصصية في أدوات التصميم الإبداعي المتقدمة، إنتاج الهويات البصرية، والتصميم الإعلاني عالي التحويل."
   },
   {
     id: "google-ads",
     num: "02",
-    title: "شهادة إعلانات جوجل المعتمدة",
-    shortLabel: "جــوجــل",
-    issuer: "منصة Google Skillshop",
+    title: "شهادة إعلانات جوجل المعتمدة (Google Ads)",
+    shortLabel: "جـــوجـــل",
+    issuer: "Google Skillshop",
     org: "شركة Google",
     year: "معتمد",
     badge: "إعلانات البحث والعرض",
     skills: ["حملات البحث", "شبكة العرض", "المزايدة الذكية", "تتبع التحويلات"],
-    description: "اعتماد رسمي في تخطيط، إدارة وتحسين الحملات الإعلانية على شبكة بحث جوجل والشبكة الإعلانية."
+    description: "اعتماد رسمي في تخطيط، إدارة وتحسين الحملات الإعلانية على شبكة بحث جوجل والشبكة الإعلانية الذكية."
   },
   {
     id: "udacity-nanodegree",
     num: "03",
-    title: "نانوديجري التسويق الرقمي",
+    title: "نانوديجري التسويق الرقمي (Udacity Nanodegree)",
     shortLabel: "يوداسيتي",
-    issuer: "يوداسيتي (Udacity) · 2021",
+    issuer: "Udacity · 2021",
     org: "منصة Udacity العالمية",
     year: "2021",
     badge: "خريج نانوديجري",
@@ -64,9 +62,9 @@ const CERTIFICATES: CertificateItem[] = [
   {
     id: "egypt-fwd",
     num: "04",
-    title: "مسار التحدي - مصر الرقمية (FWD)",
+    title: "مسار التحدي - مبادرة مصر الرقمية (Egypt FWD)",
     shortLabel: "مصر FWD",
-    issuer: "مبادرة FWD / يوداسيتي · 2021",
+    issuer: "Udacity / Egypt FWD · 2021",
     org: "وزارة الاتصالات وتكنولوجيا المعلومات",
     year: "2021",
     badge: "مسار التحدي المتقدم",
@@ -76,9 +74,9 @@ const CERTIFICATES: CertificateItem[] = [
   {
     id: "greaters-diploma",
     num: "05",
-    title: "دبلومة التسويق الرقمي المتقدمة",
-    shortLabel: "دبلومة",
-    issuer: "جريترز لحلول التسويق · 2021",
+    title: "دبلومة التسويق الرقمي المتقدمة (Marketing Diploma)",
+    shortLabel: "دبـــلـــومـــة",
+    issuer: "Greaters Marketing Solutions · 2021",
     org: "أكاديمية Greaters",
     year: "2021",
     badge: "دبلومة متقدمة",
@@ -88,10 +86,10 @@ const CERTIFICATES: CertificateItem[] = [
   {
     id: "hubspot-inbound",
     num: "06",
-    title: "شهادة التسويق الداخلي (HubSpot)",
+    title: "شهادة التسويق الداخلي من هاب سبوت (HubSpot)",
     shortLabel: "هاب سبوت",
-    issuer: "أكاديمية HubSpot Academy",
-    org: "منصة HubSpot",
+    issuer: "HubSpot Academy",
+    org: "منصة HubSpot Certified",
     year: "معتمد",
     badge: "اعتماد Inbound",
     skills: ["استراتيجية الجذب", "رعاية العملاء", "رحلة العميل", "زيادة معدل التحويل"],
@@ -116,190 +114,168 @@ export default function CertificatesSection() {
     <section id="certificates" className="w-full py-16 sm:py-20 relative overflow-hidden bg-transparent select-none">
       
       {/* Subtle Background Glows */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-[#FF8B2C]/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 text-center">
         
-        {/* Section Title (No badge above title as per strict master design rules) */}
+        {/* Section Title (Centered, No badges above title) */}
         <ScrollReveal direction="up">
-          <div className="text-right mb-10 sm:mb-12">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-wide leading-tight">
               الـــشَّـــهَـــادَات <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.45)]">الاعـــتـــمَـــادِيَّـــة</span>
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-zinc-400 font-medium max-w-xl leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-zinc-400 font-medium max-w-xl mx-auto leading-relaxed">
               شهادات دولية وتخصصية معتمدة من كبرى المنصات والأكاديميات العالمية في التسويق الرقمي وتصميم الإعلانات.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Main Interactive Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        {/* Main Centered Content Stack: Dial Wheel Centered + Single Active Certificate Spotlight Below */}
+        <div className="flex flex-col items-center justify-center gap-8 max-w-[850px] mx-auto">
           
-          {/* Right Column (on RTL Desktop): The 3D Rotary Wheel Selector Widget */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center order-2 lg:order-1">
-            <ScrollReveal direction="right" delay={100}>
-              <div className={styles.wheelWrapper}>
+          {/* Centered 3D Rotary Wheel Selector Widget */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className={styles.wheelWrapper}>
 
-                {/* Rotary Dial Container */}
-                <div 
-                  className={styles.radioInputContainer}
-                  onClick={handleNext}
-                  title="اضغط للتنقل بين الشهادات"
-                >
-                  <div className={styles.glassOverlay} />
+              {/* Rotary Dial Container */}
+              <div 
+                className={styles.radioInputContainer}
+                onClick={handleNext}
+                title="اضغط للتنقل للشهادة التالية"
+              >
+                <div className={styles.glassOverlay} />
 
-                  {CERTIFICATES.map((cert, idx) => {
-                    const diff = idx - selectedIndex;
-                    const angle = diff * 28;
-                    const isActive = idx === selectedIndex;
+                {CERTIFICATES.map((cert, idx) => {
+                  const diff = idx - selectedIndex;
+                  const angle = diff * 26;
+                  const isActive = idx === selectedIndex;
 
-                    return (
-                      <div
-                        key={cert.id}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedIndex(idx);
-                        }}
-                        className={`${styles.wheelLabel} ${isActive ? styles.active : ""}`}
-                        style={{
-                          transform: `rotate(${angle}deg)`,
-                          opacity: isActive ? 1 : Math.abs(diff) === 1 ? 0.4 : 0.1,
-                          zIndex: isActive ? 10 : 5 - Math.abs(diff),
-                        }}
-                      >
-                        <span className={styles.num}>{cert.num}</span>
-                        <span className={styles.label}>{cert.shortLabel}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Dial Controls under the Wheel */}
-                <div className="flex items-center gap-3 mt-4">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    aria-label="الشهادة السابقة"
-                    className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/15 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer shadow-sm active:scale-95"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-
-                  <div className="px-3 py-1 rounded-lg bg-black/60 border border-white/10 text-[11px] font-mono font-bold text-zinc-300">
-                    <span className="text-[#FF8B2C]">{activeCert.num}</span> / 0{CERTIFICATES.length}
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    aria-label="الشهادة التالية"
-                    className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/15 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer shadow-sm active:scale-95"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                </div>
-
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Left Column: 6 Certificate Cards Grid (matching screenshot layout + interactive sync) */}
-          <div className="lg:col-span-8 order-1 lg:order-2">
-            <ScrollReveal direction="left" delay={150}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4">
-                {CERTIFICATES.map((cert, index) => {
-                  const isSelected = index === selectedIndex;
                   return (
                     <div
                       key={cert.id}
-                      onClick={() => setSelectedIndex(index)}
-                      className={`${styles.certCard} ${isSelected ? styles.selected : ""} p-4 sm:p-5 flex flex-col justify-between min-h-[120px] sm:min-h-[135px] text-right group`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedIndex(idx);
+                      }}
+                      className={`${styles.wheelLabel} ${isActive ? styles.active : ""}`}
+                      style={{
+                        transform: `rotate(${angle}deg)`,
+                        opacity: isActive ? 1 : Math.abs(diff) === 1 ? 0.35 : 0.08,
+                        zIndex: isActive ? 10 : 5 - Math.abs(diff),
+                      }}
                     >
-                      {/* Top Row: Title & Indicator Dot */}
-                      <div>
-                        <div className="flex items-start justify-between gap-2 mb-1.5">
-                          <h3 className="text-xs sm:text-[13px] font-black text-white group-hover:text-[#FF8B2C] transition-colors leading-snug">
-                            {cert.title}
-                          </h3>
-                          <span 
-                            className={`w-2 h-2 rounded-full shrink-0 mt-1 transition-all ${
-                              isSelected 
-                                ? "bg-[#FF8B2C] shadow-[0_0_8px_#FF8B2C]" 
-                                : "bg-white/20 group-hover:bg-white/40"
-                            }`} 
-                          />
-                        </div>
-
-                        {/* Issuer & Year */}
-                        <p className="text-[11px] font-medium text-zinc-400 group-hover:text-zinc-300 transition-colors">
-                          {cert.issuer}
-                        </p>
-                      </div>
-
-                      {/* Bottom Status / Badge */}
-                      <div className="pt-2.5 mt-2 border-t border-white/5 flex items-center justify-between text-[10px] font-bold">
-                        <span className="text-zinc-400">
-                          {cert.org}
-                        </span>
-                        {isSelected && (
-                          <span className="text-[#FF8B2C] flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" />
-                            <span>محدد</span>
-                          </span>
-                        )}
-                      </div>
+                      <span className={styles.num}>{cert.num}</span>
+                      <span className={styles.label}>{cert.shortLabel}</span>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Active Selected Certificate Spotlight Detailed Drawer / Banner */}
-              <div className="mt-5 p-4 sm:p-5 rounded-2xl bg-[#0b0b10]/95 border border-[#FF8B2C]/30 shadow-[0_10px_35px_rgba(0,0,0,0.6)] backdrop-blur-md relative overflow-hidden transition-all duration-300">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              {/* Quick Navigation Control Strip */}
+              <div className="flex items-center gap-3 mt-4">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="الشهادة السابقة"
+                  className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/15 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer shadow-sm active:scale-95"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Direct Dot Indicators */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/10">
+                  {CERTIFICATES.map((c, i) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => setSelectedIndex(i)}
+                      aria-label={`الشهادة ${c.num}`}
+                      className={`h-2 rounded-full transition-all cursor-pointer ${
+                        i === selectedIndex
+                          ? "w-6 bg-[#FF8B2C] shadow-[0_0_8px_#FF8B2C]"
+                          : "w-2 bg-white/20 hover:bg-white/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="الشهادة التالية"
+                  className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/15 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer shadow-sm active:scale-95"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+              </div>
+
+            </div>
+          </ScrollReveal>
+
+          {/* Single Focused Active Certificate Spotlight Card */}
+          <ScrollReveal direction="up" delay={200} className="w-full">
+            <div 
+              key={activeCert.id}
+              className={`${styles.spotlightCard} w-full p-6 sm:p-8 text-right animate-fade-in`}
+            >
+              <div className="flex flex-col gap-5">
+                
+                {/* Header Row: Number + Title + Badge */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
                   
-                  {/* Info */}
-                  <div className="space-y-1.5 text-right">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-[#FF8B2C]/15 border border-[#FF8B2C]/40 flex items-center justify-center text-[#FF8B2C]">
-                        <Award className="w-3.5 h-3.5" />
-                      </div>
-                      <h4 className="text-sm sm:text-base font-black text-white">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl sm:text-3xl font-black text-[#FF8B2C] drop-shadow-[0_0_10px_rgba(255,139,44,0.4)]">
+                      {activeCert.num}
+                    </span>
+                    <div>
+                      <h3 className="text-lg sm:text-2xl font-black text-white leading-snug">
                         {activeCert.title}
-                      </h4>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/30">
-                        {activeCert.badge}
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-zinc-300 leading-relaxed max-w-2xl font-medium">
-                      {activeCert.description}
-                    </p>
-
-                    {/* Skill Tags */}
-                    <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                      {activeCert.skills.map((skill) => (
-                        <span 
-                          key={skill}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-white/5 text-zinc-300 border border-white/10"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-zinc-400 font-medium mt-0.5">
+                        {activeCert.issuer} · <span className="text-zinc-300 font-bold">{activeCert.org}</span>
+                      </p>
                     </div>
                   </div>
 
-                  {/* Trust Badge */}
-                  <div className="flex items-center gap-2 self-end sm:self-center shrink-0 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-zinc-300">
-                    <ShieldCheck className="w-4 h-4 text-[#FF8B2C]" />
-                    <span>اعتماد رسمي موثق</span>
+                  <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FF8B2C]/15 text-[#FF8B2C] border border-[#FF8B2C]/35 shadow-[0_0_10px_rgba(255,139,44,0.2)]">
+                      {activeCert.badge}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Description Text */}
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
+                  {activeCert.description}
+                </p>
+
+                {/* Skills & Official Verification Strip */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  
+                  {/* Skill Badges */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-zinc-400">المهارات المعتمدة:</span>
+                    {activeCert.skills.map((skill) => (
+                      <span 
+                        key={skill}
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white/5 text-zinc-200 border border-white/10 hover:border-[#FF8B2C]/40 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Verification Status */}
+                  <div className="flex items-center gap-2 shrink-0 text-xs font-bold text-[#FF8B2C] bg-[#FF8B2C]/10 border border-[#FF8B2C]/30 px-3 py-1.5 rounded-xl self-start sm:self-center">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>اعتماد رسمي موثق ومفعل</span>
                   </div>
 
                 </div>
-              </div>
 
-            </ScrollReveal>
-          </div>
+              </div>
+            </div>
+          </ScrollReveal>
 
         </div>
 
