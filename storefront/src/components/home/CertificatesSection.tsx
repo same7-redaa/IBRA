@@ -180,22 +180,22 @@ function CertificateCard({
             {/* Center: Company Logo (Crisp & Prominent) + Certificate Name */}
             <div className="flex flex-col items-center justify-center text-center my-auto py-2">
               
-              {/* Company Logo / Text Badge */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/[0.05] border border-white/10 p-3 flex items-center justify-center mb-4 shadow-[0_8px_25px_rgba(0,0,0,0.5)] backdrop-blur-md group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              {/* Pure Company Logo / Text Badge (Zero Container Box) */}
+              <div className="w-20 h-16 sm:w-24 sm:h-20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                 {cert.logoType === "image" && cert.logoSrc ? (
                   <Image
                     src={cert.logoSrc}
                     alt={cert.title}
-                    width={88}
-                    height={88}
-                    className="w-full h-full object-contain filter drop-shadow-md"
+                    width={96}
+                    height={72}
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center text-center">
-                    <span className="text-[#FF8B2C] font-black text-sm tracking-wider leading-tight">
+                    <span className="text-[#FF8B2C] font-black text-base sm:text-lg tracking-wider leading-tight drop-shadow-[0_0_12px_rgba(255,139,44,0.4)]">
                       GREATERS
                     </span>
-                    <span className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">
                       Solutions
                     </span>
                   </div>
