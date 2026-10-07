@@ -34,8 +34,8 @@ function unregister(el: Element) {
 function flushPending() {
   ticking = false;
   if (pending.size === 0) return;
-  // Reveal everything above the viewport or within 1.5 screens below it
-  const limit = window.innerHeight * 1.05;
+  // Reveal everything above the viewport or within 2 screens below it
+  const limit = window.innerHeight * 2.0;
   pending.forEach((reveal, el) => {
     if (el.getBoundingClientRect().top < limit) reveal();
   });
@@ -53,12 +53,12 @@ function register(el: Element, reveal: () => void) {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+          if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight * 1.5) {
             pending.get(entry.target)?.();
           }
         });
       },
-      { rootMargin: "0px 0px -30px 0px", threshold: 0.05 }
+      { rootMargin: "250px 0px 450px 0px", threshold: 0 }
     );
   }
   if (!scrollBound) {
@@ -72,10 +72,10 @@ function register(el: Element, reveal: () => void) {
 
 const HIDDEN_TRANSFORMS: Record<NonNullable<ScrollRevealProps["direction"]>, string> = {
   // 2D transforms while hidden: no forced GPU layer for off-screen elements
-  up: "translate(0, 16px) scale(0.99)",
-  down: "translate(0, -16px) scale(0.99)",
-  left: "translate(16px, 0) scale(0.99)",
-  right: "translate(-16px, 0) scale(0.99)",
+  up: "translate(0, 14px) scale(0.99)",
+  down: "translate(0, -14px) scale(0.99)",
+  left: "translate(14px, 0) scale(0.99)",
+  right: "translate(-14px, 0) scale(0.99)",
   none: "translate(0, 0) scale(0.99)",
 };
 
@@ -89,6 +89,8 @@ export default function ScrollReveal({
 }: ScrollRevealProps) {
   const [phase, setPhase] = useState<Phase>("hidden");
   const ref = useRef<HTMLDivElement>(null);
+  // Cap delay so cards appear instantly without long waiting during fast scrolling
+  const effectiveDelay = Math.min(delay, 80);
 
   // Register with the shared scheduler
   useEffect(() => {
@@ -100,8 +102,8 @@ export default function ScrollReveal({
       setPhase((p) => (p === "hidden" ? "animating" : p));
     };
 
-    // Already visible in upper viewport on initial load -> reveal immediately
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
+    // Already on or near screen at mount -> reveal immediately
+    if (el.getBoundingClientRect().top < window.innerHeight * 1.5) {
       reveal();
       return;
     }
@@ -114,9 +116,9 @@ export default function ScrollReveal({
   // element stops holding its own GPU layer (visually identical result).
   useEffect(() => {
     if (phase !== "animating") return;
-    const t = setTimeout(() => setPhase("done"), delay + 600);
+    const t = setTimeout(() => setPhase("done"), effectiveDelay + 450);
     return () => clearTimeout(t);
-  }, [phase, delay]);
+  }, [phase, effectiveDelay]);
 
   const isVisible = phase !== "hidden";
   const isDone = phase === "done";
@@ -142,7 +144,7 @@ export default function ScrollReveal({
             : HIDDEN_TRANSFORMS[direction],
         transition: isDone
           ? "none"
-          : `opacity 0.5s ${easing} ${delay}ms, transform 0.5s ${easing} ${delay}ms, filter 0.5s ${easing} ${delay}ms`,
+          : `opacity 0.38s ${easing} ${effectiveDelay}ms, transform 0.38s ${easing} ${effectiveDelay}ms, filter 0.38s ${easing} ${effectiveDelay}ms`,
         willChange: phase === "animating" ? "opacity, transform, filter" : "auto",
       }}
     >
