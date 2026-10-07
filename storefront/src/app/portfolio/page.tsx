@@ -9,8 +9,6 @@ import {
   Palette, 
   Target, 
   Sparkles,
-  CheckCircle2,
-  ExternalLink,
   ChevronLeft
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";

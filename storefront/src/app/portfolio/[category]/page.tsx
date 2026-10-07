@@ -1,14 +1,8 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { 
-  ArrowLeft, 
-  ChevronLeft,
-  Sparkles,
-  ExternalLink
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import HowIWorkSection from "@/components/portfolio/HowIWorkSection";

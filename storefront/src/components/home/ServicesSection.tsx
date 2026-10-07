@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   ArrowLeft,
-  Sparkles,
   TrendingUp,
   Target,
   Zap,
@@ -14,54 +13,14 @@ import {
   ShoppingBag
 } from "lucide-react";
 import { 
-  SiMeta, 
   SiTiktok, 
   SiGoogleads, 
   SiGoogle, 
-  SiShopify, 
-  SiInstagram, 
-  SiFacebook, 
   SiYoutube 
 } from "react-icons/si";
 
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-// Crisp SVG Vector Badges for Adobe Suite
-function AdobePremiereIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="5" fill="#00005B" stroke="#9999FF" strokeWidth="1.5" />
-      <text x="5" y="16.5" fill="#9999FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Pr</text>
-    </svg>
-  );
-}
-
-function AdobeAfterEffectsIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="5" fill="#1B003A" stroke="#D291FF" strokeWidth="1.5" />
-      <text x="4" y="16.5" fill="#D291FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ae</text>
-    </svg>
-  );
-}
-
-function AdobePhotoshopIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="5" fill="#001E36" stroke="#31A8FF" strokeWidth="1.5" />
-      <text x="4.5" y="16.5" fill="#31A8FF" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ps</text>
-    </svg>
-  );
-}
-
-function AdobeIllustratorIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="5" fill="#330000" stroke="#FF9A00" strokeWidth="1.5" />
-      <text x="5" y="16.5" fill="#FF9A00" fontSize="11" fontWeight="900" fontFamily="sans-serif">Ai</text>
-    </svg>
-  );
-}
 
 interface ToolBadge {
   name: string;
@@ -212,9 +171,6 @@ export default function ServicesSection() {
         {/* 6 Services Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {SERVICES_LIST.map((service, idx) => {
-            const PrimaryIcon = service.brandIcons?.[0];
-            const SecondaryIcon = service.brandIcons?.[1];
-
             return (
               <ScrollReveal
                 key={service.id}

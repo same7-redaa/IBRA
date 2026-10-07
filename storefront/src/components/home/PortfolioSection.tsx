@@ -1,17 +1,12 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowLeft,
   Target,
   TrendingUp,
-  BarChart3,
-  Layers,
-  Sparkles,
   ExternalLink,
   Film,
-  Palette,
-  LineChart
+  Palette
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 

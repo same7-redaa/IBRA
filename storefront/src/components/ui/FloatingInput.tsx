@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 
 export interface FloatingInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
