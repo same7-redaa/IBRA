@@ -24,34 +24,8 @@ export default function SplashScreen() {
   const [radius, setRadius] = useState(215);
   // Pick a random icon index on every page load
   const [targetIndex] = useState(() => Math.floor(Math.random() * SPLASH_ICONS.length));
-  const startedRef = React.useRef(false);
 
   useEffect(() => {
-    // Only run on homepage
-    if (pathname !== "/") {
-      setIsRendered(false);
-      setPhase("done");
-      if (typeof window !== "undefined") {
-        (window as unknown as { __heroReady?: boolean }).__heroReady = true;
-        window.dispatchEvent(new CustomEvent("hero-ready"));
-        window.dispatchEvent(new CustomEvent("splash-finished"));
-      }
-      return;
-    }
-
-    // If already seen in this browser session, skip immediately
-    if (typeof window !== "undefined" && sessionStorage.getItem("splash_seen") === "true") {
-      setIsRendered(false);
-      setPhase("done");
-      (window as unknown as { __heroReady?: boolean }).__heroReady = true;
-      window.dispatchEvent(new CustomEvent("hero-ready"));
-      window.dispatchEvent(new CustomEvent("splash-finished"));
-      return;
-    }
-
-    if (startedRef.current) return;
-    startedRef.current = true;
-
     const handleResize = () => {
       if (typeof window !== "undefined") {
         if (window.innerWidth < 400) {
@@ -81,38 +55,24 @@ export default function SplashScreen() {
         (window as unknown as { __heroReady?: boolean }).__heroReady = true;
         window.dispatchEvent(new CustomEvent("hero-ready"));
       }
-    }, 1500);
+    }, 1600);
 
     // Step 3: Complete plunge transition and unmount splash
     const t2 = setTimeout(() => {
       setPhase("done");
       setIsRendered(false);
       if (typeof window !== "undefined") {
-        sessionStorage.setItem("splash_seen", "true");
         window.dispatchEvent(new CustomEvent("splash-finished"));
       }
-    }, 2400);
-
-    // Hard failsafe unmount in case anything ever hangs
-    const tFail = setTimeout(() => {
-      setPhase("done");
-      setIsRendered(false);
-      if (typeof window !== "undefined") {
-        (window as unknown as { __heroReady?: boolean }).__heroReady = true;
-        sessionStorage.setItem("splash_seen", "true");
-        window.dispatchEvent(new CustomEvent("hero-ready"));
-        window.dispatchEvent(new CustomEvent("splash-finished"));
-      }
-    }, 3000);
+    }, 2600);
 
     return () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(t0);
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(tFail);
     };
-  }, [pathname]);
+  }, []);
 
   if (pathname !== "/" || !isRendered) return null;
 
@@ -133,9 +93,12 @@ export default function SplashScreen() {
     >
       {/* Black Backdrop that dissolves as you pierce through the icon */}
       <div
-        className={`absolute inset-0 bg-[#060608] transition-opacity duration-700 ease-out pointer-events-none ${
-          phase === "plunge" || phase === "done" ? "opacity-0" : "opacity-100"
+        className={`absolute inset-0 bg-[#060608] transition-opacity duration-700 ease-out ${
+          phase === "plunge" ? "opacity-0" : "opacity-100"
         }`}
+        style={{
+          pointerEvents: phase === "done" ? "none" : "auto",
+        }}
       />
 
       {/* Speed Lines / Tunnel Flare Rush during 3D Plunge */}
