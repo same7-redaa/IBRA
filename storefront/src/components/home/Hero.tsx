@@ -62,9 +62,11 @@ export default function Hero() {
       }, 1900);
     };
 
-    // Check if splash already completed or listen for hero-ready event
-    if (typeof window !== "undefined" && (window as unknown as { __heroReady?: boolean }).__heroReady) {
-      triggerHeroEntrance();
+    const splashAlreadySeen = typeof window !== "undefined" && sessionStorage.getItem("splash_seen") === "true";
+    if (splashAlreadySeen || (typeof window !== "undefined" && (window as unknown as { __heroReady?: boolean }).__heroReady)) {
+      setMounted(true);
+      setIsOpen(true);
+      setSettled(true);
     } else if (typeof window !== "undefined") {
       const onHeroReady = () => {
         triggerHeroEntrance();

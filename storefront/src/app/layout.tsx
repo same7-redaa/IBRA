@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SplashScreen from "@/components/layout/SplashScreen";
-import NavigationLoader from "@/components/providers/NavigationLoader";
 import ScrollToTop from "@/components/providers/ScrollToTop";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
@@ -42,7 +41,6 @@ export default function RootLayout({
             <SmoothScrollProvider>
               <Suspense fallback={null}>
                 <ScrollToTop />
-                <NavigationLoader />
               </Suspense>
               <Header />
               <div className="relative z-10 flex-grow flex flex-col">

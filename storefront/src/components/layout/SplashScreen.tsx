@@ -20,12 +20,31 @@ export default function SplashScreen() {
   // Animation phases: 'orbit' -> 'plunge' -> 'done'
   const [phase, setPhase] = useState<"orbit" | "plunge" | "done">("orbit");
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isRendered, setIsRendered] = useState(true);
+  const [isRendered, setIsRendered] = useState(() => {
+    // Only render on homepage, and only if not seen in current session
+    if (typeof window !== "undefined") {
+      if (window.location.pathname !== "/" || sessionStorage.getItem("splash_seen") === "true") {
+        return false;
+      }
+    }
+    return true;
+  });
   const [radius, setRadius] = useState(215);
   // Pick a random icon index on every page load
   const [targetIndex] = useState(() => Math.floor(Math.random() * SPLASH_ICONS.length));
 
   useEffect(() => {
+    // If not homepage or already seen in session, mark ready and exit immediately
+    if (pathname !== "/" || (typeof window !== "undefined" && sessionStorage.getItem("splash_seen") === "true")) {
+      setIsRendered(false);
+      if (typeof window !== "undefined") {
+        (window as unknown as { __heroReady?: boolean }).__heroReady = true;
+        window.dispatchEvent(new CustomEvent("hero-ready"));
+        window.dispatchEvent(new CustomEvent("splash-finished"));
+      }
+      return;
+    }
+
     const handleResize = () => {
       if (typeof window !== "undefined") {
         if (window.innerWidth < 400) {
@@ -62,6 +81,7 @@ export default function SplashScreen() {
       setPhase("done");
       setIsRendered(false);
       if (typeof window !== "undefined") {
+        sessionStorage.setItem("splash_seen", "true");
         window.dispatchEvent(new CustomEvent("splash-finished"));
       }
     }, 2600);
@@ -72,9 +92,9 @@ export default function SplashScreen() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, []);
+  }, [pathname]);
 
-  if (pathname?.startsWith("/admin") || !isRendered) return null;
+  if (pathname !== "/" || !isRendered) return null;
 
   // Calculate coordinates of the randomly chosen target icon
   const targetAngle = (targetIndex / SPLASH_ICONS.length) * 2 * Math.PI - Math.PI / 2;
