@@ -159,19 +159,14 @@ export default function PortfolioGalleryGrid({
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Pure Floating Image Only - Zero Container, 10px Rounded */}
-          <div
+          {/* Pure Direct Shrink-Wrapped Image with 10px Rounded Corners - Absolute Zero Outer Boxes */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={selectedProject.image}
+            alt={selectedProject.title}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl sm:max-w-3xl h-[55vh] sm:h-[68vh] max-h-[600px] flex items-center justify-center"
-          >
-            <Image
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              fill
-              className="object-contain rounded-[10px] shadow-[0_25px_70px_rgba(0,0,0,0.95)]"
-              priority
-            />
-          </div>
+            className="max-h-[75vh] max-w-[85vw] sm:max-w-[700px] w-auto h-auto object-contain rounded-[10px] shadow-[0_25px_80px_rgba(0,0,0,0.95)] select-none pointer-events-auto"
+          />
         </div>
       )}
     </section>
