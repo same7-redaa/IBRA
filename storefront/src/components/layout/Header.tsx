@@ -98,27 +98,27 @@ export default function Header() {
   };
 
   return (
-    <div className="fixed top-2.5 sm:top-4 inset-x-0 z-50 w-full px-3 sm:px-6 max-w-[1440px] mx-auto">
+    <div className="fixed top-2 sm:top-3 inset-x-0 z-50 w-full px-2.5 sm:px-5 max-w-[1400px] mx-auto">
       {/* Main Header Capsule */}
-      <header className="relative w-full rounded-2xl sm:rounded-full border border-[#FF8B2C]/25 bg-[#0b0b10]/92 backdrop-blur-2xl shadow-[0_10px_35px_rgba(0,0,0,0.7)] transition-all">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex h-14 sm:h-16 items-center justify-between gap-3 sm:gap-4 relative">
+      <header className="relative w-full rounded-2xl sm:rounded-full border border-[#FF8B2C]/25 bg-[#0b0b10]/92 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.6)] transition-all">
+        <div className="px-3.5 sm:px-5 lg:px-6">
+          <div className="flex h-12 sm:h-13 lg:h-14 items-center justify-between gap-2.5 sm:gap-4 relative">
             
             {/* Logo Text: "ابراهيم علي سليم" with Tatweel (Right side in RTL) */}
             <div className="flex-shrink-0 z-10 flex items-center">
               <Link 
                 href="/" 
                 onClick={(e) => handleNavClick(e, "/", "top")}
-                className="flex items-center hover:opacity-90 transition-opacity py-1 group"
+                className="flex items-center hover:opacity-90 transition-opacity py-0.5 group"
               >
-                <span className="text-sm xs:text-base sm:text-xl lg:text-2xl font-black text-white tracking-wide group-hover:text-[#FF8B2C] transition-colors whitespace-nowrap">
-                  ابـــراهـــيــــم عـــــلــــي <span className="text-[#FF8B2C] drop-shadow-[0_0_14px_rgba(255,139,44,0.55)]">ســـلـــيـــم</span>
+                <span className="text-xs xs:text-sm sm:text-base lg:text-[17px] font-black text-white tracking-normal sm:tracking-wide group-hover:text-[#FF8B2C] transition-colors whitespace-nowrap">
+                  ابـــراهـــيــــم عـــــلــــي <span className="text-[#FF8B2C] drop-shadow-[0_0_12px_rgba(255,139,44,0.55)]">ســـلـــيـــم</span>
                 </span>
               </Link>
             </div>
 
             {/* Desktop Navigation Links with Lenis Smooth Navigation */}
-            <nav className="hidden lg:flex items-center justify-center flex-grow gap-4 xl:gap-8 py-1 px-2">
+            <nav className="hidden lg:flex items-center justify-center flex-grow gap-3 xl:gap-6 py-0.5 px-2">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -126,9 +126,9 @@ export default function Header() {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href, link.id)}
-                    className={`relative py-1.5 text-xs xl:text-sm font-bold transition-all duration-300 whitespace-nowrap group ${
+                    className={`relative py-1 text-[11px] xl:text-[13px] font-bold transition-all duration-300 whitespace-nowrap group ${
                       isActive
-                        ? "text-[#FF8B2C] font-black drop-shadow-[0_0_14px_rgba(255,139,44,0.5)] scale-105"
+                        ? "text-[#FF8B2C] font-black drop-shadow-[0_0_12px_rgba(255,139,44,0.5)] scale-105"
                         : "text-zinc-300 hover:text-[#FF8B2C]"
                     }`}
                   >
@@ -145,34 +145,34 @@ export default function Header() {
             </nav>
 
             {/* Language Switcher & Desktop CTA (Left Side in RTL) */}
-            <div className="hidden lg:flex items-center gap-3 z-10 shrink-0">
+            <div className="hidden lg:flex items-center gap-2.5 z-10 shrink-0">
               <button
                 type="button"
                 onClick={toggleLanguage}
                 aria-label="تبديل اللغة"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-white/10 bg-white/5 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/10 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer select-none"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border border-white/10 bg-white/5 hover:border-[#FF8B2C]/50 hover:bg-[#FF8B2C]/10 text-zinc-300 hover:text-[#FF8B2C] transition-all cursor-pointer select-none"
               >
-                <Globe className="w-3.5 h-3.5 text-[#FF8B2C]" />
+                <Globe className="w-3 h-3 text-[#FF8B2C]" />
                 <span className="font-mono">{currentLang === "ar" ? "EN" : "عربي"}</span>
               </button>
 
               <Link
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-                className="px-4 py-1.5 rounded-full text-xs font-black bg-[#FF8B2C] text-[#060608] hover:bg-[#FFA857] transition-all shadow-[0_2px_15px_rgba(255,139,44,0.35)] hover:scale-105"
+                className="px-3.5 py-1 rounded-full text-[11px] font-black bg-[#FF8B2C] text-[#060608] hover:bg-[#FFA857] transition-all shadow-[0_2px_12px_rgba(255,139,44,0.35)] hover:scale-105"
               >
                 تـــواصـــل الآن
               </Link>
             </div>
 
             {/* Mobile Actions: Language + Hamburger */}
-            <div className="flex items-center gap-2 lg:hidden z-30">
+            <div className="flex items-center gap-1.5 lg:hidden z-30">
               {/* Mobile Language Switcher */}
               <button
                 type="button"
                 onClick={toggleLanguage}
                 aria-label="تبديل اللغة"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[11px] font-bold border border-white/10 bg-white/5 text-zinc-300 active:text-[#FF8B2C]"
+                className="flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold border border-white/10 bg-white/5 text-zinc-300 active:text-[#FF8B2C]"
               >
                 <Globe className="w-3 h-3 text-[#FF8B2C]" />
                 <span className="font-mono">{currentLang === "ar" ? "EN" : "عربي"}</span>
@@ -186,17 +186,17 @@ export default function Header() {
                   setIsMobileMenuOpen((prev) => !prev);
                 }}
                 aria-label="القائمة الرئيسية"
-                className={`relative flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-300 cursor-pointer select-none overflow-hidden ${
+                className={`relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg border transition-all duration-300 cursor-pointer select-none overflow-hidden ${
                   isMobileMenuOpen 
-                    ? "border-[#FF8B2C] bg-[#FF8B2C]/15 text-[#FF8B2C] shadow-[0_0_15px_rgba(255,139,44,0.3)]" 
+                    ? "border-[#FF8B2C] bg-[#FF8B2C]/15 text-[#FF8B2C] shadow-[0_0_12px_rgba(255,139,44,0.3)]" 
                     : "border-white/10 bg-white/5 text-zinc-200 active:text-[#FF8B2C]"
                 }`}
               >
                 <div className={`transition-all duration-300 transform ${isMobileMenuOpen ? "rotate-90 scale-110" : "rotate-0 scale-100"}`}>
                   {isMobileMenuOpen ? (
-                    <X className="h-5 w-5" />
+                    <X className="h-4 w-4" />
                   ) : (
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-4 w-4" />
                   )}
                 </div>
               </button>
