@@ -9,15 +9,7 @@ export default function SmoothScrollProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    // Detect touch / mobile devices
-    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0 || window.innerWidth < 1024;
-    if (isTouch) {
-      // Let mobile devices use 100% native 120Hz hardware scrolling without JS interception
-      return;
-    }
-
+    // Lenis Smooth Physics-based Scroll optimized for ultra-smooth 120fps desktop and native mobile touch
     const lenis = new Lenis({
       duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -25,11 +17,13 @@ export default function SmoothScrollProvider({
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 0,
+      touchMultiplier: 0, // Zero JS touch lag on mobile - uses native 120Hz hardware momentum
       syncTouch: false,
     });
 
-    (window as unknown as { lenis: Lenis }).lenis = lenis;
+    if (typeof window !== "undefined") {
+      (window as unknown as { lenis: Lenis }).lenis = lenis;
+    }
 
     let rafId: number;
     function raf(time: number) {
@@ -42,9 +36,13 @@ export default function SmoothScrollProvider({
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
-      delete (window as unknown as { lenis?: Lenis }).lenis;
+      if (typeof window !== "undefined") {
+        delete (window as unknown as { lenis?: Lenis }).lenis;
+      }
     };
   }, []);
 
   return <>{children}</>;
 }
+
+

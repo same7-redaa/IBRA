@@ -4,9 +4,11 @@ import React from "react";
 import Image from "next/image";
 import styles from "./ClientsTickerSection.module.css";
 import { useClientLogos } from "@/context/ClientLogosContext";
+import { usePauseOffscreen } from "@/hooks/usePauseOffscreen";
 
 export default function ClientsTickerSection() {
   const { logos } = useClientLogos();
+  const sectionRef = usePauseOffscreen<HTMLElement>();
 
   // If no logos, do not render ticker track or render minimal
   const safeLogos = logos && logos.length > 0 ? logos : [];
@@ -24,7 +26,7 @@ export default function ClientsTickerSection() {
   const repeatedRow2 = [...finalRow2, ...finalRow2, ...finalRow2, ...finalRow2];
 
   return (
-    <section id="clients" className="w-full py-10 sm:py-16 relative overflow-hidden bg-[#060608] select-none">
+    <section ref={sectionRef} id="clients" className="w-full py-10 sm:py-16 relative overflow-hidden bg-[#060608] select-none">
       
       {/* Seamless Black Gradient Transitions at Top & Bottom */}
       <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />

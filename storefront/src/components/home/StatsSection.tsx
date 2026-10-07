@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { usePauseOffscreen } from "@/hooks/usePauseOffscreen";
 
 interface StatItem {
   id: string;
@@ -72,6 +73,7 @@ const STATS_DATA: StatItem[] = [
 
 export default function StatsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const containerRef = usePauseOffscreen<HTMLDivElement>();
   const [hasAnimated, setHasAnimated] = useState(false);
   const [counts, setCounts] = useState<number[]>(STATS_DATA.map(() => 0));
 
@@ -152,7 +154,7 @@ export default function StatsSection() {
       <div className="absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-10" />
       <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-10" />
 
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
+      <div ref={containerRef} className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-12 max-w-[1440px]">
         
         {/* Section Header */}
         <ScrollReveal direction="up" delay={0}>

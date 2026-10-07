@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import styles from "./CertificatesSection.module.css";
+import { usePauseOffscreen } from "@/hooks/usePauseOffscreen";
 
 interface CertificateItem {
   id: string;
@@ -270,8 +271,10 @@ function CertificateCard({
 }
 
 export default function CertificatesSection() {
+  const sectionRef = usePauseOffscreen<HTMLElement>();
+
   return (
-    <section id="certificates" className="w-full py-16 sm:py-24 relative overflow-hidden bg-[#060608] text-white select-none">
+    <section ref={sectionRef} id="certificates" className="w-full py-16 sm:py-24 relative overflow-hidden bg-[#060608] text-white select-none">
       
       {/* Seamless Black Gradient Transitions at Top & Bottom */}
       <div className="absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
