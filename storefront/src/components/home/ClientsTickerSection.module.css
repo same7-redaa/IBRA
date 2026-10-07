@@ -3,24 +3,23 @@
   width: 100%;
   overflow: hidden;
   user-select: none;
-  padding: 12px 0;
-  font-family: 'Thmanyah Serif Text', sans-serif;
+  padding: 8px 0;
 }
 
 .tickerTrack {
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 20px;
-  animation: tickerSlide 38s linear infinite;
+  gap: 24px;
+  animation: tickerSlide 35s linear infinite;
 }
 
 .tickerTrackReverse {
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 20px;
-  animation: tickerSlideReverse 42s linear infinite;
+  gap: 24px;
+  animation: tickerSlideReverse 38s linear infinite;
 }
 
 .tickerWrapper:hover .tickerTrack,
@@ -46,46 +45,47 @@
   }
 }
 
-.brandPill {
-  display: inline-flex;
+.logoTile {
+  display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
+  justify-content: center;
+  width: 110px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-  cursor: default;
+  padding: 12px 18px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.brandPill:hover {
-  background: rgba(255, 139, 44, 0.12);
+@media (min-width: 640px) {
+  .logoTile {
+    width: 130px;
+    height: 72px;
+    border-radius: 20px;
+    padding: 14px 22px;
+  }
+}
+
+.logoTile:hover {
+  background: rgba(255, 139, 44, 0.1);
   border-color: rgba(255, 139, 44, 0.45);
-  box-shadow: 0 6px 25px rgba(255, 139, 44, 0.2);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 139, 44, 0.22);
+  transform: translateY(-3px) scale(1.04);
 }
 
-.brandPill:hover .brandName {
-  color: #ffffff;
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.brandName {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #d1d5db;
-  transition: color 0.3s ease;
-  letter-spacing: 0.3px;
-}
-
-.brandTag {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #FF8B2C;
-  background: rgba(255, 139, 44, 0.15);
-  border: 1px solid rgba(255, 139, 44, 0.3);
-  padding: 2px 8px;
-  border-radius: 9999px;
+.logoTile:hover .logoImg {
+  filter: drop-shadow(0 4px 14px rgba(255, 139, 44, 0.35));
 }
