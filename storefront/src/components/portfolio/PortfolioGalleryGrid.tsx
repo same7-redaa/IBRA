@@ -37,6 +37,32 @@ export default function PortfolioGalleryGrid({
     setSelectedProject(projects[prevIndex]);
   }, [projects, selectedProject]);
 
+  // Lock background scroll and Lenis smooth scroll while modal is open
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+      if (lenis) {
+        lenis.stop();
+      }
+    } else {
+      document.body.style.overflow = "";
+      if (lenis) {
+        lenis.start();
+      }
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      if (lenis) {
+        lenis.start();
+      }
+    };
+  }, [selectedProject]);
+
   // Keyboard Navigation: Esc to close, Arrow keys to navigate
   useEffect(() => {
     if (!selectedProject) return;
