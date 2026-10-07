@@ -100,8 +100,12 @@ export default function ClientsTickerSection() {
   const repeatedRow2 = [...LOGOS_ROW_2, ...LOGOS_ROW_2, ...LOGOS_ROW_2];
 
   return (
-    <section className="w-full py-10 sm:py-14 relative overflow-hidden bg-transparent select-none">
+    <section className="w-full py-8 sm:py-12 relative overflow-hidden bg-[#060608] select-none">
       
+      {/* Seamless Black Gradient Transitions at Top & Bottom */}
+      <div className="absolute inset-x-0 top-0 h-20 sm:h-28 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
+      <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
+
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-36 bg-[#FF8B2C]/5 rounded-full blur-[120px] pointer-events-none" />
 

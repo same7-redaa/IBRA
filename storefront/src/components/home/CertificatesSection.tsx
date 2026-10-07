@@ -114,8 +114,12 @@ export default function CertificatesSection() {
   };
 
   return (
-    <section id="certificates" className="w-full py-16 sm:py-20 relative overflow-hidden bg-transparent select-none">
+    <section id="certificates" className="w-full py-16 sm:py-24 relative overflow-hidden bg-[#060608] text-white select-none">
       
+      {/* Seamless Black Gradient Transitions at Top & Bottom */}
+      <div className="absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
+      <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-[#060608] via-[#060608]/90 to-transparent pointer-events-none z-20" />
+
       {/* Subtle Background Glows */}
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
