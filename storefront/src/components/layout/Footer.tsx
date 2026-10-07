@@ -86,6 +86,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/#certificates" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
+                  <span>الشهادات والاعتمادات</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/#impact" className="hover:text-[#FF8B2C] transition-colors flex items-center gap-1">
                   <span>أثر يُثبت بالأرقام</span>
                 </Link>

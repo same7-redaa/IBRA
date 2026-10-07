@@ -35,7 +35,7 @@ export default function Header() {
         return;
       }
 
-      const sections = ["services", "portfolio", "impact", "contact"];
+      const sections = ["services", "portfolio", "certificates", "impact", "contact"];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
