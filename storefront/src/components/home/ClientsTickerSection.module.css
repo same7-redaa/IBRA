@@ -1,0 +1,91 @@
+.tickerWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  padding: 12px 0;
+  font-family: 'Thmanyah Serif Text', sans-serif;
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 20px;
+  animation: tickerSlide 38s linear infinite;
+}
+
+.tickerTrackReverse {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 20px;
+  animation: tickerSlideReverse 42s linear infinite;
+}
+
+.tickerWrapper:hover .tickerTrack,
+.tickerWrapper:hover .tickerTrackReverse {
+  animation-play-state: paused;
+}
+
+@keyframes tickerSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tickerSlideReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.brandPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  cursor: default;
+}
+
+.brandPill:hover {
+  background: rgba(255, 139, 44, 0.12);
+  border-color: rgba(255, 139, 44, 0.45);
+  box-shadow: 0 6px 25px rgba(255, 139, 44, 0.2);
+  transform: translateY(-2px);
+}
+
+.brandPill:hover .brandName {
+  color: #ffffff;
+}
+
+.brandName {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #d1d5db;
+  transition: color 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.brandTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #FF8B2C;
+  background: rgba(255, 139, 44, 0.15);
+  border: 1px solid rgba(255, 139, 44, 0.3);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}

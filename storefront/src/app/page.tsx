@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import ClientsTickerSection from "@/components/home/ClientsTickerSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import CertificatesSection from "@/components/home/CertificatesSection";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="flex-grow flex flex-col min-h-screen">
       <Hero />
+      <ClientsTickerSection />
       <ServicesSection />
       <PortfolioSection />
       <CertificatesSection />
