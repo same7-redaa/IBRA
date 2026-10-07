@@ -1,27 +1,62 @@
-.coverCard {
-  position: relative;
+.flipCard {
+  background-color: transparent;
   width: 100%;
-  min-height: 220px;
-  background: #09090e;
-  border: 1.5px solid rgba(255, 139, 44, 0.35);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(255, 139, 44, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  height: 310px;
+  perspective: 1000px;
   font-family: 'Thmanyah Serif Text', sans-serif;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
 }
 
-@media (min-width: 1024px) {
-  .coverCard {
-    min-height: 250px;
-    border-radius: 28px;
+@media (min-width: 640px) {
+  .flipCard {
+    height: 320px;
   }
 }
 
-.coverCard::before {
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flipCard:hover .flipCardInner,
+.flipCard.flipped .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Front Face */
+.flipCardFront {
+  background: radial-gradient(circle at 50% 0%, #151520 0%, #0a0a0f 100%);
+  border: 1.5px solid rgba(255, 139, 44, 0.3);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(255, 139, 44, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.flipCardFront::before {
   content: "";
   position: absolute;
   top: 0;
@@ -29,160 +64,34 @@
   left: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, #FF8B2C, transparent);
-  box-shadow: 0 0 15px #FF8B2C;
-  z-index: 20;
+  box-shadow: 0 0 12px #FF8B2C;
 }
 
-/* Background Ambient Glows */
-.coverCard::after {
-  content: "";
-  position: absolute;
-  bottom: -40%;
-  right: 20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255, 139, 44, 0.08), transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
-}
-
-/* Rotary Dial Container inside Cover */
-.radioInputContainer {
-  position: relative;
-  height: 180px;
-  width: 240px;
-  background: #07070b;
-  border: 1.5px solid rgba(255, 139, 44, 0.3);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.8),
-    inset 0 0 15px rgba(0, 0, 0, 0.9),
-    0 0 20px rgba(255, 139, 44, 0.1);
-  cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Thmanyah Serif Text', sans-serif;
-  user-select: none;
-}
-
-@media (min-width: 640px) {
-  .radioInputContainer {
-    width: 270px;
-    height: 195px;
-  }
-}
-
-.radioInputContainer:hover {
+.flipCard:hover .flipCardFront {
   border-color: rgba(255, 139, 44, 0.6);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.9),
-    inset 0 0 15px rgba(0, 0, 0, 0.9),
-    0 0 30px rgba(255, 139, 44, 0.25);
+    0 20px 45px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(255, 139, 44, 0.2);
 }
 
-/* Conic radial grooves */
-.radioInputContainer::after {
-  content: "";
-  position: absolute;
-  right: -130px;
-  width: 260px;
-  height: 260px;
-  background: repeating-conic-gradient(
-    from 0deg,
-    #121218 0deg 8deg,
-    #1a1a22 8deg 16deg
-  );
-  border-radius: 50%;
-  z-index: 1;
-  opacity: 0.65;
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
-}
-
-/* Glowing Indicator Focal Dot on the right side in RTL */
-.radioInputContainer::before {
-  content: "";
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  background: #FF8B2C;
-  border-radius: 50%;
-  z-index: 30;
+/* Back Face */
+.flipCardBack {
+  background: radial-gradient(circle at 50% 100%, #181824 0%, #0c0c12 100%);
+  border: 1.5px solid #FF8B2C;
+  transform: rotateY(180deg);
   box-shadow:
-    0 0 10px #FF8B2C,
-    0 0 20px #FF8B2C,
-    0 0 30px rgba(255, 139, 44, 0.8);
-  pointer-events: none;
-  animation: glowDot 2s ease-in-out infinite;
+    0 20px 50px rgba(0, 0, 0, 0.9),
+    0 0 35px rgba(255, 139, 44, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-@keyframes glowDot {
-  0%, 100% {
-    box-shadow: 0 0 8px #FF8B2C, 0 0 16px #FF8B2C;
-  }
-  50% {
-    box-shadow: 0 0 14px #FF8B2C, 0 0 28px #FF8B2C, 0 0 40px rgba(255, 139, 44, 0.9);
-  }
-}
-
-.glassOverlay {
+.flipCardBack::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.06) 0%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  z-index: 25;
-  pointer-events: none;
-}
-
-.wheelLabel {
-  position: absolute;
-  right: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
-  transform-origin: -100px center;
-  filter: blur(2px);
-  opacity: 0.15;
-  z-index: 5;
-  cursor: pointer;
-  font-family: 'Thmanyah Serif Text', sans-serif !important;
-}
-
-.wheelLabel .num {
-  font-family: 'Thmanyah Serif Text', sans-serif !important;
-  font-weight: 700;
-  font-size: 0.7rem;
-  color: #FF8B2C;
-  margin-bottom: -2px;
-  letter-spacing: 1px;
-}
-
-.wheelLabel .label {
-  font-family: 'Thmanyah Serif Text', sans-serif !important;
-  font-weight: 900;
-  font-size: 1.35rem;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  white-space: nowrap;
-}
-
-.wheelLabel.active {
-  opacity: 1;
-  filter: blur(0);
-  transform: rotate(0deg) translateX(-8px) !important;
-  z-index: 10;
-}
-
-.wheelLabel.active .label {
-  text-shadow: 0 0 18px rgba(255, 139, 44, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFA857, transparent);
+  box-shadow: 0 0 15px #FF8B2C;
 }
