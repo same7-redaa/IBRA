@@ -16,20 +16,20 @@ export default function ToastNotification({
 }: ToastProps) {
   const [isExiting, setIsExiting] = useState(false);
 
+  const handleClose = React.useCallback(() => {
+    setIsExiting(true);
+    setTimeout(() => {
+      onClose();
+    }, 200);
+  }, [onClose]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       handleClose();
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [duration]);
-
-  const handleClose = () => {
-    setIsExiting(true);
-    setTimeout(() => {
-      onClose();
-    }, 200);
-  };
+  }, [duration, handleClose]);
 
   return (
     <div

@@ -21,13 +21,9 @@ export default function SplashScreen() {
   const [isRendered, setIsRendered] = useState(true);
   const [radius, setRadius] = useState(215);
   // Pick a random icon index on every page load
-  const [targetIndex, setTargetIndex] = useState(0);
+  const [targetIndex] = useState(() => Math.floor(Math.random() * SPLASH_ICONS.length));
 
   useEffect(() => {
-    // Select random icon on mount
-    const randomIdx = Math.floor(Math.random() * SPLASH_ICONS.length);
-    setTargetIndex(randomIdx);
-
     const handleResize = () => {
       if (typeof window !== "undefined") {
         if (window.innerWidth < 400) {
@@ -160,9 +156,9 @@ export default function SplashScreen() {
                       : `translate(${x}px, ${y}px) scale(${isExpanded ? 1 : 0})`,
                   opacity: phase === "plunge" ? (isTarget ? 1 : 0) : isExpanded ? 1 : 0,
                   transitionDelay: phase === "plunge" ? "0ms" : `${idx * 40}ms`,
-                  ["--start-x" as any]: `${targetStartX}px`,
-                  ["--start-y" as any]: `${targetStartY}px`,
-                }}
+                  "--start-x": `${targetStartX}px`,
+                  "--start-y": `${targetStartY}px`,
+                } as React.CSSProperties}
               >
                 {/* Clean Pure Icon */}
                 <div className="w-9 h-9 sm:w-14 sm:h-14 flex items-center justify-center">
