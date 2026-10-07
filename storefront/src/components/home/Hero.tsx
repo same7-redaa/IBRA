@@ -43,30 +43,33 @@ export default function Hero() {
     updateRadius();
     window.addEventListener("resize", updateRadius);
 
-    // Trigger the staggered blur entrance when splash plunges
-    const triggerHeroEntrance = () => {
-      setTimeout(() => {
+    // On mobile screens or if heroReady is set, guarantee immediate 100% visibility
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 768 || (window as unknown as { __heroReady?: boolean }).__heroReady) {
         setMounted(true);
-      }, 50);
+        setIsOpen(true);
+      }
+    }
 
+    // Trigger the staggered entrance when splash plunges on desktop
+    const triggerHeroEntrance = () => {
+      setMounted(true);
       setTimeout(() => {
         setIsOpen(true);
-      }, 300);
+      }, 150);
     };
 
     // Check if splash already completed or listen for hero-ready event
-    if (typeof window !== "undefined" && (window as unknown as { __heroReady?: boolean }).__heroReady) {
-      triggerHeroEntrance();
-    } else if (typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
       const onHeroReady = () => {
         triggerHeroEntrance();
       };
       window.addEventListener("hero-ready", onHeroReady);
 
-      // Fallback safety timeout in case splash was skipped or already gone
+      // Fallback safety timeout
       const fallbackTimer = setTimeout(() => {
         triggerHeroEntrance();
-      }, 2000);
+      }, 800);
 
       return () => {
         window.removeEventListener("resize", updateRadius);

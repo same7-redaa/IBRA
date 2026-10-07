@@ -5,11 +5,11 @@ import React, { useEffect, useRef, useState } from "react";
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
-  delay?: number; // in ms (e.g. 50, 100)
+  delay?: number; // in ms
   direction?: "up" | "down" | "left" | "right" | "none";
   threshold?: number;
   blur?: boolean;
-  blurAmount?: number; // in px, default 12
+  blurAmount?: number;
 }
 
 export default function ScrollReveal({
@@ -17,60 +17,82 @@ export default function ScrollReveal({
   className = "",
   delay = 0,
   direction = "up",
-  threshold = 0.01,
-  blur = true,
-  blurAmount = 10,
+  threshold = 0,
+  blur = false,
+  blurAmount = 8,
 }: ScrollRevealProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  // Always true by default to guarantee 100% visibility during fast mobile fling/scroll
+  const [isVisible, setIsVisible] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    // If element is already in or above viewport on mount, reveal immediately
+    // Only apply scroll animations on desktop screens (>= 768px)
+    // On mobile devices, contents are ALWAYS 100% visible with zero blank space during fast scrolls
     if (typeof window !== "undefined") {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 120) {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
         setIsVisible(true);
         return;
       }
+      setIsDesktop(true);
     }
+
+    const el = ref.current;
+    if (!el) return;
+
+    // Check if already in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 200 && rect.bottom > -200) {
+      setIsVisible(true);
+      return;
+    }
+
+    // On desktop, set initial hidden state for smooth reveal
+    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(el); // trigger once for zero overhead
+          observer.unobserve(el);
         }
       },
       {
         threshold,
-        rootMargin: "140px 0px 80px 0px", // Eager anticipation: elements reveal before reaching screen edge
+        rootMargin: "350px 0px 350px 0px", // 350px eager buffer: elements reveal long before arriving
       }
     );
 
     observer.observe(el);
 
-    return () => observer.disconnect();
+    // Unconditional safety timeout: Ensure element is ALWAYS visible even if observer is bypassed
+    const safetyTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 400);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(safetyTimer);
+    };
   }, [threshold]);
 
   const getTransformStyle = () => {
-    if (isVisible) return "translate3d(0, 0, 0) scale(1)";
+    if (isVisible || !isDesktop) return "translate3d(0, 0, 0) scale(1)";
 
     switch (direction) {
       case "up":
-        return "translate3d(0, 20px, 0) scale(0.99)";
+        return "translate3d(0, 16px, 0) scale(0.99)";
       case "down":
-        return "translate3d(0, -20px, 0) scale(0.99)";
+        return "translate3d(0, -16px, 0) scale(0.99)";
       case "left":
-        return "translate3d(20px, 0, 0) scale(0.99)";
+        return "translate3d(16px, 0, 0) scale(0.99)";
       case "right":
-        return "translate3d(-20px, 0, 0) scale(0.99)";
+        return "translate3d(-16px, 0, 0) scale(0.99)";
       case "none":
-        return "translate3d(0, 0, 0) scale(0.98)";
+        return "translate3d(0, 0, 0) scale(0.99)";
       default:
-        return "translate3d(0, 20px, 0) scale(0.99)";
+        return "translate3d(0, 16px, 0) scale(0.99)";
     }
   };
 
@@ -79,15 +101,16 @@ export default function ScrollReveal({
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
-        filter: isVisible ? "blur(0px)" : blur ? `blur(${blurAmount}px)` : "none",
+        opacity: isVisible || !isDesktop ? 1 : 0,
+        filter: isVisible || !isDesktop ? "none" : blur ? `blur(${blurAmount}px)` : "none",
         transform: getTransformStyle(),
-        transition: `opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: isVisible ? "auto" : "opacity, transform, filter",
+        transition: isDesktop 
+          ? `opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms` 
+          : "none",
+        willChange: isVisible ? "auto" : "opacity, transform",
       }}
     >
       {children}
     </div>
   );
 }
-
