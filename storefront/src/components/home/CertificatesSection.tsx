@@ -74,7 +74,7 @@ const CERTIFICATES: CertificateItem[] = [
     skills: ["أبحاث السوق", "استراتيجيات الاستهداف", "إعلانات السوشيال", "تحسين القمع الإعلاني"],
     description: "تخرج معتمد من مبادرة مصر الرقمية المستقبلية بالتعاون مع Udacity لتطوير حلول التسويق الرقمي وإدارة الحملات.",
     logoType: "image",
-    logoSrc: "/certificates/fwd.jpg"
+    logoSrc: "/certificates/digital-egypt.png"
   },
   {
     id: "greaters-diploma",
