@@ -23,18 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className="h-full antialiased dark">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof history !== 'undefined' && 'scrollRestoration' in history) {
-                history.scrollRestoration = 'manual';
-              }
-              window.scrollTo(0, 0);
-            `,
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col ambient-glow-bg text-[#f4f4f6] relative selection:bg-[#FF8B2C]/30 selection:text-white">
         <PortfolioProvider>
           <ClientLogosProvider>
