@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SocialConnect from "@/components/home/SocialConnect";
 
 export const metadata: Metadata = {
   title: "معرض الأعمال والنتائج | إبراهيم علي سليم",
@@ -131,26 +132,15 @@ export default function PortfolioIndexPage() {
           })}
         </div>
 
-        {/* Bottom Direct CTA */}
-        <ScrollReveal direction="up" blurAmount={12}>
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#141420] via-[#0d0d14] to-[#141420] border border-[#FF8B2C]/40 text-center">
-            <h3 className="text-xl sm:text-3xl font-black text-white mb-3">
-              جاهز لرفع أداء حملاتك ومتجرك للمستوى التالي؟
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto mb-6">
-              احجز استشارتك التسويقية الآن ودعنا نضع خطة متكاملة لتحقيق نمو سريع ومستدام.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-sm hover:bg-[#FFA857] transition-all shadow-[0_4px_20px_rgba(255,139,44,0.35)] hover:scale-105"
-            >
-              <span>تواصل معي الآن</span>
-              <ArrowLeft className="w-4 h-4" />
-            </Link>
-          </div>
-        </ScrollReveal>
-
       </div>
+
+      {/* Reused Full SocialConnect Section (تواصل مع إبراهيم علي سليم) */}
+      <SocialConnect 
+        titlePrefix="جاهز لرفع أداء متجرك؟"
+        titleHighlight="تواصل مع إبراهيم علي سليم"
+        description="متاح فوراً لدراسة حملاتك التسويقية وتطبيق استراتيجيات موثقة لتحقيق أعلى عائد ونمو مستدام لمتجرك."
+      />
+
     </main>
   );
 }

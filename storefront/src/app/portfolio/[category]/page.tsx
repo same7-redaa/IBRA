@@ -7,6 +7,7 @@ import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import HowIWorkSection from "@/components/portfolio/HowIWorkSection";
 import PortfolioGalleryGrid from "@/components/portfolio/PortfolioGalleryGrid";
+import SocialConnect from "@/components/home/SocialConnect";
 
 interface PageProps {
   params: Promise<{
@@ -121,38 +122,15 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
           </ScrollReveal>
         </section>
 
-        {/* 5. Direct CTA Section */}
-        <section>
-          <ScrollReveal direction="up" blurAmount={14}>
-            <div className="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#12121e] via-[#0d0d14] to-[#18110b] border-2 border-[#FF8B2C] text-center overflow-hidden shadow-[0_20px_60px_rgba(255,139,44,0.25)]">
-              <div className="relative z-10 max-w-2xl mx-auto">
-                <h3 className="text-2xl sm:text-4xl font-black text-white mb-3">
-                  هل تريد تحقيق نفس النتائج لمشروعك؟
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-300 mb-8 leading-relaxed">
-                  تواصل معي مباشرة لنبدأ في دراسة متطلباتك وتطبيق أفضل خطة تسويقية تضمن أعلى عائد ROAS ونمو حقيقي للمبيعات.
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                  <Link
-                    href="/#contact"
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#FF8B2C] text-[#060608] font-black text-xs sm:text-sm hover:bg-[#FFA857] transition-all shadow-[0_4px_25px_rgba(255,139,44,0.4)] hover:scale-105"
-                  >
-                    <span>ابدأ مشروعك الآن</span>
-                    <ArrowLeft className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    href="/portfolio"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#161624] border border-white/20 text-white font-bold text-xs sm:text-sm hover:border-white transition-all"
-                  >
-                    <span>جميع معارض الأعمال</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
-
       </div>
+
+      {/* Reused Full SocialConnect Section (تواصل مع إبراهيم علي سليم) */}
+      <SocialConnect 
+        titlePrefix="هل تريد تحقيق نفس النتائج؟"
+        titleHighlight="تواصل مع إبراهيم علي سليم"
+        description="تواصل معي مباشرة لنبدأ في دراسة متطلباتك وتطبيق أفضل خطة تسويقية تضمن أعلى عائد ROAS ونمو حقيقي لمبيعاتك."
+      />
+
     </main>
   );
 }

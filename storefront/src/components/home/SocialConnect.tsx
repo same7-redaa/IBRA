@@ -1,23 +1,42 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import styles from "./SocialConnect.module.css";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-export default function SocialConnect() {
+interface SocialConnectProps {
+  id?: string;
+  titlePrefix?: string;
+  titleHighlight?: string;
+  description?: string;
+  className?: string;
+}
+
+export default function SocialConnect({
+  id = "contact",
+  titlePrefix = "تواصل مع",
+  titleHighlight = "إبراهيم علي سليم",
+  description = "متاح للاستشارات التسويقية، إدارة وتوسيع الحملات الإعلانية، وبناء الشراكات الاستراتيجية لنمو المتاجر الإلكترونية.",
+  className = "",
+}: SocialConnectProps) {
   return (
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+    <section 
+      id={id} 
+      className={`w-full py-20 sm:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden ${className}`}
+    >
       
       {/* Background Subtle Ambient Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-72 h-72 bg-[#FF8B2C]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-[#FF8B2C]/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Decorative Background Artworks */}
       <div
-        className="absolute top-1/4 -left-8 w-52 h-52 sm:w-76 sm:h-76 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[15deg]"
+        className="absolute top-1/4 -left-8 w-52 h-52 sm:w-80 sm:h-80 bg-contain bg-no-repeat opacity-10 mix-blend-screen pointer-events-none -rotate-[15deg]"
         style={{ backgroundImage: `url('/bg-art/facebook-page.png')` }}
       />
       <div
-        className="absolute -top-6 -right-6 w-40 h-40 sm:w-60 sm:h-60 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[30deg]"
+        className="absolute -top-6 -right-6 w-40 h-40 sm:w-64 sm:h-64 bg-contain bg-no-repeat opacity-12 mix-blend-screen pointer-events-none rotate-[30deg]"
         style={{ backgroundImage: `url('/bg-art/logo.png')` }}
       />
 
@@ -28,12 +47,12 @@ export default function SocialConnect() {
       <ScrollReveal direction="up" delay={0}>
         <div className="w-full max-w-[1200px] mx-auto text-center relative z-10">
         
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-          تواصل مع <span className="text-[#FF8B2C] drop-shadow-[0_0_20px_rgba(255,139,44,0.4)]">إبراهيم علي سليم</span>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white mb-4 sm:mb-5 tracking-tight font-serif">
+          {titlePrefix} <span className="text-[#FF8B2C] drop-shadow-[0_0_25px_rgba(255,139,44,0.45)]">{titleHighlight}</span>
         </h2>
 
-        <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto leading-relaxed mb-8 font-medium">
-          متاح للاستشارات التسويقية، إدارة وتوسيع الحملات الإعلانية، وبناء الشراكات الاستراتيجية لنمو المتاجر الإلكترونية.
+        <p className="text-xs sm:text-sm md:text-base text-zinc-300 max-w-xl mx-auto leading-relaxed mb-10 sm:mb-12 font-medium">
+          {description}
         </p>
 
         {/* Buttons Row (Side by Side) */}
