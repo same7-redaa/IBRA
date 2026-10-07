@@ -15,10 +15,31 @@ export default function ScrollToTop() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
-    // 2. Lenis instance instant reset (disable inertia/animation from previous page)
+    // 2. Lenis instance instant reset
     const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options?: { immediate?: boolean; force?: boolean }) => void; stop: () => void; start: () => void } }).lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true, force: true });
+    }
+  };
+
+  const scrollToTargetSection = (targetId: string) => {
+    if (typeof window === "undefined") return;
+
+    const element = document.getElementById(targetId);
+    if (!element) return;
+
+    const headerOffset = 85;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options?: { duration?: number; offset?: number }) => void } }).lenis;
+    if (lenis) {
+      lenis.scrollTo(offsetPosition, { duration: 1.2 });
+    } else {
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -29,33 +50,62 @@ export default function ScrollToTop() {
         window.history.scrollRestoration = "manual";
       }
 
-      resetImmediateTop();
+      const checkTargetOrReset = () => {
+        const storedSection = sessionStorage.getItem("scroll_to_section");
+        const hashSection = window.location.hash.replace("#", "");
+        const target = storedSection || hashSection;
 
-      const handleSplashDone = () => resetImmediateTop();
+        if (target && target !== "top") {
+          sessionStorage.removeItem("scroll_to_section");
+          setTimeout(() => scrollToTargetSection(target), 120);
+        } else {
+          resetImmediateTop();
+        }
+      };
+
+      checkTargetOrReset();
+
+      const handleSplashDone = () => checkTargetOrReset();
       window.addEventListener("splash-finished", handleSplashDone);
-      window.addEventListener("pageshow", resetImmediateTop);
-      window.addEventListener("load", resetImmediateTop);
+      window.addEventListener("pageshow", checkTargetOrReset);
 
       return () => {
         window.removeEventListener("splash-finished", handleSplashDone);
-        window.removeEventListener("pageshow", resetImmediateTop);
-        window.removeEventListener("load", resetImmediateTop);
+        window.removeEventListener("pageshow", checkTargetOrReset);
       };
     }
   }, []);
 
-  // 2. Before browser paint and immediately upon pathname change, force instant (0,0)
+  // 2. On route/pathname change: scroll to section or instant (0,0)
   useLayoutEffect(() => {
-    resetImmediateTop();
-    const rafId = requestAnimationFrame(resetImmediateTop);
-    const timeoutId = setTimeout(resetImmediateTop, 30);
+    if (typeof window === "undefined") return;
 
-    return () => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(timeoutId);
-    };
+    const storedSection = sessionStorage.getItem("scroll_to_section");
+    const hashSection = window.location.hash.replace("#", "");
+    const target = storedSection || hashSection;
+
+    if (target && target !== "top") {
+      sessionStorage.removeItem("scroll_to_section");
+      const t1 = setTimeout(() => scrollToTargetSection(target), 80);
+      const t2 = setTimeout(() => scrollToTargetSection(target), 220);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
+    } else {
+      resetImmediateTop();
+      const rafId = requestAnimationFrame(resetImmediateTop);
+      const timeoutId = setTimeout(resetImmediateTop, 30);
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        clearTimeout(timeoutId);
+      };
+    }
   }, [pathname]);
 
   return null;
 }
+
 

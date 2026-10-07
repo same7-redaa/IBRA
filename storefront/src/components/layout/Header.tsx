@@ -95,6 +95,12 @@ export default function Header() {
         }
       }
     } else {
+      if (id && id !== "top") {
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("scroll_to_section", id);
+        }
+      }
+      setIsMobileMenuOpen(false);
       router.push(href);
     }
   };
