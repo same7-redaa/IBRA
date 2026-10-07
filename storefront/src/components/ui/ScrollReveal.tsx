@@ -35,7 +35,7 @@ function flushPending() {
   ticking = false;
   if (pending.size === 0) return;
   // Reveal everything above the viewport or within 1.5 screens below it
-  const limit = window.innerHeight * 1.5;
+  const limit = window.innerHeight * 1.05;
   pending.forEach((reveal, el) => {
     if (el.getBoundingClientRect().top < limit) reveal();
   });
@@ -58,7 +58,7 @@ function register(el: Element, reveal: () => void) {
           }
         });
       },
-      { rootMargin: "25% 0px 60% 0px", threshold: 0 }
+      { rootMargin: "0px 0px -30px 0px", threshold: 0.05 }
     );
   }
   if (!scrollBound) {
@@ -72,11 +72,11 @@ function register(el: Element, reveal: () => void) {
 
 const HIDDEN_TRANSFORMS: Record<NonNullable<ScrollRevealProps["direction"]>, string> = {
   // 2D transforms while hidden: no forced GPU layer for off-screen elements
-  up: "translate(0, 20px) scale(0.99)",
-  down: "translate(0, -20px) scale(0.99)",
-  left: "translate(20px, 0) scale(0.99)",
-  right: "translate(-20px, 0) scale(0.99)",
-  none: "translate(0, 0) scale(0.98)",
+  up: "translate(0, 16px) scale(0.99)",
+  down: "translate(0, -16px) scale(0.99)",
+  left: "translate(16px, 0) scale(0.99)",
+  right: "translate(-16px, 0) scale(0.99)",
+  none: "translate(0, 0) scale(0.99)",
 };
 
 export default function ScrollReveal({
@@ -85,7 +85,7 @@ export default function ScrollReveal({
   delay = 0,
   direction = "up",
   blur = true,
-  blurAmount = 10,
+  blurAmount = 6,
 }: ScrollRevealProps) {
   const [phase, setPhase] = useState<Phase>("hidden");
   const ref = useRef<HTMLDivElement>(null);
@@ -100,8 +100,8 @@ export default function ScrollReveal({
       setPhase((p) => (p === "hidden" ? "animating" : p));
     };
 
-    // Already on/above screen at mount (e.g. reload mid-page) -> reveal now
-    if (el.getBoundingClientRect().top < window.innerHeight * 1.1) {
+    // Already visible in upper viewport on initial load -> reveal immediately
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
       reveal();
       return;
     }
@@ -114,7 +114,7 @@ export default function ScrollReveal({
   // element stops holding its own GPU layer (visually identical result).
   useEffect(() => {
     if (phase !== "animating") return;
-    const t = setTimeout(() => setPhase("done"), delay + 650);
+    const t = setTimeout(() => setPhase("done"), delay + 600);
     return () => clearTimeout(t);
   }, [phase, delay]);
 
@@ -142,7 +142,7 @@ export default function ScrollReveal({
             : HIDDEN_TRANSFORMS[direction],
         transition: isDone
           ? "none"
-          : `opacity 0.45s ${easing} ${delay}ms, transform 0.45s ${easing} ${delay}ms, filter 0.45s ${easing} ${delay}ms`,
+          : `opacity 0.5s ${easing} ${delay}ms, transform 0.5s ${easing} ${delay}ms, filter 0.5s ${easing} ${delay}ms`,
         willChange: phase === "animating" ? "opacity, transform, filter" : "auto",
       }}
     >

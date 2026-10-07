@@ -43,10 +43,10 @@ export default function SplashScreen() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-    // Step 1: Burst icons from center of text outward into circular orbit
+    // Step 1: Burst icons from center outward immediately into circular orbit
     const t0 = setTimeout(() => {
       setIsExpanded(true);
-    }, 100);
+    }, 20);
 
     // Step 2: Trigger 3D Camera Plunge right INTO the randomly selected icon (Hero reveals here!)
     const t1 = setTimeout(() => {
@@ -55,7 +55,7 @@ export default function SplashScreen() {
         (window as unknown as { __heroReady?: boolean }).__heroReady = true;
         window.dispatchEvent(new CustomEvent("hero-ready"));
       }
-    }, 1800);
+    }, 1600);
 
     // Step 3: Complete plunge transition and unmount splash
     const t2 = setTimeout(() => {
@@ -64,7 +64,7 @@ export default function SplashScreen() {
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("splash-finished"));
       }
-    }, 2800);
+    }, 2600);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -147,7 +147,7 @@ export default function SplashScreen() {
                     ? isTarget
                     ? "splash-camera-plunge z-50"
                     : "opacity-0 scale-50 filter blur-sm transition-opacity duration-300"
-                    : "splash-icon-counter-spin duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    : "splash-icon-counter-spin duration-450 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 }`}
                 style={{
                   transform:
@@ -157,7 +157,7 @@ export default function SplashScreen() {
                         : `translate(${x}px, ${y}px) scale(0)`
                       : `translate(${x}px, ${y}px) scale(${isExpanded ? 1 : 0})`,
                   opacity: phase === "plunge" ? (isTarget ? 1 : 0) : isExpanded ? 1 : 0,
-                  transitionDelay: phase === "plunge" ? "0ms" : `${idx * 40}ms`,
+                  transitionDelay: phase === "plunge" ? "0ms" : `${idx * 12}ms`,
                   "--start-x": `${targetStartX}px`,
                   "--start-y": `${targetStartY}px`,
                 } as React.CSSProperties}
