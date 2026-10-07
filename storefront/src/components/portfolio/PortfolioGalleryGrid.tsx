@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { 
   Maximize2, 
@@ -21,21 +21,39 @@ export default function PortfolioGalleryGrid({
 }: PortfolioGalleryGridProps) {
   const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(null);
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleNext = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (!selectedProject) return;
     const currentIndex = projects.findIndex((p) => p.id === selectedProject.id);
     const nextIndex = (currentIndex + 1) % projects.length;
     setSelectedProject(projects[nextIndex]);
-  };
+  }, [projects, selectedProject]);
 
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handlePrev = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (!selectedProject) return;
     const currentIndex = projects.findIndex((p) => p.id === selectedProject.id);
     const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
     setSelectedProject(projects[prevIndex]);
-  };
+  }, [projects, selectedProject]);
+
+  // Keyboard Navigation: Esc to close, Arrow keys to navigate
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null);
+      } else if (e.key === "ArrowRight") {
+        handlePrev();
+      } else if (e.key === "ArrowLeft") {
+        handleNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedProject, handleNext, handlePrev]);
 
   return (
     <section id="gallery" className="py-12 sm:py-16 select-none">
@@ -83,26 +101,26 @@ export default function PortfolioGalleryGrid({
         ))}
       </div>
 
-      {/* Fullscreen Lightbox Modal */}
+      {/* Screen-Adaptive Lightbox Modal */}
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 z-[99999] bg-[#060608]/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-[99999] bg-[#060608]/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-8"
         >
           {/* Close Button */}
           <button
             onClick={() => setSelectedProject(null)}
             aria-label="إغلاق"
-            className="absolute top-6 left-6 w-11 h-11 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer shadow-lg"
+            className="absolute top-4 left-4 sm:top-6 sm:left-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer shadow-xl border border-white/15"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Prev / Next Arrows */}
           <button
             onClick={handlePrev}
             aria-label="السابق"
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer hidden sm:flex"
+            className="absolute right-2 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer border border-white/15 shadow-xl"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -110,31 +128,33 @@ export default function PortfolioGalleryGrid({
           <button
             onClick={handleNext}
             aria-label="التالي"
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer hidden sm:flex"
+            className="absolute left-2 sm:left-6 md:left-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/10 hover:bg-[#FF8B2C] text-white hover:text-[#060608] flex items-center justify-center transition-all z-50 cursor-pointer border border-white/15 shadow-xl"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Image Container */}
+          {/* Image Container Card Fitted To Viewport */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl w-full max-h-[85vh] bg-[#0d0d14] border-2 border-[#FF8B2C] rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(255,139,44,0.35)] flex flex-col"
+            className="relative max-w-3xl sm:max-w-4xl w-full max-h-[88vh] bg-[#0d0d14] border-2 border-[#FF8B2C]/80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.9),0_0_40px_rgba(255,139,44,0.25)] flex flex-col my-auto"
           >
-            <div className="relative aspect-[16/10] w-full bg-[#060608] flex-shrink-0 max-h-[75vh]">
+            {/* Contained Media Box */}
+            <div className="relative w-full h-[55vh] sm:h-[65vh] max-h-[68vh] bg-[#060608] flex items-center justify-center p-2">
               <Image
                 src={selectedProject.image}
                 alt={selectedProject.title}
                 fill
-                className="object-contain"
+                className="object-contain p-2 sm:p-4"
                 priority
               />
             </div>
 
-            <div className="p-4 sm:p-5 bg-[#0d0d14] border-t border-white/10 flex items-center justify-between">
-              <h3 className="text-sm sm:text-base font-black text-white">
+            {/* Bottom Caption Bar */}
+            <div className="p-3.5 sm:p-5 bg-[#0e0e16] border-t border-white/10 flex items-center justify-between gap-3 shrink-0">
+              <h3 className="text-xs sm:text-base font-black text-white truncate">
                 {selectedProject.title}
               </h3>
-              <span className="text-xs text-[#FF8B2C] font-bold">
+              <span className="text-[11px] sm:text-xs text-[#FF8B2C] font-bold shrink-0 px-2.5 py-1 rounded-full bg-[#FF8B2C]/10 border border-[#FF8B2C]/30">
                 {selectedProject.category}
               </span>
             </div>
