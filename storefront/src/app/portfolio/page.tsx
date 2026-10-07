@@ -31,7 +31,7 @@ export default function PortfolioIndexPage() {
   const categories = Object.values(PORTFOLIO_DATA);
 
   return (
-    <main className="min-h-screen pt-28 pb-20 text-white overflow-hidden">
+    <main className="min-h-screen pt-28 pb-0 text-white overflow-hidden flex flex-col justify-between">
       {/* Background Ambience & Glows */}
       <div className="absolute top-24 right-1/4 w-[600px] h-[600px] bg-[#FF8B2C]/10 rounded-full blur-[180px] pointer-events-none -z-10" />
       <div className="absolute bottom-24 left-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
@@ -102,6 +102,7 @@ export default function PortfolioIndexPage() {
                         src={cat.image}
                         alt={cat.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-transparent opacity-60" />
@@ -134,11 +135,17 @@ export default function PortfolioIndexPage() {
 
       </div>
 
+      {/* Full-width Background Fade (تلاشي كامل في خلفية الصفحة بعد القسم) */}
+      <div className="w-full h-40 -mt-20 bg-gradient-to-b from-transparent via-[#060608]/80 to-[#060608] pointer-events-none -z-10" />
+
       {/* Reused Full SocialConnect Section (تواصل مع إبراهيم علي سليم) */}
       <SocialConnect 
         titlePrefix="جاهز لرفع أداء متجرك؟"
         titleHighlight="تواصل مع إبراهيم علي سليم"
-        description="متاح فوراً لدراسة حملاتك التسويقية وتطبيق استراتيجيات موثقة لتحقيق أعلى عائد ونمو مستدام لمتجرك."
+        descriptionLines={[
+          "متاح فوراً لدراسة حملاتك التسويقية وتطبيق استراتيجيات موثقة",
+          "لتحقيق أعلى عائد ونمو مستدام لمتجرك."
+        ]}
       />
 
     </main>

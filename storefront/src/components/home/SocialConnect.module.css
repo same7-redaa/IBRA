@@ -113,9 +113,11 @@
 
 @media (max-width: 640px) {
   .socialButton {
-    padding: 7px 16px;
+    width: 100%;
+    padding: 9px 12px;
     font-size: 13px;
     gap: 8px;
+    justify-content: center;
   }
 }
 

@@ -28,7 +28,43 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/hero/:path*",
+        source: "/hero-icons/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/bg-art/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/certificates/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/portfolio/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:file((?:hero-main|logo|facebook|instagram|google|tik-tok|social-media)\\.(?:png|jpg|jpeg|webp|svg))",
         headers: [
           {
             key: "Cache-Control",

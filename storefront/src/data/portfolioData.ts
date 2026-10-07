@@ -12,7 +12,6 @@ export interface CaseStudy {
   strategy: string[];
   results: string[];
   image: string;
-  tags: string[];
 }
 
 export interface GalleryProject {
@@ -20,9 +19,8 @@ export interface GalleryProject {
   title: string;
   category: string;
   image: string;
-  metrics: { label: string; value: string }[];
-  summary: string;
-  tags: string[];
+  videoUrl?: string;
+  storeUrl?: string;
 }
 
 export interface PortfolioCategoryData {
@@ -94,7 +92,6 @@ export const PORTFOLIO_DATA: Record<string, PortfolioCategoryData> = {
           "معالجة 4,920 طلب بنسبة تسليم فعلية تجاوزت 91%.",
         ],
         image: "/portfolio/2a9b34945a84d3883bef59ee57fb0121.jpg",
-        tags: ["Meta Ads", "Scaling", "Fashion CRO"],
       },
       {
         id: "cs-cosmetics-launch",
@@ -118,35 +115,20 @@ export const PORTFOLIO_DATA: Record<string, PortfolioCategoryData> = {
           "قاعدة بيانات عملاء تزيد عن 3,000 عميل لإعادة الاستهداف المجاني.",
         ],
         image: "/portfolio/project-1.jpg",
-        tags: ["TikTok Ads", "Meta Ads", "Beauty & Care"],
       },
     ],
     galleryProjects: [
       {
         id: "gp-1",
-        title: "حملة التوسع الموسمي لمستلزمات المنزل",
-        category: "Meta & Google Ads",
+        title: "حملة التوسع الموسمي لمستلزمات المنزل وتحقيق أعلى ROAS",
+        category: "الميديا باينج",
         image: "/portfolio/project-6.jpg",
-        metrics: [
-          { label: "ROAS", value: "11.8x" },
-          { label: "المبيعات", value: "1.4M EGP" },
-          { label: "الطلبات", value: "2,840" },
-        ],
-        summary: "حملة إعلانية شاملة لزيادة مبيعات الأدوات المنزلية عبر إعلانات الريلز وبحث جوجل.",
-        tags: ["Meta Ads", "Google Ads", "Home Decor"],
       },
       {
         id: "gp-2",
-        title: "إطلاق حملة إكسسوارات وساعات رجالية",
-        category: "TikTok & Meta Ads",
+        title: "إطلاق حملة إكسسوارات وساعات رجالية بمعدل تحويل قياسي",
+        category: "الميديا باينج",
         image: "/portfolio/project-2.jpg",
-        metrics: [
-          { label: "ROAS", value: "14.2x" },
-          { label: "المبيعات", value: "980K EGP" },
-          { label: "الطلبات", value: "1,620" },
-        ],
-        summary: "استهداف الشباب عبر إعلانات تيك توك الديناميكية ورفع متوسط قيمة الطلب (AOV).",
-        tags: ["TikTok Ads", "Accessories", "AOV Scaling"],
       },
     ],
   },
@@ -201,35 +183,22 @@ export const PORTFOLIO_DATA: Record<string, PortfolioCategoryData> = {
           "مبيعات تجاوزت 840 ألف جنيه بعائد إعلاني 14x.",
         ],
         image: "/portfolio/8d26727dd84afc3d2d99da81126bdcfe.jpg",
-        tags: ["After Effects", "Premiere Pro", "Electronics Video"],
       },
     ],
     galleryProjects: [
       {
         id: "gp-motion-1",
-        title: "إعلان موشن جرافيك ثلاثي الأبعاد لتطبيق توصيل",
-        category: "3D Motion Graphics",
+        title: "إعلان موشن جرافيك ثلاثي الأبعاد لتطبيق توصيل سريع",
+        category: "الموشن جرافيك",
         image: "/portfolio/project-4.jpg",
-        metrics: [
-          { label: "المشاهدات", value: "+1.8M" },
-          { label: "معدل الإكمال", value: "88%" },
-          { label: "التحميلات", value: "+14K" },
-        ],
-        summary: "فيديو موشن جرافيك ديناميكي يشرح خطوات الطلب في التطبيق في 20 ثانية فقط.",
-        tags: ["After Effects", "App Promo", "Motion 3D"],
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       },
       {
         id: "gp-motion-2",
-        title: "فيديو إعلاني سينمائي لبراند عطور فاخرة",
-        category: "Cinematic Video Ad",
+        title: "فيديو إعلاني سينمائي وإبراز تفاصيل عطور فاخرة",
+        category: "الموشن جرافيك",
         image: "/portfolio/project-5.jpg",
-        metrics: [
-          { label: "المشاهدات", value: "+950K" },
-          { label: "معدل النقر CTR", value: "3.9%" },
-          { label: "المبيعات", value: "620K EGP" },
-        ],
-        summary: "مونتاج سينمائي مع تصحيح ألوان وإبراز فخامة زجاجة العطر والمكونات الطبيعية.",
-        tags: ["Premiere Pro", "Color Grading", "Luxury Perfumes"],
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       },
     ],
   },
@@ -283,35 +252,20 @@ export const PORTFOLIO_DATA: Record<string, PortfolioCategoryData> = {
           "مبيعات 580 ألف جنيه بعائد استثماري 12.8x.",
         ],
         image: "/portfolio/0eb69c9aba3b9e587f00ebb3976d7cb1.jpg",
-        tags: ["Photoshop", "Illustrator", "Brand Identity"],
       },
     ],
     galleryProjects: [
       {
         id: "gp-design-1",
         title: "مجموعة بوستات إعلانية لبراند أحذية رياضية",
-        category: "Social Media Ads",
+        category: "تصاميم السوشيال ميديا",
         image: "/portfolio/project-3.jpg",
-        metrics: [
-          { label: "زيادة التفاعل", value: "+240%" },
-          { label: "معدل النقر CTR", value: "3.7%" },
-          { label: "التصاميم", value: "18 بوست" },
-        ],
-        summary: "تصاميم حركية بألوان نيون قوية ودمج فوتوشوب احترافي يبرز راحة وخفة الحذاء.",
-        tags: ["Photoshop", "Footwear", "Social Ads"],
       },
       {
         id: "gp-design-2",
         title: "هوية بصرية كاملة لشركة استشارات وحلول أعمال",
-        category: "Full Brand Identity",
+        category: "تصاميم السوشيال ميديا",
         image: "/portfolio/project-1.jpg",
-        metrics: [
-          { label: "أصول البراند", value: "+45 أصل" },
-          { label: "دليل الهوية", value: "شامل 100%" },
-          { label: "التقييم", value: "5/5 نجوم" },
-        ],
-        summary: "تصميم الشعار، بطاقات الأعمال، بروفايل الشركة، وقوالب السوشيال ميديا.",
-        tags: ["Illustrator", "Corporate Identity", "Brand Guide"],
       },
     ],
   },
@@ -366,35 +320,22 @@ export const PORTFOLIO_DATA: Record<string, PortfolioCategoryData> = {
           "معالجة أكثر من 3,400 طلب بنجاح.",
         ],
         image: "/portfolio/a6d2c954f419aa7199d41d1bdf61f9de.jpg",
-        tags: ["Shopify", "CRO Mastery", "AOV Booster"],
       },
     ],
     galleryProjects: [
       {
         id: "gp-store-1",
-        title: "بناء وتوسيع متجر ساعات وإكسسوارات رجالية",
-        category: "Full E-Commerce Build",
+        title: "بناء وتوسيع متجر ساعات وإكسسوارات فاخرة",
+        category: "توسيع المتاجر",
         image: "/portfolio/project-2.jpg",
-        metrics: [
-          { label: "معدل التحويل", value: "4.7%" },
-          { label: "الطلبات الشهرية", value: "+1,800" },
-          { label: "متوسط الطلب AOV", value: "520 EGP" },
-        ],
-        summary: "متجر بتصميم مظلم فخم ودفع سريع حقق مبيعات متسارعة منذ الأسبوع الأول.",
-        tags: ["Fast Checkout", "Luxury Theme", "Scaling"],
+        storeUrl: "https://example.com",
       },
       {
         id: "gp-store-2",
         title: "تحسين وتوسيع متجر مستلزمات العناية والجمال",
-        category: "CRO & Scaling",
+        category: "توسيع المتاجر",
         image: "/portfolio/project-1.jpg",
-        metrics: [
-          { label: "رفع الـ AOV", value: "+45%" },
-          { label: "الطلبات", value: "+3,200" },
-          { label: "المبيعات", value: "1.2M EGP" },
-        ],
-        summary: "إعادة هيكلة صفحات الهبوط وإضافة عروض الـ Upsell لرفع ربحية كل طلب إعلاني.",
-        tags: ["Landing Pages", "Upsell Funnels", "Beauty"],
+        storeUrl: "https://example.com",
       },
     ],
   },

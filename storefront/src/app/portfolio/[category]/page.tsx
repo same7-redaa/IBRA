@@ -53,7 +53,7 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
   );
 
   return (
-    <main className="min-h-screen pt-28 pb-20 text-white overflow-hidden selection:bg-[#FF8B2C]/30 selection:text-white">
+    <main className="min-h-screen pt-28 pb-0 text-white overflow-hidden flex flex-col justify-between selection:bg-[#FF8B2C]/30 selection:text-white">
       {/* Ambient Background Glows */}
       <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-[#FF8B2C]/10 rounded-full blur-[180px] pointer-events-none -z-10" />
       <div className="absolute top-[800px] left-1/4 w-[500px] h-[500px] bg-[#FF8B2C]/5 rounded-full blur-[160px] pointer-events-none -z-10" />
@@ -88,6 +88,7 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
         <PortfolioGalleryGrid
           projects={category.galleryProjects}
           categoryTitle={category.title}
+          categorySlug={category.slug}
         />
 
         {/* 4. Other Portfolio Categories Navigation */}
@@ -124,11 +125,17 @@ export default async function PortfolioCategoryPage({ params }: PageProps) {
 
       </div>
 
+      {/* Full-width Background Fade (تلاشي كامل في خلفية الصفحة بعد القسم) */}
+      <div className="w-full h-40 -mt-20 bg-gradient-to-b from-transparent via-[#060608]/80 to-[#060608] pointer-events-none -z-10" />
+
       {/* Reused Full SocialConnect Section (تواصل مع إبراهيم علي سليم) */}
       <SocialConnect 
         titlePrefix="هل تريد تحقيق نفس النتائج؟"
         titleHighlight="تواصل مع إبراهيم علي سليم"
-        description="تواصل معي مباشرة لنبدأ في دراسة متطلباتك وتطبيق أفضل خطة تسويقية تضمن أعلى عائد ROAS ونمو حقيقي لمبيعاتك."
+        descriptionLines={[
+          "تواصل معي مباشرة لنبدأ في دراسة متطلباتك وتطبيق أفضل خطة تسويقية",
+          "تضمن أعلى عائد ROAS ونمو حقيقي لمبيعاتك."
+        ]}
       />
 
     </main>

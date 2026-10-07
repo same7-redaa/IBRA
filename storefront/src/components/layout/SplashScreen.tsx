@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const SPLASH_ICONS = [
   { src: "/hero-icons/meta.png", alt: "Meta" },
@@ -15,6 +16,7 @@ const SPLASH_ICONS = [
 ];
 
 export default function SplashScreen() {
+  const pathname = usePathname();
   // Animation phases: 'orbit' -> 'plunge' -> 'done'
   const [phase, setPhase] = useState<"orbit" | "plunge" | "done">("orbit");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -72,7 +74,7 @@ export default function SplashScreen() {
     };
   }, []);
 
-  if (!isRendered) return null;
+  if (pathname?.startsWith("/admin") || !isRendered) return null;
 
   // Calculate coordinates of the randomly chosen target icon
   const targetAngle = (targetIndex / SPLASH_ICONS.length) * 2 * Math.PI - Math.PI / 2;

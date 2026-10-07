@@ -75,6 +75,10 @@ export default function NavigationLoader() {
         if (url.origin !== window.location.origin) return;
         const current = window.location.pathname + window.location.search;
         if (url.pathname + url.search === current) return;
+        // Never trigger navigation loader when navigating to or within admin
+        if (url.pathname.startsWith("/admin") || window.location.pathname.startsWith("/admin")) {
+          return;
+        }
         start();
       } catch {
         /* ignore malformed urls */
@@ -94,13 +98,21 @@ export default function NavigationLoader() {
     if (lastRouteRef.current === routeKey) return;
     lastRouteRef.current = routeKey;
 
+    // Never trigger on admin routes
+    if (pathname?.startsWith("/admin")) {
+      clearTimers();
+      setPhase("hidden");
+      pendingRef.current = false;
+      return;
+    }
+
     // Navigation triggered without a link click (router.push / back / forward)
     if (!pendingRef.current) start();
     finish();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routeKey]);
+  }, [routeKey, pathname]);
 
-  if (phase === "hidden") return null;
+  if (pathname?.startsWith("/admin") || phase === "hidden") return null;
 
   return (
     <div

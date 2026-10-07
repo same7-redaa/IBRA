@@ -1,9 +1,17 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageCircle, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="w-full bg-transparent text-white pt-10 sm:pt-12 pb-6 mt-auto relative z-10 overflow-hidden">

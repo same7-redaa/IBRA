@@ -105,6 +105,11 @@ export default function Header() {
     }
   };
 
+  // Hide header on Admin routes (after all hooks have executed)
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <div className="fixed top-2 sm:top-3 inset-x-0 z-50 w-full px-2.5 sm:px-5 max-w-[1400px] mx-auto">
       {/* Main Header Capsule */}

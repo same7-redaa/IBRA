@@ -12,6 +12,8 @@
   align-items: center;
   gap: 20px;
   animation: tickerSlide 35s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .tickerTrackReverse {
@@ -20,6 +22,8 @@
   align-items: center;
   gap: 20px;
   animation: tickerSlideReverse 38s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .tickerWrapper:hover .tickerTrack,
@@ -29,19 +33,19 @@
 
 @keyframes tickerSlide {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes tickerSlideReverse {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

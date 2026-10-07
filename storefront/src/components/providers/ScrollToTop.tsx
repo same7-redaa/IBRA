@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 export default function ScrollToTop() {
   const pathname = usePathname();
 
   // Instant zero-scroll reset function
-  const resetImmediateTop = () => {
+  const resetImmediateTop = useCallback(() => {
     if (typeof window === "undefined") return;
 
     // 1. Direct browser standard scroll reset
@@ -16,23 +16,23 @@ export default function ScrollToTop() {
     document.body.scrollTop = 0;
 
     // 2. Lenis instance instant reset
-    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options?: { immediate?: boolean; force?: boolean }) => void; stop: () => void; start: () => void } }).lenis;
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options?: { immediate?: boolean; force?: boolean }) => void } }).lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true, force: true });
     }
-  };
+  }, []);
 
-  const scrollToTargetSection = (targetId: string) => {
-    if (typeof window === "undefined") return;
+  const scrollToTargetSection = useCallback((targetId: string) => {
+    if (typeof window === "undefined") return false;
 
     const element = document.getElementById(targetId);
-    if (!element) return;
+    if (!element) return false;
 
     const headerOffset = 85;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options?: { duration?: number; offset?: number }) => void } }).lenis;
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { duration?: number; offset?: number; immediate?: boolean }) => void } }).lenis;
     if (lenis) {
       lenis.scrollTo(offsetPosition, { duration: 1.2 });
     } else {
@@ -41,43 +41,10 @@ export default function ScrollToTop() {
         behavior: "smooth",
       });
     }
-  };
-
-  // 1. Disable browser auto-scroll restoration on mount
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-
-      const checkTargetOrReset = () => {
-        const storedSection = sessionStorage.getItem("scroll_to_section");
-        const hashSection = window.location.hash.replace("#", "");
-        const target = storedSection || hashSection;
-
-        if (target && target !== "top") {
-          sessionStorage.removeItem("scroll_to_section");
-          setTimeout(() => scrollToTargetSection(target), 120);
-        } else {
-          resetImmediateTop();
-        }
-      };
-
-      checkTargetOrReset();
-
-      const handleSplashDone = () => checkTargetOrReset();
-      window.addEventListener("splash-finished", handleSplashDone);
-      window.addEventListener("pageshow", checkTargetOrReset);
-
-      return () => {
-        window.removeEventListener("splash-finished", handleSplashDone);
-        window.removeEventListener("pageshow", checkTargetOrReset);
-      };
-    }
+    return true;
   }, []);
 
-  // 2. On route/pathname change: scroll to section or instant (0,0)
-  useLayoutEffect(() => {
+  const handleTargetNavigation = useCallback(() => {
     if (typeof window === "undefined") return;
 
     const storedSection = sessionStorage.getItem("scroll_to_section");
@@ -85,27 +52,53 @@ export default function ScrollToTop() {
     const target = storedSection || hashSection;
 
     if (target && target !== "top") {
-      sessionStorage.removeItem("scroll_to_section");
-      const t1 = setTimeout(() => scrollToTargetSection(target), 80);
-      const t2 = setTimeout(() => scrollToTargetSection(target), 220);
-
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-      };
+      // Retry at increasing intervals until DOM and animations settle
+      let attempts = 0;
+      const maxAttempts = 15;
+      const intervalId = setInterval(() => {
+        attempts++;
+        const success = scrollToTargetSection(target);
+        if (success && attempts > 3) {
+          clearInterval(intervalId);
+          sessionStorage.removeItem("scroll_to_section");
+        }
+        if (attempts >= maxAttempts) {
+          clearInterval(intervalId);
+          sessionStorage.removeItem("scroll_to_section");
+        }
+      }, 150);
     } else {
       resetImmediateTop();
-      const rafId = requestAnimationFrame(resetImmediateTop);
-      const timeoutId = setTimeout(resetImmediateTop, 30);
+    }
+  }, [scrollToTargetSection, resetImmediateTop]);
+
+  // 1. On Mount & Page Show
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+
+      handleTargetNavigation();
+
+      const handleSplashDone = () => handleTargetNavigation();
+      window.addEventListener("splash-finished", handleSplashDone);
+      window.addEventListener("pageshow", handleTargetNavigation);
 
       return () => {
-        cancelAnimationFrame(rafId);
-        clearTimeout(timeoutId);
+        window.removeEventListener("splash-finished", handleSplashDone);
+        window.removeEventListener("pageshow", handleTargetNavigation);
       };
     }
-  }, [pathname]);
+  }, [handleTargetNavigation]);
+
+  // 2. On Route / Pathname Change
+  useEffect(() => {
+    handleTargetNavigation();
+  }, [pathname, handleTargetNavigation]);
 
   return null;
 }
+
 
 

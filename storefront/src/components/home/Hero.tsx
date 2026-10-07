@@ -249,9 +249,8 @@ export default function Hero() {
                   src="/hero-main.png"
                   alt=""
                   fill
-                  unoptimized
                   aria-hidden="true"
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 440px"
+                  sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 460px"
                   className="object-contain filter brightness-0"
                 />
               </div>
@@ -263,8 +262,7 @@ export default function Hero() {
                   alt="ابراهيم علي سليم"
                   fill
                   priority
-                  unoptimized
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 440px"
+                  sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 460px"
                   className="object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 pointer-events-auto hover:scale-[1.02]"
                 />
               </div>
