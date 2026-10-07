@@ -5,15 +5,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Primary Main Navigation Links matching home sections
+// Primary Main Navigation Links matching home sections (with subtle elegant Tatweel)
 const NAV_LINKS = [
-  { href: "/", id: "top", label: "الرئيسية" },
-  { href: "/#services", id: "services", label: "خدماتي" },
-  { href: "/#clients", id: "clients", label: "عملائي" },
-  { href: "/#portfolio", id: "portfolio", label: "أعمالي" },
-  { href: "/#certificates", id: "certificates", label: "شهاداتي" },
-  { href: "/#impact", id: "impact", label: "خبراتي بالأرقام" },
-  { href: "/#contact", id: "contact", label: "تواصل معي" },
+  { href: "/", id: "top", label: "الـرئـيـسـيـة" },
+  { href: "/#services", id: "services", label: "خـدمـاتـي" },
+  { href: "/#clients", id: "clients", label: "عـمـلائـي" },
+  { href: "/#portfolio", id: "portfolio", label: "أعـمـالـي" },
+  { href: "/#certificates", id: "certificates", label: "شـهـاداتـي" },
+  { href: "/#impact", id: "impact", label: "خـبـراتـي بـالأرقـام" },
+  { href: "/#contact", id: "contact", label: "تـواصـل مـعـي" },
 ];
 
 export default function Header() {
@@ -119,7 +119,7 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Desktop Navigation Links with Lenis Smooth Navigation */}
+            {/* Desktop Navigation Links (Distinguished Purely by Color, No Lines) */}
             <nav className="hidden lg:flex items-center justify-center flex-grow gap-2 xl:gap-4.5 2xl:gap-6 py-0.5 px-1 sm:px-2">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
@@ -130,17 +130,11 @@ export default function Header() {
                     onClick={(e) => handleNavClick(e, link.href, link.id)}
                     className={`relative py-1 text-[11px] xl:text-[12.5px] 2xl:text-[13.5px] font-bold transition-all duration-300 whitespace-nowrap group ${
                       isActive
-                        ? "text-[#FF8B2C] font-black drop-shadow-[0_0_12px_rgba(255,139,44,0.5)] scale-105"
+                        ? "text-[#FF8B2C] font-black drop-shadow-[0_0_14px_rgba(255,139,44,0.65)] scale-105"
                         : "text-zinc-300 hover:text-[#FF8B2C]"
                     }`}
                   >
                     <span>{link.label}</span>
-                    {/* Active Animated Underline Dot Indicator */}
-                    <span
-                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-[#FF8B2C] transition-all duration-300 ${
-                        isActive ? "w-4/5 opacity-100 shadow-[0_0_8px_#FF8B2C]" : "w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-70"
-                      }`}
-                    />
                   </Link>
                 );
               })}
