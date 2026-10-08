@@ -15,7 +15,8 @@ import {
   Layers
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import CoverflowGallerySlider from "@/components/portfolio/CoverflowGallerySlider";
+import SingleDepartmentCoverflow from "@/components/portfolio/SingleDepartmentCoverflow";
+import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 interface PortfolioCategory {
   id: string;
@@ -44,7 +45,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
     field: "Meta & TikTok & Google Ads",
     category: "معرض الميديا باينج",
     subtitle: "Media Buying · Scaling Success",
-    title: "إدارة وتوسيع الحملات الممولة",
+    title: "إدارة وتـــوســـيـــع الـــحـــمـــلات الـــمـــمـــولـــة",
     description: "إطلاق وإدارة حملات Meta و TikTok و Google Ads بميزانيات ضخمة وتحقيق أعلى عائد إعلاني (ROAS).",
     image: "/portfolio/2a9b34945a84d3883bef59ee57fb0121.jpg",
     icon: TrendingUp,
@@ -69,7 +70,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
     field: "Motion Graphics & Reels",
     category: "الموشن جرافيك والفيديو",
     subtitle: "Motion Graphics · Video Ads",
-    title: "الموشن ومونتاج الفيديوهات",
+    title: "الـــمـــوشـــن ومـــونـــتـــاج الـــفـــيـــديـــوهـــات",
     description: "إنتاج فيديوهات إعلانية وموشن جرافيك للريلز وتيك توك تخطف الانتباه وتحفز الشراء الفوري.",
     image: "/portfolio/8d26727dd84afc3d2d99da81126bdcfe.jpg",
     icon: Film,
@@ -94,7 +95,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
     field: "Social Media & Ads",
     category: "تصميمات سوشيال",
     subtitle: "Social Designs · Ad Creatives",
-    title: "تصاميم السوشيال ميديا",
+    title: "تـــصـــامـــيـــم الـــســـوشـــيـــال مـــيـــديـــا",
     description: "تصميم بوستات وبانرات إعلانية احترافية توقف التمرير وترفع معدلات التفاعل والنقر (CTR).",
     image: "/portfolio/0eb69c9aba3b9e587f00ebb3976d7cb1.jpg",
     icon: Palette,
@@ -119,7 +120,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
     field: "E-Commerce & CRO",
     category: "معرض المتاجر",
     subtitle: "Store Scaling · CRO Mastery",
-    title: "توسيع المتاجر وهندسة التحويل",
+    title: "تـــوســـيـــع الـــمـــتـــاجـــر وهـــنـــدســـة الـــتـــحـــويـــل",
     description: "تحسين صفحات الهبوط ومسار الشراء لمضاعفة مبيعات المتاجر الإلكترونية ورفع هوامش الربح.",
     image: "/portfolio/a6d2c954f419aa7199d41d1bdf61f9de.jpg",
     icon: Target,
@@ -200,7 +201,7 @@ export default function PortfolioSection() {
           </div>
         </ScrollReveal>
 
-        {/* 🌟 Interactive Style Comparator Switcher (أداة المقارنة المباشرة بين الاستايلين) */}
+        {/* 🌟 Interactive Style Comparator Switcher (أداة المقارنة المباشرة) */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex p-1.5 rounded-full bg-[#0c0c14] border-2 border-[#FF8B2C]/40 shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
             <button
@@ -213,7 +214,7 @@ export default function PortfolioSection() {
               }`}
             >
               <Sparkles className="w-4 h-4" />
-              <span>الاستايل الجديد (3D Coverflow)</span>
+              <span>الاستايل الجديد (معارض منفصلة 3D Coverflow)</span>
             </button>
 
             <button
@@ -244,30 +245,47 @@ export default function PortfolioSection() {
           </div>
         </div>
 
-        {/* 1. New 3D Coverflow View (الاستايل الجديد المستوحى من الصورة) */}
+        {/* 1. New 3D Coverflow View: Each Department as its own Standalone Section (بدون فرعيات أو تبويبات!) */}
         {(viewMode === "coverflow" || viewMode === "compare") && (
-          <div className="w-full mb-12">
+          <div className="w-full space-y-10 mb-12">
             {viewMode === "compare" && (
               <div className="flex items-center justify-between pb-3 mb-6 border-b border-[#FF8B2C]/30 max-w-4xl mx-auto">
                 <span className="text-sm sm:text-base font-black text-[#FF8B2C] flex items-center gap-2">
                   <Sparkles className="w-4 h-4" />
-                  المعاينة 1: الاستايل الجديد (3D Coverflow Carousel)
+                  المعاينة 1: الاستايل الجديد (كل قسم مستقل بذاته كفر فلو 3D)
                 </span>
-                <span className="text-xs text-zinc-400 font-bold">زاوية ثلاثية الأبعاد + كفر فلو لكل معرض</span>
+                <span className="text-xs text-zinc-400 font-bold">4 معارض كاملة منفصلة بدون فرعيات</span>
               </div>
             )}
-            <CoverflowGallerySlider initialCategory="media-buying" />
+
+            {PORTFOLIO_CATEGORIES.map((dept) => {
+              const catData = PORTFOLIO_DATA[dept.slug];
+              const projects = catData?.galleryProjects || [];
+
+              return (
+                <SingleDepartmentCoverflow
+                  key={dept.id}
+                  slug={dept.slug}
+                  departmentNumber={dept.departmentNumber}
+                  title={dept.title}
+                  subtitle={dept.subtitle}
+                  description={dept.description}
+                  icon={dept.icon}
+                  initialProjects={projects}
+                />
+              );
+            })}
           </div>
         )}
 
-        {/* 2. Original 3D Folders Grid View (الاستايل الحالي/القديم) */}
+        {/* 2. Original 3D Folders Grid View (الاستايل القديم) */}
         {(viewMode === "folders" || viewMode === "compare") && (
           <div className="w-full">
             {viewMode === "compare" && (
               <div className="flex items-center justify-between pb-3 mb-6 mt-16 border-b border-[#FF8B2C]/30 max-w-4xl mx-auto">
                 <span className="text-sm sm:text-base font-black text-[#FF8B2C] flex items-center gap-2">
                   <FolderKanban className="w-4 h-4" />
-                  المعاينة 2: الاستايل الحالي (3D Stack Folders)
+                  المعاينة 2: الاستايل القديم (3D Stack Folders)
                 </span>
                 <span className="text-xs text-zinc-400 font-bold">مجلدات ثلاثية الأبعاد تفتح عند الهوفر</span>
               </div>
@@ -295,7 +313,7 @@ export default function PortfolioSection() {
                         isOpening ? "-translate-y-4 scale-[1.02]" : "hover:-translate-y-4"
                       }`}
                     >
-                      {/* Layer 2 (Deepest Stack Layer) */}
+                      {/* Layer 2 */}
                       <div 
                         className={`absolute top-[-7%] left-1/2 -translate-x-1/2 w-[82%] h-[82%] rounded-[24px] sm:rounded-[28px] bg-[#0c0c14] border border-[#FF8B2C]/30 shadow-[0_8px_20px_rgba(0,0,0,0.6)] origin-bottom z-0 transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none ${
                           isOpening 
@@ -304,7 +322,7 @@ export default function PortfolioSection() {
                         }`}
                       />
 
-                      {/* Layer 1 (Middle Stack Layer) */}
+                      {/* Layer 1 */}
                       <div 
                         className={`absolute top-[-3.5%] left-1/2 -translate-x-1/2 w-[91%] h-[91%] rounded-[24px] sm:rounded-[28px] bg-[#14141f] border border-[#FF8B2C]/50 shadow-[0_10px_25px_rgba(0,0,0,0.7)] origin-bottom z-0 transition-all duration-[480ms] ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none ${
                           isOpening
