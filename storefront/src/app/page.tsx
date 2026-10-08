@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import ClientsTickerSection from "@/components/home/ClientsTickerSection";
 import ServicesSection from "@/components/home/ServicesSection";
+import FoldersPortfolioSection from "@/components/home/FoldersPortfolioSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import CertificatesSection from "@/components/home/CertificatesSection";
 import StatsSection from "@/components/home/StatsSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <ClientsTickerSection />
       <ServicesSection />
+      <FoldersPortfolioSection />
       <PortfolioSection />
       <CertificatesSection />
       <StatsSection />
