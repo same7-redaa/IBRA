@@ -259,7 +259,7 @@ export default function SingleDepartmentCoverflow({
                   </div>
                 )}
 
-                {/* Bottom Title & Action Bar */}
+                {/* Bottom Title */}
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20">
                   <h4
                     className={`font-black leading-snug drop-shadow-md transition-colors ${
@@ -270,15 +270,6 @@ export default function SingleDepartmentCoverflow({
                   >
                     {project.title}
                   </h4>
-
-                  {isCenter && (
-                    <div className="mt-3 flex items-center justify-between gap-2 pt-2 border-t border-white/10">
-                      <span className="text-[11px] font-bold text-[#FF8B2C]">
-                        {project.storeUrl ? "اضغط لزيارة المتجر" : "اضغط للمعاينة والتكبير"}
-                      </span>
-                      <ArrowLeft className="w-3.5 h-3.5 text-[#FF8B2C] group-hover:-translate-x-1.5 transition-transform" />
-                    </div>
-                  )}
                 </div>
               </div>
             );
