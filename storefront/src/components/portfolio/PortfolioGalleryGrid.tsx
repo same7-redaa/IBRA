@@ -13,6 +13,8 @@ import {
 import { GalleryProject } from "@/data/portfolioData";
 import { usePortfolio, getYouTubeEmbedUrl } from "@/context/PortfolioContext";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import CategoryCoverflowGallery from "@/components/portfolio/CategoryCoverflowGallery";
+import { Sparkles, LayoutGrid } from "lucide-react";
 
 interface PortfolioGalleryGridProps {
   projects: GalleryProject[];
@@ -23,11 +25,13 @@ interface PortfolioGalleryGridProps {
 export default function PortfolioGalleryGrid({
   projects: initialProjects,
   categorySlug,
+  categoryTitle,
 }: PortfolioGalleryGridProps) {
   const { getProjects } = usePortfolio();
   const liveProjects = categorySlug ? getProjects(categorySlug) : initialProjects;
   const projects = liveProjects.length > 0 ? liveProjects : initialProjects;
 
+  const [galleryView, setGalleryView] = useState<"coverflow" | "grid">("coverflow");
   const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(null);
   const thumbsTrackRef = useRef<HTMLDivElement>(null);
 
@@ -107,15 +111,53 @@ export default function PortfolioGalleryGrid({
     <section id="gallery" className="py-12 sm:py-16 select-none">
       {/* Pure Centered Title with Tatweel */}
       <ScrollReveal direction="up" blurAmount={12}>
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
             مـــعـــرض <span className="text-[#FF8B2C] drop-shadow-[0_0_24px_rgba(255,139,44,0.45)]">الأعـــمــــال</span>
           </h2>
         </div>
       </ScrollReveal>
 
-      {/* Pure Image/Video Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+      {/* Style Toggle for Category Page */}
+      <div className="flex justify-center mb-10">
+        <div className="inline-flex p-1.5 rounded-full bg-[#0c0c14] border border-[#FF8B2C]/40 shadow-lg">
+          <button
+            type="button"
+            onClick={() => setGalleryView("coverflow")}
+            className={`inline-flex items-center gap-2 px-5 py-2 rounded-full font-black text-xs sm:text-sm transition-all duration-300 cursor-pointer ${
+              galleryView === "coverflow"
+                ? "bg-[#FF8B2C] text-[#060608] shadow-[0_0_16px_rgba(255,139,44,0.6)] scale-105"
+                : "text-zinc-400 hover:text-white hover:bg-white/5"
+            }`}
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>عرض 3D Coverflow</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setGalleryView("grid")}
+            className={`inline-flex items-center gap-2 px-5 py-2 rounded-full font-black text-xs sm:text-sm transition-all duration-300 cursor-pointer ${
+              galleryView === "grid"
+                ? "bg-[#FF8B2C] text-[#060608] shadow-[0_0_16px_rgba(255,139,44,0.6)] scale-105"
+                : "text-zinc-400 hover:text-white hover:bg-white/5"
+            }`}
+          >
+            <LayoutGrid className="w-4 h-4" />
+            <span>عرض الشبكة Grid</span>
+          </button>
+        </div>
+      </div>
+
+      {galleryView === "coverflow" ? (
+        <CategoryCoverflowGallery
+          projects={projects}
+          categoryTitle={categoryTitle}
+          categorySlug={categorySlug || ""}
+        />
+      ) : (
+        /* Pure Image/Video Cards Grid */
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
         {projects.map((project, idx) => {
           const isStore = Boolean(project.storeUrl);
 
@@ -187,6 +229,7 @@ export default function PortfolioGalleryGrid({
           );
         })}
       </div>
+      )}
 
       {/* Screen-Adaptive Interactive Lightbox Modal with Centered Image / Video & Thumbnail Strip */}
       {selectedProject && (
