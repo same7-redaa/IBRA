@@ -240,23 +240,6 @@ export default function CategoryCoverflowGallery({
         </div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {projects.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setActiveIndex(i)}
-            aria-label={`شريحة ${i + 1}`}
-            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              i === activeIndex
-                ? "w-8 bg-[#FF8B2C] shadow-[0_0_12px_#FF8B2C]"
-                : "w-2.5 bg-white/20 hover:bg-white/40"
-            }`}
-          />
-        ))}
-      </div>
-
       {/* Modal Lightbox */}
       {selectedProject && (
         <div

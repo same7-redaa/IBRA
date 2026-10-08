@@ -271,6 +271,7 @@ export default function PortfolioSection() {
                   subtitle={dept.subtitle}
                   description={dept.description}
                   icon={dept.icon}
+                  ctaText={dept.ctaText}
                   initialProjects={projects}
                 />
               );

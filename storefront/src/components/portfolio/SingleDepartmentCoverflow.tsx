@@ -23,6 +23,7 @@ interface SingleDepartmentCoverflowProps {
   subtitle?: string;
   description: string;
   icon: React.ElementType;
+  ctaText?: string;
   initialProjects?: GalleryProject[];
 }
 
@@ -33,6 +34,7 @@ export default function SingleDepartmentCoverflow({
   subtitle,
   description,
   icon: Icon,
+  ctaText,
   initialProjects = [],
 }: SingleDepartmentCoverflowProps) {
   const { getProjects } = usePortfolio();
@@ -284,30 +286,14 @@ export default function SingleDepartmentCoverflow({
         </div>
       </div>
 
-      {/* Pagination Dots & Full Gallery Link */}
-      <div className="mt-7 flex items-center justify-center gap-4 flex-wrap">
-        <div className="flex items-center gap-2">
-          {projects.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveIndex(i)}
-              aria-label={`شريحة ${i + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                i === activeIndex
-                  ? "w-8 bg-[#FF8B2C] shadow-[0_0_12px_#FF8B2C]"
-                  : "w-2.5 bg-white/20 hover:bg-white/40"
-              }`}
-            />
-          ))}
-        </div>
-
+      {/* Action CTA Button: التوجه إلى المعرض */}
+      <div className="mt-8 sm:mt-10 flex items-center justify-center">
         <Link
           href={`/portfolio/${slug}`}
-          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#12121e] hover:bg-[#FF8B2C] text-zinc-300 hover:text-[#060608] border border-[#FF8B2C]/30 hover:border-[#FF8B2C] font-black text-xs transition-all duration-300 hover:scale-105 group/link"
+          className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full bg-[#FF8B2C] hover:bg-[#FFA857] text-[#060608] font-black text-xs sm:text-sm transition-all duration-300 shadow-[0_4px_25px_rgba(255,139,44,0.45)] hover:shadow-[0_8px_35px_rgba(255,139,44,0.65)] hover:scale-105 active:scale-95 group/btn cursor-pointer"
         >
-          <span>دراسات الحالة والتفاصيل</span>
-          <ArrowLeft className="w-3 h-3 transition-transform group-hover/link:-translate-x-1" />
+          <span>{ctaText ? `التوجه إلى ${ctaText}` : "التوجه إلى المعرض ودراسات الحالة"}</span>
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1.5 stroke-[2.5]" />
         </Link>
       </div>
 
